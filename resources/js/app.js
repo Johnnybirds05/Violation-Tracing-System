@@ -1,9 +1,3 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 //import './bootstrap';
 //import { createApp } from 'vue';
 
@@ -14,11 +8,8 @@ window.axios = require('axios');
 //import Vue from 'vue'
 //import Buefy from 'buefy'
 // import 'buefy/dist/buefy.css'
-
-//QR Scanner
-//import VueQrcodeReader from "vue-qrcode-reader";
-//for QR CODE Generation
-//import VueQrcode from '@chenfengyuan/vue-qrcode';
+import Vue from 'vue'
+import vuetify from "../js/plugins/vuetify" // path to vuetify export
 
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
@@ -37,7 +28,9 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 
 const app = new Vue({
+    vuetify,
     el: '#app',
+    
 });
 
 
