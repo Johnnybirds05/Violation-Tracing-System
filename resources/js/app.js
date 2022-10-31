@@ -9,7 +9,7 @@ window.axios = require('axios');
 //import Buefy from 'buefy'
 // import 'buefy/dist/buefy.css'
 import Vue from 'vue'
-import vuetify from "../js/plugins/vuetify" // path to vuetify export
+import vuetify from "../js/plugins/vuetify.js" // path to vuetify export
 
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
