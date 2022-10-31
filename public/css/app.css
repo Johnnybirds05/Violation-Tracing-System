@@ -11841,6 +11841,6 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-body{
-    background-image: url(/images/279303.jpg?30ec40cc9523a00b7a34373b0a5952dd);
-}
+/* body{
+    background-image: url(../pics/279303.jpg);
+} */

@@ -5,11 +5,14 @@
 window.Vue = require('vue').default;
 window.axios = require('axios');
 
+
 //import Vue from 'vue'
 //import Buefy from 'buefy'
 // import 'buefy/dist/buefy.css'
 import Vue from 'vue'
 import vuetify from "../js/plugins/vuetify.js" // path to vuetify export
+
+
 
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
@@ -29,7 +32,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 const app = new Vue({
     vuetify,
-    $mount: '#app',
+    el: '#app',
 });
 
 
