@@ -13,6 +13,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <style>
         body {
             font-family: 'Nunito', sans-serif;
@@ -21,10 +22,7 @@
 </head>
 
 <body class="antialiased">
-    <div id="app">
-        <examples-component></examples-component>
-        {{-- <selection-box></selection-box> --}}
-    </div>
+    @yield('content')
 </body>
 
 </html>

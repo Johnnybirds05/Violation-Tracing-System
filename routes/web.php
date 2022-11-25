@@ -14,11 +14,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('homepage/home');
 });
 
+Route::get('/admins', function () {
+    return view('homepage/admins');
+});
+
+Route::get('/logincto', function () {
+    return view('logins/cto');
+});
+Route::get('/logintask', function () {
+    return view('logins/task');
+});
+Route::get('/logincounsel', function () {
+    return view('logins/counsel');
+});
+Route::get('/logintourism', function () {
+    return view('logins/tourism');
+});
+Route::get('/loginlegislative', function () {
+    return view('logins/legislative');
+});
 
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/cto', [App\Http\Controllers\CtoController::class, 'index'])->name('cto');
