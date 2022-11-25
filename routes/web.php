@@ -37,6 +37,11 @@ Route::get('/loginlegislative', function () {
     return view('logins/legislative');
 });
 
+Route::get('/logindriver', function () {
+    return view('driver/driverlogin');
+});
+
+
 
 Auth::routes();
 
