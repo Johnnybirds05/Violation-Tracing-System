@@ -17,6 +17,9 @@
 <style>
 .LoginLogo{
     width: 180px;
+    animation-name: to-left;
+    animation-duration: 1s;
+    position: relative;
 }
 .LoginHeader{
     background-color: black;
@@ -30,6 +33,9 @@
 .buttons{
     margin-left: auto;
     margin-right: 40px;
+    animation-name: to-right;
+    animation-duration: 1s;
+    position: relative;
 }
 
 @media only screen and (max-width: 1000px){

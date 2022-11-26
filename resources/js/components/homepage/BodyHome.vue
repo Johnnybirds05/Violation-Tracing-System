@@ -52,6 +52,9 @@
 }
 .card-homecol{
     background-color:rgb(0, 0, 0) ;
+    animation-name: to-right;
+    animation-duration: .5s;
+    position: relative;
 }
 .card-title{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

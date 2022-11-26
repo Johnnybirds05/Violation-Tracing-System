@@ -79,6 +79,9 @@
     flex-direction: column;
     align-items: center;
     padding: 10px;
+    animation-name: to-top;
+    animation-duration: .5s;
+    position: relative;
 }
 
 .login-body{
@@ -108,6 +111,24 @@
     align-items: center;
     margin: 25px;
 }
+
+@keyframes to-top{
+    0%   {top:100px;}
+    100%  {top:0px;}
+}
+@keyframes to-bottom{
+    0%   { bottom:100px;}
+    100%  { bottom:0px;}
+}
+@keyframes to-right{
+    0%   {right:100px;}
+    100%  {right:0px;}
+}
+@keyframes to-left{
+    0%   {left:100px;}
+    100%  {left:0px;}
+}
+
 
 @media only screen and (max-width: 1000px){
 

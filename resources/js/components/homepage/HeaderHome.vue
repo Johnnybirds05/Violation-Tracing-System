@@ -25,6 +25,11 @@
 </script>
 
 <style>
+.head-home{
+    animation-name: to-bottom;
+    animation-duration: .5s;
+    position: relative;
+}
 .logo{
     width: 250px;
     color: rgb(175, 175, 175);
