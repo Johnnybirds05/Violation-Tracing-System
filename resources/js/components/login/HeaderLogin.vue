@@ -34,7 +34,7 @@
     margin-left: auto;
     margin-right: 40px;
     animation-name: to-right;
-    animation-duration: 1s;
+    animation-duration: .5s;
     position: relative;
 }
 

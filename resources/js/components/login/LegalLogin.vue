@@ -55,6 +55,5 @@
     
         
     }
-    // d lage mu gana ahak hahaha
     
 </script>

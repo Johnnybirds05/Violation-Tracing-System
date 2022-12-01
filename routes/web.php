@@ -41,6 +41,11 @@ Route::get('/logindriver', function () {
     return view('driver/driverlogin');
 });
 
+Route::get('/registerdriver', function () {
+    return view('driver/driverregister');
+});
+
+
 
 
 Auth::routes();
