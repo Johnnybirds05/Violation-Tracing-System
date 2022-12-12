@@ -2530,6 +2530,7 @@ __webpack_require__.r(__webpack_exports__);
     $(function () {
       $('#birthdate').datepicker();
       $('#license').datepicker();
+      $('#vehicle').datepicker();
     });
   }
 });
@@ -3019,7 +3020,7 @@ var staticRenderFns = [function () {
     staticClass: "extensions mt-5"
   }, [_c("a", {
     attrs: {
-      href: "/register"
+      href: "/registerdriver"
     }
   }, [_vm._v(" Don't have an account?")]), _vm._v("\n                        or \n                        "), _c("a", {
     attrs: {
@@ -3083,12 +3084,7 @@ var render = function render() {
     }
   }, [_c("b", [_vm._v("Driver's License Information")])]), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-stepper-step", {
     attrs: {
-      complete: _vm.e1 > 3,
       step: "3"
-    }
-  }, [_c("b", [_vm._v("Vehicle Registration Information")])]), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-stepper-step", {
-    attrs: {
-      step: "4"
     }
   }, [_c("b", [_vm._v("Account Information")])])], 1), _vm._v(" "), _c("v-stepper-items", [_c("v-stepper-content", {
     attrs: {
@@ -3405,43 +3401,61 @@ var render = function render() {
       color: "grey darken-3",
       height: "400px"
     }
-  }, [_vm._v("\r\n            \r\n                asdhgasdh\r\n                ")]), _vm._v(" "), _c("v-btn", {
+  }, [_c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid register-fills"
+  }, [_c("b", [_vm._v("Account Information")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid"
+  }, [_c("div", {
+    staticClass: "row g-2 centers"
+  }, [_c("div", {
+    staticClass: "col-md-5"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Username: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
     attrs: {
-      color: "black"
+      type: "text",
+      id: "driver-firstname"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row g-2 centers"
+  }, [_c("div", {
+    staticClass: "col-md-5"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Password: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "password",
+      id: "driver-password"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row g-2 centers"
+  }, [_c("div", {
+    staticClass: "col-md-5"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Repeat Password: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "password",
+      id: "driver-reppassword"
+    }
+  })])])])]), _vm._v(" "), _c("v-btn", {
+    attrs: {
+      color: "light-green darken-3",
+      href: "/logindriver"
+    }
+  }, [_vm._v("\r\n                    Submit\r\n                ")]), _vm._v(" "), _c("v-btn", {
+    attrs: {
+      color: "grey darken-3"
     },
     on: {
       click: function click($event) {
-        _vm.e1 = 4;
+        _vm.e1 = 2;
       }
     }
-  }, [_vm._v("\r\n                    Next\r\n                ")]), _vm._v(" "), _c("v-btn", {
-    attrs: {
-      color: "grey darken-3"
-    }
-  }, [_vm._v("\r\n                    Cancel\r\n                ")])], 1), _vm._v(" "), _c("v-stepper-content", {
-    attrs: {
-      step: "4"
-    }
-  }, [_c("v-card", {
-    staticClass: "mb-12",
-    attrs: {
-      color: "grey darken-3",
-      height: "400px"
-    }
-  }, [_vm._v("\r\n            \r\n                asdhgasdh\r\n                ")]), _vm._v(" "), _c("v-btn", {
-    attrs: {
-      color: "orange"
-    },
-    on: {
-      click: function click($event) {
-        _vm.e1 = 1;
-      }
-    }
-  }, [_vm._v("\r\n                    submit\r\n                ")]), _vm._v(" "), _c("v-btn", {
-    attrs: {
-      color: "grey darken-3"
-    }
-  }, [_vm._v("\r\n                    Cancel\r\n                ")])], 1)], 1)], 1)], 1)], 1);
+  }, [_vm._v("\r\n                    Back\r\n                ")])], 1)], 1)], 1)], 1)], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -6915,7 +6929,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.home-body{\r\n    display: flex;\r\n    position: relative;\r\n    justify-content: center;\r\n    align-items: center;\r\n    width: 100%;\n}\n.card-home{\r\n    position: absolute;\r\n    color: aliceblue;\r\n    margin-top: 60%;\r\n    opacity: .8;\r\n    background-color:rgb(0, 0, 0);\r\n    text-align: justify;\n}\n.card-homecol{\r\n    background-color:rgb(0, 0, 0) ;\r\n    animation-name: to-right;\r\n    animation-duration: .5s;\r\n    position: relative;\n}\n.card-title{\r\n    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;\n}\n.bottoms{\r\n    margin-bottom: 1000px;\n}\n@media only screen and (max-width: 1000px){\n.home-body{\r\n        flex-direction: column;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.home-body{\r\n    display: flex;\r\n    position: relative;\r\n    justify-content: center;\r\n    align-items: center;\r\n    width: 100%;\n}\n.card-home{\r\n    position: absolute;\r\n    color: aliceblue;\r\n    margin-top: 60%;\r\n    opacity: .8;\r\n    background-color:rgb(0, 0, 0);\r\n    text-align: justify;\n}\n.card-homecol{\r\n    background-color:rgb(0, 0, 0) ;\r\n    animation-name: to-right;\r\n    animation-duration: .5s;\r\n    position: relative;\n}\n.card-title{\r\n    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;\n}\n.bottoms{\r\n    margin-bottom: 1000px;\n}\n.card-text{\r\n    font-size: 13px;\n}\n@media only screen and (max-width: 1000px){\n.home-body{\r\n        flex-direction: column;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7059,7 +7073,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "[data-v-6af40d1e] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.register-body[data-v-6af40d1e] {\n  opacity: 0.7;\n  animation-name: to-left;\n  animation-duration: 1s;\n}\n.register-div[data-v-6af40d1e] {\n  margin-top: 20px;\n  width: 70%;\n}\n.register-fills[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 5px;\n}\n.overflowing[data-v-6af40d1e] {\n  overflow-y: scroll;\n  overflow-x: hidden;\n}\n.icons[data-v-6af40d1e] {\n  font-size: 25px;\n}\nlabel[data-v-6af40d1e] {\n  font-size: 12px;\n}\nb[data-v-6af40d1e] {\n  font-size: 15px;\n}\n.form-control[data-v-6af40d1e], .form-select[data-v-6af40d1e], .input-group[data-v-6af40d1e] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "[data-v-6af40d1e] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.register-body[data-v-6af40d1e] {\n  opacity: 0.7;\n  animation-name: to-left;\n  animation-duration: 1s;\n}\n.register-div[data-v-6af40d1e] {\n  margin-top: 20px;\n  width: 70%;\n}\n.register-fills[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 5px;\n}\n.overflowing[data-v-6af40d1e] {\n  overflow-y: scroll;\n  overflow-x: hidden;\n}\n.icons[data-v-6af40d1e] {\n  font-size: 25px;\n}\nlabel[data-v-6af40d1e] {\n  font-size: 12px;\n}\nb[data-v-6af40d1e] {\n  font-size: 15px;\n}\n.form-control[data-v-6af40d1e], .form-select[data-v-6af40d1e], .input-group[data-v-6af40d1e] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.passforms[data-v-6af40d1e] {\n  position: relative;\n  background-color: white;\n  border-radius: 10px;\n  padding: 10px;\n  font-size: 13;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -24,7 +24,7 @@
                             </div>  
                         </div>
                         <div class="extensions mt-5">
-                            <a href="/register"> Don't have an account?</a>
+                            <a href="/registerdriver"> Don't have an account?</a>
                             or 
                             <a href="/register"> Forgot Password</a>
                         </div>

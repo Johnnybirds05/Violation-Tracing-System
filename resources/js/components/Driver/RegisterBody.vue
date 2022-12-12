@@ -16,13 +16,7 @@
             
             <v-divider></v-divider>
             
-            <v-stepper-step :complete="e1 > 3" step="3">
-                <b>Vehicle Registration Information</b> 
-            </v-stepper-step>
-
-            <v-divider></v-divider>
-            
-            <v-stepper-step step="4">
+            <v-stepper-step step="3">
                 <b>Account Information</b> 
             </v-stepper-step>
 
@@ -197,7 +191,7 @@
                                     </span>
                                 </span>
                             </div>
-                        </div>
+                    </div>
                  </div>
             </div>
             <hr>
@@ -212,35 +206,46 @@
                     Back
                 </v-btn>
 
-            </v-stepper-content>
-        
-            <v-stepper-content step="3">
-                <v-card class="mb-12" color="grey darken-3" height="400px">
-            
-                asdhgasdh
-                </v-card>
-        
-                <v-btn color="black" @click="e1 = 4">
-                    Next
-                </v-btn>
-        
-                <v-btn color="grey darken-3">
-                    Cancel
-                </v-btn>
-            </v-stepper-content>
+    </v-stepper-content>
 
-            <v-stepper-content step="4">
-                <v-card class="mb-12" color="grey darken-3" height="400px">
-            
-                asdhgasdh
+    <v-stepper-content step="3">
+        <v-card class="mb-12" color="grey darken-3" height="400px">
+            <hr>
+                <div class="container-fluid register-fills">
+                    <b>Account Information</b>
+                </div>
+            <hr>
+            <div class="container-fluid">
+                <div class="row g-2  centers">
+                    <div class="col-md-5">
+                        <label class="form-label"> Username: </label>
+                        <input type="text" class="form-control" id="driver-firstname">
+                    </div>
+                </div>
+
+                <div class="row g-2  centers">
+                    <div class="col-md-5">
+                        <label class="form-label"> Password: </label>
+                        <input type="password" class="form-control" id="driver-password">
+                    </div>
+                </div>
+
+                <div class="row g-2  centers">
+                    <div class="col-md-5">
+                        <label class="form-label"> Repeat Password: </label>
+                        <input type="password" class="form-control" id="driver-reppassword">
+                    </div>
+                </div>
+            </div>
+                
                 </v-card>
         
-                <v-btn color="orange" @click="e1 = 1">
-                    submit
+                <v-btn color="light-green darken-3" href='/logindriver'>
+                    Submit
                 </v-btn>
         
-                <v-btn color="grey darken-3">
-                    Cancel
+                <v-btn color="grey darken-3" @click="e1 = 2">
+                    Back
                 </v-btn>
             </v-stepper-content>
         </v-stepper-items>
@@ -261,11 +266,16 @@ export default {
       
     }
 },
+
     mounted() {
         $(function() {
             $('#birthdate').datepicker();
             $('#license').datepicker();
+            $('#vehicle').datepicker();
         });
+       
+
+        
     }
     
   
@@ -314,4 +324,12 @@ b{
     align-items: center;
 }
 
+.passforms{
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 13;
+
+}
 </style>

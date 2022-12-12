@@ -62,7 +62,9 @@
 .bottoms{
     margin-bottom: 1000px;
 }
-
+.card-text{
+    font-size: 13px;
+}
 @media only screen and (max-width: 1000px){
     .home-body{
         flex-direction: column;
