@@ -45,6 +45,9 @@ Route::get('/registerdriver', function () {
     return view('driver/driverregister');
 });
 
+Route::get('/homedriver', function () {
+    return view('driver/driverhome');
+});
 
 
 
