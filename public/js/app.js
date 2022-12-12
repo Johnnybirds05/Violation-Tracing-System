@@ -2526,10 +2526,11 @@ __webpack_require__.r(__webpack_exports__);
       e1: 1
     };
   },
-  gotoB: function gotoB() {
-    return {
-      e1: 2
-    };
+  mounted: function mounted() {
+    $(function () {
+      $('#birthdate').datepicker();
+      $('#license').datepicker();
+    });
   }
 });
 
@@ -3075,21 +3076,21 @@ var render = function render() {
       complete: _vm.e1 > 1,
       step: "1"
     }
-  }, [_vm._v("\n                Personal Information\n            ")]), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-stepper-step", {
+  }, [_c("b", [_vm._v("Personal Information")])]), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-stepper-step", {
     attrs: {
       complete: _vm.e1 > 2,
       step: "2"
     }
-  }, [_vm._v("\n                Driver's License Information\n            ")]), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-stepper-step", {
+  }, [_c("b", [_vm._v("Driver's License Information")])]), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-stepper-step", {
     attrs: {
       complete: _vm.e1 > 3,
       step: "3"
     }
-  }, [_vm._v("\n                Vehicle Registration Information\n            ")]), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-stepper-step", {
+  }, [_c("b", [_vm._v("Vehicle Registration Information")])]), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-stepper-step", {
     attrs: {
       step: "4"
     }
-  }, [_vm._v("\n                Account Information\n            ")])], 1), _vm._v(" "), _c("v-stepper-items", [_c("v-stepper-content", {
+  }, [_c("b", [_vm._v("Account Information")])])], 1), _vm._v(" "), _c("v-stepper-items", [_c("v-stepper-content", {
     attrs: {
       step: "1"
     }
@@ -3097,13 +3098,11 @@ var render = function render() {
     staticClass: "mb-12 overflowing",
     attrs: {
       color: "grey darken-3",
-      height: "400px"
+      height: "600px"
     }
-  }, [_c("form", {
-    attrs: {
-      action: "#"
-    }
-  }, [_c("div", {
+  }, [_c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid register-fills"
+  }, [_c("b", [_vm._v("Personal Information")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid register-fills"
   }, [_c("div", {
     staticClass: "row g-2"
@@ -3111,23 +3110,21 @@ var render = function render() {
     staticClass: "col-md-4"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("First Name: ")]), _vm._v(" "), _c("input", {
+  }, [_vm._v(" First Name: ")]), _vm._v(" "), _c("input", {
     staticClass: "form-control",
     attrs: {
       type: "text",
-      id: "driver-firstname",
-      required: ""
+      id: "driver-firstname"
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Last Name: ")]), _vm._v(" "), _c("input", {
+  }, [_vm._v(" Last Name: ")]), _vm._v(" "), _c("input", {
     staticClass: "form-control",
     attrs: {
       type: "text",
-      id: "driver-lastname",
-      required: ""
+      id: "driver-lastname"
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
@@ -3137,8 +3134,7 @@ var render = function render() {
     staticClass: "form-control",
     attrs: {
       type: "text",
-      id: "driver-middlename",
-      required: ""
+      id: "driver-middlename"
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "col-md-1"
@@ -3152,6 +3148,18 @@ var render = function render() {
       placeholder: "SR.",
       maxlength: "3"
     }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-1"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Age: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      id: "driver-age",
+      maxlength: "3",
+      pattern: "[0-9]+"
+    }
   })])])]), _vm._v(" "), _c("div", {
     staticClass: "container-fluid register-fills"
   }, [_c("div", {
@@ -3164,36 +3172,61 @@ var render = function render() {
     staticClass: "form-select",
     attrs: {
       name: "sex",
-      "aria-label": "Default select example",
-      required: ""
+      "aria-label": "Default select example"
     }
   }, [_c("option", {
     attrs: {
-      selected: ""
+      selected: "",
+      disabled: ""
     }
   }, [_vm._v("Select")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "1"
     }
-  }, [_vm._v("MALE")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("male")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "2"
     }
-  }, [_vm._v("FEMALE")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-1"
+  }, [_vm._v("female")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
   }, [_c("label", {
-    staticClass: "form-label"
-  }, [_vm._v("Age: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "date"
+    }
+  }, [_vm._v("Birthdate: ")]), _vm._v(" "), _c("div", {
+    staticClass: "input-group date",
+    attrs: {
+      id: "birthdate"
+    }
+  }, [_c("input", {
     staticClass: "form-control",
     attrs: {
-      type: "text",
-      id: "driver-suffix",
-      maxlength: "3",
-      pattern: "[0-9]+"
+      type: "text"
+    }
+  }), _vm._v(" "), _c("span", {
+    staticClass: "input-group-append"
+  }, [_c("span", {
+    staticClass: "input-group-text bg-white"
+  }, [_c("i", {
+    staticClass: "fa fa-calendar icons"
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "formFileSm"
+    }
+  }, [_vm._v("Picture(2by2):")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      id: "formFile",
+      type: "file",
+      accept: "image/png, image/gif, image/jpeg"
     }
   })])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid register-fills"
-  }, [_c("b", [_vm._v("CURRENT ADDRESS")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+  }, [_c("b", [_vm._v("Current Address")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid register-fills"
   }, [_c("div", {
     staticClass: "row g-2"
@@ -3201,61 +3234,78 @@ var render = function render() {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Street")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Street:")]), _vm._v(" "), _c("input", {
     staticClass: "form-control",
     attrs: {
       type: "text",
-      id: "driver-firstname",
-      required: ""
+      id: "driver-street"
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Barangay")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Barangay:")]), _vm._v(" "), _c("input", {
     staticClass: "form-control",
     attrs: {
       type: "text",
-      id: "driver-lastname",
-      required: ""
+      id: "driver-barangay"
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Middle Name")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("City:")]), _vm._v(" "), _c("input", {
     staticClass: "form-control",
     attrs: {
       type: "text",
-      id: "driver-middlename",
-      required: ""
+      id: "driver-city"
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-1"
+    staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Suffix")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Province:")]), _vm._v(" "), _c("input", {
     staticClass: "form-control",
     attrs: {
       type: "text",
-      id: "driver-suffix",
-      placeholder: "SR.",
-      maxlength: "3"
+      id: "driver-province"
     }
-  })])])])])]), _vm._v(" "), _c("v-btn", {
+  })])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid register-fills"
+  }, [_c("b", [_vm._v("Contact Information")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid mb-5"
+  }, [_c("div", {
+    staticClass: "row g-2"
+  }, [_c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Email:")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
     attrs: {
-      color: "black"
+      type: "email",
+      id: "driver-email"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Mobile Number:")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      id: "driver-number"
+    }
+  })])])]), _vm._v(" "), _c("hr")]), _vm._v(" "), _c("v-btn", {
+    attrs: {
+      color: "primary"
     },
     on: {
       click: function click($event) {
         _vm.e1 = 2;
       }
     }
-  }, [_vm._v("\n                Next\n            ")]), _vm._v(" "), _c("v-btn", {
-    attrs: {
-      color: "grey darken-3"
-    }
-  }, [_vm._v("\n                Cancel\n            ")])], 1), _vm._v(" "), _c("v-stepper-content", {
+  }, [_vm._v("\r\n            Next\r\n        ")])], 1), _vm._v(" "), _c("v-stepper-content", {
     attrs: {
       step: "2"
     }
@@ -3265,20 +3315,87 @@ var render = function render() {
       color: "grey darken-3",
       height: "400px"
     }
-  }, [_vm._v("\n        \n                    asdhgasdh\n            ")]), _vm._v(" "), _c("v-btn", {
+  }, [_c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid register-fills"
+  }, [_c("b", [_vm._v("Driver's License Information")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid"
+  }, [_c("div", {
+    staticClass: "row g-2 centers"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" ID Type: ")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select",
     attrs: {
-      color: "black"
+      name: "id-type",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "1"
+    }
+  }, [_vm._v("Non-professional")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "2"
+    }
+  }, [_vm._v("Professional")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("ID No:")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      id: "license-ID"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "date"
+    }
+  }, [_vm._v("Expiration Date: ")]), _vm._v(" "), _c("div", {
+    staticClass: "input-group date",
+    attrs: {
+      id: "license"
+    }
+  }, [_c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    }
+  }), _vm._v(" "), _c("span", {
+    staticClass: "input-group-append"
+  }, [_c("span", {
+    staticClass: "input-group-text bg-white"
+  }, [_c("i", {
+    staticClass: "fa fa-calendar icons"
+  })])])])])])]), _vm._v(" "), _c("hr")]), _vm._v(" "), _c("v-btn", {
+    attrs: {
+      color: "primary"
     },
     on: {
       click: function click($event) {
         _vm.e1 = 3;
       }
     }
-  }, [_vm._v("\n                Next\n            ")]), _vm._v(" "), _c("v-btn", {
+  }, [_vm._v("\r\n                    Next\r\n                ")]), _vm._v(" "), _c("v-btn", {
     attrs: {
       color: "grey darken-3"
+    },
+    on: {
+      click: function click($event) {
+        _vm.e1 = 1;
+      }
     }
-  }, [_vm._v("\n                Cancel\n            ")])], 1), _vm._v(" "), _c("v-stepper-content", {
+  }, [_vm._v("\r\n                    Back\r\n                ")])], 1), _vm._v(" "), _c("v-stepper-content", {
     attrs: {
       step: "3"
     }
@@ -3288,7 +3405,7 @@ var render = function render() {
       color: "grey darken-3",
       height: "400px"
     }
-  }, [_vm._v("\n        \n            asdhgasdh\n            ")]), _vm._v(" "), _c("v-btn", {
+  }, [_vm._v("\r\n            \r\n                asdhgasdh\r\n                ")]), _vm._v(" "), _c("v-btn", {
     attrs: {
       color: "black"
     },
@@ -3297,11 +3414,11 @@ var render = function render() {
         _vm.e1 = 4;
       }
     }
-  }, [_vm._v("\n                Next\n            ")]), _vm._v(" "), _c("v-btn", {
+  }, [_vm._v("\r\n                    Next\r\n                ")]), _vm._v(" "), _c("v-btn", {
     attrs: {
       color: "grey darken-3"
     }
-  }, [_vm._v("\n                Cancel\n            ")])], 1), _vm._v(" "), _c("v-stepper-content", {
+  }, [_vm._v("\r\n                    Cancel\r\n                ")])], 1), _vm._v(" "), _c("v-stepper-content", {
     attrs: {
       step: "4"
     }
@@ -3311,7 +3428,7 @@ var render = function render() {
       color: "grey darken-3",
       height: "400px"
     }
-  }, [_vm._v("\n        \n            asdhgasdh\n            ")]), _vm._v(" "), _c("v-btn", {
+  }, [_vm._v("\r\n            \r\n                asdhgasdh\r\n                ")]), _vm._v(" "), _c("v-btn", {
     attrs: {
       color: "orange"
     },
@@ -3320,11 +3437,11 @@ var render = function render() {
         _vm.e1 = 1;
       }
     }
-  }, [_vm._v("\n                submit\n            ")]), _vm._v(" "), _c("v-btn", {
+  }, [_vm._v("\r\n                    submit\r\n                ")]), _vm._v(" "), _c("v-btn", {
     attrs: {
       color: "grey darken-3"
     }
-  }, [_vm._v("\n                Cancel\n            ")])], 1)], 1)], 1)], 1)], 1);
+  }, [_vm._v("\r\n                    Cancel\r\n                ")])], 1)], 1)], 1)], 1)], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -6942,7 +7059,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "[data-v-6af40d1e] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.register-body[data-v-6af40d1e] {\n  opacity: 0.7;\n  animation-name: to-left;\n  animation-duration: 1s;\n}\n.register-div[data-v-6af40d1e] {\n  margin-top: 20px;\n  width: 70%;\n}\n.register-fills[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 5px;\n}\n.overflowing[data-v-6af40d1e] {\n  overflow-y: scroll;\n  overflow-x: hidden;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "[data-v-6af40d1e] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.register-body[data-v-6af40d1e] {\n  opacity: 0.7;\n  animation-name: to-left;\n  animation-duration: 1s;\n}\n.register-div[data-v-6af40d1e] {\n  margin-top: 20px;\n  width: 70%;\n}\n.register-fills[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 5px;\n}\n.overflowing[data-v-6af40d1e] {\n  overflow-y: scroll;\n  overflow-x: hidden;\n}\n.icons[data-v-6af40d1e] {\n  font-size: 25px;\n}\nlabel[data-v-6af40d1e] {\n  font-size: 12px;\n}\nb[data-v-6af40d1e] {\n  font-size: 15px;\n}\n.form-control[data-v-6af40d1e], .form-select[data-v-6af40d1e], .input-group[data-v-6af40d1e] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
