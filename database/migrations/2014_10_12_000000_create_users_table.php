@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id('user_id');
+
+            $table->string('username')->nullable();
+            $table->string('password')->nullable();
+
             $table->string('lname')->nullable();
             $table->string('fname')->nullable();
             $table->string('mname')->nullable();
@@ -30,6 +34,10 @@ return new class extends Migration
 
             $table->string('email')->unique();
             $table->string('mobile_no')->unique();
+
+            $table->string('id_type')->nullable();
+            $table->string('id_no')->nullable();
+            $table->date('expr_date')->nullable();
 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
