@@ -3006,7 +3006,7 @@ var render = function render() {
     attrs: {
       type: "success"
     }
-  }, [_c("b", [_vm._v("Congratulation you are now registered to the System!")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("v-btn", {
+  }, [_c("b", [_vm._v("You are now registered to the System!")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("v-btn", {
     staticClass: "ma-2",
     attrs: {
       loading: _vm.loading,
@@ -7431,7 +7431,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".container-fluid[data-v-b764f1ba] {\n  position: absolute;\n  height: 100%;\n  z-index: 99;\n  animation-name: to-left;\n  animation-duration: 1s;\n  background-color: black;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  top: 20vh;\n  left: 0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".container-fluid[data-v-b764f1ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  height: 100%;\n  z-index: 99;\n  animation-name: to-top;\n  animation-duration: 1s;\n  background-color: rgba(41, 41, 41, 0.2);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
