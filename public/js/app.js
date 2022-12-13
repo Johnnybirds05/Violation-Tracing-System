@@ -2497,8 +2497,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      tab: null,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+      vehicles: [{
+        plates: '2532KD',
+        models: 'Honda',
+        Btypes: 'Motorcycle',
+        Expiration: '/12/21/2023',
+        picture: 'motor.png'
+      }],
+      plates: ['23YDJD', 'SA2021K'],
+      models: ['Ruster', 'Tesla'],
+      Btypes: ['Car', 'Truck'],
+      codes: ['basdghasd', 'dsjahjsad', 'jashdkjhas'],
+      vehiclepics: ['../../../pics/motor.png', '../../../pics/car.jpg', '../../../pics/truck.jpg']
     };
   }
 });
@@ -3039,27 +3049,78 @@ var render = function render() {
     attrs: {
       flat: ""
     }
-  }, [_c("v-card-text", [_c("p", [_vm._v("\n            Sed aliquam ultrices mauris. Donec posuere vulputate arcu. Morbi ac felis. Etiam feugiat lorem non metus. Sed a libero.\n          ")]), _vm._v(" "), _c("p", [_vm._v("\n            Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Aliquam lobortis. Aliquam lobortis. Suspendisse non nisl sit amet velit hendrerit rutrum.\n          ")]), _vm._v(" "), _c("p", {
-    staticClass: "mb-0"
-  }, [_vm._v("\n            Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Phasellus blandit leo ut odio.\n          ")])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+  }, [_c("v-card-text", [_c("div", {
+    staticClass: "container-fluid overflowing"
+  }, [_c("div", {
+    staticClass: "accordion",
+    attrs: {
+      id: "accordionExample"
+    }
+  }, _vm._l(_vm.plates, function (plate, index) {
+    return _c("div", {
+      key: plate.id,
+      staticClass: "accordion-item vehicle-body"
+    }, [_c("h2", {
+      staticClass: "accordion-header",
+      attrs: {
+        id: "heading" + plate
+      }
+    }, [_c("button", {
+      staticClass: "accordion-button",
+      "class": {
+        collapsed: index !== 0
+      },
+      attrs: {
+        type: "button",
+        "data-bs-toggle": "collapse",
+        "data-bs-target": "#collapse" + plate,
+        "aria-expanded": "true",
+        "aria-controls": "collapse" + plate
+      }
+    }, [_c("div", {
+      staticClass: "row"
+    }, [_c("div", {
+      staticClass: "col-md-2"
+    }, [_c("h1", [_vm._v("hah")]), _vm._v(" "), _c("img", {
+      attrs: {
+        src: "../../../pics/".concat(_vm.vehicle.img)
+      }
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "col-md-6"
+    }, [_c("div", {
+      staticClass: "row"
+    }, [_c("div", {
+      staticClass: "col p-0 mt-3"
+    }, [_c("b", [_vm._v(_vm._s(_vm.models[index]) + " - " + _vm._s(_vm.Btypes[index]))])])]), _vm._v(" "), _c("div", {
+      staticClass: "row"
+    }, [_c("div", {
+      staticClass: "col p-0"
+    }, [_vm._v("\n                                [" + _vm._s(plate) + "]\n                              ")])])])])])]), _vm._v(" "), _c("div", {
+      staticClass: "accordion-collapse collapse",
+      "class": {
+        show: index === 0
+      },
+      attrs: {
+        id: "collapse" + plate,
+        "aria-labelledby": "heading" + plate,
+        "data-bs-parent": "#accordionExample"
+      }
+    }, [_c("div", {
+      staticClass: "accordion-body"
+    }, [_vm._v("\n                        " + _vm._s(_vm.codes[index]) + "\n                      ")])])]);
+  }), 0)])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
     attrs: {
       flat: ""
     }
-  }, [_c("v-card-text", [_c("p", [_vm._v("\n            Morbi nec metus. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Nunc sed turpis.\n          ")]), _vm._v(" "), _c("p", [_vm._v("\n            Suspendisse feugiat. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. In hac habitasse platea dictumst. Fusce ac felis sit amet ligula pharetra condimentum.\n          ")]), _vm._v(" "), _c("p", [_vm._v("\n            Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Nam commodo suscipit quam. In consectetuer turpis ut velit. Sed cursus turpis vitae tortor. Aliquam eu nunc.\n          ")]), _vm._v(" "), _c("p", [_vm._v("\n            Etiam ut purus mattis mauris sodales aliquam. Ut varius tincidunt libero. Aenean viverra rhoncus pede. Duis leo. Fusce fermentum odio nec arcu.\n          ")]), _vm._v(" "), _c("p", {
-    staticClass: "mb-0"
-  }, [_vm._v("\n            Donec venenatis vulputate lorem. Aenean viverra rhoncus pede. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Fusce commodo aliquam arcu. Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi.\n          ")])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+  }, [_c("v-card-text", [_vm._v("\n          hellow\n        ")])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
     attrs: {
       flat: ""
     }
-  }, [_c("v-card-text", [_c("p", [_vm._v("\n            Fusce a quam. Phasellus nec sem in justo pellentesque facilisis. Nam eget dui. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. In dui magna, posuere eget, vestibulum et, tempor auctor, justo.\n          ")]), _vm._v(" "), _c("p", {
-    staticClass: "mb-0"
-  }, [_vm._v("\n            Cras sagittis. Phasellus nec sem in justo pellentesque facilisis. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nam at tortor in tellus interdum sagittis.\n          ")])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+  }, [_c("v-card-text", [_vm._v("\n          bro\n        ")])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
     attrs: {
       flat: ""
     }
-  }, [_c("v-card-text", [_c("p", [_vm._v("\n            Fusce a quam. Phasellus nec sem in justo pellentesque facilisis. Nam eget dui. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. In dui magna, posuere eget, vestibulum et, tempor auctor, justo.\n          ")]), _vm._v(" "), _c("p", {
-    staticClass: "mb-0"
-  }, [_vm._v("\n            Cras sagittis. Phasellus nec sem in justo pellentesque facilisis. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nam at tortor in tellus interdum sagittis.\n          ")])])], 1)], 1)], 1)], 1)], 1)], 1)]);
+  }, [_c("v-card-text", [_vm._v("\n          Bruh\n        ")])], 1)], 1)], 1)], 1)], 1)], 1)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -3333,18 +3394,6 @@ var render = function render() {
       placeholder: "SR.",
       maxlength: "3"
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-1"
-  }, [_c("label", {
-    staticClass: "form-label"
-  }, [_vm._v("Age: ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
-    attrs: {
-      type: "number",
-      id: "driver-age",
-      maxlength: "3",
-      pattern: "[0-9]+"
-    }
   })])])]), _vm._v(" "), _c("div", {
     staticClass: "container-fluid register-fills"
   }, [_c("div", {
@@ -3419,43 +3468,48 @@ var render = function render() {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Street:")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+  }, [_vm._v("Province:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select",
     attrs: {
-      type: "text",
-      id: "driver-street"
+      name: "province",
+      "aria-label": "Default select example"
     }
-  })]), _vm._v(" "), _c("div", {
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Barangay:")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+  }, [_vm._v("City:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select",
     attrs: {
-      type: "text",
-      id: "driver-barangay"
+      name: "city",
+      "aria-label": "Default select example"
     }
-  })]), _vm._v(" "), _c("div", {
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("City:")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+  }, [_vm._v("Barangay:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select",
     attrs: {
-      type: "text",
-      id: "driver-city"
+      name: "barangay",
+      "aria-label": "Default select example"
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3"
-  }, [_c("label", {
-    staticClass: "form-label"
-  }, [_vm._v("Province:")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+  }, [_c("option", {
     attrs: {
-      type: "text",
-      id: "driver-province"
+      selected: "",
+      disabled: ""
     }
-  })])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+  }, [_vm._v("Select")])])])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid register-fills"
   }, [_c("b", [_vm._v("Contact Information")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid mb-5"
@@ -4240,7 +4294,7 @@ var staticRenderFns = [function () {
     staticClass: "card-body card-home"
   }, [_c("h5", {
     staticClass: "card-title"
-  }, [_c("b", [_vm._v("Admins")])]), _vm._v(" "), _c("p", {
+  }, [_c("b", [_vm._v("Offices")])]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
   }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]), _vm._v(" "), _c("div", {
     staticClass: "card-body"
@@ -7286,7 +7340,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".driver-body[data-v-5e00fa56] {\n  width: 75%;\n  background-color: #2e2e2e;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.profile[data-v-5e00fa56] {\n  width: 130px;\n  height: 130px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 100px;\n  border: 5px solid #9c9c9c;\n}\n.blued[data-v-5e00fa56] {\n  background-color: aqua;\n}\n.driver-picbox[data-v-5e00fa56] {\n  width: 140px;\n  height: 140px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n}\n.rowleft[data-v-5e00fa56] {\n  position: relative;\n  left: 0px;\n}\nh3[data-v-5e00fa56] {\n  font-family: Impact, Haettenschweiler, \"Arial Narrow Bold\", sans-serif;\n  position: relative;\n  top: 10px;\n}\n.cols-name[data-v-5e00fa56] {\n  display: flex;\n  flex-direction: column;\n}\n.drivers-links[data-v-5e00fa56] {\n  width: 76%;\n  height: 430px;\n  font-family: monospace;\n}\n[data-v-5e00fa56] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.logout-button[data-v-5e00fa56] {\n  position: absolute;\n  top: 50px;\n  right: 50px;\n  width: 130px;\n}\n.tabs-title[data-v-5e00fa56] {\n  font-size: 12px;\n}\n@media only screen and (max-width: 1000px) {\n.cols-name[data-v-5e00fa56] {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.logout-button[data-v-5e00fa56] {\n    top: 5px;\n    right: 5px;\n    font-size: 10px;\n    width: 100px;\n}\n.drivers-links[data-v-5e00fa56] {\n    width: 100%;\n}\n.driver-body[data-v-5e00fa56] {\n    width: 90%;\n}\n.tabs-title[data-v-5e00fa56] {\n    font-size: 11px;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".driver-body[data-v-5e00fa56] {\n  width: 75%;\n  background-color: #2e2e2e;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.profile[data-v-5e00fa56] {\n  width: 130px;\n  height: 130px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 100px;\n  border: 5px solid #9c9c9c;\n}\n.blued[data-v-5e00fa56] {\n  background-color: aqua;\n}\n.driver-picbox[data-v-5e00fa56] {\n  width: 140px;\n  height: 140px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n}\n.rowleft[data-v-5e00fa56] {\n  position: relative;\n  left: 0px;\n}\nh3[data-v-5e00fa56] {\n  font-family: Impact, Haettenschweiler, \"Arial Narrow Bold\", sans-serif;\n  position: relative;\n  top: 10px;\n}\n.cols-name[data-v-5e00fa56] {\n  display: flex;\n  flex-direction: column;\n}\n.drivers-links[data-v-5e00fa56] {\n  width: 76%;\n  height: 430px;\n  font-family: monospace;\n}\n[data-v-5e00fa56] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.logout-button[data-v-5e00fa56] {\n  position: absolute;\n  top: 50px;\n  right: 50px;\n  width: 130px;\n}\n.tabs-title[data-v-5e00fa56] {\n  font-size: 12px;\n}\n.overflowing[data-v-5e00fa56] {\n  max-height: 400px;\n  overflow-y: scroll;\n}\n@media only screen and (max-width: 1000px) {\n.cols-name[data-v-5e00fa56] {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.logout-button[data-v-5e00fa56] {\n    top: 5px;\n    right: 5px;\n    font-size: 10px;\n    width: 100px;\n}\n.drivers-links[data-v-5e00fa56] {\n    width: 100%;\n}\n.driver-body[data-v-5e00fa56] {\n    width: 90%;\n}\n.tabs-title[data-v-5e00fa56] {\n    font-size: 11px;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

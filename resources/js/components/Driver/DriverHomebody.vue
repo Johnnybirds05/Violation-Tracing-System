@@ -40,58 +40,59 @@
                         <img src="../../../pics/newspaper_white_24dp.svg" class="mr-2"> Ordinances
                     </v-tab>
 
+      <!-- For the vehicle             -->
       <v-tab-item>
         <v-card flat>
           <v-card-text>
-            <p>
-              Sed aliquam ultrices mauris. Donec posuere vulputate arcu. Morbi ac felis. Etiam feugiat lorem non metus. Sed a libero.
-            </p>
+            <div class="container-fluid overflowing">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item vehicle-body" v-for="(plate, index) in plates" :key="plate.id">
+                      <h2 class="accordion-header" :id="'heading'+plate">
+                        <button class="accordion-button" :class="{ 'collapsed': index !== 0 }" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse'+plate" aria-expanded="true" :aria-controls="'collapse'+plate">
+                          <div class="row">
+                            <div class="col-md-2">
+                              <h1>hah</h1>
+                                  <img :src="`../../../pics/${vehicle.img}`">
+                            </div>
+                            <div class="col-md-6">
+                              <div class="row">
+                                <div class="col p-0 mt-3">
+                                  <b>{{models[index]}} - {{Btypes[index]}}</b>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col p-0">
+                                  [{{plate}}]
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </button>
+                      </h2>
+                      <div :id="'collapse'+plate" class="accordion-collapse collapse" :class="{ 'show': index === 0 }" :aria-labelledby="'heading'+plate" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          {{codes[index]}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </v-card-text>
+        </v-card>
 
-            <p>
-              Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Aliquam lobortis. Aliquam lobortis. Suspendisse non nisl sit amet velit hendrerit rutrum.
-            </p>
 
-            <p class="mb-0">
-              Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Phasellus blandit leo ut odio.
-            </p>
+      </v-tab-item>
+      <v-tab-item>
+        <v-card flat>
+          <v-card-text>
+            hellow
           </v-card-text>
         </v-card>
       </v-tab-item>
       <v-tab-item>
         <v-card flat>
           <v-card-text>
-            <p>
-              Morbi nec metus. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Nunc sed turpis.
-            </p>
-
-            <p>
-              Suspendisse feugiat. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. In hac habitasse platea dictumst. Fusce ac felis sit amet ligula pharetra condimentum.
-            </p>
-
-            <p>
-              Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Nam commodo suscipit quam. In consectetuer turpis ut velit. Sed cursus turpis vitae tortor. Aliquam eu nunc.
-            </p>
-
-            <p>
-              Etiam ut purus mattis mauris sodales aliquam. Ut varius tincidunt libero. Aenean viverra rhoncus pede. Duis leo. Fusce fermentum odio nec arcu.
-            </p>
-
-            <p class="mb-0">
-              Donec venenatis vulputate lorem. Aenean viverra rhoncus pede. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Fusce commodo aliquam arcu. Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi.
-            </p>
-          </v-card-text>
-        </v-card>
-      </v-tab-item>
-      <v-tab-item>
-        <v-card flat>
-          <v-card-text>
-            <p>
-              Fusce a quam. Phasellus nec sem in justo pellentesque facilisis. Nam eget dui. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. In dui magna, posuere eget, vestibulum et, tempor auctor, justo.
-            </p>
-
-            <p class="mb-0">
-              Cras sagittis. Phasellus nec sem in justo pellentesque facilisis. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nam at tortor in tellus interdum sagittis.
-            </p>
+            bro
           </v-card-text>
         </v-card>
       </v-tab-item>
@@ -99,13 +100,7 @@
       <v-tab-item>
         <v-card flat>
           <v-card-text>
-            <p>
-              Fusce a quam. Phasellus nec sem in justo pellentesque facilisis. Nam eget dui. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. In dui magna, posuere eget, vestibulum et, tempor auctor, justo.
-            </p>
-
-            <p class="mb-0">
-              Cras sagittis. Phasellus nec sem in justo pellentesque facilisis. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nam at tortor in tellus interdum sagittis.
-            </p>
+            Bruh
           </v-card-text>
         </v-card>
       </v-tab-item>
@@ -121,11 +116,44 @@
 <script>
     export default {
     data () {
-      return {
-        tab: null,
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      }
-    },
+        return{
+          vehicles: [
+            {
+              plates : '2532KD',
+              models : 'Honda',
+              Btypes : 'Motorcycle',
+              Expiration: '/12/21/2023',
+              picture: 'motor.png'
+            }
+          ],
+          plates: [
+            
+            '23YDJD',
+            'SA2021K',
+
+          ],
+          models: [
+            
+            'Ruster',
+            'Tesla'
+          ],
+          Btypes: [
+            
+            'Car',
+            'Truck'
+          ],
+          codes: [
+            'basdghasd',
+            'dsjahjsad',
+            'jashdkjhas'
+          ],
+          vehiclepics: [
+            '../../../pics/motor.png',
+            '../../../pics/car.jpg',
+            '../../../pics/truck.jpg',
+          ]
+        }
+   }
   }
 </script>
 
@@ -188,6 +216,12 @@ h3{
 .tabs-title{
     font-size: 12px;
 }
+.overflowing{
+  max-height: 400px;
+  overflow-y: scroll;
+
+}
+
 @media only screen and (max-width: 1000px){
     .cols-name{
         display: flex;

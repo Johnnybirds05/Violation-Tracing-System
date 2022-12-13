@@ -3,7 +3,7 @@
         <div class="card m-5 card-homecol" style="width: 18rem;">
             <img src="../../../pics/3.png" class="card-img-top" alt="...">
             <div class="card-body card-home">
-                <h5 class="card-title "><b>Admins</b></h5>
+                <h5 class="card-title "><b>Offices</b></h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
             <div class="card-body">

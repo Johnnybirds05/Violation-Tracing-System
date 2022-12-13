@@ -55,11 +55,6 @@
                             <label class="form-label">Suffix: </label>
                             <input type="text" class="form-control" id="driver-suffix" placeholder="SR." maxlength="3">
                         </div>
-
-                        <div class="col-md-1">
-                            <label class="form-label">Age: </label>
-                            <input type="number" class="form-control" id="driver-age" maxlength="3" pattern="[0-9]+">
-                        </div>
                     </div>
                 </div>
 
@@ -105,23 +100,24 @@
                     <div class="row g-2">
 
                         <div class="col-md-3">
-                            <label class="form-label">Street:</label>
-                            <input type="text" class="form-control" id="driver-street">
-                        </div>
-
-                        <div class="col-md-3">
-                            <label class="form-label">Barangay:</label>
-                            <input type="text" class="form-control" id="driver-barangay">
+                            <label class="form-label">Province:</label>
+                            <select class="form-select" name="province" aria-label="Default select example">
+                                <option selected disabled>Select</option>
+                            </select>
                         </div>
 
                         <div class="col-md-3">
                             <label class="form-label">City:</label>
-                            <input type="text" class="form-control" id="driver-city">
+                            <select class="form-select" name="city" aria-label="Default select example">
+                                <option selected disabled>Select</option>
+                            </select>
                         </div>
 
                         <div class="col-md-3">
-                            <label class="form-label">Province:</label>
-                            <input type="text" class="form-control" id="driver-province">
+                            <label class="form-label">Barangay:</label>
+                            <select class="form-select" name="barangay" aria-label="Default select example">
+                                <option selected disabled>Select</option>
+                            </select>
                         </div>
                     </div>
                 </div>
