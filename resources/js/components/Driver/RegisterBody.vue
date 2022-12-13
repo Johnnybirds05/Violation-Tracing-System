@@ -206,12 +206,17 @@
 
     <v-stepper-content step="3">
         <v-card class="mb-12" color="grey darken-3" height="400px">
+            
             <hr>
                 <div class="container-fluid register-fills">
                     <b>Account Information</b>
                 </div>
             <hr>
             <div class="container-fluid">
+
+                <Alerts v-if="AlertTrigger.buttonTrigger" :ToggleAlert="() => ToggleAlert('buttonTrigger')">
+                        <!-- this is where I show my alerts --> 
+                </Alerts>
                 <div class="row g-2  centers">
                     <div class="col-md-5">
                         <label class="form-label"> Username: </label>
@@ -235,10 +240,12 @@
             </div>
                 
                 </v-card>
-        
-                <v-btn color="light-green darken-3" href='/logindriver'>
+                
+                
+                <v-btn color="light-green darken-3"  @click = "() => ToggleAlert('buttonTrigger')">
                     Submit
                 </v-btn>
+                
         
                 <v-btn color="grey darken-3" @click="e1 = 2">
                     Back
@@ -254,6 +261,8 @@
   </template>
 
 <script>
+import Alerts from "./Alerts.vue";
+import { ref } from "vue";
 
 export default {
   data () {
@@ -262,6 +271,21 @@ export default {
       
     }
 },
+
+    setup(){
+        const AlertTrigger  = ref({
+            buttonTrigger : false,
+            timedTrigger : false
+        });
+        const ToggleAlert = (trigger) =>{
+            AlertTrigger.value[trigger] = !AlertTrigger.value[trigger]
+        }
+        return{
+            Alerts,
+            AlertTrigger,
+            ToggleAlert
+        }
+    },
 
     mounted() {
         $(function() {
@@ -273,6 +297,7 @@ export default {
 
         
     }
+    
     
   
   
