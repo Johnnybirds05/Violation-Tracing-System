@@ -4275,7 +4275,7 @@ var staticRenderFns = [function () {
   }, [_c("a", {
     staticClass: "btn btn-dark",
     attrs: {
-      href: "/logindriver"
+      href: "/login-driver"
     }
   }, [_vm._v("Get Started "), _c("img", {
     attrs: {

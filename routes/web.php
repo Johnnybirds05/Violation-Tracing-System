@@ -37,8 +37,8 @@ Route::get('/loginlegislative', function () {
     return view('logins/legislative');
 });
 
-Route::get('/logindriver', function () {
-    return view('driver/driverlogin');
+Route::get('/login-driver', function () {
+    return view('driver/driver-login');
 });
 
 Route::get('/registerdriver', function () {
