@@ -2,7 +2,7 @@
     <div class="container-fluid LoginHeader">
       <img src="../../../pics/logo.png" class="LoginLogo mx-4 m-1"> 
       <div class="driver-buttons">       
-        <a class="btn btn-dark text-right pe-3 px-3 m-1" href="/registerdriver" role="button">Register</a>
+        <a class="btn btn-dark text-right pe-3 px-3 m-1" href="/driver-register" role="button">Register</a>
         <a class="btn btn-dark text-right pe-3 px-3" href="/" role="button">Back</a>
       </div>
       

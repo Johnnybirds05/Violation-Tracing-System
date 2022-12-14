@@ -3370,7 +3370,7 @@ var staticRenderFns = [function () {
   }, [_c("a", {
     staticClass: "btn btn-dark text-right pe-3 px-3 m-1",
     attrs: {
-      href: "/registerdriver",
+      href: "/driver-register",
       role: "button"
     }
   }, [_vm._v("Register")]), _vm._v(" "), _c("a", {

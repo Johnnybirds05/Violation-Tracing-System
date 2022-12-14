@@ -54,6 +54,9 @@ Route::get('/driver-home', [App\Http\Controllers\Driver\DriverHomeController::cl
 Route::get('/addvehicle', function () {
     return view('driver/addvehicle');
 });
+Route::get('/driver-dashboard', function () {
+    return view('driver/driver-dashboard');
+});
 
 
 Auth::routes([
