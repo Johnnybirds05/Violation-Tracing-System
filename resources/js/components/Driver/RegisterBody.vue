@@ -323,7 +323,7 @@ export default {
     margin: 5px;
   }
   .overflowing{
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
   }
   .icons{
@@ -345,12 +345,4 @@ b{
     align-items: center;
 }
 
-.passforms{
-    position: relative;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 13;
-
-}
 </style>
