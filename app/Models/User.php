@@ -17,10 +17,28 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $primaryKey = 'user_id';
+
+
     protected $fillable = [
-        'name',
-        'email',
+        'qr_ref',
+        'username', 
+        'lname', 
+        'fname', 
+        'mname', 
+        'suffix', 
+        'sex',
+        'bdate',
+        'pic_path',
+        'province', 'city', 'barangay', 'street',
+        'email', 'mobile_no', 
+        'id_type', 
+        'id_no', 
+        'expr_date',
+        'is_verified',
         'password',
+        'role',
     ];
 
     /**

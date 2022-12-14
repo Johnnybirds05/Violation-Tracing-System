@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id('user_id');
 
+            $table->string('qr_ref')->nullable();
             $table->string('username')->nullable();
             
             $table->string('lname')->nullable();
@@ -38,8 +39,11 @@ return new class extends Migration
             $table->string('id_no')->nullable();
             $table->date('expr_date')->nullable();
 
+            $table->tinyInteger('is_verified')->default(0);
+
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('role')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -5,38 +5,38 @@
             <div class="login-card">
                 <img src="../../../pics/account.svg" class="login-pics">
                 <h4><b>Driver Login</b></h4>
-                <form action="#">
-                        <div class="mt-4 login-content">
-                            <div>
-                                <img src="../../../pics/user.svg" class="login-icons">
-                            </div>
-                            <div>
-                                <input type="text" name="counsel-username" class="login-field" id="counsel-username" required placeholder="Enter Username">
-                            </div>  
+                <form @submit.prevent="submit">
+                    <div class="mt-4 login-content">
+                        <div>
+                            <img src="../../../pics/user.svg" class="login-icons">
                         </div>
-                        <div class="login-content">
-                            <div>
-                                <img src="../../../pics/lock_white_24dp.svg" class="login-icons">
-                            </div>
-                            <div>
-                                <input type="password" name="counsel-password" class="login-field" id="password" required placeholder="Enter Password">
-                                <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
-                            </div>  
+                        <div>
+                            <input type="text" v-model="fields.username" class="login-field" id="counsel-username" required placeholder="Enter Username">
+                        </div>  
+                    </div>
+                    <div class="login-content">
+                        <div>
+                            <img src="../../../pics/lock_white_24dp.svg" class="login-icons">
                         </div>
-                        <div class="extensions mt-5">
-                            <a href="/registerdriver"> Don't have an account?</a>
-                            or 
-                            <a href="/register"> Forgot Password</a>
-                        </div>
+                        <div>
+                            <input type="password" v-model="fields.password" class="login-field" id="password" required placeholder="Enter Password">
+                            <i class="far fa-eye" id="eye" @click="togglePasswordVisibility" style="margin-left: -30px; cursor: pointer;"></i>
+                        </div>  
+                    </div>
+                    <div v-if="this.errors.username">
+                        {{ this.errors.username[0] }}
+                    </div>
+                    <div class="extensions mt-5">
+                        <a href="/driver-register"> Don't have an account?</a>
+                        or 
+                        <a href="#"> Forgot Password</a>
+                    </div>
 
-                        <div class="login-content mt-4">
-                            <button class="btn btn-dark" type="submit"> Login <img src="../../../pics/login_white_24dp.svg" class="login-icons"></button>
-                        </div>
+                    <div class="login-content mt-4">
+                        <button class="btn btn-dark" type="submit"> Login <img src="../../../pics/login_white_24dp.svg" class="login-icons"></button>
+                    </div>
                 </form>
-
             </div>
-           
-
     </div>
     
 </template>
@@ -44,17 +44,42 @@
 <script>
 
     export default {
-        mounted() {
-            console.log('Component mounted.')
-            const togglePassword = document.querySelector('#togglePassword');
-                const password = document.querySelector('#password');
 
-                togglePassword.addEventListener('click', function (e) {
-                    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        data(){
+            return{
+                //variables here...
+                fields: {},
+                errors: {},
+            }
+        },
 
+        methods: {
+            //methods/function here....
+
+            togglePasswordVisibility(){
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
                 password.setAttribute('type', type);
-                this.classList.toggle('fa-eye-slash');
-    });
+                document.getElementById('eye').classList.toggle('fa-eye-slash');
+            },
+
+
+            //neg submit or click sa login button fire this method
+            submit(){
+                axios.post('/driver-login', this.fields).then(res=>{
+                    if(res.data.role === 'DRIVER'){
+                        window.location = '/driver-dashboard';
+                    }
+
+                }).catch(err=>{
+                    console.log(err.response.data.errors)
+                    this.errors = err.response.data.errors;
+                })
+            }
+        },
+
+        mounted() {
+            //methods/function here.. but use this mounted if mag initialize or something naa kai event e raise during mount
+            //sa component
         }
 
         

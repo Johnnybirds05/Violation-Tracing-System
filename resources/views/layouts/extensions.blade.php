@@ -33,7 +33,11 @@
 </head>
 
 <body class="antialiased">
-    @yield('content')
+
+    <div id="app">
+        @yield('content')
+    </div>
+
 </body>
 
 </html>
