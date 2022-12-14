@@ -41,10 +41,11 @@ Route::get('/loginlegislative', function () {
 //-----------------DRIVER ROUTES----------------------
 Route::get('/driver-login', [App\Http\Controllers\Driver\DriverLoginController::class, 'index']);
 Route::post('/driver-login', [App\Http\Controllers\Driver\DriverLoginController::class, 'login']);
+Route::post('/logout', [App\Http\Controllers\Driver\DriverLoginController::class, 'logout']);
 
 Route::get('/driver-register', [App\Http\Controllers\Driver\DriverRegisterController::class, 'index']);
 
-Route::get('/driver-home', [App\Http\Controllers\Driver\DriverHomeController::class, 'index']);
+Route::get('/driver-dashboard', [App\Http\Controllers\Driver\DriverDashboardController::class, 'index']);
 
 
 
@@ -54,9 +55,7 @@ Route::get('/driver-home', [App\Http\Controllers\Driver\DriverHomeController::cl
 Route::get('/addvehicle', function () {
     return view('driver/addvehicle');
 });
-Route::get('/driver-dashboard', function () {
-    return view('driver/driver-dashboard');
-});
+
 
 
 Auth::routes([

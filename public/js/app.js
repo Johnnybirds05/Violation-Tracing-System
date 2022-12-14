@@ -2646,6 +2646,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }]
     };
   },
+  methods: {
+    logout: function logout() {
+      axios.post('/logout').then(function () {
+        window.location = '/';
+      });
+    }
+  },
   computed: {
     subtotal: function subtotal() {
       var total;
@@ -3414,7 +3421,25 @@ var render = function render() {
       staticClass: "status ml-2 p-1"
     }, [_vm._v(" ! Unverified Account")]) : _vm._e()]), _vm._v(" "), _c("span", [_vm._v("Expiration Date: " + _vm._s(license.Expiration) + " ")]), _vm._v(" "), _c("span", [_vm._v("Kauswagan Tangub City")]), _vm._v(" "), _c("span", [_vm._v("johnmichaelcagadas@gmail.com")]), _vm._v(" "), _c("span", [_vm._v("09683013603")])]), _vm._v(" "), _c("div", {
       staticClass: "col"
-    }), _vm._v(" "), _vm._m(1, true)]);
+    }), _vm._v(" "), _c("div", {
+      staticClass: "col-md-3 logout-button"
+    }, [_c("div", {
+      staticClass: "row"
+    }, [_c("div", {
+      staticClass: "col"
+    }, [_c("button", {
+      staticClass: "btn btn-dark",
+      attrs: {
+        role: "button"
+      },
+      on: {
+        click: _vm.logout
+      }
+    }, [_vm._v("Logout \n                      "), _c("img", {
+      attrs: {
+        src: __webpack_require__(/*! ../../../pics/logout_white_24dp.svg */ "./resources/pics/logout_white_24dp.svg")
+      }
+    })])])])])]);
   }), 0), _vm._v(" "), _c("div", {
     staticClass: "container drivers-links"
   }, [_c("v-app", [_c("v-card", [_c("v-tabs", {
@@ -3823,26 +3848,6 @@ var staticRenderFns = [function () {
       alt: "profile"
     }
   })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "col-md-3 logout-button"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col"
-  }, [_c("a", {
-    staticClass: "btn btn-dark",
-    attrs: {
-      href: "/logindriver",
-      role: "button"
-    }
-  }, [_vm._v("Logout "), _c("img", {
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/logout_white_24dp.svg */ "./resources/pics/logout_white_24dp.svg")
-    }
-  })])])])]);
 }];
 render._withStripped = true;
 
