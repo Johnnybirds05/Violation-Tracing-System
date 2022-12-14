@@ -20,7 +20,7 @@
                             </div>
                             <div>
                                 <input type="password" name="task-password" class="login-field" id="password" required placeholder="Enter Password">
-                                <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+                                <i class="far fa-eye" id="eye" @click="togglePasswordVisibility" style="margin-left: -30px; cursor: pointer;"></i>
                             </div>  
                         </div>
 
@@ -39,18 +39,16 @@
 <script>
 
     export default {
-        mounted() {
-            console.log('Component mounted.')
-            const togglePassword = document.querySelector('#togglePassword');
-            const password = document.querySelector('#password');
+        methods: {
+            //methods/function here....
 
-            togglePassword.addEventListener('click', function (e) {
+            togglePasswordVisibility(){
                 const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-
-            password.setAttribute('type', type);
-            this.classList.toggle('fa-eye-slash');
-    });
+                password.setAttribute('type', type);
+                document.getElementById('eye').classList.toggle('fa-eye-slash');
+            },
         }
+        
 
         
     }

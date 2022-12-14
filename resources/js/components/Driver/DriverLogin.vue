@@ -23,9 +23,9 @@
                             <i class="far fa-eye" id="eye" @click="togglePasswordVisibility" style="margin-left: -30px; cursor: pointer;"></i>
                         </div>  
                     </div>
-                    <div v-if="this.errors.username">
-                        {{ this.errors.username[0] }}
-                    </div>
+                    <v-app>
+                        <v-alert type="error" class="text-type error-msg"  v-if="this.errors.username"> {{ this.errors.username[0] }}</v-alert>
+                    </v-app>
                     <div class="extensions mt-5">
                         <a href="/driver-register"> Don't have an account?</a>
                         or 
@@ -102,5 +102,12 @@
     color: rgb(75, 75, 75);
     flex-direction: column;
 
+}
+::v-deep .v-application--wrap {
+    min-height: fit-content;
+  }
+.error-msg{
+    font-size: 12px;
+    width: 90%;
 }
 </style>

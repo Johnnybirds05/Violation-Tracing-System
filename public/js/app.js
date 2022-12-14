@@ -2987,15 +2987,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-    var togglePassword = document.querySelector('#togglePassword');
-    var password = document.querySelector('#password');
-    togglePassword.addEventListener('click', function (e) {
+  methods: {
+    //methods/function here....
+    togglePasswordVisibility: function togglePasswordVisibility() {
       var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
       password.setAttribute('type', type);
-      this.classList.toggle('fa-eye-slash');
-    });
+      document.getElementById('eye').classList.toggle('fa-eye-slash');
+    }
   }
 });
 
@@ -3032,15 +3030,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-    var togglePassword = document.querySelector('#togglePassword');
-    var password = document.querySelector('#password');
-    togglePassword.addEventListener('click', function (e) {
+  methods: {
+    //methods/function here....
+    togglePasswordVisibility: function togglePasswordVisibility() {
       var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
       password.setAttribute('type', type);
-      this.classList.toggle('fa-eye-slash');
-    });
+      document.getElementById('eye').classList.toggle('fa-eye-slash');
+    }
   }
 });
 
@@ -3058,15 +3054,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-    var togglePassword = document.querySelector('#togglePassword');
-    var password = document.querySelector('#password');
-    togglePassword.addEventListener('click', function (e) {
+  methods: {
+    //methods/function here....
+    togglePasswordVisibility: function togglePasswordVisibility() {
       var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
       password.setAttribute('type', type);
-      this.classList.toggle('fa-eye-slash');
-    });
+      document.getElementById('eye').classList.toggle('fa-eye-slash');
+    }
   }
 });
 
@@ -3084,15 +3078,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-    var togglePassword = document.querySelector('#togglePassword');
-    var password = document.querySelector('#password');
-    togglePassword.addEventListener('click', function (e) {
+  methods: {
+    //methods/function here....
+    togglePasswordVisibility: function togglePasswordVisibility() {
       var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
       password.setAttribute('type', type);
-      this.classList.toggle('fa-eye-slash');
-    });
+      document.getElementById('eye').classList.toggle('fa-eye-slash');
+    }
   }
 });
 
@@ -3110,15 +3102,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-    var togglePassword = document.querySelector('#togglePassword');
-    var password = document.querySelector('#password');
-    togglePassword.addEventListener('click', function (e) {
+  methods: {
+    //methods/function here....
+    togglePasswordVisibility: function togglePasswordVisibility() {
       var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
       password.setAttribute('type', type);
-      this.classList.toggle('fa-eye-slash');
-    });
+      document.getElementById('eye').classList.toggle('fa-eye-slash');
+    }
   }
 });
 
@@ -3976,7 +3966,12 @@ var render = function render() {
     on: {
       click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), this.errors.username ? _c("div", [_vm._v("\n                    " + _vm._s(this.errors.username[0]) + "\n                ")]) : _vm._e(), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])])]);
+  })])]), _vm._v(" "), _c("v-app", [this.errors.username ? _c("v-alert", {
+    staticClass: "text-type error-msg",
+    attrs: {
+      type: "error"
+    }
+  }, [_vm._v(" " + _vm._s(this.errors.username[0]))]) : _vm._e()], 1), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)], 1)])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5052,7 +5047,7 @@ var staticRenderFns = [function () {
   }, [_c("a", {
     staticClass: "btn btn-dark",
     attrs: {
-      href: "#"
+      href: "/admins"
     }
   }, [_vm._v("Get Started "), _c("img", {
     attrs: {
@@ -5241,11 +5236,6 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "container login-body"
   }, [_c("div", {
@@ -5255,34 +5245,13 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/account.svg */ "./resources/pics/account.svg")
     }
-  }), _vm._v(" "), _c("h4", [_c("b", [_vm._v("CTO Login")])]), _vm._v(" "), _c("form", {
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("form", {
     attrs: {
       action: "#"
     }
-  }, [_c("div", {
-    staticClass: "mt-1 login-content"
-  }, [_c("div", [_c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg")
-    }
-  })]), _vm._v(" "), _c("div", [_c("input", {
-    staticClass: "login-field",
-    attrs: {
-      type: "text",
-      name: "cto-username",
-      id: "cto-username",
-      required: "",
-      placeholder: "Enter Username"
-    }
-  })])]), _vm._v(" "), _c("div", {
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "login-content"
-  }, [_c("div", [_c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
-    }
-  })]), _vm._v(" "), _c("div", [_c("input", {
+  }, [_vm._m(2), _vm._v(" "), _c("div", [_c("input", {
     staticClass: "login-field",
     attrs: {
       type: "password",
@@ -5298,9 +5267,50 @@ var staticRenderFns = [function () {
       cursor: "pointer"
     },
     attrs: {
-      id: "togglePassword"
+      id: "eye"
+    },
+    on: {
+      click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), _c("div", {
+  })])]), _vm._v(" "), _vm._m(3)])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h4", [_c("b", [_vm._v("CTO Login")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "mt-1 login-content"
+  }, [_c("div", [_c("img", {
+    staticClass: "login-icons",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg")
+    }
+  })]), _vm._v(" "), _c("div", [_c("input", {
+    staticClass: "login-field",
+    attrs: {
+      type: "text",
+      name: "cto-username",
+      id: "cto-username",
+      required: "",
+      placeholder: "Enter Username"
+    }
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    staticClass: "login-icons",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "login-content mt-4"
   }, [_c("button", {
     staticClass: "btn btn-dark",
@@ -5312,7 +5322,7 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/login_white_24dp.svg */ "./resources/pics/login_white_24dp.svg")
     }
-  })])])])])]);
+  })])]);
 }];
 render._withStripped = true;
 
@@ -5374,11 +5384,6 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "container login-body"
   }, [_c("div", {
@@ -5388,34 +5393,13 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/account.svg */ "./resources/pics/account.svg")
     }
-  }), _vm._v(" "), _c("h4", [_c("b", [_vm._v("Legal Counsel Login")])]), _vm._v(" "), _c("form", {
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("form", {
     attrs: {
       action: "#"
     }
-  }, [_c("div", {
-    staticClass: "mt-1 login-content"
-  }, [_c("div", [_c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg")
-    }
-  })]), _vm._v(" "), _c("div", [_c("input", {
-    staticClass: "login-field",
-    attrs: {
-      type: "text",
-      name: "counsel-username",
-      id: "counsel-username",
-      required: "",
-      placeholder: "Enter Username"
-    }
-  })])]), _vm._v(" "), _c("div", {
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "login-content"
-  }, [_c("div", [_c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
-    }
-  })]), _vm._v(" "), _c("div", [_c("input", {
+  }, [_vm._m(2), _vm._v(" "), _c("div", [_c("input", {
     staticClass: "login-field",
     attrs: {
       type: "password",
@@ -5431,9 +5415,50 @@ var staticRenderFns = [function () {
       cursor: "pointer"
     },
     attrs: {
-      id: "togglePassword"
+      id: "eye"
+    },
+    on: {
+      click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), _c("div", {
+  })])]), _vm._v(" "), _vm._m(3)])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h4", [_c("b", [_vm._v("Legal Counsel Login")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "mt-1 login-content"
+  }, [_c("div", [_c("img", {
+    staticClass: "login-icons",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg")
+    }
+  })]), _vm._v(" "), _c("div", [_c("input", {
+    staticClass: "login-field",
+    attrs: {
+      type: "text",
+      name: "counsel-username",
+      id: "counsel-username",
+      required: "",
+      placeholder: "Enter Username"
+    }
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    staticClass: "login-icons",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "login-content mt-4"
   }, [_c("button", {
     staticClass: "btn btn-dark",
@@ -5445,7 +5470,7 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/login_white_24dp.svg */ "./resources/pics/login_white_24dp.svg")
     }
-  })])])])])]);
+  })])]);
 }];
 render._withStripped = true;
 
@@ -5467,11 +5492,6 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "container login-body"
   }, [_c("div", {
@@ -5481,34 +5501,13 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/account.svg */ "./resources/pics/account.svg")
     }
-  }), _vm._v(" "), _c("h4", [_c("b", [_vm._v("Legislative Login")])]), _vm._v(" "), _c("form", {
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("form", {
     attrs: {
       action: "#"
     }
-  }, [_c("div", {
-    staticClass: "mt-1 login-content"
-  }, [_c("div", [_c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg")
-    }
-  })]), _vm._v(" "), _c("div", [_c("input", {
-    staticClass: "login-field",
-    attrs: {
-      type: "text",
-      name: "legislative-username",
-      id: "legislative-username",
-      required: "",
-      placeholder: "Enter Username"
-    }
-  })])]), _vm._v(" "), _c("div", {
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "login-content"
-  }, [_c("div", [_c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
-    }
-  })]), _vm._v(" "), _c("div", [_c("input", {
+  }, [_vm._m(2), _vm._v(" "), _c("div", [_c("input", {
     staticClass: "login-field",
     attrs: {
       type: "password",
@@ -5524,9 +5523,50 @@ var staticRenderFns = [function () {
       cursor: "pointer"
     },
     attrs: {
-      id: "togglePassword"
+      id: "eye"
+    },
+    on: {
+      click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), _c("div", {
+  })])]), _vm._v(" "), _vm._m(3)])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h4", [_c("b", [_vm._v("Legislative Login")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "mt-1 login-content"
+  }, [_c("div", [_c("img", {
+    staticClass: "login-icons",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg")
+    }
+  })]), _vm._v(" "), _c("div", [_c("input", {
+    staticClass: "login-field",
+    attrs: {
+      type: "text",
+      name: "legislative-username",
+      id: "legislative-username",
+      required: "",
+      placeholder: "Enter Username"
+    }
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    staticClass: "login-icons",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "login-content mt-4"
   }, [_c("button", {
     staticClass: "btn btn-dark",
@@ -5538,7 +5578,7 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/login_white_24dp.svg */ "./resources/pics/login_white_24dp.svg")
     }
-  })])])])])]);
+  })])]);
 }];
 render._withStripped = true;
 
@@ -5560,11 +5600,6 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "container login-body"
   }, [_c("div", {
@@ -5574,34 +5609,13 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/account.svg */ "./resources/pics/account.svg")
     }
-  }), _vm._v(" "), _c("h4", [_c("b", [_vm._v("Task Force Login")])]), _vm._v(" "), _c("form", {
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("form", {
     attrs: {
       action: "#"
     }
-  }, [_c("div", {
-    staticClass: "mt-1 login-content"
-  }, [_c("div", [_c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg")
-    }
-  })]), _vm._v(" "), _c("div", [_c("input", {
-    staticClass: "login-field",
-    attrs: {
-      type: "text",
-      name: "task-username",
-      id: "cto-username",
-      required: "",
-      placeholder: "Enter Username"
-    }
-  })])]), _vm._v(" "), _c("div", {
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "login-content"
-  }, [_c("div", [_c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
-    }
-  })]), _vm._v(" "), _c("div", [_c("input", {
+  }, [_vm._m(2), _vm._v(" "), _c("div", [_c("input", {
     staticClass: "login-field",
     attrs: {
       type: "password",
@@ -5617,9 +5631,50 @@ var staticRenderFns = [function () {
       cursor: "pointer"
     },
     attrs: {
-      id: "togglePassword"
+      id: "eye"
+    },
+    on: {
+      click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), _c("div", {
+  })])]), _vm._v(" "), _vm._m(3)])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h4", [_c("b", [_vm._v("Task Force Login")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "mt-1 login-content"
+  }, [_c("div", [_c("img", {
+    staticClass: "login-icons",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg")
+    }
+  })]), _vm._v(" "), _c("div", [_c("input", {
+    staticClass: "login-field",
+    attrs: {
+      type: "text",
+      name: "task-username",
+      id: "cto-username",
+      required: "",
+      placeholder: "Enter Username"
+    }
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    staticClass: "login-icons",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "login-content mt-4"
   }, [_c("button", {
     staticClass: "btn btn-dark",
@@ -5631,7 +5686,7 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/login_white_24dp.svg */ "./resources/pics/login_white_24dp.svg")
     }
-  })])])])])]);
+  })])]);
 }];
 render._withStripped = true;
 
@@ -5653,11 +5708,6 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "container login-body"
   }, [_c("div", {
@@ -5667,34 +5717,13 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/account.svg */ "./resources/pics/account.svg")
     }
-  }), _vm._v(" "), _c("h4", [_c("b", [_vm._v("City Tourism Login")])]), _vm._v(" "), _c("form", {
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("form", {
     attrs: {
       action: "#"
     }
-  }, [_c("div", {
-    staticClass: "mt-1 login-content"
-  }, [_c("div", [_c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg")
-    }
-  })]), _vm._v(" "), _c("div", [_c("input", {
-    staticClass: "login-field",
-    attrs: {
-      type: "text",
-      name: "tourism-username",
-      id: "tourism-username",
-      required: "",
-      placeholder: "Enter Username"
-    }
-  })])]), _vm._v(" "), _c("div", {
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "login-content"
-  }, [_c("div", [_c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
-    }
-  })]), _vm._v(" "), _c("div", [_c("input", {
+  }, [_vm._m(2), _vm._v(" "), _c("div", [_c("input", {
     staticClass: "login-field",
     attrs: {
       type: "password",
@@ -5710,9 +5739,50 @@ var staticRenderFns = [function () {
       cursor: "pointer"
     },
     attrs: {
-      id: "togglePassword"
+      id: "eye"
+    },
+    on: {
+      click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), _c("div", {
+  })])]), _vm._v(" "), _vm._m(3)])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h4", [_c("b", [_vm._v("City Tourism Login")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "mt-1 login-content"
+  }, [_c("div", [_c("img", {
+    staticClass: "login-icons",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg")
+    }
+  })]), _vm._v(" "), _c("div", [_c("input", {
+    staticClass: "login-field",
+    attrs: {
+      type: "text",
+      name: "tourism-username",
+      id: "tourism-username",
+      required: "",
+      placeholder: "Enter Username"
+    }
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    staticClass: "login-icons",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "login-content mt-4"
   }, [_c("button", {
     staticClass: "btn btn-dark",
@@ -5724,7 +5794,7 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/login_white_24dp.svg */ "./resources/pics/login_white_24dp.svg")
     }
-  })])])])])]);
+  })])]);
 }];
 render._withStripped = true;
 
@@ -7875,7 +7945,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.extensions a[data-v-5a242576]{\r\n    text-decoration: none;\r\n    color: rgb(128, 128, 128);\r\n    font-size: small;\n}\n.extensions[data-v-5a242576]{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    color: rgb(75, 75, 75);\r\n    flex-direction: column;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.extensions a[data-v-5a242576]{\r\n    text-decoration: none;\r\n    color: rgb(128, 128, 128);\r\n    font-size: small;\n}\n.extensions[data-v-5a242576]{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    color: rgb(75, 75, 75);\r\n    flex-direction: column;\n}\n[data-v-5a242576] .v-application--wrap {\r\n    min-height: -moz-fit-content;\r\n    min-height: fit-content;\n}\n.error-msg[data-v-5a242576]{\r\n    font-size: 12px;\r\n    width: 90%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
