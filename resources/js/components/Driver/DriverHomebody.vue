@@ -1,21 +1,30 @@
 <template>
     <div class="container-fluid">
         <div class="container driver-body mt-3">
-            <div class="row ml-2 rowleft p-2">
+            <div class="row ml-2 rowleft p-2" v-for="license in License">
                 <div class="col driver-picbox">
                     <img src="../../../pics/John Michael Cagadas_.jpg" alt="profile" class="profile">
                 </div>
-                <div class="col-md-8 cols-name">
-                    <h3>John Michael Cagadas</h3>
-                    <span>Purok 1, Kauswagan Tangub City</span>
+                <div class="col-md-7 cols-name">
+                    <h3>John Michael Cagadas </h3>
+                    <span>ID: {{license.id}} <b v-if="license.verified === false" class="status ml-2 p-1"> ! Unverified Account</b></span>
+                    <span>Expiration Date: {{license.Expiration}} </span>
+                    <span>Kauswagan Tangub City</span>
                     <span>johnmichaelcagadas@gmail.com</span>
                     <span>09683013603</span> 
+                    
                 </div>
                 <div class="col">
                     
                 </div>
-     
-                <a class="btn btn-dark logout-button" href="/logindriver" role="button">Logout <img src="../../../pics/logout_white_24dp.svg"></a> 
+                 <div class="col-md-3 logout-button">
+                  <div class="row">
+                    <div class="col"> 
+                      <a class="btn btn-dark" href="/logindriver" role="button">Logout <img src="../../../pics/logout_white_24dp.svg"></a> 
+                    </div>
+                  </div>
+                 </div>
+                
             </div>
            
 
@@ -519,12 +528,16 @@
               offense3: 1000,
               additional3: 'impounding' ,
             },
-            
-
-
+          ],
+          License: [
+            {
+              id: '2923jsaj82',
+              Expiration: '12/12/25',
+              verified: false
+            }
           ]
-
         }
+      
         
 
 
@@ -599,7 +612,7 @@ h3{
     position: absolute;
     top: 50px;
     right: 50px;
-    width: 130px;
+    width: 150px;
 }
 .tabs-title{
     font-size: 12px;
@@ -632,6 +645,12 @@ h3{
 }
 .ordinance-img{
   width: 30px;
+}
+.status{
+  width: 200px;
+  height: 40px;
+  font-size: 11px;
+  background-color: rgb(107, 11, 11);
 }
 @media only screen and (max-width: 1000px){
     .cols-name{
