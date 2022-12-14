@@ -2638,7 +2638,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         offense1: 500,
         additional2: '',
         offense2: 1000
-      }, _defineProperty(_ref8, "additional2", 'impounding'), _defineProperty(_ref8, "offense3", 1000), _defineProperty(_ref8, "additional3", 'impounding'), _ref8)]
+      }, _defineProperty(_ref8, "additional2", 'impounding'), _defineProperty(_ref8, "offense3", 1000), _defineProperty(_ref8, "additional3", 'impounding'), _ref8)],
+      License: [{
+        id: '2923jsaj82',
+        Expiration: '12/12/25',
+        verified: false
+      }]
     };
   },
   computed: {
@@ -3381,7 +3386,19 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "container-fluid"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "container driver-body mt-3"
+  }, _vm._l(_vm.License, function (license) {
+    return _c("div", {
+      staticClass: "row ml-2 rowleft p-2"
+    }, [_vm._m(0, true), _vm._v(" "), _c("div", {
+      staticClass: "col-md-7 cols-name"
+    }, [_c("h3", [_vm._v("John Michael Cagadas ")]), _vm._v(" "), _c("span", [_vm._v("ID: " + _vm._s(license.id) + " "), license.verified === false ? _c("b", {
+      staticClass: "status ml-2 p-1"
+    }, [_vm._v(" ! Unverified Account")]) : _vm._e()]), _vm._v(" "), _c("span", [_vm._v("Expiration Date: " + _vm._s(license.Expiration) + " ")]), _vm._v(" "), _c("span", [_vm._v("Kauswagan Tangub City")]), _vm._v(" "), _c("span", [_vm._v("johnmichaelcagadas@gmail.com")]), _vm._v(" "), _c("span", [_vm._v("09683013603")])]), _vm._v(" "), _c("div", {
+      staticClass: "col"
+    }), _vm._v(" "), _vm._m(1, true)]);
+  }), 0), _vm._v(" "), _c("div", {
     staticClass: "container drivers-links"
   }, [_c("v-app", [_c("v-card", [_c("v-tabs", {
     attrs: {
@@ -3781,10 +3798,6 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container driver-body mt-3"
-  }, [_c("div", {
-    staticClass: "row ml-2 rowleft p-2"
-  }, [_c("div", {
     staticClass: "col driver-picbox"
   }, [_c("img", {
     staticClass: "profile",
@@ -3792,12 +3805,18 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/John Michael Cagadas_.jpg */ "./resources/pics/John Michael Cagadas_.jpg"),
       alt: "profile"
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-8 cols-name"
-  }, [_c("h3", [_vm._v("John Michael Cagadas")]), _vm._v(" "), _c("span", [_vm._v("Purok 1, Kauswagan Tangub City")]), _vm._v(" "), _c("span", [_vm._v("johnmichaelcagadas@gmail.com")]), _vm._v(" "), _c("span", [_vm._v("09683013603")])]), _vm._v(" "), _c("div", {
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-md-3 logout-button"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
     staticClass: "col"
-  }), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-dark logout-button",
+  }, [_c("a", {
+    staticClass: "btn btn-dark",
     attrs: {
       href: "/logindriver",
       role: "button"
@@ -3806,7 +3825,7 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/logout_white_24dp.svg */ "./resources/pics/logout_white_24dp.svg")
     }
-  })])])]);
+  })])])])]);
 }];
 render._withStripped = true;
 
@@ -8053,7 +8072,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".driver-body[data-v-5e00fa56] {\n  width: 75%;\n  background-color: #2e2e2e;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.profile[data-v-5e00fa56] {\n  width: 130px;\n  height: 130px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 100px;\n  border: 5px solid #9c9c9c;\n}\n.blued[data-v-5e00fa56] {\n  background-color: aqua;\n}\n.driver-picbox[data-v-5e00fa56] {\n  width: 140px;\n  height: 140px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n}\n.rowleft[data-v-5e00fa56] {\n  position: relative;\n  left: 0px;\n}\nh3[data-v-5e00fa56] {\n  font-family: Impact, Haettenschweiler, \"Arial Narrow Bold\", sans-serif;\n  position: relative;\n  top: 10px;\n}\n.cols-name[data-v-5e00fa56] {\n  display: flex;\n  flex-direction: column;\n}\n.drivers-links[data-v-5e00fa56] {\n  width: 76%;\n  height: 430px;\n  font-family: monospace;\n  position: relative;\n}\n[data-v-5e00fa56] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.logout-button[data-v-5e00fa56] {\n  position: absolute;\n  top: 50px;\n  right: 50px;\n  width: 130px;\n}\n.tabs-title[data-v-5e00fa56] {\n  font-size: 12px;\n}\n.overflowing[data-v-5e00fa56] {\n  max-height: 400px;\n  overflow-y: auto;\n}\n.vehicle-accord[data-v-5e00fa56] {\n  background-color: #cfcfcf;\n  color: black;\n  font-size: 13px;\n}\n.vehicle-body[data-v-5e00fa56] {\n  background-color: #161616;\n  color: #ececec;\n}\n.vehicle-img[data-v-5e00fa56] {\n  width: 60px;\n  height: 60px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 10px;\n  border: 2px solid #505050;\n}\n.text-type[data-v-5e00fa56] {\n  font-size: 13px;\n  height: 55px;\n  width: 140px;\n}\n.ordinance-img[data-v-5e00fa56] {\n  width: 30px;\n}\n@media only screen and (max-width: 1000px) {\n.cols-name[data-v-5e00fa56] {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.logout-button[data-v-5e00fa56] {\n    top: 5px;\n    right: 5px;\n    font-size: 10px;\n    width: 100px;\n}\n.drivers-links[data-v-5e00fa56] {\n    width: 100%;\n}\n.driver-body[data-v-5e00fa56] {\n    width: 90%;\n}\n.tabs-title[data-v-5e00fa56] {\n    font-size: 11px;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".driver-body[data-v-5e00fa56] {\n  width: 75%;\n  background-color: #2e2e2e;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.profile[data-v-5e00fa56] {\n  width: 130px;\n  height: 130px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 100px;\n  border: 5px solid #9c9c9c;\n}\n.blued[data-v-5e00fa56] {\n  background-color: aqua;\n}\n.driver-picbox[data-v-5e00fa56] {\n  width: 140px;\n  height: 140px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n}\n.rowleft[data-v-5e00fa56] {\n  position: relative;\n  left: 0px;\n}\nh3[data-v-5e00fa56] {\n  font-family: Impact, Haettenschweiler, \"Arial Narrow Bold\", sans-serif;\n  position: relative;\n  top: 10px;\n}\n.cols-name[data-v-5e00fa56] {\n  display: flex;\n  flex-direction: column;\n}\n.drivers-links[data-v-5e00fa56] {\n  width: 76%;\n  height: 430px;\n  font-family: monospace;\n  position: relative;\n}\n[data-v-5e00fa56] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.logout-button[data-v-5e00fa56] {\n  position: absolute;\n  top: 50px;\n  right: 50px;\n  width: 150px;\n}\n.tabs-title[data-v-5e00fa56] {\n  font-size: 12px;\n}\n.overflowing[data-v-5e00fa56] {\n  max-height: 400px;\n  overflow-y: auto;\n}\n.vehicle-accord[data-v-5e00fa56] {\n  background-color: #cfcfcf;\n  color: black;\n  font-size: 13px;\n}\n.vehicle-body[data-v-5e00fa56] {\n  background-color: #161616;\n  color: #ececec;\n}\n.vehicle-img[data-v-5e00fa56] {\n  width: 60px;\n  height: 60px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 10px;\n  border: 2px solid #505050;\n}\n.text-type[data-v-5e00fa56] {\n  font-size: 13px;\n  height: 55px;\n  width: 140px;\n}\n.ordinance-img[data-v-5e00fa56] {\n  width: 30px;\n}\n.status[data-v-5e00fa56] {\n  width: 200px;\n  height: 40px;\n  font-size: 11px;\n  background-color: #6b0b0b;\n}\n@media only screen and (max-width: 1000px) {\n.cols-name[data-v-5e00fa56] {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.logout-button[data-v-5e00fa56] {\n    top: 5px;\n    right: 5px;\n    font-size: 10px;\n    width: 100px;\n}\n.drivers-links[data-v-5e00fa56] {\n    width: 100%;\n}\n.driver-body[data-v-5e00fa56] {\n    width: 90%;\n}\n.tabs-title[data-v-5e00fa56] {\n    font-size: 11px;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
