@@ -19,8 +19,12 @@
                 </div>
                  <div class="col-md-3 logout-button">
                   <div class="row">
-                    <div class="col"> 
-                      <a class="btn btn-dark" href="/logindriver" role="button">Logout <img src="../../../pics/logout_white_24dp.svg"></a> 
+                    <div class="col">
+                      <button class="btn btn-dark" 
+                        @click="logout"
+                        role="button">Logout 
+                        <img src="../../../pics/logout_white_24dp.svg">
+                      </button>
                     </div>
                   </div>
                  </div>
@@ -538,9 +542,15 @@
           ]
         }
       
-        
 
+   },
 
+   methods: {
+    logout(){
+      axios.post('/logout').then(()=>{
+        window.location = '/'
+      })
+    }
    },
    
     computed: {
