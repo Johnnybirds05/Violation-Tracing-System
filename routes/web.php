@@ -37,25 +37,49 @@ Route::get('/loginlegislative', function () {
     return view('logins/legislative');
 });
 
-Route::get('/logindriver', function () {
-    return view('driver/driverlogin');
-});
 
-Route::get('/registerdriver', function () {
-    return view('driver/driverregister');
-});
+//-----------------DRIVER ROUTES----------------------
+Route::get('/driver-login', [App\Http\Controllers\Driver\DriverLoginController::class, 'index']);
+Route::post('/driver-login', [App\Http\Controllers\Driver\DriverLoginController::class, 'login']);
 
-Route::get('/homedriver', function () {
-    return view('driver/driverhome');
-});
+Route::get('/driver-register', [App\Http\Controllers\Driver\DriverRegisterController::class, 'index']);
+
+Route::get('/driver-home', [App\Http\Controllers\Driver\DriverHomeController::class, 'index']);
+
+
+
+//-----------------DRIVER ROUTES----------------------
+
+
 Route::get('/addvehicle', function () {
     return view('driver/addvehicle');
 });
 
 
-
-Auth::routes();
+Auth::routes([
+    'login' => false,
+    'register' => false
+]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/cto', [App\Http\Controllers\CtoController::class, 'index'])->name('cto');
+
+
+
+
+
+//extra routes for testing only
+
+Route::get('/session', function(){
+    return Session::all();
+});
+
+
+Route::get('/applogout', function(Request $req){
+    \Auth::logout();
+    $req->session()->invalidate();
+    $req->session()->regenerateToken();
+
+
+});

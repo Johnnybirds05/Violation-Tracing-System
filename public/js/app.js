@@ -2690,15 +2690,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-    var togglePassword = document.querySelector('#togglePassword');
-    var password = document.querySelector('#password');
-    togglePassword.addEventListener('click', function (e) {
+  data: function data() {
+    return {
+      //variables here...
+      fields: {},
+      errors: {}
+    };
+  },
+  methods: {
+    //methods/function here....
+    togglePasswordVisibility: function togglePasswordVisibility() {
       var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
       password.setAttribute('type', type);
-      this.classList.toggle('fa-eye-slash');
-    });
+      document.getElementById('eye').classList.toggle('fa-eye-slash');
+    },
+    //neg submit or click sa login button fire this method
+    submit: function submit() {
+      var _this = this;
+      axios.post('/driver-login', this.fields).then(function (res) {
+        if (res.data.role === 'DRIVER') {
+          window.location = '/driver-dashboard';
+        }
+      })["catch"](function (err) {
+        console.log(err.response.data.errors);
+        _this.errors = err.response.data.errors;
+      });
+    }
+  },
+  mounted: function mounted() {
+    //methods/function here.. but use this mounted if mag initialize or something naa kai event e raise during mount
+    //sa component
   }
 });
 
@@ -2761,11 +2782,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
-});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -3881,11 +3898,6 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "container login-body"
   }, [_c("div", {
@@ -3895,41 +3907,62 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/account.svg */ "./resources/pics/account.svg")
     }
-  }), _vm._v(" "), _c("h4", [_c("b", [_vm._v("Driver Login")])]), _vm._v(" "), _c("form", {
-    attrs: {
-      action: "#"
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("form", {
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.submit.apply(null, arguments);
+      }
     }
   }, [_c("div", {
     staticClass: "mt-4 login-content"
-  }, [_c("div", [_c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg")
-    }
-  })]), _vm._v(" "), _c("div", [_c("input", {
+  }, [_vm._m(1), _vm._v(" "), _c("div", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.username,
+      expression: "fields.username"
+    }],
     staticClass: "login-field",
     attrs: {
       type: "text",
-      name: "counsel-username",
       id: "counsel-username",
       required: "",
       placeholder: "Enter Username"
+    },
+    domProps: {
+      value: _vm.fields.username
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "username", $event.target.value);
+      }
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "login-content"
-  }, [_c("div", [_c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
-    }
-  })]), _vm._v(" "), _c("div", [_c("input", {
+  }, [_vm._m(2), _vm._v(" "), _c("div", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.password,
+      expression: "fields.password"
+    }],
     staticClass: "login-field",
     attrs: {
       type: "password",
-      name: "counsel-password",
       id: "password",
       required: "",
       placeholder: "Enter Password"
+    },
+    domProps: {
+      value: _vm.fields.password
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "password", $event.target.value);
+      }
     }
   }), _vm._v(" "), _c("i", {
     staticClass: "far fa-eye",
@@ -3938,19 +3971,53 @@ var staticRenderFns = [function () {
       cursor: "pointer"
     },
     attrs: {
-      id: "togglePassword"
+      id: "eye"
+    },
+    on: {
+      click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), _c("div", {
+  })])]), _vm._v(" "), this.errors.username ? _c("div", [_vm._v("\n                    " + _vm._s(this.errors.username[0]) + "\n                ")]) : _vm._e(), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h4", [_c("b", [_vm._v("Driver Login")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    staticClass: "login-icons",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg")
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    staticClass: "login-icons",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "extensions mt-5"
   }, [_c("a", {
     attrs: {
-      href: "/registerdriver"
+      href: "/driver-register"
     }
-  }, [_vm._v(" Don't have an account?")]), _vm._v("\n                        or \n                        "), _c("a", {
+  }, [_vm._v(" Don't have an account?")]), _vm._v("\n                    or \n                    "), _c("a", {
     attrs: {
-      href: "/register"
+      href: "#"
     }
-  }, [_vm._v(" Forgot Password")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(" Forgot Password")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "login-content mt-4"
   }, [_c("button", {
     staticClass: "btn btn-dark",
@@ -3962,7 +4029,7 @@ var staticRenderFns = [function () {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/login_white_24dp.svg */ "./resources/pics/login_white_24dp.svg")
     }
-  })])])])])]);
+  })])]);
 }];
 render._withStripped = true;
 
@@ -4422,7 +4489,7 @@ var staticRenderFns = [function () {
   }, [_c("a", {
     staticClass: "btn btn-dark text-right pe-3 px-3 m-1",
     attrs: {
-      href: "/logindriver",
+      href: "/driver-login",
       role: "button"
     }
   }, [_vm._v("Login")]), _vm._v(" "), _c("a", {
@@ -4985,7 +5052,7 @@ var staticRenderFns = [function () {
   }, [_c("a", {
     staticClass: "btn btn-dark",
     attrs: {
-      href: "/admins"
+      href: "#"
     }
   }, [_vm._v("Get Started "), _c("img", {
     attrs: {
@@ -5013,7 +5080,7 @@ var staticRenderFns = [function () {
   }, [_c("a", {
     staticClass: "btn btn-dark",
     attrs: {
-      href: "/logindriver"
+      href: "/driver-login"
     }
   }, [_vm._v("Get Started "), _c("img", {
     attrs: {
