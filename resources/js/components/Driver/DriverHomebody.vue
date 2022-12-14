@@ -110,9 +110,27 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                  <v-btn href="/addvehicle">
+                                  <button type="button" class="btn btn-dark button-detail text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Edit Details
-                                  </v-btn>
+                                  </button>
+
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                      <div class="modal-content bg-dark">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title text-white" id="exampleModalLabel">Information: </h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-white">
+                                          Please go to the City Tourism Office of Tangub City to be able to edit the details of your profile or vehicle!
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-primary text-white" data-bs-dismiss="modal">okay</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                                 <div class="col-md-12 bg-danger text-white"  v-if="verified[index] == false">
                                     <b> Note: To verify your vehicle information. Please go to the Tangub City, City Tourism Office!</b> 
@@ -349,6 +367,14 @@
 
 <script>
     export default {
+      mounted(){
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', function () {
+          myInput.focus()
+        })
+      },
     data () {
         return{
           plates: [
@@ -551,20 +577,16 @@
         window.location = '/'
       })
     }
+    
+
+    
    },
    
-    computed: {
-      subtotal: function() {
-        var total;
-        this.registrationReq.forEach(req =>{
-          total += (req.cost);
-          return total
-        })
-      }
-  }
-   
-   }
-   
+
+  
+}
+
+  
 </script>
 
 <style lang="scss" scoped>
@@ -661,6 +683,14 @@ h3{
   height: 40px;
   font-size: 11px;
   background-color: rgb(107, 11, 11);
+}
+.button-detail{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: white;
+}
+.text-white{
+  color: white;
 }
 @media only screen and (max-width: 1000px){
     .cols-name{
