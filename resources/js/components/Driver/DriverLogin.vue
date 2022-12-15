@@ -23,9 +23,15 @@
                             <i class="far fa-eye" id="eye" @click="togglePasswordVisibility" style="margin-left: -30px; cursor: pointer;"></i>
                         </div>  
                     </div>
-                    <v-app>
-                        <v-alert type="error" class="text-type error-msg"  v-if="this.errors.username"> {{ this.errors.username[0] }}</v-alert>
-                    </v-app>
+                        <div class="container error-msg" v-if="this.errors.username">
+                            <div class="alert alert-danger d-flex align-items-center bg-warning" role="alert">
+                                <img src="./../../../pics/warning_amber_white_24dp.svg" width="24" height="24" role="img" aria-label="Danger:">
+                                <div class="ml-3">
+                                    <b>{{this.errors.username[0]}}</b>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Dispose"></button>
+                            </div>
+                        </div>
                     <div class="extensions mt-5">
                         <a href="/driver-register"> Don't have an account?</a>
                         or 
@@ -107,7 +113,12 @@
     min-height: fit-content;
   }
 .error-msg{
-    font-size: 12px;
+    font-size: 13px;
     width: 90%;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    animation-name: to-left;
+    animation-duration: 1s;
 }
 </style>

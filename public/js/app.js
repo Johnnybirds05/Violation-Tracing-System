@@ -4008,12 +4008,31 @@ var render = function render() {
     on: {
       click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), _c("v-app", [this.errors.username ? _c("v-alert", {
-    staticClass: "text-type error-msg",
+  })])]), _vm._v(" "), this.errors.username ? _c("div", {
+    staticClass: "container error-msg"
+  }, [_c("div", {
+    staticClass: "alert alert-danger d-flex align-items-center bg-warning",
     attrs: {
-      type: "error"
+      role: "alert"
     }
-  }, [_vm._v(" " + _vm._s(this.errors.username[0]))]) : _vm._e()], 1), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)], 1)])]);
+  }, [_c("img", {
+    attrs: {
+      src: __webpack_require__(/*! ./../../../pics/warning_amber_white_24dp.svg */ "./resources/pics/warning_amber_white_24dp.svg"),
+      width: "24",
+      height: "24",
+      role: "img",
+      "aria-label": "Danger:"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "ml-3"
+  }, [_c("b", [_vm._v(_vm._s(this.errors.username[0]))])]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "alert",
+      "aria-label": "Dispose"
+    }
+  })])]) : _vm._e(), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -7987,7 +8006,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.extensions a[data-v-5a242576]{\r\n    text-decoration: none;\r\n    color: rgb(128, 128, 128);\r\n    font-size: small;\n}\n.extensions[data-v-5a242576]{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    color: rgb(75, 75, 75);\r\n    flex-direction: column;\n}\n[data-v-5a242576] .v-application--wrap {\r\n    min-height: -moz-fit-content;\r\n    min-height: fit-content;\n}\n.error-msg[data-v-5a242576]{\r\n    font-size: 12px;\r\n    width: 90%;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.extensions a[data-v-5a242576]{\r\n    text-decoration: none;\r\n    color: rgb(128, 128, 128);\r\n    font-size: small;\n}\n.extensions[data-v-5a242576]{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    color: rgb(75, 75, 75);\r\n    flex-direction: column;\n}\n[data-v-5a242576] .v-application--wrap {\r\n    min-height: -moz-fit-content;\r\n    min-height: fit-content;\n}\n.error-msg[data-v-5a242576]{\r\n    font-size: 13px;\r\n    width: 90%;\r\n    position: absolute;\r\n    top: 30%;\r\n    left: 5%;\r\n    animation-name: to-left;\r\n    animation-duration: 1s;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8605,6 +8624,16 @@ module.exports = "/images/two_wheeler_white_24dp.svg?8bebb657544130483dcc13364df
 /***/ ((module) => {
 
 module.exports = "/images/user.svg?698b475e248406cbf1b00447c5346e17";
+
+/***/ }),
+
+/***/ "./resources/pics/warning_amber_white_24dp.svg":
+/*!*****************************************************!*\
+  !*** ./resources/pics/warning_amber_white_24dp.svg ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+module.exports = "/images/warning_amber_white_24dp.svg?2f7f711fd0c70eafd3e7dcbf6659a86a";
 
 /***/ }),
 
