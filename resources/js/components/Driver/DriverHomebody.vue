@@ -695,7 +695,7 @@ h3{
 .tab-size{
   width: 10%;
 }
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 500px){
     .cols-name{
         display: flex;
         justify-content: center;
@@ -711,7 +711,12 @@ h3{
         width: 100%;
     }
     .driver-body{
-        width: 90%;
+        width: 100%;
     }
+    .vehicle-img{
+      width: 30px;
+      height: 30px;
+    }
+
 }
 </style>

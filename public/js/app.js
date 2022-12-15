@@ -2885,6 +2885,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      tab: null,
+      drawer: null
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/homepage/BodyAdmins.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/homepage/BodyAdmins.vue?vue&type=script&lang=js& ***!
@@ -4877,6 +4899,115 @@ var render = function render() {
       }
     }, [_c("v-list-item-icon", [_c("v-icon", [_vm._v(_vm._s(item.icon))])], 1), _vm._v(" "), _c("v-list-item-content", [_c("v-list-item-title", [_vm._v(_vm._s(item.title))])], 1)], 1);
   }), 1)], 1)], 1);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=template&id=17e31f18&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=template&id=17e31f18&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "container-fluid max-content"
+  }, [_c("div", {
+    staticClass: "container tourism-body mt-3"
+  }, [_c("v-app", [_c("v-card", [_c("v-navigation-drawer", {
+    staticClass: "navs",
+    attrs: {
+      temporary: ""
+    },
+    model: {
+      value: _vm.drawer,
+      callback: function callback($$v) {
+        _vm.drawer = $$v;
+      },
+      expression: "drawer"
+    }
+  }, [_c("v-list-item", [_c("v-list-item-avatar", [_c("v-img", {
+    attrs: {
+      src: "https://randomuser.me/api/portraits/men/78.jpg"
+    }
+  })], 1), _vm._v(" "), _c("v-list-item-content", [_c("v-list-item-title", [_vm._v("John Leider")])], 1)], 1), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-list", {
+    attrs: {
+      dense: ""
+    }
+  }, _vm._l(_vm.items, function (item) {
+    return _c("v-list-item", {
+      key: item.title,
+      attrs: {
+        link: ""
+      }
+    }, [_c("v-list-item-icon", [_c("v-icon", [_vm._v(_vm._s(item.icon))])], 1), _vm._v(" "), _c("v-list-item-content", [_c("v-list-item-title", [_vm._v(_vm._s(item.title))])], 1)], 1);
+  }), 1)], 1), _vm._v(" "), _c("v-toolbar", {
+    attrs: {
+      color: "grey darken-3",
+      dark: "",
+      flat: ""
+    },
+    scopedSlots: _vm._u([{
+      key: "extension",
+      fn: function fn() {
+        return [_c("v-tabs", {
+          attrs: {
+            "align-with-title": ""
+          },
+          model: {
+            value: _vm.tab,
+            callback: function callback($$v) {
+              _vm.tab = $$v;
+            },
+            expression: "tab"
+          }
+        }, [_c("v-tabs-slider", {
+          attrs: {
+            color: "yellow"
+          }
+        }), _vm._v(" "), _c("v-tab", [_vm._v("\n                        Drivers\n                    ")]), _vm._v(" "), _c("v-tab", [_vm._v("\n                        Driving Requirement\n                    ")]), _vm._v(" "), _c("v-tab", [_vm._v("\n                        Accounts\n                    ")])], 1)];
+      },
+      proxy: true
+    }])
+  }, [_c("v-app-bar-nav-icon", {
+    on: {
+      click: function click($event) {
+        $event.stopPropagation();
+        _vm.drawer = !_vm.drawer;
+      }
+    }
+  }), _vm._v(" "), _c("v-toolbar-title", [_vm._v("CTO Dashboard")]), _vm._v(" "), _c("v-spacer")], 1), _vm._v(" "), _c("v-tabs-items", {
+    model: {
+      value: _vm.tab,
+      callback: function callback($$v) {
+        _vm.tab = $$v;
+      },
+      expression: "tab"
+    }
+  }, [_c("v-tab-item", [_c("v-card", {
+    attrs: {
+      flat: ""
+    }
+  }, [_c("v-card-text", [_vm._v("\n                        hello  "), _c("br"), _c("br"), _c("br"), _c("br"), _c("br"), _c("br"), _c("br")])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+    attrs: {
+      flat: ""
+    }
+  }, [_c("v-card-text", [_vm._v("\n                        hi\n\n  \n\n\n                    ")])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+    attrs: {
+      flat: ""
+    }
+  }, [_c("v-card-text", [_vm._v("\n                        bro\n                    ")])], 1)], 1)], 1)], 1)], 1)], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -8268,7 +8399,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".driver-body[data-v-5e00fa56] {\n  width: 75%;\n  background-color: #2e2e2e;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.profile[data-v-5e00fa56] {\n  width: 130px;\n  height: 130px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 100px;\n  border: 5px solid #9c9c9c;\n}\n.blued[data-v-5e00fa56] {\n  background-color: aqua;\n}\n.driver-picbox[data-v-5e00fa56] {\n  width: 140px;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  flex-direction: column;\n}\n.rowleft[data-v-5e00fa56] {\n  position: relative;\n  left: 0px;\n}\nh3[data-v-5e00fa56] {\n  font-family: Impact, Haettenschweiler, \"Arial Narrow Bold\", sans-serif;\n  position: relative;\n  top: 10px;\n}\n.cols-name[data-v-5e00fa56] {\n  display: flex;\n  flex-direction: column;\n}\n.drivers-links[data-v-5e00fa56] {\n  width: 76%;\n  height: 430px;\n  font-family: monospace;\n  position: relative;\n}\n[data-v-5e00fa56] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.logout-button[data-v-5e00fa56] {\n  position: absolute;\n  top: 50px;\n  right: 50px;\n  width: 150px;\n}\n.tabs-title[data-v-5e00fa56] {\n  font-size: 12px;\n}\n.overflowing[data-v-5e00fa56] {\n  max-height: 400px;\n  overflow-y: auto;\n  overflow-x: auto;\n}\n.vehicle-accord[data-v-5e00fa56] {\n  background-color: #cfcfcf;\n  color: black;\n  font-size: 13px;\n}\n.vehicle-body[data-v-5e00fa56] {\n  background-color: #161616;\n  color: #ececec;\n}\n.vehicle-img[data-v-5e00fa56] {\n  width: 60px;\n  height: 60px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 10px;\n  border: 2px solid #505050;\n}\n.text-type[data-v-5e00fa56] {\n  font-size: 13px;\n  height: 55px;\n  width: 140px;\n}\n.ordinance-img[data-v-5e00fa56] {\n  width: 30px;\n}\n.status[data-v-5e00fa56] {\n  width: 200px;\n  height: 40px;\n  font-size: 11px;\n  background-color: #6b0b0b;\n}\n.button-detail[data-v-5e00fa56] {\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: white;\n  border: 1px solid white;\n}\n.text-white[data-v-5e00fa56] {\n  color: white;\n}\n.tab-size[data-v-5e00fa56] {\n  width: 10%;\n}\n@media only screen and (max-width: 1000px) {\n.cols-name[data-v-5e00fa56] {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.logout-button[data-v-5e00fa56] {\n    top: 5px;\n    right: 5px;\n    font-size: 10px;\n    width: 100px;\n}\n.drivers-links[data-v-5e00fa56] {\n    width: 100%;\n}\n.driver-body[data-v-5e00fa56] {\n    width: 90%;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".driver-body[data-v-5e00fa56] {\n  width: 75%;\n  background-color: #2e2e2e;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.profile[data-v-5e00fa56] {\n  width: 130px;\n  height: 130px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 100px;\n  border: 5px solid #9c9c9c;\n}\n.blued[data-v-5e00fa56] {\n  background-color: aqua;\n}\n.driver-picbox[data-v-5e00fa56] {\n  width: 140px;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  flex-direction: column;\n}\n.rowleft[data-v-5e00fa56] {\n  position: relative;\n  left: 0px;\n}\nh3[data-v-5e00fa56] {\n  font-family: Impact, Haettenschweiler, \"Arial Narrow Bold\", sans-serif;\n  position: relative;\n  top: 10px;\n}\n.cols-name[data-v-5e00fa56] {\n  display: flex;\n  flex-direction: column;\n}\n.drivers-links[data-v-5e00fa56] {\n  width: 76%;\n  height: 430px;\n  font-family: monospace;\n  position: relative;\n}\n[data-v-5e00fa56] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.logout-button[data-v-5e00fa56] {\n  position: absolute;\n  top: 50px;\n  right: 50px;\n  width: 150px;\n}\n.tabs-title[data-v-5e00fa56] {\n  font-size: 12px;\n}\n.overflowing[data-v-5e00fa56] {\n  max-height: 400px;\n  overflow-y: auto;\n  overflow-x: auto;\n}\n.vehicle-accord[data-v-5e00fa56] {\n  background-color: #cfcfcf;\n  color: black;\n  font-size: 13px;\n}\n.vehicle-body[data-v-5e00fa56] {\n  background-color: #161616;\n  color: #ececec;\n}\n.vehicle-img[data-v-5e00fa56] {\n  width: 60px;\n  height: 60px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 10px;\n  border: 2px solid #505050;\n}\n.text-type[data-v-5e00fa56] {\n  font-size: 13px;\n  height: 55px;\n  width: 140px;\n}\n.ordinance-img[data-v-5e00fa56] {\n  width: 30px;\n}\n.status[data-v-5e00fa56] {\n  width: 200px;\n  height: 40px;\n  font-size: 11px;\n  background-color: #6b0b0b;\n}\n.button-detail[data-v-5e00fa56] {\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: white;\n  border: 1px solid white;\n}\n.text-white[data-v-5e00fa56] {\n  color: white;\n}\n.tab-size[data-v-5e00fa56] {\n  width: 10%;\n}\n@media only screen and (max-width: 500px) {\n.cols-name[data-v-5e00fa56] {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.logout-button[data-v-5e00fa56] {\n    top: 5px;\n    right: 5px;\n    font-size: 10px;\n    width: 100px;\n}\n.drivers-links[data-v-5e00fa56] {\n    width: 100%;\n}\n.driver-body[data-v-5e00fa56] {\n    width: 100%;\n}\n.vehicle-img[data-v-5e00fa56] {\n    width: 30px;\n    height: 30px;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8293,6 +8424,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "[data-v-6af40d1e] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.register-body[data-v-6af40d1e] {\n  opacity: 0.7;\n  animation-name: to-left;\n  animation-duration: 1s;\n}\n.register-div[data-v-6af40d1e] {\n  margin-top: 20px;\n  width: 70%;\n}\n.register-fills[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 5px;\n}\n.overflowing[data-v-6af40d1e] {\n  overflow-y: auto;\n  overflow-x: hidden;\n}\n.icons[data-v-6af40d1e] {\n  font-size: 25px;\n}\nlabel[data-v-6af40d1e] {\n  font-size: 12px;\n}\nb[data-v-6af40d1e] {\n  font-size: 15px;\n}\n.form-control[data-v-6af40d1e], .form-select[data-v-6af40d1e], .input-group[data-v-6af40d1e] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "[data-v-17e31f18] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.tourism-body[data-v-17e31f18] {\n  width: 95%;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.max-content[data-v-17e31f18] {\n  height: 600px;\n}\n.navs[data-v-17e31f18] {\n  position: absolute;\n  height: 200px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9445,6 +9600,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismDashboard_vue_vue_type_style_index_0_id_17e31f18_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismDashboard_vue_vue_type_style_index_0_id_17e31f18_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismDashboard_vue_vue_type_style_index_0_id_17e31f18_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -10208,6 +10393,47 @@ component.options.__file = "resources/js/components/SidebarMenu.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Tourism/TourismDashboard.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/Tourism/TourismDashboard.vue ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _TourismDashboard_vue_vue_type_template_id_17e31f18_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TourismDashboard.vue?vue&type=template&id=17e31f18&scoped=true& */ "./resources/js/components/Tourism/TourismDashboard.vue?vue&type=template&id=17e31f18&scoped=true&");
+/* harmony import */ var _TourismDashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TourismDashboard.vue?vue&type=script&lang=js& */ "./resources/js/components/Tourism/TourismDashboard.vue?vue&type=script&lang=js&");
+/* harmony import */ var _TourismDashboard_vue_vue_type_style_index_0_id_17e31f18_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true& */ "./resources/js/components/Tourism/TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _TourismDashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TourismDashboard_vue_vue_type_template_id_17e31f18_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _TourismDashboard_vue_vue_type_template_id_17e31f18_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "17e31f18",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Tourism/TourismDashboard.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/homepage/BodyAdmins.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/components/homepage/BodyAdmins.vue ***!
@@ -10843,6 +11069,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Tourism/TourismDashboard.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/Tourism/TourismDashboard.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismDashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TourismDashboard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismDashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/homepage/BodyAdmins.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/homepage/BodyAdmins.vue?vue&type=script&lang=js& ***!
@@ -11219,6 +11461,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarMenu_vue_vue_type_template_id_d3c0c780___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarMenu_vue_vue_type_template_id_d3c0c780___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SidebarMenu.vue?vue&type=template&id=d3c0c780& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SidebarMenu.vue?vue&type=template&id=d3c0c780&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Tourism/TourismDashboard.vue?vue&type=template&id=17e31f18&scoped=true&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/Tourism/TourismDashboard.vue?vue&type=template&id=17e31f18&scoped=true& ***!
+  \*********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismDashboard_vue_vue_type_template_id_17e31f18_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismDashboard_vue_vue_type_template_id_17e31f18_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismDashboard_vue_vue_type_template_id_17e31f18_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TourismDashboard.vue?vue&type=template&id=17e31f18&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=template&id=17e31f18&scoped=true&");
 
 
 /***/ }),
@@ -11601,6 +11860,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterBody_vue_vue_type_style_index_0_id_6af40d1e_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisterBody.vue?vue&type=style&index=0&id=6af40d1e&scoped=true&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/RegisterBody.vue?vue&type=style&index=0&id=6af40d1e&scoped=true&lang=scss&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Tourism/TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true&":
+/*!************************************************************************************************************************!*\
+  !*** ./resources/js/components/Tourism/TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true& ***!
+  \************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismDashboard_vue_vue_type_style_index_0_id_17e31f18_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true&");
 
 
 /***/ }),
@@ -70087,6 +70359,7 @@ var map = {
 	"./components/Login.vue": "./resources/js/components/Login.vue",
 	"./components/SelectionBox.vue": "./resources/js/components/SelectionBox.vue",
 	"./components/SidebarMenu.vue": "./resources/js/components/SidebarMenu.vue",
+	"./components/Tourism/TourismDashboard.vue": "./resources/js/components/Tourism/TourismDashboard.vue",
 	"./components/homepage/BodyAdmins.vue": "./resources/js/components/homepage/BodyAdmins.vue",
 	"./components/homepage/BodyHome.vue": "./resources/js/components/homepage/BodyHome.vue",
 	"./components/homepage/FooterHome.vue": "./resources/js/components/homepage/FooterHome.vue",

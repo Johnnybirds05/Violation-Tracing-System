@@ -36,7 +36,9 @@ Route::get('/logintourism', function () {
 Route::get('/loginlegislative', function () {
     return view('logins/legislative');
 });
-
+Route::get('/tourism-dashboard', function () {
+    return view('tourism/tourism-dashboard');
+});
 
 //-----------------DRIVER ROUTES----------------------
 Route::get('/driver-login', [App\Http\Controllers\Driver\DriverLoginController::class, 'index']);
