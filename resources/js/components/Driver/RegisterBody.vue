@@ -25,7 +25,7 @@
     <v-stepper-items>
         
     <v-stepper-content step="1">
-            <v-card class="mb-12 overflowing" color="grey darken-3" height="600px">
+            <v-card class="mb-12 overflowing" color="grey darken-3" height="610px">
             <hr>
                 <div class="container-fluid register-fills">
                     <b>Personal Information</b>
@@ -38,22 +38,22 @@
 
                         <div class="col-md-4">
                             <label class="form-label"> First Name: </label>
-                            <input type="text" class="form-control" id="driver-firstname">
+                            <input type="text" class="form-control input" id="driver-firstname">
                         </div>
 
                         <div class="col-md-3">
                             <label class="form-label"> Last Name: </label>
-                            <input type="text" class="form-control" id="driver-lastname">
+                            <input type="text" class="form-control input" id="driver-lastname">
                         </div>
 
                         <div class="col-md-3">
                             <label class="form-label">Middle Name: </label>
-                            <input type="text" class="form-control" id="driver-middlename">
+                            <input type="text" class="form-control input" id="driver-middlename">
                         </div>
 
                         <div class="col-md-1">
                             <label class="form-label">Suffix: </label>
-                            <input type="text" class="form-control" id="driver-suffix" placeholder="SR." maxlength="3">
+                            <input type="text" class="form-control input" id="driver-suffix" placeholder="SR." maxlength="3">
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
 
                         <div class="col-md-2">
                             <label class="form-label">Sex: </label>
-                            <select class="form-select" name="sex" aria-label="Default select example">
+                            <select class="form-select input" name="sex" aria-label="Default select example">
                                 <option selected disabled>Select</option>
                                 <option value="1">male</option>
                                 <option value="2">female</option>
@@ -72,7 +72,7 @@
 
                         <div class="col-md-3">
                             <label for="date" class="form-label">Birthdate: </label>
-                            <div class="input-group date" id="birthdate">
+                            <div class="input-group date input" id="birthdate">
                                 <input type="text" class="form-control">
                                 <span class="input-group-append">
                                     <span class="input-group-text bg-white">
@@ -84,7 +84,7 @@
                         
                                         
                         <div class="col-md-4">
-                            <label for="formFileSm" class="form-label">Picture(2by2):</label>
+                            <label for="formFileSm" class="form-label input">Picture(2by2):</label>
                             <input class="form-control" id="formFile" type="file" accept="image/png, image/gif, image/jpeg">
                         </div>               
                     </div>          
@@ -101,21 +101,21 @@
 
                         <div class="col-md-3">
                             <label class="form-label">Province:</label>
-                            <select class="form-select" name="province" aria-label="Default select example">
+                            <select class="form-select input" name="province" aria-label="Default select example">
                                 <option selected disabled>Select</option>
                             </select>
                         </div>
 
                         <div class="col-md-3">
                             <label class="form-label">City:</label>
-                            <select class="form-select" name="city" aria-label="Default select example">
+                            <select class="form-select input" name="city" aria-label="Default select example">
                                 <option selected disabled>Select</option>
                             </select>
                         </div>
 
                         <div class="col-md-3">
                             <label class="form-label">Barangay:</label>
-                            <select class="form-select" name="barangay" aria-label="Default select example">
+                            <select class="form-select input" name="barangay" aria-label="Default select example">
                                 <option selected disabled>Select</option>
                             </select>
                         </div>
@@ -133,12 +133,12 @@
 
                     <div class="col-md-4">
                         <label class="form-label">Email:</label>
-                        <input type="email" class="form-control" id="driver-email">
+                        <input type="email" class="form-control input" id="driver-email">
                     </div>
 
                     <div class="col-md-3">
                         <label class="form-label">Mobile Number:</label>
-                        <input type="number" class="form-control" id="driver-number">
+                        <input type="number" class="form-control input" id="driver-number">
                     </div>
 
                 </div>
@@ -165,7 +165,7 @@
 
                     <div class="col-md-3">
                         <label class="form-label"> ID Type: </label>
-                            <select class="form-select" name="id-type" aria-label="Default select example">
+                            <select class="form-select input" name="id-type" aria-label="Default select example">
                                 <option selected disabled>Select</option>
                                 <option value="1">Non-professional</option>
                                 <option value="2">Professional</option>
@@ -174,7 +174,7 @@
 
                     <div class="col-md-4">
                         <label class="form-label">ID No:</label>
-                        <input type="text" class="form-control" id="license-ID">
+                        <input type="text" class="form-control input" id="license-ID">
                     </div>
 
                     <div class="col-md-3">
@@ -220,21 +220,21 @@
                 <div class="row g-2  centers">
                     <div class="col-md-5">
                         <label class="form-label"> Username: </label>
-                        <input type="text" class="form-control" id="driver-firstname">
+                        <input type="text" class="form-control input" id="driver-firstname">
                     </div>
                 </div>
 
                 <div class="row g-2  centers">
                     <div class="col-md-5">
                         <label class="form-label"> Password: </label>
-                        <input type="password" class="form-control" id="driver-password">
+                        <input type="password" class="form-control input" id="driver-password">
                     </div>
                 </div>
 
                 <div class="row g-2  centers">
                     <div class="col-md-5">
                         <label class="form-label"> Repeat Password: </label>
-                        <input type="password" class="form-control" id="driver-reppassword">
+                        <input type="password" class="form-control input" id="driver-reppassword">
                     </div>
                 </div>
             </div>
@@ -344,5 +344,16 @@ b{
     justify-content: center;
     align-items: center;
 }
+.input {
+  transition: .5s linear;
+}
 
+.input:focus {
+  color: #1d1d1d;
+  box-shadow: 4px 4px 10px #070707;
+}
+
+.input:focus::placeholder {
+  color: #fa4753;
+}
 </style>

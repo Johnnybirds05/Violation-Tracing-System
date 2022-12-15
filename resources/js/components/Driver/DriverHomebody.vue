@@ -3,10 +3,11 @@
         <div class="container driver-body mt-3">
             <div class="row rowleft p-2" v-for="license in License">
                 <div class="col driver-picbox">
-                      <img src="../../../pics/John Michael Cagadas_.jpg" alt="profile" class="profile">
-                      <button type="button" class="btn btn-dark button-detail text-center mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                  Edit Details
+                      <img src="../../../pics/John Michael Cagadas_.jpg" alt="profile" class="profile">                           
+                      <button class="button btn button-detail text-center mt-2" style="vertical-align:middle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <span><b>Edit </b></span>
                       </button>
+
                 </div>
                 <div class="col-md-7 cols-name">
                     <h3>John Michael Cagadas </h3>
@@ -23,7 +24,7 @@
                  <div class="col-md-3 logout-button">
                   <div class="row">
                     <div class="col">
-                      <button class="btn btn-dark" 
+                      <button class="button-back" 
                         @click="logout"
                         role="button">Logout 
                         <img src="../../../pics/logout_white_24dp.svg">
@@ -128,6 +129,11 @@
                                 <div class="col-md-3">
                                   <b>Expiration Date: {{Expiration[index]}}</b> 
                                 </div>
+                                <div class="col-md-3">
+                                  <button class="noselect">
+                                    <span class="text">Delete</span><span class="icone"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span>
+                                  </button>
+                                </div>
 
                                 <div class="col-md-12 bg-danger text-white"  v-if="verified[index] == false">
                                     <b> Note: To verify your vehicle information. Please go to the Tangub City, City Tourism Office!</b> 
@@ -139,9 +145,13 @@
                 </div>
                 
                 <div class="container">
-                  <v-btn color="primary" href="/addvehicle">
-                    Add Vehicle
-                  </v-btn>
+                  <a href="/addvehicle">
+                    <button class="icon-btn add-btn">
+                      <div class="add-icon"></div>
+                      <div class="btn-txt"><b>Add Vehicle</b></div>
+                  </button>
+                  </a>
+                  
                 </div>
             </div>
           </v-card-text>

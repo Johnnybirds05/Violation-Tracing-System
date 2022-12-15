@@ -3370,11 +3370,6 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "container-fluid LoginHeader"
   }, [_c("img", {
@@ -3383,21 +3378,30 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/logo.png */ "./resources/pics/logo.png")
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "driver-buttons"
+    staticClass: "driver-buttons row"
   }, [_c("a", {
-    staticClass: "btn btn-dark text-right pe-3 px-3 m-1",
+    staticClass: "btn text-right col",
     attrs: {
       href: "/driver-register",
       role: "button"
     }
-  }, [_vm._v("Register")]), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-dark text-right pe-3 px-3",
+  }, [_c("button", {
+    staticClass: "button-back ml-3"
+  }, [_c("svg", {
     attrs: {
-      href: "/",
-      role: "button"
+      height: "16",
+      width: "16",
+      xmlns: "http://www.w3.org/2000/svg",
+      version: "1.1",
+      viewBox: "0 0 1024 1024"
     }
-  }, [_vm._v("Back")])])]);
-}];
+  }, [_c("path", {
+    attrs: {
+      d: "M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"
+    }
+  })]), _vm._v(" "), _c("b", [_vm._v("Register")])])])])]);
+};
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -3438,7 +3442,7 @@ var render = function render() {
     }, [_c("div", {
       staticClass: "col"
     }, [_c("button", {
-      staticClass: "btn btn-dark",
+      staticClass: "button-back",
       attrs: {
         role: "button"
       },
@@ -3606,17 +3610,41 @@ var render = function render() {
       staticClass: "col-md-3"
     }, [_c("b", [_vm._v("Reciept No: " + _vm._s(_vm.ReceiptNo[index]))])]), _vm._v(" "), _c("div", {
       staticClass: "col-md-3"
-    }, [_c("b", [_vm._v("Expiration Date: " + _vm._s(_vm.Expiration[index]))])]), _vm._v(" "), _vm.verified[index] == false ? _c("div", {
+    }, [_c("b", [_vm._v("Expiration Date: " + _vm._s(_vm.Expiration[index]))])]), _vm._v(" "), _c("div", {
+      staticClass: "col-md-3"
+    }, [_c("button", {
+      staticClass: "noselect"
+    }, [_c("span", {
+      staticClass: "text"
+    }, [_vm._v("Delete")]), _c("span", {
+      staticClass: "icone"
+    }, [_c("svg", {
+      attrs: {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "24",
+        height: "24",
+        viewBox: "0 0 24 24"
+      }
+    }, [_c("path", {
+      attrs: {
+        d: "M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+      }
+    })])])])]), _vm._v(" "), _vm.verified[index] == false ? _c("div", {
       staticClass: "col-md-12 bg-danger text-white"
     }, [_c("b", [_vm._v(" Note: To verify your vehicle information. Please go to the Tangub City, City Tourism Office!")])]) : _vm._e()])])])]);
   }), 0), _vm._v(" "), _c("div", {
     staticClass: "container"
-  }, [_c("v-btn", {
+  }, [_c("a", {
     attrs: {
-      color: "primary",
       href: "/addvehicle"
     }
-  }, [_vm._v("\n                Add Vehicle\n              ")])], 1)])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+  }, [_c("button", {
+    staticClass: "icon-btn add-btn"
+  }, [_c("div", {
+    staticClass: "add-icon"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "btn-txt"
+  }, [_c("b", [_vm._v("Add Vehicle")])])])])])])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
     attrs: {
       flat: ""
     }
@@ -3888,13 +3916,15 @@ var staticRenderFns = [function () {
       alt: "profile"
     }
   }), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-dark button-detail text-center mt-2",
+    staticClass: "button btn button-detail text-center mt-2",
+    staticStyle: {
+      "vertical-align": "middle"
+    },
     attrs: {
-      type: "button",
       "data-bs-toggle": "modal",
       "data-bs-target": "#exampleModal"
     }
-  }, [_vm._v("\n                              Edit Details\n                  ")])]);
+  }, [_c("span", [_c("b", [_vm._v("Edit ")])])])]);
 }];
 render._withStripped = true;
 
@@ -4052,7 +4082,35 @@ var render = function render() {
       "data-bs-dismiss": "alert",
       "aria-label": "Dispose"
     }
-  })])]) : _vm._e(), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])])]);
+  })])]) : _vm._e(), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("div", {
+    staticClass: "login-content mt-4"
+  }, [_c("button", {
+    staticClass: "btn-login",
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("div", {
+    staticClass: "svg-wrapper-1"
+  }, [_c("div", {
+    staticClass: "svg-wrapper"
+  }, [_c("svg", {
+    attrs: {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      width: "24",
+      height: "24"
+    }
+  }, [_c("path", {
+    attrs: {
+      fill: "none",
+      d: "M0 0h24v24H0z"
+    }
+  }), _vm._v(" "), _c("path", {
+    attrs: {
+      fill: "currentColor",
+      d: "M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+    }
+  })])])]), _vm._v(" "), _c("span", [_vm._v("Login")])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -4090,22 +4148,6 @@ var staticRenderFns = [function () {
       href: "#"
     }
   }, [_vm._v(" Forgot Password")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "login-content mt-4"
-  }, [_c("button", {
-    staticClass: "btn btn-dark",
-    attrs: {
-      type: "submit"
-    }
-  }, [_vm._v(" Login "), _c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/login_white_24dp.svg */ "./resources/pics/login_white_24dp.svg")
-    }
-  })])]);
 }];
 render._withStripped = true;
 
@@ -4161,7 +4203,7 @@ var render = function render() {
     staticClass: "mb-12 overflowing",
     attrs: {
       color: "grey darken-3",
-      height: "600px"
+      height: "610px"
     }
   }, [_c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid register-fills"
@@ -4174,7 +4216,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" First Name: ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-firstname"
@@ -4184,7 +4226,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Last Name: ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-lastname"
@@ -4194,7 +4236,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Middle Name: ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-middlename"
@@ -4204,7 +4246,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Suffix: ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-suffix",
@@ -4220,7 +4262,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Sex: ")]), _vm._v(" "), _c("select", {
-    staticClass: "form-select",
+    staticClass: "form-select input",
     attrs: {
       name: "sex",
       "aria-label": "Default select example"
@@ -4246,7 +4288,7 @@ var render = function render() {
       "for": "date"
     }
   }, [_vm._v("Birthdate: ")]), _vm._v(" "), _c("div", {
-    staticClass: "input-group date",
+    staticClass: "input-group date input",
     attrs: {
       id: "birthdate"
     }
@@ -4264,7 +4306,7 @@ var render = function render() {
   })])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4"
   }, [_c("label", {
-    staticClass: "form-label",
+    staticClass: "form-label input",
     attrs: {
       "for": "formFileSm"
     }
@@ -4286,7 +4328,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Province:")]), _vm._v(" "), _c("select", {
-    staticClass: "form-select",
+    staticClass: "form-select input",
     attrs: {
       name: "province",
       "aria-label": "Default select example"
@@ -4301,7 +4343,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("City:")]), _vm._v(" "), _c("select", {
-    staticClass: "form-select",
+    staticClass: "form-select input",
     attrs: {
       name: "city",
       "aria-label": "Default select example"
@@ -4316,7 +4358,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Barangay:")]), _vm._v(" "), _c("select", {
-    staticClass: "form-select",
+    staticClass: "form-select input",
     attrs: {
       name: "barangay",
       "aria-label": "Default select example"
@@ -4337,7 +4379,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Email:")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "email",
       id: "driver-email"
@@ -4347,7 +4389,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Mobile Number:")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "number",
       id: "driver-number"
@@ -4382,7 +4424,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" ID Type: ")]), _vm._v(" "), _c("select", {
-    staticClass: "form-select",
+    staticClass: "form-select input",
     attrs: {
       name: "id-type",
       "aria-label": "Default select example"
@@ -4405,7 +4447,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("ID No:")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "license-ID"
@@ -4478,7 +4520,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Username: ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-firstname"
@@ -4490,7 +4532,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Password: ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "password",
       id: "driver-password"
@@ -4502,7 +4544,7 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Repeat Password: ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "password",
       id: "driver-reppassword"
@@ -4548,11 +4590,6 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "container-fluid LoginHeader"
   }, [_c("img", {
@@ -4563,19 +4600,28 @@ var staticRenderFns = [function () {
   }), _vm._v(" "), _c("div", {
     staticClass: "driver-buttons"
   }, [_c("a", {
-    staticClass: "btn btn-dark text-right pe-3 px-3 m-1",
+    staticClass: "btn text-right pe-3 px-3 m-1",
     attrs: {
       href: "/driver-login",
       role: "button"
     }
-  }, [_vm._v("Login")]), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-dark text-right pe-3 px-3",
+  }, [_c("button", {
+    staticClass: "button-back"
+  }, [_c("svg", {
     attrs: {
-      href: "/",
-      role: "button"
+      height: "16",
+      width: "16",
+      xmlns: "http://www.w3.org/2000/svg",
+      version: "1.1",
+      viewBox: "0 0 1024 1024"
     }
-  }, [_vm._v("Back")])])]);
-}];
+  }, [_c("path", {
+    attrs: {
+      d: "M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"
+    }
+  })]), _vm._v(" "), _c("b", [_vm._v("Register")])])])])]);
+};
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -5030,11 +5076,6 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "home-body body-admin"
   }, [_c("div", {
@@ -5050,24 +5091,33 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/4.png */ "./resources/pics/4.png"),
       alt: "..."
     }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "card-body card-home"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_c("b", [_vm._v("City Treasurer")])]), _vm._v(" "), _c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("a", {
-    staticClass: "btn btn-dark",
+    staticClass: "btn button-cards",
     attrs: {
       href: "/logincto"
     }
-  }, [_vm._v("Sign in  "), _c("img", {
+  }, [_c("button", {
+    staticClass: "dev-buttons"
+  }, [_c("svg", {
     attrs: {
-      src: __webpack_require__(/*! ../../../pics/arrow-left.svg */ "./resources/pics/arrow-left.svg")
+      height: "24",
+      width: "24",
+      viewBox: "0 0 24 24",
+      xmlns: "http://www.w3.org/2000/svg"
     }
-  })])])]), _vm._v(" "), _c("div", {
+  }, [_c("path", {
+    attrs: {
+      d: "M0 0h24v24H0z",
+      fill: "none"
+    }
+  }), _c("path", {
+    attrs: {
+      d: "M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z",
+      fill: "currentColor"
+    }
+  })]), _vm._v(" "), _c("span", [_vm._v("Launch")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card m-3 card-homecol",
     staticStyle: {
       width: "18rem"
@@ -5078,24 +5128,33 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/5.png */ "./resources/pics/5.png"),
       alt: "..."
     }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "card-body card-home"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_c("b", [_vm._v("Legal Counsel")])]), _vm._v(" "), _c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("a", {
-    staticClass: "btn btn-dark",
+    staticClass: "btn button-cards",
     attrs: {
       href: "/logincounsel"
     }
-  }, [_vm._v("Sign in "), _c("img", {
+  }, [_c("button", {
+    staticClass: "dev-buttons"
+  }, [_c("svg", {
     attrs: {
-      src: __webpack_require__(/*! ../../../pics/arrow-left.svg */ "./resources/pics/arrow-left.svg")
+      height: "24",
+      width: "24",
+      viewBox: "0 0 24 24",
+      xmlns: "http://www.w3.org/2000/svg"
     }
-  })])])]), _vm._v(" "), _c("div", {
+  }, [_c("path", {
+    attrs: {
+      d: "M0 0h24v24H0z",
+      fill: "none"
+    }
+  }), _c("path", {
+    attrs: {
+      d: "M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z",
+      fill: "currentColor"
+    }
+  })]), _vm._v(" "), _c("span", [_vm._v("Launch")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card m-3 card-homecol",
     staticStyle: {
       width: "18rem"
@@ -5106,24 +5165,33 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/6.png */ "./resources/pics/6.png"),
       alt: "..."
     }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "card-body card-home"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_c("b", [_vm._v("Local Legislative")])]), _vm._v(" "), _c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("a", {
-    staticClass: "btn btn-dark",
+    staticClass: "btn button-cards",
     attrs: {
       href: "/loginlegislative"
     }
-  }, [_vm._v("Sign in "), _c("img", {
+  }, [_c("button", {
+    staticClass: "dev-buttons"
+  }, [_c("svg", {
     attrs: {
-      src: __webpack_require__(/*! ../../../pics/arrow-left.svg */ "./resources/pics/arrow-left.svg")
+      height: "24",
+      width: "24",
+      viewBox: "0 0 24 24",
+      xmlns: "http://www.w3.org/2000/svg"
     }
-  })])])])]), _vm._v(" "), _c("div", {
+  }, [_c("path", {
+    attrs: {
+      d: "M0 0h24v24H0z",
+      fill: "none"
+    }
+  }), _c("path", {
+    attrs: {
+      d: "M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z",
+      fill: "currentColor"
+    }
+  })]), _vm._v(" "), _c("span", [_vm._v("Launch")])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "container body-admins"
   }, [_c("div", {
     staticClass: "card m-3 card-homecol",
@@ -5136,24 +5204,33 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/7.png */ "./resources/pics/7.png"),
       alt: "..."
     }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "card-body card-home"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_c("b", [_vm._v("Task Force")])]), _vm._v(" "), _c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("a", {
-    staticClass: "btn btn-dark",
+    staticClass: "btn button-cards",
     attrs: {
       href: "/logintask"
     }
-  }, [_vm._v("Sign in "), _c("img", {
+  }, [_c("button", {
+    staticClass: "dev-buttons"
+  }, [_c("svg", {
     attrs: {
-      src: __webpack_require__(/*! ../../../pics/arrow-left.svg */ "./resources/pics/arrow-left.svg")
+      height: "24",
+      width: "24",
+      viewBox: "0 0 24 24",
+      xmlns: "http://www.w3.org/2000/svg"
     }
-  })])])]), _vm._v(" "), _c("div", {
+  }, [_c("path", {
+    attrs: {
+      d: "M0 0h24v24H0z",
+      fill: "none"
+    }
+  }), _c("path", {
+    attrs: {
+      d: "M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z",
+      fill: "currentColor"
+    }
+  })]), _vm._v(" "), _c("span", [_vm._v("Launch")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card m-3 card-homecol",
     staticStyle: {
       width: "18rem"
@@ -5164,29 +5241,89 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/8.png */ "./resources/pics/8.png"),
       alt: "..."
     }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "card-body card-home"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_c("b", [_vm._v("City Tourism")])]), _vm._v(" "), _c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("a", {
-    staticClass: "btn btn-dark",
+    staticClass: "btn button-cards",
     attrs: {
       href: "/logintourism"
     }
-  }, [_vm._v("Sign in "), _c("img", {
+  }, [_c("button", {
+    staticClass: "dev-buttons"
+  }, [_c("svg", {
     attrs: {
-      src: __webpack_require__(/*! ../../../pics/arrow-left.svg */ "./resources/pics/arrow-left.svg")
+      height: "24",
+      width: "24",
+      viewBox: "0 0 24 24",
+      xmlns: "http://www.w3.org/2000/svg"
     }
-  })])])]), _vm._v(" "), _c("div", {
+  }, [_c("path", {
+    attrs: {
+      d: "M0 0h24v24H0z",
+      fill: "none"
+    }
+  }), _c("path", {
+    attrs: {
+      d: "M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z",
+      fill: "currentColor"
+    }
+  })]), _vm._v(" "), _c("span", [_vm._v("Launch")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card m-3 invis",
     staticStyle: {
       width: "18rem"
     }
   })])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-body card-home"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("b", [_vm._v("City Treasurer")])]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-body card-home"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("b", [_vm._v("Legal Counsel")])]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-body card-home"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("b", [_vm._v("Local Legislative")])]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-body card-home"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("b", [_vm._v("Task Force")])]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-body card-home"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("b", [_vm._v("City Tourism")])]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]);
 }];
 render._withStripped = true;
 
@@ -5208,11 +5345,6 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "home-body"
   }, [_c("div", {
@@ -5226,24 +5358,35 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/3.png */ "./resources/pics/3.png"),
       alt: "..."
     }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "card-body card-home"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_c("b", [_vm._v("Offices")])]), _vm._v(" "), _c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("a", {
-    staticClass: "btn btn-dark",
+    staticClass: "btn button-cards",
     attrs: {
       href: "/admins"
     }
-  }, [_vm._v("Get Started "), _c("img", {
+  }, [_c("button", {
+    staticClass: "cssbuttons-io-button"
+  }, [_vm._v(" Get started\n                    "), _c("div", {
+    staticClass: "icon"
+  }, [_c("svg", {
     attrs: {
-      src: __webpack_require__(/*! ../../../pics/check.svg */ "./resources/pics/check.svg")
+      height: "24",
+      width: "24",
+      viewBox: "0 0 24 24",
+      xmlns: "http://www.w3.org/2000/svg"
     }
-  })])])]), _vm._v(" "), _c("div", {
+  }, [_c("path", {
+    attrs: {
+      d: "M0 0h24v24H0z",
+      fill: "none"
+    }
+  }), _c("path", {
+    attrs: {
+      d: "M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z",
+      fill: "currentColor"
+    }
+  })])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card m-5 mt-5 card-homecol",
     staticStyle: {
       width: "18rem"
@@ -5254,24 +5397,56 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/2.png */ "./resources/pics/2.png"),
       alt: "..."
     }
-  }), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("a", {
+    staticClass: "btn button-cards",
+    attrs: {
+      href: "/driver-login"
+    }
+  }, [_c("button", {
+    staticClass: "cssbuttons-io-button"
+  }, [_vm._v(" Get started\n                    "), _c("div", {
+    staticClass: "icon"
+  }, [_c("svg", {
+    attrs: {
+      height: "24",
+      width: "24",
+      viewBox: "0 0 24 24",
+      xmlns: "http://www.w3.org/2000/svg"
+    }
+  }, [_c("path", {
+    attrs: {
+      d: "M0 0h24v24H0z",
+      fill: "none"
+    }
+  }), _c("path", {
+    attrs: {
+      d: "M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z",
+      fill: "currentColor"
+    }
+  })])])])])])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-body card-home"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("b", [_vm._v("Offices")])]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "card-body card-home"
   }, [_c("h5", {
     staticClass: "card-title"
   }, [_c("b", [_vm._v("Driver")])]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
-  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_c("a", {
-    staticClass: "btn btn-dark",
-    attrs: {
-      href: "/driver-login"
-    }
-  }, [_vm._v("Get Started "), _c("img", {
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/check.svg */ "./resources/pics/check.svg")
-    }
-  })])])])]);
+  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])]);
 }];
 render._withStripped = true;
 
@@ -5334,22 +5509,35 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "container text-center head-home"
   }, [_c("a", {
-    staticClass: "btn btn-dark pe-3 px-3 button-admin",
+    staticClass: "btn pe-3 px-3 button-admin",
     attrs: {
-      href: "/",
-      role: "button"
+      href: "/"
     }
-  }, [_vm._v("Back")]), _vm._v(" "), _c("div", {
+  }, [_c("button", {
+    staticClass: "button-back"
+  }, [_c("svg", {
+    attrs: {
+      height: "16",
+      width: "16",
+      xmlns: "http://www.w3.org/2000/svg",
+      version: "1.1",
+      viewBox: "0 0 1024 1024"
+    }
+  }, [_c("path", {
+    attrs: {
+      d: "M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"
+    }
+  })]), _vm._v(" "), _c("b", [_vm._v("Back")])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "img"
   }, [_c("img", {
     staticClass: "logo",
@@ -5357,11 +5545,15 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/logo.png */ "./resources/pics/logo.png"),
       alt: "vavts"
     }
-  })]), _vm._v(" "), _c("div", {
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "appname mt-3"
   }, [_c("h2", [_c("b", [_vm._v("Vehicle Assistant and Violation Tracing System")])]), _vm._v(" "), _c("span", {
     staticClass: "logonote"
-  }, [_vm._v("Making your travel in Tangub City easier!")])])])]);
+  }, [_vm._v("Making your travel in Tangub City easier!")])]);
 }];
 render._withStripped = true;
 
@@ -5462,7 +5654,35 @@ var render = function render() {
     on: {
       click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), _vm._m(3)])])]);
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "login-content mt-4"
+  }, [_c("button", {
+    staticClass: "btn-login",
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("div", {
+    staticClass: "svg-wrapper-1"
+  }, [_c("div", {
+    staticClass: "svg-wrapper"
+  }, [_c("svg", {
+    attrs: {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      width: "24",
+      height: "24"
+    }
+  }, [_c("path", {
+    attrs: {
+      fill: "none",
+      d: "M0 0h24v24H0z"
+    }
+  }), _vm._v(" "), _c("path", {
+    attrs: {
+      fill: "currentColor",
+      d: "M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+    }
+  })])])]), _vm._v(" "), _c("span", [_vm._v("Login")])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5497,22 +5717,6 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
     }
   })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "login-content mt-4"
-  }, [_c("button", {
-    staticClass: "btn btn-dark",
-    attrs: {
-      type: "submit"
-    }
-  }, [_vm._v(" Login "), _c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/login_white_24dp.svg */ "./resources/pics/login_white_24dp.svg")
-    }
-  })])]);
 }];
 render._withStripped = true;
 
@@ -5534,11 +5738,6 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "container-fluid LoginHeader"
   }, [_c("img", {
@@ -5547,13 +5746,28 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/logo.png */ "./resources/pics/logo.png")
     }
   }), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-dark text-right buttons pe-3 px-3",
+    staticClass: "btn text-right buttons pe-3 px-3",
     attrs: {
       href: "/admins",
       role: "button"
     }
-  }, [_vm._v("Back")])]);
-}];
+  }, [_c("button", {
+    staticClass: "button-back"
+  }, [_c("svg", {
+    attrs: {
+      height: "16",
+      width: "16",
+      xmlns: "http://www.w3.org/2000/svg",
+      version: "1.1",
+      viewBox: "0 0 1024 1024"
+    }
+  }, [_c("path", {
+    attrs: {
+      d: "M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"
+    }
+  })]), _vm._v(" "), _c("b", [_vm._v("Back")])])])]);
+};
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -5610,7 +5824,35 @@ var render = function render() {
     on: {
       click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), _vm._m(3)])])]);
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "login-content mt-4"
+  }, [_c("button", {
+    staticClass: "btn-login",
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("div", {
+    staticClass: "svg-wrapper-1"
+  }, [_c("div", {
+    staticClass: "svg-wrapper"
+  }, [_c("svg", {
+    attrs: {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      width: "24",
+      height: "24"
+    }
+  }, [_c("path", {
+    attrs: {
+      fill: "none",
+      d: "M0 0h24v24H0z"
+    }
+  }), _vm._v(" "), _c("path", {
+    attrs: {
+      fill: "currentColor",
+      d: "M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+    }
+  })])])]), _vm._v(" "), _c("span", [_vm._v("Login")])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5645,22 +5887,6 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
     }
   })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "login-content mt-4"
-  }, [_c("button", {
-    staticClass: "btn btn-dark",
-    attrs: {
-      type: "submit"
-    }
-  }, [_vm._v(" Login "), _c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/login_white_24dp.svg */ "./resources/pics/login_white_24dp.svg")
-    }
-  })])]);
 }];
 render._withStripped = true;
 
@@ -5718,7 +5944,35 @@ var render = function render() {
     on: {
       click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), _vm._m(3)])])]);
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "login-content mt-4"
+  }, [_c("button", {
+    staticClass: "btn-login",
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("div", {
+    staticClass: "svg-wrapper-1"
+  }, [_c("div", {
+    staticClass: "svg-wrapper"
+  }, [_c("svg", {
+    attrs: {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      width: "24",
+      height: "24"
+    }
+  }, [_c("path", {
+    attrs: {
+      fill: "none",
+      d: "M0 0h24v24H0z"
+    }
+  }), _vm._v(" "), _c("path", {
+    attrs: {
+      fill: "currentColor",
+      d: "M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+    }
+  })])])]), _vm._v(" "), _c("span", [_vm._v("Login")])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5753,22 +6007,6 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
     }
   })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "login-content mt-4"
-  }, [_c("button", {
-    staticClass: "btn btn-dark",
-    attrs: {
-      type: "submit"
-    }
-  }, [_vm._v(" Login "), _c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/login_white_24dp.svg */ "./resources/pics/login_white_24dp.svg")
-    }
-  })])]);
 }];
 render._withStripped = true;
 
@@ -5826,7 +6064,35 @@ var render = function render() {
     on: {
       click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), _vm._m(3)])])]);
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "login-content mt-4"
+  }, [_c("button", {
+    staticClass: "btn-login",
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("div", {
+    staticClass: "svg-wrapper-1"
+  }, [_c("div", {
+    staticClass: "svg-wrapper"
+  }, [_c("svg", {
+    attrs: {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      width: "24",
+      height: "24"
+    }
+  }, [_c("path", {
+    attrs: {
+      fill: "none",
+      d: "M0 0h24v24H0z"
+    }
+  }), _vm._v(" "), _c("path", {
+    attrs: {
+      fill: "currentColor",
+      d: "M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+    }
+  })])])]), _vm._v(" "), _c("span", [_vm._v("Login")])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5861,22 +6127,6 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
     }
   })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "login-content mt-4"
-  }, [_c("button", {
-    staticClass: "btn btn-dark",
-    attrs: {
-      type: "submit"
-    }
-  }, [_vm._v(" Login "), _c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/login_white_24dp.svg */ "./resources/pics/login_white_24dp.svg")
-    }
-  })])]);
 }];
 render._withStripped = true;
 
@@ -5934,7 +6184,35 @@ var render = function render() {
     on: {
       click: _vm.togglePasswordVisibility
     }
-  })])]), _vm._v(" "), _vm._m(3)])])]);
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "login-content mt-4"
+  }, [_c("button", {
+    staticClass: "btn-login",
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("div", {
+    staticClass: "svg-wrapper-1"
+  }, [_c("div", {
+    staticClass: "svg-wrapper"
+  }, [_c("svg", {
+    attrs: {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      width: "24",
+      height: "24"
+    }
+  }, [_c("path", {
+    attrs: {
+      fill: "none",
+      d: "M0 0h24v24H0z"
+    }
+  }), _vm._v(" "), _c("path", {
+    attrs: {
+      fill: "currentColor",
+      d: "M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+    }
+  })])])]), _vm._v(" "), _c("span", [_vm._v("Login")])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5969,22 +6247,6 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/lock_white_24dp.svg */ "./resources/pics/lock_white_24dp.svg")
     }
   })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "login-content mt-4"
-  }, [_c("button", {
-    staticClass: "btn btn-dark",
-    attrs: {
-      type: "submit"
-    }
-  }, [_vm._v(" Login "), _c("img", {
-    staticClass: "login-icons",
-    attrs: {
-      src: __webpack_require__(/*! ../../../pics/login_white_24dp.svg */ "./resources/pics/login_white_24dp.svg")
-    }
-  })])]);
 }];
 render._withStripped = true;
 
@@ -8087,7 +8349,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.driver-buttons[data-v-6b795761]{\n  position: absolute;\n  right: 50px;\n  animation-name: to-right;\n  animation-duration: 1s;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.driver-buttons[data-v-6b795761]{\n      position: absolute;\n      right: 50px;\n      animation-name: to-right;\n      animation-duration: 1s;\n}\n@media only screen and (max-width: 1000px){\n.LoginLogo[data-v-6b795761]{\n      width: 100px;\n}\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8183,7 +8445,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.body-admins{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.invis{\r\n    opacity: 0;\n}\n.body-admin{\r\n    flex-direction: column;\n}\n@media only screen and (max-width: 1000px){\n.body-admins{\r\n        flex-direction: column;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.body-admins{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.invis{\r\n    opacity: 0;\n}\n.body-admin{\r\n    flex-direction: column;\n}\n.dev-buttons {\r\n  display: flex;\r\n  align-items: center;\r\n  font-family: inherit;\r\n  font-weight: 500;\r\n  font-size: 13px;\r\n  padding: 0.8em 1.3em 0.8em 0.9em;\r\n  color: white;\r\n  background: #ad5389;\r\n  background: linear-gradient(to right, #585858, #1f1f1f, #0c0c0c);\r\n  border: 1px solid rgb(73, 73, 73);\r\n  letter-spacing: 0.05em;\r\n  border-radius: 16px;\n}\n.dev-buttons svg {\r\n  margin-right: 3px;\r\n  transform: rotate(30deg);\r\n  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);\n}\n.dev-buttons span {\r\n  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);\n}\n.dev-buttons:hover svg {\r\n  transform: translateX(5px) rotate(90deg);\n}\n.dev-buttons:hover span {\r\n  transform: translateX(7px);\n}\n@media only screen and (max-width: 1000px){\n.body-admins{\r\n        flex-direction: column;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8255,7 +8517,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.button-admin[data-v-1f13844c]{\r\n    position: absolute;\r\n    color: aliceblue;\r\n    top: 50px;\r\n    right: 50px;\r\n    font-family: monospace;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.button-admin[data-v-1f13844c]{\r\n    position: absolute;\r\n    top: 50px;\r\n    right: 50px;\r\n    font-family: monospace;\r\n    font-size: 13px;\n}\n.button-back[data-v-1f13844c] {\r\n display: flex;\r\n height: 3em;\r\n width: 100px;\r\n align-items: center;\r\n justify-content: center;\r\n border-radius: 3px;\r\n letter-spacing: 1px;\r\n transition: all 0.2s linear;\r\n cursor: pointer;\r\n border: 2px solid rgb(173, 173, 173);\r\n background: linear-gradient(to right, #585858, #1f1f1f, #0c0c0c);\r\n color: #d1d1d1;\n}\n.button-back > svg[data-v-1f13844c] {\r\n margin-right: 5px;\r\n margin-left: 5px;\r\n font-size: 20px;\r\n transition: all 0.4s ease-in;\n}\n.button-back:hover > svg[data-v-1f13844c] {\r\n font-size: 1.2em;\r\n transform: translateX(-5px);\n}\n.button-back[data-v-1f13844c]:hover {\r\n box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;\r\n transform: translateY(-2px);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8303,7 +8565,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.login-pics{\r\n    width: 130px;\r\n    position: relative;\n}\n.login-size{\r\n    width: 250px;\n}\n.login-card{\r\n    color: antiquewhite;\r\n    background-color: rgb(0, 0, 0);\r\n    border-radius: 20px;\r\n    font-family: monospace;\r\n    width: 400px;\r\n    opacity: .7;\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    padding: 10px;\r\n    animation-name: to-top;\r\n    animation-duration: .5s;\r\n    position: relative;\n}\n.login-body{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-content: center;\r\n    height: 73vh;\n}\n.login-field{\r\n    border-bottom: 1px solid white;\r\n    width: 210px;\r\n    color: aliceblue;\r\n    padding: 5px;\r\n    font-family: monospace;\r\n    padding-left: 20px;\r\n    background-color: black;\n}\n.login-icons{\r\n    width:30px;\n}\n.login-content{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin: 25px;\n}\n@keyframes to-top{\n0%   {top:100px;}\n100%  {top:0px;}\n}\n@keyframes to-bottom{\n0%   { bottom:100px;}\n100%  { bottom:0px;}\n}\n@keyframes to-right{\n0%   {right:100px;}\n100%  {right:0px;}\n}\n@keyframes to-left{\n0%   {left:100px;}\n100%  {left:0px;}\n}\n@media only screen and (max-width: 1000px){\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.login-pics{\r\n    width: 130px;\r\n    position: relative;\n}\n.login-size{\r\n    width: 250px;\n}\n.login-card{\r\n    color: antiquewhite;\r\n    background-color: rgb(0, 0, 0);\r\n    border-radius: 20px;\r\n    font-family: monospace;\r\n    width: 400px;\r\n    opacity: .7;\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    padding: 10px;\r\n    animation-name: to-top;\r\n    animation-duration: .5s;\r\n    position: relative;\n}\n.login-body{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-content: center;\r\n    height: 73vh;\n}\n.login-field{\r\n    border-bottom: 1px solid white;\r\n    width: 210px;\r\n    color: aliceblue;\r\n    padding: 5px;\r\n    font-family: monospace;\r\n    padding-left: 20px;\r\n    background-color: black;\n}\n.login-icons{\r\n    width:30px;\n}\n.login-content{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin: 25px;\n}\n@media only screen and (max-width: 1000px){\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8327,7 +8589,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.LoginLogo{\r\n    width: 180px;\r\n    animation-name: to-left;\r\n    animation-duration: 1s;\r\n    position: relative;\n}\n.LoginHeader{\r\n    background-color: black;\r\n    opacity: .8;\r\n    color: aliceblue;\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 10px;\n}\n.buttons{\r\n    margin-left: auto;\r\n    margin-right: 40px;\r\n    animation-name: to-right;\r\n    animation-duration: .5s;\r\n    position: relative;\n}\n@media only screen and (max-width: 1000px){\n.buttons{\r\n        margin-right: 20px;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.LoginLogo{\r\n    width: 180px;\r\n    animation-name: to-left;\r\n    animation-duration: 1s;\r\n    position: relative;\n}\n.LoginHeader{\r\n    background-color: black;\r\n    opacity: .8;\r\n    color: aliceblue;\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 10px;\n}\n.buttons{\r\n    margin-left: auto;\r\n    margin-right: 40px;\r\n    animation-name: to-right;\r\n    animation-duration: .5s;\r\n    position: relative;\n}\n.button-back {\r\n display: flex;\r\n height: 3em;\r\n width: 100px;\r\n align-items: center;\r\n justify-content: center;\r\n border-radius: 3px;\r\n letter-spacing: 1px;\r\n transition: all 0.2s linear;\r\n cursor: pointer;\r\n border: 2px solid rgb(173, 173, 173);\r\n background: linear-gradient(to right, #585858, #1f1f1f, #0c0c0c);\r\n color: #d1d1d1;\r\n font-size: 12px;\n}\n.button-back > svg {\r\n font-size: 20px;\r\n transition: all 0.4s ease-in;\n}\n.button-back:hover > svg {\r\n font-size: 1.2em;\r\n transform: translateX(-5px);\n}\n.button-back:hover {\r\n box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;\r\n transform: translateY(-2px);\n}\n@media only screen and (max-width: 1000px){\n.buttons{\r\n        margin-right: 20px;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8423,7 +8685,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "[data-v-6af40d1e] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.register-body[data-v-6af40d1e] {\n  opacity: 0.7;\n  animation-name: to-left;\n  animation-duration: 1s;\n}\n.register-div[data-v-6af40d1e] {\n  margin-top: 20px;\n  width: 70%;\n}\n.register-fills[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 5px;\n}\n.overflowing[data-v-6af40d1e] {\n  overflow-y: auto;\n  overflow-x: hidden;\n}\n.icons[data-v-6af40d1e] {\n  font-size: 25px;\n}\nlabel[data-v-6af40d1e] {\n  font-size: 12px;\n}\nb[data-v-6af40d1e] {\n  font-size: 15px;\n}\n.form-control[data-v-6af40d1e], .form-select[data-v-6af40d1e], .input-group[data-v-6af40d1e] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "[data-v-6af40d1e] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.register-body[data-v-6af40d1e] {\n  opacity: 0.7;\n  animation-name: to-left;\n  animation-duration: 1s;\n}\n.register-div[data-v-6af40d1e] {\n  margin-top: 20px;\n  width: 70%;\n}\n.register-fills[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 5px;\n}\n.overflowing[data-v-6af40d1e] {\n  overflow-y: auto;\n  overflow-x: hidden;\n}\n.icons[data-v-6af40d1e] {\n  font-size: 25px;\n}\nlabel[data-v-6af40d1e] {\n  font-size: 12px;\n}\nb[data-v-6af40d1e] {\n  font-size: 15px;\n}\n.form-control[data-v-6af40d1e], .form-select[data-v-6af40d1e], .input-group[data-v-6af40d1e] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.input[data-v-6af40d1e] {\n  transition: 0.5s linear;\n}\n.input[data-v-6af40d1e]:focus {\n  color: #1d1d1d;\n  box-shadow: 4px 4px 10px #070707;\n}\n.input[data-v-6af40d1e]:focus::-moz-placeholder {\n  color: #fa4753;\n}\n.input[data-v-6af40d1e]:focus::placeholder {\n  color: #fa4753;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8620,26 +8882,6 @@ module.exports = "/images/account.svg?2cf6bd4fd4a81d3ae197559ff874f337";
 
 /***/ }),
 
-/***/ "./resources/pics/arrow-left.svg":
-/*!***************************************!*\
-  !*** ./resources/pics/arrow-left.svg ***!
-  \***************************************/
-/***/ ((module) => {
-
-module.exports = "/images/arrow-left.svg?24eeafb0885f64aeeec45dd55ff0512e";
-
-/***/ }),
-
-/***/ "./resources/pics/check.svg":
-/*!**********************************!*\
-  !*** ./resources/pics/check.svg ***!
-  \**********************************/
-/***/ ((module) => {
-
-module.exports = "/images/check.svg?4c03d6159a1db0b60e1c47716ad670a2";
-
-/***/ }),
-
 /***/ "./resources/pics/feed_white_24dp.svg":
 /*!********************************************!*\
   !*** ./resources/pics/feed_white_24dp.svg ***!
@@ -8677,16 +8919,6 @@ module.exports = "/images/how_to_reg_white_24dp.svg?fc6433833428b16bbe4dd55423b8
 /***/ ((module) => {
 
 module.exports = "/images/lock_white_24dp.svg?5e41a3af42cd2dafa3a4fdebf4fd63f4";
-
-/***/ }),
-
-/***/ "./resources/pics/login_white_24dp.svg":
-/*!*********************************************!*\
-  !*** ./resources/pics/login_white_24dp.svg ***!
-  \*********************************************/
-/***/ ((module) => {
-
-module.exports = "/images/login_white_24dp.svg?325a942884e0dbb418d5ea4279c54dc1";
 
 /***/ }),
 

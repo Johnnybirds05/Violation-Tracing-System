@@ -7,7 +7,13 @@
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
             <div class="card-body">
-                <a href="/admins" class="btn btn-dark">Get Started <img src="../../../pics/check.svg"></a>
+                <a href="/admins" class="btn button-cards">
+                    <button class="cssbuttons-io-button"> Get started
+                        <div class="icon">
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                        </div>
+                    </button>
+                </a>
             </div>
         </div>
 
@@ -18,7 +24,13 @@
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
             <div class="card-body">
-                <a href="/driver-login" class="btn btn-dark">Get Started <img src="../../../pics/check.svg"></a>
+                <a href="/driver-login" class="btn button-cards">
+                    <button class="cssbuttons-io-button"> Get started
+                        <div class="icon">
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                        </div>
+                    </button>
+                </a>
             </div>
         </div>
     </div>
@@ -65,6 +77,9 @@
 .card-text{
     font-size: 13px;
 }
+
+
+
 @media only screen and (max-width: 1000px){
     .home-body{
         flex-direction: column;
