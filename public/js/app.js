@@ -3402,7 +3402,7 @@ var render = function render() {
     staticClass: "container driver-body mt-3"
   }, _vm._l(_vm.License, function (license) {
     return _c("div", {
-      staticClass: "row ml-2 rowleft p-2"
+      staticClass: "row rowleft p-2"
     }, [_vm._m(0, true), _vm._v(" "), _c("div", {
       staticClass: "col-md-7 cols-name"
     }, [_c("h3", [_vm._v("John Michael Cagadas ")]), _vm._v(" "), _c("span", [_vm._v("ID: " + _vm._s(license.id) + " "), license.verified === false ? _c("b", {
@@ -3423,7 +3423,7 @@ var render = function render() {
       on: {
         click: _vm.logout
       }
-    }, [_vm._v("Logout \n                      "), _c("img", {
+    }, [_vm._v("Logout \n                    "), _c("img", {
       attrs: {
         src: __webpack_require__(/*! ../../../pics/logout_white_24dp.svg */ "./resources/pics/logout_white_24dp.svg")
       }
@@ -3442,34 +3442,70 @@ var render = function render() {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/two_wheeler_white_24dp.svg */ "./resources/pics/two_wheeler_white_24dp.svg")
     }
-  }), _vm._v(" Vehicles                        \n                  ")]), _vm._v(" "), _c("v-tab", {
+  }), _vm._v(" Vehicles                        \n                ")]), _vm._v(" "), _c("v-tab", {
     staticClass: "tabs-title"
   }, [_c("img", {
     staticClass: "mr-2",
     attrs: {
       src: __webpack_require__(/*! ../../../pics/note_alt_white_24dp.svg */ "./resources/pics/note_alt_white_24dp.svg")
     }
-  }), _vm._v(" Requirements\n                  ")]), _vm._v(" "), _c("v-tab", {
+  }), _vm._v(" Requirements\n                ")]), _vm._v(" "), _c("v-tab", {
     staticClass: "tabs-title"
   }, [_c("img", {
     staticClass: "mr-2",
     attrs: {
       src: __webpack_require__(/*! ../../../pics/minor_crash_white_24dp.svg */ "./resources/pics/minor_crash_white_24dp.svg")
     }
-  }), _vm._v(" Violations\n                  ")]), _vm._v(" "), _c("v-tab", {
+  }), _vm._v(" Violations\n                ")]), _vm._v(" "), _c("v-tab", {
     staticClass: "tabs-title"
   }, [_c("img", {
     staticClass: "mr-2",
     attrs: {
       src: __webpack_require__(/*! ../../../pics/newspaper_white_24dp.svg */ "./resources/pics/newspaper_white_24dp.svg")
     }
-  }), _vm._v(" Ordinances\n                  ")]), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+  }), _vm._v(" Ordinances\n                ")]), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
     attrs: {
       flat: ""
     }
   }, [_c("v-card-text", {
     staticClass: "bg-dark"
   }, [_c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "exampleModal",
+      tabindex: "-1",
+      "aria-labelledby": "exampleModalLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered"
+  }, [_c("div", {
+    staticClass: "modal-content bg-dark"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title text-white",
+    attrs: {
+      id: "exampleModalLabel"
+    }
+  }, [_vm._v("Information: ")]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body text-white"
+  }, [_vm._v("\n                    Please go to the City Tourism Office of Tangub City to be able to edit the details of your profile or vehicle!\n                  ")]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "btn btn-primary text-white",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal"
+    }
+  }, [_vm._v("okay")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "container-fluid overflowing me-3"
   }, [_c("div", {
     staticClass: "accordion",
@@ -3512,11 +3548,11 @@ var render = function render() {
       staticClass: "row"
     }, [_c("div", {
       staticClass: "col p-0 mt-6"
-    }, [_vm._v("\n                                " + _vm._s(_vm.models[index]) + " - " + _vm._s(_vm.Btypes[index]) + "\n                              ")])]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                              " + _vm._s(_vm.models[index]) + " - " + _vm._s(_vm.Btypes[index]) + "\n                            ")])]), _vm._v(" "), _c("div", {
       staticClass: "row"
     }, [_c("div", {
       staticClass: "col p-0"
-    }, [_vm._v("\n                                [" + _vm._s(plate) + "]\n                              ")])])]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                              [" + _vm._s(plate) + "]\n                            ")])])]), _vm._v(" "), _c("div", {
       staticClass: "col-md-3"
     }, [_vm.verified[index] == true ? _c("div", [_c("v-alert", {
       staticClass: "text-type",
@@ -3545,55 +3581,10 @@ var render = function render() {
     }, [_c("b", [_vm._v(" Serial: " + _vm._s(_vm.serial[index]) + " ")])]), _vm._v(" "), _c("div", {
       staticClass: "col-md-2"
     }, [_c("b", [_vm._v("Color: " + _vm._s(_vm.color[index]))])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-2"
-    }, [_c("b", [_vm._v("Reciept No: " + _vm._s(_vm.ReceiptNo[index]))])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-2"
-    }, [_c("b", [_vm._v("Expiration Date: " + _vm._s(_vm.Expiration[index]))])]), _vm._v(" "), _c("div", {
       staticClass: "col-md-3"
-    }, [_c("button", {
-      staticClass: "btn btn-dark button-detail text-center",
-      attrs: {
-        type: "button",
-        "data-bs-toggle": "modal",
-        "data-bs-target": "#exampleModal"
-      }
-    }, [_vm._v("\n                                  Edit Details\n                                ")]), _vm._v(" "), _c("div", {
-      staticClass: "modal fade",
-      attrs: {
-        id: "exampleModal",
-        tabindex: "-1",
-        "aria-labelledby": "exampleModalLabel",
-        "aria-hidden": "true"
-      }
-    }, [_c("div", {
-      staticClass: "modal-dialog modal-dialog-centered"
-    }, [_c("div", {
-      staticClass: "modal-content bg-dark"
-    }, [_c("div", {
-      staticClass: "modal-header"
-    }, [_c("h5", {
-      staticClass: "modal-title text-white",
-      attrs: {
-        id: "exampleModalLabel"
-      }
-    }, [_vm._v("Information: ")]), _vm._v(" "), _c("button", {
-      staticClass: "btn-close",
-      attrs: {
-        type: "button",
-        "data-bs-dismiss": "modal",
-        "aria-label": "Close"
-      }
-    })]), _vm._v(" "), _c("div", {
-      staticClass: "modal-body text-white"
-    }, [_vm._v("\n                                        Please go to the City Tourism Office of Tangub City to be able to edit the details of your profile or vehicle!\n                                      ")]), _vm._v(" "), _c("div", {
-      staticClass: "modal-footer"
-    }, [_c("button", {
-      staticClass: "btn btn-primary text-white",
-      attrs: {
-        type: "button",
-        "data-bs-dismiss": "modal"
-      }
-    }, [_vm._v("okay")])])])])])]), _vm._v(" "), _vm.verified[index] == false ? _c("div", {
+    }, [_c("b", [_vm._v("Reciept No: " + _vm._s(_vm.ReceiptNo[index]))])]), _vm._v(" "), _c("div", {
+      staticClass: "col-md-3"
+    }, [_c("b", [_vm._v("Expiration Date: " + _vm._s(_vm.Expiration[index]))])]), _vm._v(" "), _vm.verified[index] == false ? _c("div", {
       staticClass: "col-md-12 bg-danger text-white"
     }, [_c("b", [_vm._v(" Note: To verify your vehicle information. Please go to the Tangub City, City Tourism Office!")])]) : _vm._e()])])])]);
   }), 0), _vm._v(" "), _c("div", {
@@ -3603,7 +3594,7 @@ var render = function render() {
       color: "primary",
       href: "/addvehicle"
     }
-  }, [_vm._v("\n                  Add Vehicle\n                ")])], 1)])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+  }, [_vm._v("\n                Add Vehicle\n              ")])], 1)])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
     attrs: {
       flat: ""
     }
@@ -3635,7 +3626,7 @@ var render = function render() {
     attrs: {
       src: __webpack_require__(/*! ./../../../pics/no_crash_white_24dp.svg */ "./resources/pics/no_crash_white_24dp.svg")
     }
-  }), _vm._v(" Vehicle Registration\n                  ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" Vehicle Registration\n                ")])]), _vm._v(" "), _c("div", {
     staticClass: "accordion-collapse collapse",
     attrs: {
       id: "collapseOne",
@@ -3696,7 +3687,7 @@ var render = function render() {
     attrs: {
       src: __webpack_require__(/*! ./../../../pics/how_to_reg_white_24dp.svg */ "./resources/pics/how_to_reg_white_24dp.svg")
     }
-  }), _vm._v(" Driver's License\n                  ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" Driver's License\n                ")])]), _vm._v(" "), _c("div", {
     staticClass: "accordion-collapse collapse",
     attrs: {
       id: "collapseTwo",
@@ -3741,7 +3732,7 @@ var render = function render() {
       flat: ""
     }
   }, [_c("v-card-text", [_c("div", {
-    staticClass: "container"
+    staticClass: "container overflowing table-responsive"
   }, [_c("table", {
     staticClass: "table table-dark table-striped table-hover"
   }, [_c("thead", [_c("tr", {
@@ -3782,13 +3773,13 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "container bg-primary"
-  }, [_vm._v("\n                      No pending violation! Keep it up!\n                    ")])])]) : _c("tr", [_c("th", {
+  }, [_vm._v("\n                    No pending violation! Keep it up!\n                  ")])])]) : _c("tr", [_c("th", {
     attrs: {
       colspan: "6"
     }
   }, [_c("div", {
     staticClass: "container bg-danger"
-  }, [_c("b", [_vm._v("Note: ")]), _vm._v(" Please Settle your violation before the warning date! You may settle your violation\n                        in the City Treasurer's Office by paying the fines or in the legal counsel by doing community\n                        service.\n                    ")])])])])], 2)])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+  }, [_c("b", [_vm._v("Note: ")]), _vm._v(" Please Settle your violation before the warning date! You may settle your violation\n                      in the City Treasurer's Office by paying the fines or in the legal counsel by doing community\n                      service.\n                  ")])])])])], 2)])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
     attrs: {
       flat: ""
     }
@@ -3874,7 +3865,14 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../../pics/John Michael Cagadas_.jpg */ "./resources/pics/John Michael Cagadas_.jpg"),
       alt: "profile"
     }
-  })]);
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-dark button-detail text-center mt-2",
+    attrs: {
+      type: "button",
+      "data-bs-toggle": "modal",
+      "data-bs-target": "#exampleModal"
+    }
+  }, [_vm._v("\n                              Edit Details\n                  ")])]);
 }];
 render._withStripped = true;
 
@@ -8270,7 +8268,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".driver-body[data-v-5e00fa56] {\n  width: 75%;\n  background-color: #2e2e2e;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.profile[data-v-5e00fa56] {\n  width: 130px;\n  height: 130px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 100px;\n  border: 5px solid #9c9c9c;\n}\n.blued[data-v-5e00fa56] {\n  background-color: aqua;\n}\n.driver-picbox[data-v-5e00fa56] {\n  width: 140px;\n  height: 140px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n}\n.rowleft[data-v-5e00fa56] {\n  position: relative;\n  left: 0px;\n}\nh3[data-v-5e00fa56] {\n  font-family: Impact, Haettenschweiler, \"Arial Narrow Bold\", sans-serif;\n  position: relative;\n  top: 10px;\n}\n.cols-name[data-v-5e00fa56] {\n  display: flex;\n  flex-direction: column;\n}\n.drivers-links[data-v-5e00fa56] {\n  width: 76%;\n  height: 430px;\n  font-family: monospace;\n  position: relative;\n}\n[data-v-5e00fa56] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.logout-button[data-v-5e00fa56] {\n  position: absolute;\n  top: 50px;\n  right: 50px;\n  width: 150px;\n}\n.tabs-title[data-v-5e00fa56] {\n  font-size: 12px;\n}\n.overflowing[data-v-5e00fa56] {\n  max-height: 400px;\n  overflow-y: auto;\n}\n.vehicle-accord[data-v-5e00fa56] {\n  background-color: #cfcfcf;\n  color: black;\n  font-size: 13px;\n}\n.vehicle-body[data-v-5e00fa56] {\n  background-color: #161616;\n  color: #ececec;\n}\n.vehicle-img[data-v-5e00fa56] {\n  width: 60px;\n  height: 60px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 10px;\n  border: 2px solid #505050;\n}\n.text-type[data-v-5e00fa56] {\n  font-size: 13px;\n  height: 55px;\n  width: 140px;\n}\n.ordinance-img[data-v-5e00fa56] {\n  width: 30px;\n}\n.status[data-v-5e00fa56] {\n  width: 200px;\n  height: 40px;\n  font-size: 11px;\n  background-color: #6b0b0b;\n}\n.button-detail[data-v-5e00fa56] {\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: white;\n}\n.text-white[data-v-5e00fa56] {\n  color: white;\n}\n@media only screen and (max-width: 1000px) {\n.cols-name[data-v-5e00fa56] {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.logout-button[data-v-5e00fa56] {\n    top: 5px;\n    right: 5px;\n    font-size: 10px;\n    width: 100px;\n}\n.drivers-links[data-v-5e00fa56] {\n    width: 100%;\n}\n.driver-body[data-v-5e00fa56] {\n    width: 90%;\n}\n.tabs-title[data-v-5e00fa56] {\n    font-size: 11px;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".driver-body[data-v-5e00fa56] {\n  width: 75%;\n  background-color: #2e2e2e;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.profile[data-v-5e00fa56] {\n  width: 130px;\n  height: 130px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 100px;\n  border: 5px solid #9c9c9c;\n}\n.blued[data-v-5e00fa56] {\n  background-color: aqua;\n}\n.driver-picbox[data-v-5e00fa56] {\n  width: 140px;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  flex-direction: column;\n}\n.rowleft[data-v-5e00fa56] {\n  position: relative;\n  left: 0px;\n}\nh3[data-v-5e00fa56] {\n  font-family: Impact, Haettenschweiler, \"Arial Narrow Bold\", sans-serif;\n  position: relative;\n  top: 10px;\n}\n.cols-name[data-v-5e00fa56] {\n  display: flex;\n  flex-direction: column;\n}\n.drivers-links[data-v-5e00fa56] {\n  width: 76%;\n  height: 430px;\n  font-family: monospace;\n  position: relative;\n}\n[data-v-5e00fa56] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.logout-button[data-v-5e00fa56] {\n  position: absolute;\n  top: 50px;\n  right: 50px;\n  width: 150px;\n}\n.tabs-title[data-v-5e00fa56] {\n  font-size: 12px;\n}\n.overflowing[data-v-5e00fa56] {\n  max-height: 400px;\n  overflow-y: auto;\n  overflow-x: auto;\n}\n.vehicle-accord[data-v-5e00fa56] {\n  background-color: #cfcfcf;\n  color: black;\n  font-size: 13px;\n}\n.vehicle-body[data-v-5e00fa56] {\n  background-color: #161616;\n  color: #ececec;\n}\n.vehicle-img[data-v-5e00fa56] {\n  width: 60px;\n  height: 60px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 10px;\n  border: 2px solid #505050;\n}\n.text-type[data-v-5e00fa56] {\n  font-size: 13px;\n  height: 55px;\n  width: 140px;\n}\n.ordinance-img[data-v-5e00fa56] {\n  width: 30px;\n}\n.status[data-v-5e00fa56] {\n  width: 200px;\n  height: 40px;\n  font-size: 11px;\n  background-color: #6b0b0b;\n}\n.button-detail[data-v-5e00fa56] {\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: white;\n  border: 1px solid white;\n}\n.text-white[data-v-5e00fa56] {\n  color: white;\n}\n.tab-size[data-v-5e00fa56] {\n  width: 10%;\n}\n@media only screen and (max-width: 1000px) {\n.cols-name[data-v-5e00fa56] {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.logout-button[data-v-5e00fa56] {\n    top: 5px;\n    right: 5px;\n    font-size: 10px;\n    width: 100px;\n}\n.drivers-links[data-v-5e00fa56] {\n    width: 100%;\n}\n.driver-body[data-v-5e00fa56] {\n    width: 90%;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

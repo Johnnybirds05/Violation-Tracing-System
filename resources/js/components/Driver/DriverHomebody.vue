@@ -1,9 +1,12 @@
 <template>
     <div class="container-fluid">
         <div class="container driver-body mt-3">
-            <div class="row ml-2 rowleft p-2" v-for="license in License">
+            <div class="row rowleft p-2" v-for="license in License">
                 <div class="col driver-picbox">
-                    <img src="../../../pics/John Michael Cagadas_.jpg" alt="profile" class="profile">
+                      <img src="../../../pics/John Michael Cagadas_.jpg" alt="profile" class="profile">
+                      <button type="button" class="btn btn-dark button-detail text-center mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                  Edit Details
+                      </button>
                 </div>
                 <div class="col-md-7 cols-name">
                     <h3>John Michael Cagadas </h3>
@@ -57,6 +60,23 @@
       <v-tab-item>
         <v-card flat>
           <v-card-text class="bg-dark">
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content bg-dark">
+                      <div class="modal-header">
+                        <h5 class="modal-title text-white" id="exampleModalLabel">Information: </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body text-white">
+                        Please go to the City Tourism Office of Tangub City to be able to edit the details of your profile or vehicle!
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary text-white" data-bs-dismiss="modal">okay</button>
+                       </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="container-fluid overflowing me-3">
                 <div class="accordion" id="accordionExample">
@@ -101,37 +121,14 @@
                                   <b>Color: {{color[index]}}</b> 
                                 </div>
 
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                   <b>Reciept No: {{ReceiptNo[index]}}</b> 
                                 </div>
                                 
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                   <b>Expiration Date: {{Expiration[index]}}</b> 
                                 </div>
 
-                                <div class="col-md-3">
-                                  <button type="button" class="btn btn-dark button-detail text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Edit Details
-                                  </button>
-
-                                  <!-- Modal -->
-                                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                      <div class="modal-content bg-dark">
-                                        <div class="modal-header">
-                                          <h5 class="modal-title text-white" id="exampleModalLabel">Information: </h5>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body text-white">
-                                          Please go to the City Tourism Office of Tangub City to be able to edit the details of your profile or vehicle!
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-primary text-white" data-bs-dismiss="modal">okay</button>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
                                 <div class="col-md-12 bg-danger text-white"  v-if="verified[index] == false">
                                     <b> Note: To verify your vehicle information. Please go to the Tangub City, City Tourism Office!</b> 
                                 </div>
@@ -239,7 +236,7 @@
       <v-tab-item>
         <v-card flat>
           <v-card-text>
-            <div class="container">
+            <div class="container overflowing table-responsive">
               <table class="table table-dark table-striped table-hover">
                 <thead>
                   <tr class="table-dark">
@@ -356,8 +353,8 @@
           </v-card-text>
         </v-card>
       </v-tab-item>
-    </v-tabs>
-  </v-card>
+                    </v-tabs>
+                  </v-card>
             </v-app>
         </div>
       
@@ -611,11 +608,12 @@
 }
 .driver-picbox{
     width: 140px;
-    height: 140px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    flex-direction: column;
 
 }
 .rowleft{
@@ -652,6 +650,7 @@ h3{
 .overflowing{
   max-height: 400px;
   overflow-y: auto;
+  overflow-x: auto;
 
 }
 .vehicle-accord{
@@ -688,9 +687,13 @@ h3{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   color: white;
+  border: 1px solid white;
 }
 .text-white{
   color: white;
+}
+.tab-size{
+  width: 10%;
 }
 @media only screen and (max-width: 1000px){
     .cols-name{
@@ -709,9 +712,6 @@ h3{
     }
     .driver-body{
         width: 90%;
-    }
-    .tabs-title{
-        font-size: 11px;
     }
 }
 </style>
