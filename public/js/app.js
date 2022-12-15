@@ -3607,9 +3607,9 @@ var render = function render() {
     }, [_c("b", [_vm._v(" Serial: " + _vm._s(_vm.serial[index]) + " ")])]), _vm._v(" "), _c("div", {
       staticClass: "col-md-2"
     }, [_c("b", [_vm._v("Color: " + _vm._s(_vm.color[index]))])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-3"
+      staticClass: "col-md-2"
     }, [_c("b", [_vm._v("Reciept No: " + _vm._s(_vm.ReceiptNo[index]))])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-3"
+      staticClass: "col-md-2"
     }, [_c("b", [_vm._v("Expiration Date: " + _vm._s(_vm.Expiration[index]))])]), _vm._v(" "), _c("div", {
       staticClass: "col-md-3"
     }, [_c("button", {

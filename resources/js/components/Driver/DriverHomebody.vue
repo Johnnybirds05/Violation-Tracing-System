@@ -122,11 +122,11 @@
                                   <b>Color: {{color[index]}}</b> 
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                   <b>Reciept No: {{ReceiptNo[index]}}</b> 
                                 </div>
                                 
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                   <b>Expiration Date: {{Expiration[index]}}</b> 
                                 </div>
                                 <div class="col-md-3">
