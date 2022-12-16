@@ -42,13 +42,19 @@
     bottom: 0;
     height: 100%;
     z-index: 99;
-    animation-name: to-top;
+    animation-name: crop;
     animation-duration: 1s;
     background-color: rgba(41, 41, 41, 0.2);
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@keyframes crop {
+  0%   { transform: scaleX(0.7);}
+  50%  {transform: scaleX(1.3);}
+  100% {transform: scaleX(1);}
 }
 
 </style>

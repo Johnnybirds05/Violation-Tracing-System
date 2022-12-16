@@ -10,12 +10,12 @@
 
                             <div class="col-md-3">
                                 <label class="form-label"> Model: </label>
-                                <input type="text" class="form-control" id="driver-firstname">
+                                <input type="text" class="form-control input" id="driver-firstname">
                             </div>
 
                             <div class="col-md-3">
                                 <label class="form-label">Body Type: </label>
-                                <select class="form-select" name="sex" aria-label="Default select example">
+                                <select class="form-select input" name="sex" aria-label="Default select example">
                                     <option selected disabled>Select</option>
                                     <option value="1">Motocycle</option>
                                     <option value="2">Tricycle</option>
@@ -26,7 +26,7 @@
 
                             <div class="col-md-3">
                                 <label class="form-label"> Color: </label>
-                                <input type="text" class="form-control" id="driver-firstname">
+                                <input type="text" class="form-control input" id="driver-firstname">
                             </div>
 
                             </div>
@@ -35,7 +35,7 @@
 
                                 <div class="col-md-3">
                                     <label class="form-label"> Plate No: </label>
-                                    <input type="text" class="form-control" id="driver-firstname">
+                                    <input type="text" class="form-control input" id="driver-firstname">
                                 </div>
 
                                 <div class="col-md-3">
@@ -45,7 +45,7 @@
 
                                 <div class="col-md-3">
                                     <label class="form-label"> Receipt No: </label>
-                                    <input type="text" class="form-control" id="driver-firstname">
+                                    <input type="text" class="form-control input" id="driver-firstname">
                                 </div>
 
                             </div>
@@ -55,7 +55,7 @@
                                 <div class="col-md-3">
                                     <label for="date" class="form-label">Expiration Date: </label>
                                     <div class="input-group date" id="expiration">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control input">
                                         <span class="input-group-append">
                                             <span class="input-group-text bg-white">
                                                 <i class="fa fa-calendar icons"></i>
@@ -65,7 +65,7 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="formFileSm" class="form-label">Vehicle Photo:</label>
+                                    <label for="formFileSm" class="form-label input">Vehicle Photo:</label>
                                     <input class="form-control" id="formFile" type="file" accept="image/png, image/gif, image/jpeg">
                                 </div>
 
@@ -73,13 +73,20 @@
                                 </div>
                     </div>
                     <div class="container centered">
-                        <div class="save-button">
-                            <v-app>
-                                <v-btn color="primary" href="/homedriver">
-                                    Save
-                                </v-btn>
-                            </v-app>
-                        </div>
+                        <a href="/driver-dashboard" class="btn">
+                            <button class="button-back btn-login">
+                                    <div class="svg-wrapper-1">
+                                        <div class="svg-wrapper">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                            <path fill="none" d="M0 0h24v24H0z"></path>
+                                            <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                                        </svg>
+                                        </div>
+                                    </div>
+                                    <span>Save</span>
+                                </button>
+                        </a>
+                            
                     </div>
                     
                     

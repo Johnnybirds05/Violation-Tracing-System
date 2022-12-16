@@ -2900,8 +2900,128 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       tab: null,
-      drawer: null
+      drawer: null,
+      itemsPerPageArray: [4, 8, 12],
+      search: '',
+      filter: {},
+      sortDesc: false,
+      page: 1,
+      itemsPerPage: 4,
+      sortBy: 'name',
+      keys: ['Name', 'Calories', 'Fat', 'Carbs', 'Protein', 'Sodium', 'Calcium', 'Iron'],
+      items: [{
+        name: 'Frozen Yogurt',
+        calories: 159,
+        fat: 6.0,
+        carbs: 24,
+        protein: 4.0,
+        sodium: 87,
+        calcium: '14%',
+        iron: '1%'
+      }, {
+        name: 'Ice cream sandwich',
+        calories: 237,
+        fat: 9.0,
+        carbs: 37,
+        protein: 4.3,
+        sodium: 129,
+        calcium: '8%',
+        iron: '1%'
+      }, {
+        name: 'Eclair',
+        calories: 262,
+        fat: 16.0,
+        carbs: 23,
+        protein: 6.0,
+        sodium: 337,
+        calcium: '6%',
+        iron: '7%'
+      }, {
+        name: 'Cupcake',
+        calories: 305,
+        fat: 3.7,
+        carbs: 67,
+        protein: 4.3,
+        sodium: 413,
+        calcium: '3%',
+        iron: '8%'
+      }, {
+        name: 'Gingerbread',
+        calories: 356,
+        fat: 16.0,
+        carbs: 49,
+        protein: 3.9,
+        sodium: 327,
+        calcium: '7%',
+        iron: '16%'
+      }, {
+        name: 'Jelly bean',
+        calories: 375,
+        fat: 0.0,
+        carbs: 94,
+        protein: 0.0,
+        sodium: 50,
+        calcium: '0%',
+        iron: '0%'
+      }, {
+        name: 'Lollipop',
+        calories: 392,
+        fat: 0.2,
+        carbs: 98,
+        protein: 0,
+        sodium: 38,
+        calcium: '0%',
+        iron: '2%'
+      }, {
+        name: 'Honeycomb',
+        calories: 408,
+        fat: 3.2,
+        carbs: 87,
+        protein: 6.5,
+        sodium: 562,
+        calcium: '0%',
+        iron: '45%'
+      }, {
+        name: 'Donut',
+        calories: 452,
+        fat: 25.0,
+        carbs: 51,
+        protein: 4.9,
+        sodium: 326,
+        calcium: '2%',
+        iron: '22%'
+      }, {
+        name: 'KitKat',
+        calories: 518,
+        fat: 26.0,
+        carbs: 65,
+        protein: 7,
+        sodium: 54,
+        calcium: '12%',
+        iron: '6%'
+      }]
     };
+  },
+  computed: {
+    numberOfPages: function numberOfPages() {
+      return Math.ceil(this.items.length / this.itemsPerPage);
+    },
+    filteredKeys: function filteredKeys() {
+      return this.keys.filter(function (key) {
+        return key !== 'Name';
+      });
+    }
+  },
+  methods: {
+    nextPage: function nextPage() {
+      if (this.page + 1 <= this.numberOfPages) this.page += 1;
+    },
+    formerPage: function formerPage() {
+      if (this.page - 1 >= 1) this.page -= 1;
+    },
+    updateItemsPerPage: function updateItemsPerPage(number) {
+      this.itemsPerPage = number;
+    }
   }
 });
 
@@ -3164,14 +3284,35 @@ var render = function render() {
     staticClass: "text-center"
   }, [_c("B", [_vm._v("ADD VEHICLE")])], 1), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "container centered"
-  }, [_c("div", {
-    staticClass: "save-button"
-  }, [_c("v-app", [_c("v-btn", {
+  }, [_c("a", {
+    staticClass: "btn",
     attrs: {
-      color: "primary",
-      href: "/homedriver"
+      href: "/driver-dashboard"
     }
-  }, [_vm._v("\n                            Save\n                        ")])], 1)], 1)])])]);
+  }, [_c("button", {
+    staticClass: "button-back btn-login"
+  }, [_c("div", {
+    staticClass: "svg-wrapper-1"
+  }, [_c("div", {
+    staticClass: "svg-wrapper"
+  }, [_c("svg", {
+    attrs: {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      width: "24",
+      height: "24"
+    }
+  }, [_c("path", {
+    attrs: {
+      fill: "none",
+      d: "M0 0h24v24H0z"
+    }
+  }), _vm._v(" "), _c("path", {
+    attrs: {
+      fill: "currentColor",
+      d: "M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+    }
+  })])])]), _vm._v(" "), _c("span", [_vm._v("Save")])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -3185,7 +3326,7 @@ var staticRenderFns = [function () {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Model: ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-firstname"
@@ -3195,7 +3336,7 @@ var staticRenderFns = [function () {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Body Type: ")]), _vm._v(" "), _c("select", {
-    staticClass: "form-select",
+    staticClass: "form-select input",
     attrs: {
       name: "sex",
       "aria-label": "Default select example"
@@ -3226,7 +3367,7 @@ var staticRenderFns = [function () {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Color: ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-firstname"
@@ -3238,7 +3379,7 @@ var staticRenderFns = [function () {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Plate No: ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-firstname"
@@ -3258,7 +3399,7 @@ var staticRenderFns = [function () {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Receipt No: ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-firstname"
@@ -3278,7 +3419,7 @@ var staticRenderFns = [function () {
       id: "expiration"
     }
   }, [_c("input", {
-    staticClass: "form-control",
+    staticClass: "form-control input",
     attrs: {
       type: "text"
     }
@@ -3291,7 +3432,7 @@ var staticRenderFns = [function () {
   })])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("label", {
-    staticClass: "form-label",
+    staticClass: "form-label input",
     attrs: {
       "for": "formFileSm"
     }
@@ -3442,7 +3583,7 @@ var render = function render() {
     }, [_c("div", {
       staticClass: "col"
     }, [_c("button", {
-      staticClass: "button-back",
+      staticClass: "button-back btn-warning",
       attrs: {
         role: "button"
       },
@@ -3526,12 +3667,53 @@ var render = function render() {
   }, [_vm._v("\n                    Please go to the City Tourism Office of Tangub City to be able to edit the details of your profile or vehicle!\n                  ")]), _vm._v(" "), _c("div", {
     staticClass: "modal-footer"
   }, [_c("button", {
-    staticClass: "btn btn-primary text-white",
+    staticClass: "button-back",
     attrs: {
       type: "button",
       "data-bs-dismiss": "modal"
     }
   }, [_vm._v("okay")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "exampleModal2",
+      tabindex: "-1",
+      "aria-labelledby": "exampleModalLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered"
+  }, [_c("div", {
+    staticClass: "modal-content bg-dark"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title",
+    attrs: {
+      id: "exampleModalLabel text-white"
+    }
+  }, [_vm._v("Warning!")]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body text-white"
+  }, [_vm._v("\n                Are you sure you want to continue?\n              ")]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "button-back btn-success",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal"
+    }
+  }, [_vm._v("Close")]), _vm._v(" "), _c("button", {
+    staticClass: "button-back btn-danger",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Save changes")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "container-fluid overflowing me-3"
   }, [_c("div", {
     staticClass: "accordion",
@@ -3588,7 +3770,7 @@ var render = function render() {
     }, [_vm._v(" Verified!")])], 1) : _c("div", [_c("v-alert", {
       staticClass: "text-type",
       attrs: {
-        type: "error",
+        type: "warning",
         alt: "Go to the City Tourism Office"
       }
     }, [_vm._v(" Unverified!")])], 1)])])])]), _vm._v(" "), _c("div", {
@@ -3613,7 +3795,11 @@ var render = function render() {
     }, [_c("b", [_vm._v("Expiration Date: " + _vm._s(_vm.Expiration[index]))])]), _vm._v(" "), _c("div", {
       staticClass: "col-md-3"
     }, [_c("button", {
-      staticClass: "noselect"
+      staticClass: "noselect",
+      attrs: {
+        "data-bs-toggle": "modal",
+        "data-bs-target": "#exampleModal2"
+      }
     }, [_c("span", {
       staticClass: "text"
     }, [_vm._v("Delete")]), _c("span", {
@@ -3881,7 +4067,7 @@ var render = function render() {
       staticClass: "col-md-2"
     }, [_c("h6", [_vm._v(" Description: ")])]), _vm._v(" "), _c("div", {
       staticClass: "col-md-10"
-    }, [_c("span", [_vm._v(_vm._s(ordinance.description))])])]), _vm._v(" "), _c("div", {
+    }, [_c("b", [_vm._v(_vm._s(ordinance.description))])])]), _vm._v(" "), _c("div", {
       staticClass: "container ml-0 mt-3"
     }, [ordinance.offense1 != "" ? _c("div", {
       staticClass: "row g-0"
@@ -4619,7 +4805,7 @@ var render = function render() {
     attrs: {
       d: "M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"
     }
-  })]), _vm._v(" "), _c("b", [_vm._v("Register")])])])])]);
+  })]), _vm._v(" "), _c("b", [_vm._v("Login")])])])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -5022,7 +5208,7 @@ var render = function render() {
           attrs: {
             color: "yellow"
           }
-        }), _vm._v(" "), _c("v-tab", [_vm._v("\n                        Drivers\n                    ")]), _vm._v(" "), _c("v-tab", [_vm._v("\n                        Driving Requirement\n                    ")]), _vm._v(" "), _c("v-tab", [_vm._v("\n                        Accounts\n                    ")])], 1)];
+        }), _vm._v(" "), _c("v-tab", [_vm._v("Drivers")]), _vm._v(" "), _c("v-tab", [_vm._v("Driving Requirement")]), _vm._v(" "), _c("v-tab", [_vm._v("Accounts")])], 1)];
       },
       proxy: true
     }])
@@ -5045,7 +5231,200 @@ var render = function render() {
     attrs: {
       flat: ""
     }
-  }, [_c("v-card-text", [_vm._v("\n                        hello  "), _c("br"), _c("br"), _c("br"), _c("br"), _c("br"), _c("br"), _c("br")])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+  }, [_c("v-card-text", [[_c("v-container", {
+    attrs: {
+      fluid: ""
+    }
+  }, [_c("v-data-iterator", {
+    attrs: {
+      items: _vm.items,
+      "items-per-page": _vm.itemsPerPage,
+      page: _vm.page,
+      search: _vm.search,
+      "sort-by": _vm.sortBy.toLowerCase(),
+      "sort-desc": _vm.sortDesc,
+      "hide-default-footer": ""
+    },
+    on: {
+      "update:itemsPerPage": function updateItemsPerPage($event) {
+        _vm.itemsPerPage = $event;
+      },
+      "update:items-per-page": function updateItemsPerPage($event) {
+        _vm.itemsPerPage = $event;
+      },
+      "update:page": function updatePage($event) {
+        _vm.page = $event;
+      }
+    },
+    scopedSlots: _vm._u([{
+      key: "header",
+      fn: function fn() {
+        return [_c("v-toolbar", {
+          staticClass: "mb-1",
+          attrs: {
+            dark: "",
+            color: "blue darken-3"
+          }
+        }, [_c("v-text-field", {
+          attrs: {
+            clearable: "",
+            flat: "",
+            "solo-inverted": "",
+            "hide-details": "",
+            "prepend-inner-icon": "mdi-magnify",
+            label: "Search"
+          },
+          model: {
+            value: _vm.search,
+            callback: function callback($$v) {
+              _vm.search = $$v;
+            },
+            expression: "search"
+          }
+        }), _vm._v(" "), _vm.$vuetify.breakpoint.mdAndUp ? [_c("v-spacer"), _vm._v(" "), _c("v-select", {
+          attrs: {
+            flat: "",
+            "solo-inverted": "",
+            "hide-details": "",
+            items: _vm.keys,
+            "prepend-inner-icon": "mdi-magnify",
+            label: "Sort by"
+          },
+          model: {
+            value: _vm.sortBy,
+            callback: function callback($$v) {
+              _vm.sortBy = $$v;
+            },
+            expression: "sortBy"
+          }
+        }), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("v-btn-toggle", {
+          attrs: {
+            mandatory: ""
+          },
+          model: {
+            value: _vm.sortDesc,
+            callback: function callback($$v) {
+              _vm.sortDesc = $$v;
+            },
+            expression: "sortDesc"
+          }
+        }, [_c("v-btn", {
+          attrs: {
+            large: "",
+            depressed: "",
+            color: "blue",
+            value: false
+          }
+        }, [_c("v-icon", [_vm._v("mdi-arrow-up")])], 1), _vm._v(" "), _c("v-btn", {
+          attrs: {
+            large: "",
+            depressed: "",
+            color: "blue",
+            value: true
+          }
+        }, [_c("v-icon", [_vm._v("mdi-arrow-down")])], 1)], 1)] : _vm._e()], 2)];
+      },
+      proxy: true
+    }, {
+      key: "default",
+      fn: function fn(props) {
+        return [_c("v-row", _vm._l(props.items, function (item) {
+          return _c("v-col", {
+            key: item.name,
+            attrs: {
+              cols: "12",
+              sm: "6",
+              md: "4",
+              lg: "3"
+            }
+          }, [_c("v-card", [_c("v-card-title", {
+            staticClass: "subheading font-weight-bold"
+          }, [_vm._v("\n                                            " + _vm._s(item.name) + "\n                                        ")]), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-list", {
+            attrs: {
+              dense: ""
+            }
+          }, _vm._l(_vm.filteredKeys, function (key, index) {
+            return _c("v-list-item", {
+              key: index
+            }, [_c("v-list-item-content", {
+              "class": {
+                "blue--text": _vm.sortBy === key
+              }
+            }, [_vm._v("\n                                                " + _vm._s(key) + ":\n                                            ")]), _vm._v(" "), _c("v-list-item-content", {
+              staticClass: "align-end",
+              "class": {
+                "blue--text": _vm.sortBy === key
+              }
+            }, [_vm._v("\n                                                " + _vm._s(item[key.toLowerCase()]) + "\n                                            ")])], 1);
+          }), 1)], 1)], 1);
+        }), 1)];
+      }
+    }, {
+      key: "footer",
+      fn: function fn() {
+        return [_c("v-row", {
+          staticClass: "mt-2",
+          attrs: {
+            align: "center",
+            justify: "center"
+          }
+        }, [_c("span", {
+          staticClass: "grey--text"
+        }, [_vm._v("Items per page")]), _vm._v(" "), _c("v-menu", {
+          attrs: {
+            "offset-y": ""
+          },
+          scopedSlots: _vm._u([{
+            key: "activator",
+            fn: function fn(_ref) {
+              var on = _ref.on,
+                attrs = _ref.attrs;
+              return [_c("v-btn", _vm._g(_vm._b({
+                staticClass: "ml-2",
+                attrs: {
+                  dark: "",
+                  text: "",
+                  color: "primary"
+                }
+              }, "v-btn", attrs, false), on), [_vm._v("\n                                            " + _vm._s(_vm.itemsPerPage) + "\n                                            "), _c("v-icon", [_vm._v("mdi-chevron-down")])], 1)];
+            }
+          }])
+        }, [_vm._v(" "), _c("v-list", _vm._l(_vm.itemsPerPageArray, function (number, index) {
+          return _c("v-list-item", {
+            key: index,
+            on: {
+              click: function click($event) {
+                return _vm.updateItemsPerPage(number);
+              }
+            }
+          }, [_c("v-list-item-title", [_vm._v(_vm._s(number))])], 1);
+        }), 1)], 1), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("span", {
+          staticClass: "mr-4 grey--text"
+        }, [_vm._v("\n                                        Page " + _vm._s(_vm.page) + " of " + _vm._s(_vm.numberOfPages) + "\n                                    ")]), _vm._v(" "), _c("v-btn", {
+          staticClass: "mr-1",
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "blue darken-3"
+          },
+          on: {
+            click: _vm.formerPage
+          }
+        }, [_c("v-icon", [_vm._v("mdi-chevron-left")])], 1), _vm._v(" "), _c("v-btn", {
+          staticClass: "ml-1",
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "blue darken-3"
+          },
+          on: {
+            click: _vm.nextPage
+          }
+        }, [_c("v-icon", [_vm._v("mdi-chevron-right")])], 1)], 1)];
+      },
+      proxy: true
+    }])
+  })], 1)]], 2)], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
     attrs: {
       flat: ""
     }
@@ -8637,7 +9016,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".container-fluid[data-v-b764f1ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  height: 100%;\n  z-index: 99;\n  animation-name: to-top;\n  animation-duration: 1s;\n  background-color: rgba(41, 41, 41, 0.2);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".container-fluid[data-v-b764f1ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  height: 100%;\n  z-index: 99;\n  animation-name: crop-b764f1ba;\n  animation-duration: 1s;\n  background-color: rgba(41, 41, 41, 0.2);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n@keyframes crop-b764f1ba {\n0% {\n    transform: scaleX(0.7);\n}\n50% {\n    transform: scaleX(1.3);\n}\n100% {\n    transform: scaleX(1);\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8661,7 +9040,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".driver-body[data-v-5e00fa56] {\n  width: 75%;\n  background-color: #2e2e2e;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.profile[data-v-5e00fa56] {\n  width: 130px;\n  height: 130px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 100px;\n  border: 5px solid #9c9c9c;\n}\n.blued[data-v-5e00fa56] {\n  background-color: aqua;\n}\n.driver-picbox[data-v-5e00fa56] {\n  width: 140px;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  flex-direction: column;\n}\n.rowleft[data-v-5e00fa56] {\n  position: relative;\n  left: 0px;\n}\nh3[data-v-5e00fa56] {\n  font-family: Impact, Haettenschweiler, \"Arial Narrow Bold\", sans-serif;\n  position: relative;\n  top: 10px;\n}\n.cols-name[data-v-5e00fa56] {\n  display: flex;\n  flex-direction: column;\n}\n.drivers-links[data-v-5e00fa56] {\n  width: 76%;\n  height: 430px;\n  font-family: monospace;\n  position: relative;\n}\n[data-v-5e00fa56] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.logout-button[data-v-5e00fa56] {\n  position: absolute;\n  top: 50px;\n  right: 50px;\n  width: 150px;\n}\n.tabs-title[data-v-5e00fa56] {\n  font-size: 12px;\n}\n.overflowing[data-v-5e00fa56] {\n  max-height: 400px;\n  overflow-y: auto;\n  overflow-x: auto;\n}\n.vehicle-accord[data-v-5e00fa56] {\n  background-color: #cfcfcf;\n  color: black;\n  font-size: 13px;\n}\n.vehicle-body[data-v-5e00fa56] {\n  background-color: #161616;\n  color: #ececec;\n}\n.vehicle-img[data-v-5e00fa56] {\n  width: 60px;\n  height: 60px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 10px;\n  border: 2px solid #505050;\n}\n.text-type[data-v-5e00fa56] {\n  font-size: 13px;\n  height: 55px;\n  width: 140px;\n}\n.ordinance-img[data-v-5e00fa56] {\n  width: 30px;\n}\n.status[data-v-5e00fa56] {\n  width: 200px;\n  height: 40px;\n  font-size: 11px;\n  background-color: #6b0b0b;\n}\n.button-detail[data-v-5e00fa56] {\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: white;\n  border: 1px solid white;\n}\n.text-white[data-v-5e00fa56] {\n  color: white;\n}\n.tab-size[data-v-5e00fa56] {\n  width: 10%;\n}\n@media only screen and (max-width: 500px) {\n.cols-name[data-v-5e00fa56] {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.logout-button[data-v-5e00fa56] {\n    top: 5px;\n    right: 5px;\n    font-size: 10px;\n    width: 100px;\n}\n.drivers-links[data-v-5e00fa56] {\n    width: 100%;\n}\n.driver-body[data-v-5e00fa56] {\n    width: 100%;\n}\n.vehicle-img[data-v-5e00fa56] {\n    width: 30px;\n    height: 30px;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".driver-body[data-v-5e00fa56] {\n  width: 75%;\n  background-color: #2e2e2e;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.profile[data-v-5e00fa56] {\n  width: 130px;\n  height: 130px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 100px;\n  border: 5px solid #9c9c9c;\n}\n.blued[data-v-5e00fa56] {\n  background-color: aqua;\n}\n.driver-picbox[data-v-5e00fa56] {\n  width: 140px;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  flex-direction: column;\n}\n.rowleft[data-v-5e00fa56] {\n  position: relative;\n  left: 0px;\n}\nh3[data-v-5e00fa56] {\n  font-family: Impact, Haettenschweiler, \"Arial Narrow Bold\", sans-serif;\n  position: relative;\n  top: 10px;\n}\n.cols-name[data-v-5e00fa56] {\n  display: flex;\n  flex-direction: column;\n}\n.drivers-links[data-v-5e00fa56] {\n  width: 76%;\n  height: 540px;\n  font-family: monospace;\n  position: relative;\n}\n[data-v-5e00fa56] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.logout-button[data-v-5e00fa56] {\n  position: absolute;\n  top: 50px;\n  right: 50px;\n  width: 150px;\n}\n.tabs-title[data-v-5e00fa56] {\n  font-size: 12px;\n}\n.overflowing[data-v-5e00fa56] {\n  max-height: 500px;\n  overflow-y: auto;\n  overflow-x: auto;\n}\n.vehicle-accord[data-v-5e00fa56] {\n  background-color: #cfcfcf;\n  color: black;\n  font-size: 13px;\n}\n.vehicle-body[data-v-5e00fa56] {\n  background-color: #161616;\n  color: #ececec;\n}\n.vehicle-img[data-v-5e00fa56] {\n  width: 60px;\n  height: 60px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 10px;\n  border: 2px solid #505050;\n}\n.text-type[data-v-5e00fa56] {\n  font-size: 13px;\n  height: 55px;\n  width: 140px;\n}\n.ordinance-img[data-v-5e00fa56] {\n  width: 30px;\n}\n.status[data-v-5e00fa56] {\n  width: 200px;\n  height: 40px;\n  font-size: 11px;\n  background-color: #6b0b0b;\n}\n.button-detail[data-v-5e00fa56] {\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: white;\n  border: 1px solid white;\n}\n.text-white[data-v-5e00fa56] {\n  color: white;\n}\n.tab-size[data-v-5e00fa56] {\n  width: 10%;\n}\n@media only screen and (max-width: 500px) {\n.cols-name[data-v-5e00fa56] {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.logout-button[data-v-5e00fa56] {\n    top: 5px;\n    right: 5px;\n    font-size: 10px;\n    width: 100px;\n}\n.drivers-links[data-v-5e00fa56] {\n    width: 100%;\n}\n.driver-body[data-v-5e00fa56] {\n    width: 100%;\n}\n.vehicle-img[data-v-5e00fa56] {\n    width: 30px;\n    height: 30px;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

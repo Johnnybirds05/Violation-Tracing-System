@@ -24,7 +24,7 @@
                  <div class="col-md-3 logout-button">
                   <div class="row">
                     <div class="col">
-                      <button class="button-back" 
+                      <button class="button-back btn-warning" 
                         @click="logout"
                         role="button">Logout 
                         <img src="../../../pics/logout_white_24dp.svg">
@@ -61,7 +61,9 @@
       <v-tab-item>
         <v-card flat>
           <v-card-text class="bg-dark">
-            <!-- Modal -->
+
+
+            <!-- Modals for vehicle information -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content bg-dark">
@@ -73,12 +75,31 @@
                         Please go to the City Tourism Office of Tangub City to be able to edit the details of your profile or vehicle!
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-primary text-white" data-bs-dismiss="modal">okay</button>
+                        <button type="button" class="button-back" data-bs-dismiss="modal">okay</button>
                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- modals for delete -->
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-dark">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel text-white">Warning!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-white">
+                    Are you sure you want to continue?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="button-back btn-danger">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <div class="container-fluid overflowing me-3">
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item " v-for="(plate, index) in plates" :key="plate.id">
@@ -105,7 +126,7 @@
                                       <v-alert type="success" class="text-type"> Verified!</v-alert>
                                     </div>
                                     <div v-else>
-                                      <v-alert type="error" alt="Go to the City Tourism Office" class="text-type"> Unverified!</v-alert>
+                                      <v-alert type="warning" alt="Go to the City Tourism Office" class="text-type"> Unverified!</v-alert>
                                     </div>
                             </div>
                           </div>
@@ -130,7 +151,7 @@
                                   <b>Expiration Date: {{Expiration[index]}}</b> 
                                 </div>
                                 <div class="col-md-3">
-                                  <button class="noselect">
+                                  <button class="noselect" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                                     <span class="text">Delete</span><span class="icone"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span>
                                   </button>
                                 </div>
@@ -317,7 +338,7 @@
                               <h6> Description: </h6>
                             </div>
                             <div class="col-md-10">
-                              <span>{{ordinance.description}}</span>
+                              <b>{{ordinance.description}}</b>
                             </div>
                           </div>
 
@@ -641,7 +662,7 @@ h3{
 }
 .drivers-links{
     width: 76%;
-    height: 430px;
+    height: 540px;
     font-family: monospace;
     position: relative;
 }
@@ -658,7 +679,7 @@ h3{
     font-size: 12px;
 }
 .overflowing{
-  max-height: 400px;
+  max-height: 500px;
   overflow-y: auto;
   overflow-x: auto;
 
