@@ -83,26 +83,21 @@
                                 </v-toolbar>
                             </template>
 
-
-<!-- this is for the driver tab -->
-
                             <template v-slot:default="props">
                                 <v-row>
                                     <v-col v-for="item in props.items" :key="item.name" cols="12" sm="10" md="8" lg="6">
-                                        <v-card class="table-text">
+                                        <v-card class="table-text" color="grey darken-3">
                                             <v-card-title class="subheading font-weight-bold">
-                                                <img src="../../../pics/John Michael Cagadas_.jpg" alt="profile" class="profile">
+                                                <img src="../../../pics/perm_identity_white_36dp.svg" alt="profile" class="profile">
                                                     <h6>{{ item.name }}</h6>
                                                     <v-spacer></v-spacer> 
                                                 <div class=" ml-10 button-tourism">
-                                                    <button class="button m-1"> View Details</button>
+                                                    <button class="button m-1" data-bs-toggle="modal" data-bs-target="#insertDriver"> View Details</button>
                                                     <button class="noselect m-1" data-bs-toggle="modal" data-bs-target="#exampleModal3">
                                                         <span class="text">Delete</span><span class="icone"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span>
                                                     </button>
                                                 </div>
                                             </v-card-title>
-
-                                            <v-divider></v-divider>
 
                                             <v-list dense class="table-text">
                                                 <v-list-item v-for="(key, index) in filteredKeys" :key="index">
@@ -154,16 +149,16 @@
                                 </v-data-iterator>
                             </v-container>
                             </template>
-                </v-card-text>
-            </v-card>
-    </v-tab-item>
+                        </v-card-text>
+                    </v-card>
+                </v-tab-item>
 
 
-    <!-- This is for the requirement Side -->
+<!-- This is for the requirement Side -->
         <v-tab-item>
             <v-card flat>
                 <v-card-text>
-                    <!-- this is for the vehicle registration -->
+<!-- this is for the vehicle registration -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button collapsed vehicle-body" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -188,7 +183,7 @@
                                     <img src="./../../../pics/no_crash_white_24dp.svg" class="vehicle-img mr-5">
                                     <h6 class="ml-2">Vehicle Requirement List</h6>
                                 <v-spacer></v-spacer>
-                                    <div class="containered">
+                                <div class="containered">
                                         <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="searchVreq">
                                         <div class="icon">
                                             <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
@@ -198,11 +193,18 @@
                                             </svg>
                                         </div>
                                     </div>
+                                    <a href="/addvehicle" class="ml-2 mr-2">
+                                        <button class="icon-btn add-btn">
+                                            <div class="add-icon"></div>
+                                            <div class="btn-txt"><b>Add Vehicle</b></div>
+                                        </button>
+                                    </a>
+                                    
                                 </v-toolbar>
                             </template>
                             <template v-slot:default="props">
                                 <v-row>
-                                    <v-col v-for="item in props.items" :key="item.name" cols="6" sm="6" md="4" lg="4">
+                                    <v-col v-for="item in props.items" :key="item.name" cols="12" sm="8" md="6" lg="4">
                                         <v-card class="table-text" color="blue darken-4">
                                             <v-card-title class="subheading font-weight-bold">  
                                                     <h6>{{ item.name }}</h6>
@@ -211,7 +213,7 @@
                                                                 <v-icon small class="m-1" @click="editItem(item)">
                                                                 mdi-pencil
                                                             </v-icon> 
-                                                            <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#delete-Vreq"
+                                                            <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#delete-Account"
                                                             >
                                                                 mdi-delete
                                                             </v-icon>
@@ -280,9 +282,8 @@
 
 
 
-
-                    <!-- this is for the driver's license -->
-                    <div class="accordion-item">
+<!-- this is for the driver's license -->
+                <div class="accordion-item">
                   <h2 class="accordion-header" id="headingTwo">
                     <button class="accordion-button collapsed vehicle-body" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                       <img src="./../../../pics/how_to_reg_white_24dp.svg" class="vehicle-img mr-5"> Driver's License
@@ -316,11 +317,17 @@
                                             </svg>
                                         </div>
                                     </div>
+                                    <a href="/addvehicle" class="ml-2 mr-2">
+                                        <button class="icon-btn add-btn">
+                                            <div class="add-icon"></div>
+                                            <div class="btn-txt"><b>Add Vehicle</b></div>
+                                        </button>
+                                    </a>
                                 </v-toolbar>
                             </template>
                             <template v-slot:default="props">
                                 <v-row>
-                                    <v-col v-for="item in props.items" :key="item.name" cols="6" sm="6" md="4" lg="4">
+                                    <v-col v-for="item in props.items" :key="item.name" cols="12" sm="6" md="4" lg="4">
                                         <v-card class="table-text" color="blue darken-4">
                                             <v-card-title class="subheading font-weight-bold">  
                                                     <h6>{{ item.name }}</h6>
@@ -397,20 +404,124 @@
             </v-card>
         </v-tab-item>
 
+<!-- This is for the office Account -->
+        <v-tab-item>
+            <v-card flat>
+                <v-card-text>
+                         <template>
+                                <v-container fluid>
+                                    <v-data-iterator
+                                        :items="offices"
+                                        :items-per-page.sync="itemsPerPageO"
+                                        :page.sync="pageO"
+                                        :search="searchO"
+                                        :sort-by="sortByO.toLowerCase()"
+                                        :sort-desc="sortDescO"
+                                        hide-default-footer
+                                    >
+                            <template v-slot:header>
+                                <v-toolbar color="dark" class="mb-3">
+                                    <img src="../../../pics/sports_motorsports_white_24dp.svg" class="driver-icon" alt="...">
+                                    <h4 class="ml-2">Offices Account List</h4>
+                                <v-spacer></v-spacer>
+                                    <div class="containered">
+                                        <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="searchO">
+                                        <div class="icon">
+                                            <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
+                                                <title>Search</title>
+                                                <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
+                                                <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
+                                            </svg>  
+                                        </div>
+                                    </div>
+                                    <a href="/addvehicle" class="ml-2 mr-2">
+                                        <button class="icon-btn add-btn">
+                                            <div class="add-icon"></div>
+                                            <div class="btn-txt"><b>Add Vehicle</b></div>
+                                        </button>
+                                    </a>
+                                </v-toolbar>
+                            </template>
 
-                        <v-tab-item>
-                            <v-card flat>
-                            <v-card-text>
-                                bro
-                            </v-card-text>
-                            </v-card>
-                        </v-tab-item>
-                </v-tabs-items>
+                            <template v-slot:default="props">
+                                <v-row>
+                                    <v-col v-for="item in props.items" :key="item.name" cols="12" sm="10" md="8" lg="6">
+                                        <v-card class="table-text">
+                                            <v-card-title class="subheading font-weight-bold">
+                                                <img src="../../../pics/perm_identity_white_36dp.svg" alt="profile" class="profile">
+                                                    <h6>{{ item.name }}</h6>
+                                                    <v-spacer></v-spacer> 
+                                                <div class=" ml-10 button-tourism">
+                                                    <button class="button m-1" > View Details</button>
+                                                    <button class="noselect m-1" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                                        <span class="text">Delete</span><span class="icone"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span>
+                                                    </button>
+                                                </div>
+                                            </v-card-title>
+
+                                            <v-divider></v-divider>
+
+                                            <v-list dense class="table-text">
+                                                <v-list-item v-for="(keyO, index) in filteredKeysO" :key="index">
+                                                    <v-list-item-content :class="{ 'blue--text': sortByO === keyO }">
+                                                        {{ keyO }}:
+                                                    </v-list-item-content>
+                                                    <v-list-item-content class="align-end" :class="{ 'blue--text': sortByO === keyO }">
+                                                        {{ item[keyO.toLowerCase()] }}
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                            </v-list>
+                                        </v-card>
+                                    </v-col>
+                                </v-row>
+                            </template>
+
+                            <template v-slot:footer>
+                                <v-row class="mt-2" align="center" justify="center">
+                                    <span class="grey--text">Items per page</span>
+                                        <v-menu offset-y>
+                                            <template v-slot:activator="{ on, attrs }">
+                                                <v-btn dark text color="primary" class="ml-2" v-bind="attrs" v-on="on">
+                                                    {{ itemsPerPageO }}
+                                                    <v-icon>mdi-chevron-down</v-icon>
+                                                </v-btn>
+                                            </template>
+                                            <v-list>
+                                                <v-list-item v-for="(numberO, index) in itemsPerPageArrayO" :key="index" @click="updateItemsPerPageO(numberO)">
+                                                    <v-list-item-title>{{ numberO }}</v-list-item-title>
+                                                </v-list-item>
+                                            </v-list>
+                                        </v-menu>
+
+                                        <v-spacer></v-spacer>
+
+                                    <span class="mr-4 grey--text">
+                                        Page {{ pageO }} of {{ numberOfPagesO }}
+                                    </span>
+
+                                    <v-btn fab dark color="blue darken-3" class="mr-1" @click="formerPageO">
+                                        <v-icon>mdi-chevron-left</v-icon>
+                                    </v-btn>
+                                    <v-btn fab dark color="blue darken-3" class="ml-1" @click="nextPageO">
+                                                <v-icon>mdi-chevron-right</v-icon>
+                                    </v-btn>
+                                </v-row>
+                            </template>
+
+                                </v-data-iterator>
+                            </v-container>
+                            </template>                    
+                </v-card-text>
+            </v-card>
+        </v-tab-item>
+    </v-tabs-items>
                         
-                    </v-card>
-                </v-app>
+            </v-card>
+        </v-app>
 
             </div>
+
+<!-- Modals! -->
             <!-- modal for delete driver-->
             <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -466,7 +577,189 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- modal for delete account -->
+                <div class="modal fade" id="delete-account" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title  text-white" id="exampleModalLabel">Warning!</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Are you sure you want delete this Account?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="button-back btn-danger">Save changes</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- modals for view detail and update driver account -->
+
+                <div class="modal fade" id="insertDriver" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                        <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                <img src="../../../pics/sports_motorsports_white_24dp.svg" class="driver-icon" alt="...">
+                                Driver Details</h5>
+                                <v-spacer></v-spacer>
+                                <button class="button btn button-detail text-center mt-2 mr-3" style="vertical-align:middle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <span><b>Vehicle </b></span>
+                                </button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-white">
+                            <div class="container-fluid">
+                                <div class="row g-2">
+                                    <div class="col-md-3">
+                                        <label class="form-label"> First Name: </label>
+                                        <input type="text" class="form-control input" id="driver-firstname">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label"> Last Name: </label>
+                                        <input type="text" class="form-control input" id="driver-lastname">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="form-label">Middle Name: </label>
+                                        <input type="text" class="form-control input" id="driver-middlename">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="form-label">Suffix: </label>
+                                        <input type="text" class="form-control input" id="driver-suffix" placeholder="SR." maxlength="3">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label class="form-label">Sex: </label>
+                                        <select class="form-select input" name="sex" aria-label="Default select example">
+                                            <option selected disabled>Select</option>
+                                            <option value="1">male</option>
+                                            <option value="2">female</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="date" class="form-label">Birthdate: </label>
+                                        <div class="input-group date input" id="birthdate">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-append">
+                                                <span class="input-group-text bg-white">
+                                                    <i class="fa fa-calendar icons"></i>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>                  
+                                    <div class="col-md-4">
+                                        <label for="formFileSm" class="form-label input">Picture(2by2):</label>
+                                        <input class="form-control  bg-dark" id="formFile" type="file" accept="image/png, image/gif, image/jpeg">
+                                    </div>               
+                                </div>
+                                <hr>
+                                <div class="container-fluid register-fills">
+                                    Current Address
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label">Province:</label>
+                                        <select class="form-select input" name="province" aria-label="Default select example">
+                                            <option selected disabled>Select</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="form-label">City:</label>
+                                        <select class="form-select input" name="city" aria-label="Default select example">
+                                            <option selected disabled>Select</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="form-label">Barangay:</label>
+                                        <select class="form-select input" name="barangay" aria-label="Default select example">
+                                            <option selected disabled>Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <hr>
+                                    <div class="container-fluid register-fills">
+                                        <b>Contact Information</b>
+                                    </div>
+                                <hr>
+                                <div class="row g-2">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Email:</label>
+                                        <input type="email" class="form-control input" id="driver-email">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="form-label">Mobile Number:</label>
+                                        <input type="number" class="form-control input" id="driver-number">
+                                    </div>
+                                </div>
+                                <hr>
+                                    <div class="container-fluid register-fills">
+                                        <b>Driver's License Information</b>
+                                    </div>
+                                <hr>
+                                <div class="row g-2">
+                                    <div class="col-md-3">
+                                        <label class="form-label"> ID Type: </label>
+                                            <select class="form-select input" name="id-type" aria-label="Default select example">
+                                                <option selected disabled>Select</option>
+                                                <option value="1">Non-professional</option>
+                                                <option value="2">Professional</option>
+                                            </select>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="form-label">ID No:</label>
+                                        <input type="text" class="form-control input" id="license-ID">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                            <label for="date" class="form-label">Expiration Date: </label>
+                                            <div class="input-group date" id="license">
+                                                <input type="text" class="form-control">
+                                                <span class="input-group-append">
+                                                    <span class="input-group-text bg-white">
+                                                        <i class="fa fa-calendar icons"></i>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                    <div class="container-fluid register-fills">
+                                        <b>Account Information</b>
+                                    </div>
+                                <hr>
+                                <div class="row g-2">
+                                    <div class="col-md-5">
+                                        <label class="form-label"> Username: </label>
+                                        <input type="text" class="form-control input" id="driver-firstname">
+                                    </div>
+                                    <div class="col-md-5">
+                                    <label class="form-label"> Password: </label>
+                                    <input type="password" class="form-control input" id="driver-password">
+                                </div>
+                                </div>        
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="button-back btn-success">Save</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
         </div>
+        
         
    
     
@@ -591,6 +884,68 @@
             },
 
           ],
+          itemsPerPageArrayO: [2, 4, 6, 8],
+            searchO: '',
+            filter: {},
+            sortDescO: false,
+            pageO: 1,
+            itemsPerPageO: 2,
+            sortByO: 'name',
+            keysO: [
+            'Name',
+            'Office',
+            'Position',
+            'Id',
+            'Username'
+            ],
+          offices: [
+            {
+                name: 'Andrew Chua',
+                office: 'Task Force',
+                position: 'Spo1',
+                id: '12676asbksd',
+                username: 'andrew2',
+            },
+            {
+                name: 'Mike Lee',
+                office: 'Legal Counsel',
+                position: 'admin',
+                id: '54676ajshdj',
+                username: 'leeb45',
+            },
+            {
+                name: 'Mike Lee',
+                office: 'Legal Counsel',
+                position: 'admin',
+                id: '54676ajshdj',
+                username: 'leeb45',
+            },
+            {
+                name: 'Mary Rose Ann',
+                office: 'Legal Counsel',
+                position: 'admin',
+                id: '5136582sadg',
+                username: 'mary2541',
+            },
+            {
+                name: 'Philip Charles',
+                office: 'City Tourism Office',
+                position: 'admin',
+                id: '1235abhsad',
+                username: 'Phil2342',
+            },
+            {
+                name: 'Karen Davilla',
+                office: 'Local Legislative Office',
+                position: 'admin',
+                id: '321271saj',
+                username: 'karne2163',
+            },
+
+
+
+
+          ]
       }
     },
     
@@ -615,6 +970,13 @@
             },
             filteredKeysLreq () {
                 return this.keysLreq.filter(key => key !== 'Name')
+            },
+
+            numberOfPagesO () {
+                return Math.ceil(this.offices.length / this.itemsPerPageO)
+            },
+            filteredKeysO () {
+                return this.keysO.filter(key => key !== 'Name')
             },
             },
 
@@ -649,8 +1011,27 @@
             updateItemsPerPageLreq (numberLreq) {
                 this.itemsPerPageLreq = numberLreq
             },
+
+            nextPageO () {
+                if(this.pageO + 1 <= this.numberOfPagesO) this.pageO += 1
+            },
+            formerPageO () {
+                if(this.pageO - 1 >= 1) this.pageO -= 1
+            },
+            updateItemsPerPageO (numberO) {
+                this.itemsPerPageO = numberO
+            },
+            
   
+      },
+      mounted() {
+            $(function() {
+                $('#birthdate').datepicker();
+                $('#license').datepicker();
+                $('#vehicle').datepicker();
+            });
       }
+      
     }
 
   
@@ -660,6 +1041,12 @@
 
 ::v-deep .v-application--wrap {
     min-height: fit-content;
+  }
+  .register-fills{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
   }
   .tourism-body{
     width: 95%;
@@ -703,6 +1090,39 @@
 .driver-icon{
     width: 40px;
     height: 40px;
+}
+.form-control,.form-select,.input-group{
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.centers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input {
+  transition: .5s linear;
+}
+
+.input:focus {
+  color: #1d1d1d;
+  box-shadow: 4px 4px 10px #070707;
+}
+
+.input:focus::placeholder {
+  color: #fa4753;
+}
+label{
+    font-size: 12px;
+}
+.icons{
+    font-size: 25px;
+  }
+.button-detail{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: white;
+  border: 1px solid white;
 }
 @media only screen and (max-width: 750px){
     .button-tourism{

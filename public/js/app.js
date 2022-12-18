@@ -2503,9 +2503,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=ts&":
 /*!**************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=ts& ***!
   \**************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -2968,6 +2968,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       name: 'Driving School',
       location: 'LTO',
       cost: '0'
+    }]), _defineProperty(_ref, "itemsPerPageArrayO", [2, 4, 6, 8]), _defineProperty(_ref, "searchO", ''), _defineProperty(_ref, "filter", {}), _defineProperty(_ref, "sortDescO", false), _defineProperty(_ref, "pageO", 1), _defineProperty(_ref, "itemsPerPageO", 2), _defineProperty(_ref, "sortByO", 'name'), _defineProperty(_ref, "keysO", ['Name', 'Office', 'Position', 'Id', 'Username']), _defineProperty(_ref, "offices", [{
+      name: 'Andrew Chua',
+      office: 'Task Force',
+      position: 'Spo1',
+      id: '12676asbksd',
+      username: 'andrew2'
+    }, {
+      name: 'Mike Lee',
+      office: 'Legal Counsel',
+      position: 'admin',
+      id: '54676ajshdj',
+      username: 'leeb45'
+    }, {
+      name: 'Mike Lee',
+      office: 'Legal Counsel',
+      position: 'admin',
+      id: '54676ajshdj',
+      username: 'leeb45'
+    }, {
+      name: 'Mary Rose Ann',
+      office: 'Legal Counsel',
+      position: 'admin',
+      id: '5136582sadg',
+      username: 'mary2541'
+    }, {
+      name: 'Philip Charles',
+      office: 'City Tourism Office',
+      position: 'admin',
+      id: '1235abhsad',
+      username: 'Phil2342'
+    }, {
+      name: 'Karen Davilla',
+      office: 'Local Legislative Office',
+      position: 'admin',
+      id: '321271saj',
+      username: 'karne2163'
     }]), _ref;
   },
   computed: {
@@ -2992,6 +3028,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     filteredKeysLreq: function filteredKeysLreq() {
       return this.keysLreq.filter(function (key) {
+        return key !== 'Name';
+      });
+    },
+    numberOfPagesO: function numberOfPagesO() {
+      return Math.ceil(this.offices.length / this.itemsPerPageO);
+    },
+    filteredKeysO: function filteredKeysO() {
+      return this.keysO.filter(function (key) {
         return key !== 'Name';
       });
     }
@@ -3023,7 +3067,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     updateItemsPerPageLreq: function updateItemsPerPageLreq(numberLreq) {
       this.itemsPerPageLreq = numberLreq;
+    },
+    nextPageO: function nextPageO() {
+      if (this.pageO + 1 <= this.numberOfPagesO) this.pageO += 1;
+    },
+    formerPageO: function formerPageO() {
+      if (this.pageO - 1 >= 1) this.pageO -= 1;
+    },
+    updateItemsPerPageO: function updateItemsPerPageO(numberO) {
+      this.itemsPerPageO = numberO;
     }
+  },
+  mounted: function mounted() {
+    $(function () {
+      $('#birthdate').datepicker();
+      $('#license').datepicker();
+      $('#vehicle').datepicker();
+    });
   }
 });
 
@@ -5367,19 +5427,26 @@ var render = function render() {
               lg: "6"
             }
           }, [_c("v-card", {
-            staticClass: "table-text"
+            staticClass: "table-text",
+            attrs: {
+              color: "grey darken-3"
+            }
           }, [_c("v-card-title", {
             staticClass: "subheading font-weight-bold"
           }, [_c("img", {
             staticClass: "profile",
             attrs: {
-              src: __webpack_require__(/*! ../../../pics/John Michael Cagadas_.jpg */ "./resources/pics/John Michael Cagadas_.jpg"),
+              src: __webpack_require__(/*! ../../../pics/perm_identity_white_36dp.svg */ "./resources/pics/perm_identity_white_36dp.svg"),
               alt: "profile"
             }
           }), _vm._v(" "), _c("h6", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("div", {
             staticClass: "ml-10 button-tourism"
           }, [_c("button", {
-            staticClass: "button m-1"
+            staticClass: "button m-1",
+            attrs: {
+              "data-bs-toggle": "modal",
+              "data-bs-target": "#insertDriver"
+            }
           }, [_vm._v(" View Details")]), _vm._v(" "), _c("button", {
             staticClass: "noselect m-1",
             attrs: {
@@ -5401,7 +5468,7 @@ var render = function render() {
             attrs: {
               d: "M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
             }
-          })])])])])], 1), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-list", {
+          })])])])])], 1), _vm._v(" "), _c("v-list", {
             staticClass: "table-text",
             attrs: {
               dense: ""
@@ -5611,7 +5678,18 @@ var render = function render() {
             stroke: "currentColor",
             fill: "none"
           }
-        })])])])], 1)];
+        })])])]), _vm._v(" "), _c("a", {
+          staticClass: "ml-2 mr-2",
+          attrs: {
+            href: "/addvehicle"
+          }
+        }, [_c("button", {
+          staticClass: "icon-btn add-btn"
+        }, [_c("div", {
+          staticClass: "add-icon"
+        }), _vm._v(" "), _c("div", {
+          staticClass: "btn-txt"
+        }, [_c("b", [_vm._v("Add Vehicle")])])])])], 1)];
       },
       proxy: true
     }, {
@@ -5621,9 +5699,9 @@ var render = function render() {
           return _c("v-col", {
             key: item.name,
             attrs: {
-              cols: "6",
-              sm: "6",
-              md: "4",
+              cols: "12",
+              sm: "8",
+              md: "6",
               lg: "4"
             }
           }, [_c("v-card", {
@@ -5652,7 +5730,7 @@ var render = function render() {
             attrs: {
               small: "",
               "data-bs-toggle": "modal",
-              "data-bs-target": "#delete-Vreq"
+              "data-bs-target": "#delete-Account"
             }
           }, [_vm._v("\n                                                                mdi-delete\n                                                            ")])], 1)], 1), _vm._v(" "), _c("v-list", {
             staticClass: "table-text",
@@ -5860,7 +5938,18 @@ var render = function render() {
             stroke: "currentColor",
             fill: "none"
           }
-        })])])])], 1)];
+        })])])]), _vm._v(" "), _c("a", {
+          staticClass: "ml-2 mr-2",
+          attrs: {
+            href: "/addvehicle"
+          }
+        }, [_c("button", {
+          staticClass: "icon-btn add-btn"
+        }, [_c("div", {
+          staticClass: "add-icon"
+        }), _vm._v(" "), _c("div", {
+          staticClass: "btn-txt"
+        }, [_c("b", [_vm._v("Add Vehicle")])])])])], 1)];
       },
       proxy: true
     }, {
@@ -5870,7 +5959,7 @@ var render = function render() {
           return _c("v-col", {
             key: item.name,
             attrs: {
-              cols: "6",
+              cols: "12",
               sm: "6",
               md: "4",
               lg: "4"
@@ -5993,7 +6082,268 @@ var render = function render() {
     attrs: {
       flat: ""
     }
-  }, [_c("v-card-text", [_vm._v("\n                                bro\n                            ")])], 1)], 1)], 1)], 1)], 1)], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]);
+  }, [_c("v-card-text", [[_c("v-container", {
+    attrs: {
+      fluid: ""
+    }
+  }, [_c("v-data-iterator", {
+    attrs: {
+      items: _vm.offices,
+      "items-per-page": _vm.itemsPerPageO,
+      page: _vm.pageO,
+      search: _vm.searchO,
+      "sort-by": _vm.sortByO.toLowerCase(),
+      "sort-desc": _vm.sortDescO,
+      "hide-default-footer": ""
+    },
+    on: {
+      "update:itemsPerPage": function updateItemsPerPage($event) {
+        _vm.itemsPerPageO = $event;
+      },
+      "update:items-per-page": function updateItemsPerPage($event) {
+        _vm.itemsPerPageO = $event;
+      },
+      "update:page": function updatePage($event) {
+        _vm.pageO = $event;
+      }
+    },
+    scopedSlots: _vm._u([{
+      key: "header",
+      fn: function fn() {
+        return [_c("v-toolbar", {
+          staticClass: "mb-3",
+          attrs: {
+            color: "dark"
+          }
+        }, [_c("img", {
+          staticClass: "driver-icon",
+          attrs: {
+            src: __webpack_require__(/*! ../../../pics/sports_motorsports_white_24dp.svg */ "./resources/pics/sports_motorsports_white_24dp.svg"),
+            alt: "..."
+          }
+        }), _vm._v(" "), _c("h4", {
+          staticClass: "ml-2"
+        }, [_vm._v("Offices Account List")]), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("div", {
+          staticClass: "containered"
+        }, [_c("input", {
+          directives: [{
+            name: "model",
+            rawName: "v-model",
+            value: _vm.searchO,
+            expression: "searchO"
+          }],
+          staticClass: "inputted",
+          attrs: {
+            placeholder: "Type to search...",
+            required: "",
+            name: "text",
+            type: "text"
+          },
+          domProps: {
+            value: _vm.searchO
+          },
+          on: {
+            input: function input($event) {
+              if ($event.target.composing) return;
+              _vm.searchO = $event.target.value;
+            }
+          }
+        }), _vm._v(" "), _c("div", {
+          staticClass: "icon"
+        }, [_c("svg", {
+          staticClass: "ionicon",
+          attrs: {
+            viewBox: "0 0 512 512",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        }, [_c("title", [_vm._v("Search")]), _vm._v(" "), _c("path", {
+          attrs: {
+            "stroke-width": "32",
+            "stroke-miterlimit": "10",
+            stroke: "currentColor",
+            fill: "none",
+            d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+          }
+        }), _vm._v(" "), _c("path", {
+          attrs: {
+            d: "M338.29 338.29L448 448",
+            "stroke-width": "32",
+            "stroke-miterlimit": "10",
+            "stroke-linecap": "round",
+            stroke: "currentColor",
+            fill: "none"
+          }
+        })])])]), _vm._v(" "), _c("a", {
+          staticClass: "ml-2 mr-2",
+          attrs: {
+            href: "/addvehicle"
+          }
+        }, [_c("button", {
+          staticClass: "icon-btn add-btn"
+        }, [_c("div", {
+          staticClass: "add-icon"
+        }), _vm._v(" "), _c("div", {
+          staticClass: "btn-txt"
+        }, [_c("b", [_vm._v("Add Vehicle")])])])])], 1)];
+      },
+      proxy: true
+    }, {
+      key: "default",
+      fn: function fn(props) {
+        return [_c("v-row", _vm._l(props.items, function (item) {
+          return _c("v-col", {
+            key: item.name,
+            attrs: {
+              cols: "12",
+              sm: "10",
+              md: "8",
+              lg: "6"
+            }
+          }, [_c("v-card", {
+            staticClass: "table-text"
+          }, [_c("v-card-title", {
+            staticClass: "subheading font-weight-bold"
+          }, [_c("img", {
+            staticClass: "profile",
+            attrs: {
+              src: __webpack_require__(/*! ../../../pics/perm_identity_white_36dp.svg */ "./resources/pics/perm_identity_white_36dp.svg"),
+              alt: "profile"
+            }
+          }), _vm._v(" "), _c("h6", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("div", {
+            staticClass: "ml-10 button-tourism"
+          }, [_c("button", {
+            staticClass: "button m-1"
+          }, [_vm._v(" View Details")]), _vm._v(" "), _c("button", {
+            staticClass: "noselect m-1",
+            attrs: {
+              "data-bs-toggle": "modal",
+              "data-bs-target": "#exampleModal3"
+            }
+          }, [_c("span", {
+            staticClass: "text"
+          }, [_vm._v("Delete")]), _c("span", {
+            staticClass: "icone"
+          }, [_c("svg", {
+            attrs: {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "24",
+              height: "24",
+              viewBox: "0 0 24 24"
+            }
+          }, [_c("path", {
+            attrs: {
+              d: "M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+            }
+          })])])])])], 1), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-list", {
+            staticClass: "table-text",
+            attrs: {
+              dense: ""
+            }
+          }, _vm._l(_vm.filteredKeysO, function (keyO, index) {
+            return _c("v-list-item", {
+              key: index
+            }, [_c("v-list-item-content", {
+              "class": {
+                "blue--text": _vm.sortByO === keyO
+              }
+            }, [_vm._v("\n                                                        " + _vm._s(keyO) + ":\n                                                    ")]), _vm._v(" "), _c("v-list-item-content", {
+              staticClass: "align-end",
+              "class": {
+                "blue--text": _vm.sortByO === keyO
+              }
+            }, [_vm._v("\n                                                        " + _vm._s(item[keyO.toLowerCase()]) + "\n                                                    ")])], 1);
+          }), 1)], 1)], 1);
+        }), 1)];
+      }
+    }, {
+      key: "footer",
+      fn: function fn() {
+        return [_c("v-row", {
+          staticClass: "mt-2",
+          attrs: {
+            align: "center",
+            justify: "center"
+          }
+        }, [_c("span", {
+          staticClass: "grey--text"
+        }, [_vm._v("Items per page")]), _vm._v(" "), _c("v-menu", {
+          attrs: {
+            "offset-y": ""
+          },
+          scopedSlots: _vm._u([{
+            key: "activator",
+            fn: function fn(_ref4) {
+              var on = _ref4.on,
+                attrs = _ref4.attrs;
+              return [_c("v-btn", _vm._g(_vm._b({
+                staticClass: "ml-2",
+                attrs: {
+                  dark: "",
+                  text: "",
+                  color: "primary"
+                }
+              }, "v-btn", attrs, false), on), [_vm._v("\n                                                    " + _vm._s(_vm.itemsPerPageO) + "\n                                                    "), _c("v-icon", [_vm._v("mdi-chevron-down")])], 1)];
+            }
+          }])
+        }, [_vm._v(" "), _c("v-list", _vm._l(_vm.itemsPerPageArrayO, function (numberO, index) {
+          return _c("v-list-item", {
+            key: index,
+            on: {
+              click: function click($event) {
+                return _vm.updateItemsPerPageO(numberO);
+              }
+            }
+          }, [_c("v-list-item-title", [_vm._v(_vm._s(numberO))])], 1);
+        }), 1)], 1), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("span", {
+          staticClass: "mr-4 grey--text"
+        }, [_vm._v("\n                                        Page " + _vm._s(_vm.pageO) + " of " + _vm._s(_vm.numberOfPagesO) + "\n                                    ")]), _vm._v(" "), _c("v-btn", {
+          staticClass: "mr-1",
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "blue darken-3"
+          },
+          on: {
+            click: _vm.formerPageO
+          }
+        }, [_c("v-icon", [_vm._v("mdi-chevron-left")])], 1), _vm._v(" "), _c("v-btn", {
+          staticClass: "ml-1",
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "blue darken-3"
+          },
+          on: {
+            click: _vm.nextPageO
+          }
+        }, [_c("v-icon", [_vm._v("mdi-chevron-right")])], 1)], 1)];
+      },
+      proxy: true
+    }])
+  })], 1)]], 2)], 1)], 1)], 1)], 1)], 1)], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "insertDriver",
+      "data-bs-backdrop": "static",
+      "data-bs-keyboard": "false",
+      tabindex: "-1",
+      "aria-labelledby": "staticBackdropLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"
+  }, [_c("div", {
+    staticClass: "modal-content bg-dark"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_vm._m(4), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _vm._m(5), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  })], 1), _vm._v(" "), _vm._m(6), _vm._v(" "), _vm._m(7)])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -6130,6 +6480,367 @@ var staticRenderFns = [function () {
       type: "button"
     }
   }, [_vm._v("Save changes")])])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "delete-account",
+      tabindex: "-1",
+      "aria-labelledby": "exampleModalLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered"
+  }, [_c("div", {
+    staticClass: "modal-content bg-dark"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title text-white",
+    attrs: {
+      id: "exampleModalLabel"
+    }
+  }, [_vm._v("Warning!")]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body text-white"
+  }, [_vm._v("\n                            Are you sure you want delete this Account?\n                        ")]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "button-back btn-success",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal"
+    }
+  }, [_vm._v("Close")]), _vm._v(" "), _c("button", {
+    staticClass: "button-back btn-danger",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Save changes")])])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h5", {
+    staticClass: "modal-title text-white",
+    attrs: {
+      id: "staticBackdropLabel"
+    }
+  }, [_c("img", {
+    staticClass: "driver-icon",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/sports_motorsports_white_24dp.svg */ "./resources/pics/sports_motorsports_white_24dp.svg"),
+      alt: "..."
+    }
+  }), _vm._v("\n                                Driver Details")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
+    staticClass: "button btn button-detail text-center mt-2 mr-3",
+    staticStyle: {
+      "vertical-align": "middle"
+    },
+    attrs: {
+      "data-bs-toggle": "modal",
+      "data-bs-target": "#exampleModal"
+    }
+  }, [_c("span", [_c("b", [_vm._v("Vehicle ")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal-body text-white"
+  }, [_c("div", {
+    staticClass: "container-fluid"
+  }, [_c("div", {
+    staticClass: "row g-2"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" First Name: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-firstname"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Last Name: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-lastname"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Middle Name: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-middlename"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Suffix: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-suffix",
+      placeholder: "SR.",
+      maxlength: "3"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-2"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Sex: ")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "sex",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "1"
+    }
+  }, [_vm._v("male")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "2"
+    }
+  }, [_vm._v("female")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "date"
+    }
+  }, [_vm._v("Birthdate: ")]), _vm._v(" "), _c("div", {
+    staticClass: "input-group date input",
+    attrs: {
+      id: "birthdate"
+    }
+  }, [_c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    }
+  }), _vm._v(" "), _c("span", {
+    staticClass: "input-group-append"
+  }, [_c("span", {
+    staticClass: "input-group-text bg-white"
+  }, [_c("i", {
+    staticClass: "fa fa-calendar icons"
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label input",
+    attrs: {
+      "for": "formFileSm"
+    }
+  }, [_vm._v("Picture(2by2):")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control bg-dark",
+    attrs: {
+      id: "formFile",
+      type: "file",
+      accept: "image/png, image/gif, image/jpeg"
+    }
+  })])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid register-fills"
+  }, [_vm._v("\n                                    Current Address\n                                ")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Province:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "province",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("City:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "city",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Barangay:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "barangay",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid register-fills"
+  }, [_c("b", [_vm._v("Contact Information")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "row g-2"
+  }, [_c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Email:")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "email",
+      id: "driver-email"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Mobile Number:")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "number",
+      id: "driver-number"
+    }
+  })])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid register-fills"
+  }, [_c("b", [_vm._v("Driver's License Information")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "row g-2"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" ID Type: ")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "id-type",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "1"
+    }
+  }, [_vm._v("Non-professional")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "2"
+    }
+  }, [_vm._v("Professional")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("ID No:")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "license-ID"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "date"
+    }
+  }, [_vm._v("Expiration Date: ")]), _vm._v(" "), _c("div", {
+    staticClass: "input-group date",
+    attrs: {
+      id: "license"
+    }
+  }, [_c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    }
+  }), _vm._v(" "), _c("span", {
+    staticClass: "input-group-append"
+  }, [_c("span", {
+    staticClass: "input-group-text bg-white"
+  }, [_c("i", {
+    staticClass: "fa fa-calendar icons"
+  })])])])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid register-fills"
+  }, [_c("b", [_vm._v("Account Information")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "row g-2"
+  }, [_c("div", {
+    staticClass: "col-md-5"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Username: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-firstname"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-5"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Password: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "password",
+      id: "driver-password"
+    }
+  })])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "button-back btn-primary",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal"
+    }
+  }, [_vm._v("Close")]), _vm._v(" "), _c("button", {
+    staticClass: "button-back btn-success",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Save")])]);
 }];
 render._withStripped = true;
 
@@ -9784,7 +10495,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "[data-v-17e31f18] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.tourism-body[data-v-17e31f18] {\n  width: 95%;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.max-content[data-v-17e31f18] {\n  max-height: -moz-fit-content;\n  max-height: fit-content;\n  min-height: 550px;\n}\n.navs[data-v-17e31f18] {\n  position: absolute;\n  height: 200px;\n}\n.table-text[data-v-17e31f18] {\n  background-color: #292929;\n  color: white;\n  font-family: monospace;\n}\n.profile[data-v-17e31f18] {\n  width: 80px;\n  height: 80px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 4px;\n  border: 2px solid #979797;\n  margin-right: 10px;\n}\n.text-white[data-v-17e31f18] {\n  color: white;\n}\n.button-tourism[data-v-17e31f18] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  position: relative;\n}\n.driver-icon[data-v-17e31f18] {\n  width: 40px;\n  height: 40px;\n}\n@media only screen and (max-width: 750px) {\n.button-tourism[data-v-17e31f18] {\n    flex-direction: row;\n    left: -10%;\n    margin-top: 3%;\n}\n}\n@media only screen and (max-width: 450px) {\n.button-tourism[data-v-17e31f18] {\n    flex-direction: row;\n    left: -25%;\n    margin-top: 3%;\n}\n}\n@media only screen and (max-width: 400px) {\n.button-tourism[data-v-17e31f18] {\n    flex-direction: row;\n    left: -30%;\n    margin-top: 3%;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "[data-v-17e31f18] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.register-fills[data-v-17e31f18] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 5px;\n}\n.tourism-body[data-v-17e31f18] {\n  width: 95%;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.max-content[data-v-17e31f18] {\n  max-height: -moz-fit-content;\n  max-height: fit-content;\n  min-height: 550px;\n}\n.navs[data-v-17e31f18] {\n  position: absolute;\n  height: 200px;\n}\n.table-text[data-v-17e31f18] {\n  background-color: #292929;\n  color: white;\n  font-family: monospace;\n}\n.profile[data-v-17e31f18] {\n  width: 80px;\n  height: 80px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 4px;\n  border: 2px solid #979797;\n  margin-right: 10px;\n}\n.text-white[data-v-17e31f18] {\n  color: white;\n}\n.button-tourism[data-v-17e31f18] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  position: relative;\n}\n.driver-icon[data-v-17e31f18] {\n  width: 40px;\n  height: 40px;\n}\n.form-control[data-v-17e31f18], .form-select[data-v-17e31f18], .input-group[data-v-17e31f18] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-17e31f18] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.input[data-v-17e31f18] {\n  transition: 0.5s linear;\n}\n.input[data-v-17e31f18]:focus {\n  color: #1d1d1d;\n  box-shadow: 4px 4px 10px #070707;\n}\n.input[data-v-17e31f18]:focus::-moz-placeholder {\n  color: #fa4753;\n}\n.input[data-v-17e31f18]:focus::placeholder {\n  color: #fa4753;\n}\nlabel[data-v-17e31f18] {\n  font-size: 12px;\n}\n.icons[data-v-17e31f18] {\n  font-size: 25px;\n}\n.button-detail[data-v-17e31f18] {\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: white;\n  border: 1px solid white;\n}\n@media only screen and (max-width: 750px) {\n.button-tourism[data-v-17e31f18] {\n    flex-direction: row;\n    left: -10%;\n    margin-top: 3%;\n}\n}\n@media only screen and (max-width: 450px) {\n.button-tourism[data-v-17e31f18] {\n    flex-direction: row;\n    left: -25%;\n    margin-top: 3%;\n}\n}\n@media only screen and (max-width: 400px) {\n.button-tourism[data-v-17e31f18] {\n    flex-direction: row;\n    left: -30%;\n    margin-top: 3%;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10064,6 +10775,16 @@ module.exports = "/images/no_crash_white_24dp.svg?492811a20d5da79cd153c6c2f21852
 /***/ ((module) => {
 
 module.exports = "/images/note_alt_white_24dp.svg?a1f1bbcd97f4e9844f5446e8af9c9dd0";
+
+/***/ }),
+
+/***/ "./resources/pics/perm_identity_white_36dp.svg":
+/*!*****************************************************!*\
+  !*** ./resources/pics/perm_identity_white_36dp.svg ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+module.exports = "/images/perm_identity_white_36dp.svg?0c858086a67c740ca9a69e7828657b4e";
 
 /***/ }),
 
@@ -11330,7 +12051,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _DriverHeader_vue_vue_type_template_id_6b795761_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DriverHeader.vue?vue&type=template&id=6b795761&scoped=true& */ "./resources/js/components/Driver/DriverHeader.vue?vue&type=template&id=6b795761&scoped=true&");
-/* harmony import */ var _DriverHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DriverHeader.vue?vue&type=script&lang=js& */ "./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=js&");
+/* harmony import */ var _DriverHeader_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DriverHeader.vue?vue&type=script&lang=ts& */ "./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=ts&");
 /* harmony import */ var _DriverHeader_vue_vue_type_style_index_0_id_6b795761_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DriverHeader.vue?vue&type=style&index=0&id=6b795761&scoped=true&lang=css& */ "./resources/js/components/Driver/DriverHeader.vue?vue&type=style&index=0&id=6b795761&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -11342,7 +12063,7 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _DriverHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DriverHeader_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__["default"],
   _DriverHeader_vue_vue_type_template_id_6b795761_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
   _DriverHeader_vue_vue_type_template_id_6b795761_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -12236,9 +12957,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=ts&":
 /*!**********************************************************************************!*\
-  !*** ./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=ts& ***!
   \**********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -12247,8 +12968,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DriverHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DriverHeader.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DriverHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DriverHeader_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DriverHeader.vue?vue&type=script&lang=ts& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=ts&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DriverHeader_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
