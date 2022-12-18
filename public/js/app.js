@@ -2896,118 +2896,102 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {
+    var _ref;
+    return _ref = {
       tab: null,
       drawer: null,
-      itemsPerPageArray: [4, 8, 12],
+      itemsPerPageArray: [2, 4, 6],
       search: '',
       filter: {},
       sortDesc: false,
       page: 1,
-      itemsPerPage: 4,
+      itemsPerPage: 2,
       sortBy: 'name',
-      keys: ['Name', 'Calories', 'Fat', 'Carbs', 'Protein', 'Sodium', 'Calcium', 'Iron'],
-      items: [{
-        name: 'Frozen Yogurt',
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0,
-        sodium: 87,
-        calcium: '14%',
-        iron: '1%'
+      keys: ['Name', 'Email', 'Number', 'Status'],
+      drivers: [{
+        name: 'John Michael Cagadas',
+        email: 'johnmichaelcagadas@gmail.com',
+        number: '0905123212',
+        status: 'unverified'
       }, {
-        name: 'Ice cream sandwich',
-        calories: 237,
-        fat: 9.0,
-        carbs: 37,
-        protein: 4.3,
-        sodium: 129,
-        calcium: '8%',
-        iron: '1%'
+        name: 'Mary Rose Ann Yow',
+        email: 'ksjdsah@gmail.com',
+        number: '09052323212',
+        status: 'unverified'
       }, {
-        name: 'Eclair',
-        calories: 262,
-        fat: 16.0,
-        carbs: 23,
-        protein: 6.0,
-        sodium: 337,
-        calcium: '6%',
-        iron: '7%'
+        name: 'John Doe',
+        email: 'joasdjlkjasd.com',
+        number: '0903133312',
+        status: 'verified'
       }, {
-        name: 'Cupcake',
-        calories: 305,
-        fat: 3.7,
-        carbs: 67,
-        protein: 4.3,
-        sodium: 413,
-        calcium: '3%',
-        iron: '8%'
+        name: 'Helvic Judason',
+        email: 'john@gmail.com',
+        number: '003223212',
+        status: 'verified'
       }, {
-        name: 'Gingerbread',
-        calories: 356,
-        fat: 16.0,
-        carbs: 49,
-        protein: 3.9,
-        sodium: 327,
-        calcium: '7%',
-        iron: '16%'
+        name: 'Anna Banana',
+        email: 'cagadas@gmail.com',
+        number: '090322123212',
+        status: 'unverified'
       }, {
-        name: 'Jelly bean',
-        calories: 375,
-        fat: 0.0,
-        carbs: 94,
-        protein: 0.0,
-        sodium: 50,
-        calcium: '0%',
-        iron: '0%'
-      }, {
-        name: 'Lollipop',
-        calories: 392,
-        fat: 0.2,
-        carbs: 98,
-        protein: 0,
-        sodium: 38,
-        calcium: '0%',
-        iron: '2%'
-      }, {
-        name: 'Honeycomb',
-        calories: 408,
-        fat: 3.2,
-        carbs: 87,
-        protein: 6.5,
-        sodium: 562,
-        calcium: '0%',
-        iron: '45%'
-      }, {
-        name: 'Donut',
-        calories: 452,
-        fat: 25.0,
-        carbs: 51,
-        protein: 4.9,
-        sodium: 326,
-        calcium: '2%',
-        iron: '22%'
-      }, {
-        name: 'KitKat',
-        calories: 518,
-        fat: 26.0,
-        carbs: 65,
-        protein: 7,
-        sodium: 54,
-        calcium: '12%',
-        iron: '6%'
-      }]
-    };
+        name: 'Barbie Doll',
+        email: 'michael@gmail.com',
+        number: '0905123212',
+        status: 'unverified'
+      }],
+      itemsPerPageArrayVreq: [3, 6, 9],
+      searchVreq: ''
+    }, _defineProperty(_ref, "filter", {}), _defineProperty(_ref, "sortDescVreq", false), _defineProperty(_ref, "pageVreq", 1), _defineProperty(_ref, "itemsPerPageVreq", 3), _defineProperty(_ref, "sortByVreq", 'name'), _defineProperty(_ref, "keysVreq", ['Name', 'Location', 'Cost']), _defineProperty(_ref, "registrationReq", [{
+      name: 'Barangay Clearance',
+      location: 'Current Address',
+      cost: 0
+    }, {
+      name: 'Insurance',
+      location: 'LTO',
+      cost: 750
+    }, {
+      name: 'Smoke Test',
+      location: 'LTO',
+      cost: 500
+    }, {
+      name: 'Smoke Test',
+      location: 'LTO',
+      cost: 500
+    }]), _defineProperty(_ref, "itemsPerPageArrayLreq", [3, 6, 9]), _defineProperty(_ref, "searchLreq", ''), _defineProperty(_ref, "filter", {}), _defineProperty(_ref, "sortDescLreq", false), _defineProperty(_ref, "pageLreq", 1), _defineProperty(_ref, "itemsPerPageLreq", 3), _defineProperty(_ref, "sortByLreq", 'name'), _defineProperty(_ref, "keysLreq", ['Name', 'Location', 'Cost']), _defineProperty(_ref, "licenseReq", [{
+      name: 'PSA Birth Certificate',
+      location: 'Gaisano Ozamis City',
+      cost: '120'
+    }, {
+      name: 'Driving School',
+      location: 'LTO',
+      cost: '0'
+    }]), _ref;
   },
   computed: {
     numberOfPages: function numberOfPages() {
-      return Math.ceil(this.items.length / this.itemsPerPage);
+      return Math.ceil(this.drivers.length / this.itemsPerPage);
     },
     filteredKeys: function filteredKeys() {
       return this.keys.filter(function (key) {
+        return key !== 'Name';
+      });
+    },
+    numberOfPagesVreq: function numberOfPagesVreq() {
+      return Math.ceil(this.registrationReq.length / this.itemsPerPageVreq);
+    },
+    filteredKeysVreq: function filteredKeysVreq() {
+      return this.keysVreq.filter(function (key) {
+        return key !== 'Name';
+      });
+    },
+    numberOfPagesLreq: function numberOfPagesLreq() {
+      return Math.ceil(this.licenseReq.length / this.itemsPerPageLreq);
+    },
+    filteredKeysLreq: function filteredKeysLreq() {
+      return this.keysLreq.filter(function (key) {
         return key !== 'Name';
       });
     }
@@ -3021,6 +3005,24 @@ __webpack_require__.r(__webpack_exports__);
     },
     updateItemsPerPage: function updateItemsPerPage(number) {
       this.itemsPerPage = number;
+    },
+    nextPageVreq: function nextPageVreq() {
+      if (this.pageVreq + 1 <= this.numberOfPagesVreq) this.pageVreq += 1;
+    },
+    formerPageVreq: function formerPageVreq() {
+      if (this.pageVreq - 1 >= 1) this.pageVreq -= 1;
+    },
+    updateItemsPerPageVreq: function updateItemsPerPageVreq(numberVreq) {
+      this.itemsPerPageVreq = numberVreq;
+    },
+    nextPageLreq: function nextPageLreq() {
+      if (this.pageLreq + 1 <= this.numberOfPagesLreq) this.pageLreq += 1;
+    },
+    formerPageLreq: function formerPageLreq() {
+      if (this.pageLreq - 1 >= 1) this.pageLreq -= 1;
+    },
+    updateItemsPerPageLreq: function updateItemsPerPageLreq(numberLreq) {
+      this.itemsPerPageLreq = numberLreq;
     }
   }
 });
@@ -5154,9 +5156,9 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container-fluid max-content"
+    staticClass: "container-fluid max-content mb-4"
   }, [_c("div", {
-    staticClass: "container tourism-body mt-3"
+    staticClass: "container tourism-body mt-3 mb-4"
   }, [_c("v-app", [_c("v-card", [_c("v-navigation-drawer", {
     staticClass: "navs",
     attrs: {
@@ -5169,24 +5171,45 @@ var render = function render() {
       },
       expression: "drawer"
     }
-  }, [_c("v-list-item", [_c("v-list-item-avatar", [_c("v-img", {
+  }, [_c("v-divider"), _vm._v(" "), _c("v-list-item", [_c("v-list-item-avatar", [_c("img", {
+    staticClass: "card-img-top",
     attrs: {
-      src: "https://randomuser.me/api/portraits/men/78.jpg"
+      src: __webpack_require__(/*! ../../../pics/city tourism.jpg */ "./resources/pics/city tourism.jpg"),
+      alt: "..."
     }
-  })], 1), _vm._v(" "), _c("v-list-item-content", [_c("v-list-item-title", [_vm._v("John Leider")])], 1)], 1), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-list", {
+  })]), _vm._v(" "), _c("v-list-item-content", [_c("v-list-item-title", [_c("h5", [_vm._v("Tourism Office")])])], 1)], 1), _vm._v(" "), _c("v-list", {
     attrs: {
       dense: ""
     }
-  }, _vm._l(_vm.items, function (item) {
-    return _c("v-list-item", {
-      key: item.title,
-      attrs: {
-        link: ""
-      }
-    }, [_c("v-list-item-icon", [_c("v-icon", [_vm._v(_vm._s(item.icon))])], 1), _vm._v(" "), _c("v-list-item-content", [_c("v-list-item-title", [_vm._v(_vm._s(item.title))])], 1)], 1);
-  }), 1)], 1), _vm._v(" "), _c("v-toolbar", {
+  }, [_c("v-list-item", [_c("a", {
+    staticClass: "btn",
     attrs: {
-      color: "grey darken-3",
+      href: "#"
+    }
+  }, [_c("button", {
+    staticClass: "cssbuttons-io-button button-back"
+  }, [_vm._v(" Logout\n                                "), _c("div", {
+    staticClass: "icon"
+  }, [_c("svg", {
+    attrs: {
+      height: "24",
+      width: "24",
+      viewBox: "0 0 24 24",
+      xmlns: "http://www.w3.org/2000/svg"
+    }
+  }, [_c("path", {
+    attrs: {
+      d: "M0 0h24v24H0z",
+      fill: "none"
+    }
+  }), _c("path", {
+    attrs: {
+      d: "M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z",
+      fill: "currentColor"
+    }
+  })])])])])])], 1), _vm._v(" "), _c("v-divider")], 1), _vm._v(" "), _c("v-toolbar", {
+    attrs: {
+      color: "grey darken-4",
       dark: "",
       flat: ""
     },
@@ -5206,9 +5229,9 @@ var render = function render() {
           }
         }, [_c("v-tabs-slider", {
           attrs: {
-            color: "yellow"
+            color: "white"
           }
-        }), _vm._v(" "), _c("v-tab", [_vm._v("Drivers")]), _vm._v(" "), _c("v-tab", [_vm._v("Driving Requirement")]), _vm._v(" "), _c("v-tab", [_vm._v("Accounts")])], 1)];
+        }), _vm._v(" "), _c("v-tab", [_vm._v("Drivers")]), _vm._v(" "), _c("v-tab", [_vm._v("Requirements")]), _vm._v(" "), _c("v-tab", [_vm._v("Accounts")])], 1)];
       },
       proxy: true
     }])
@@ -5219,7 +5242,13 @@ var render = function render() {
         _vm.drawer = !_vm.drawer;
       }
     }
-  }), _vm._v(" "), _c("v-toolbar-title", [_vm._v("CTO Dashboard")]), _vm._v(" "), _c("v-spacer")], 1), _vm._v(" "), _c("v-tabs-items", {
+  }), _vm._v(" "), _c("v-toolbar-title", [_c("v-list-item-avatar", [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/city tourism.jpg */ "./resources/pics/city tourism.jpg"),
+      alt: "..."
+    }
+  })]), _vm._v("\n                        Tourism Office\n                    ")], 1), _vm._v(" "), _c("v-spacer")], 1), _vm._v(" "), _c("v-tabs-items", {
     model: {
       value: _vm.tab,
       callback: function callback($$v) {
@@ -5237,7 +5266,7 @@ var render = function render() {
     }
   }, [_c("v-data-iterator", {
     attrs: {
-      items: _vm.items,
+      items: _vm.drivers,
       "items-per-page": _vm.itemsPerPage,
       page: _vm.page,
       search: _vm.search,
@@ -5260,69 +5289,69 @@ var render = function render() {
       key: "header",
       fn: function fn() {
         return [_c("v-toolbar", {
-          staticClass: "mb-1",
+          staticClass: "mb-3",
           attrs: {
-            dark: "",
-            color: "blue darken-3"
+            color: "dark"
           }
-        }, [_c("v-text-field", {
+        }, [_c("img", {
+          staticClass: "driver-icon",
           attrs: {
-            clearable: "",
-            flat: "",
-            "solo-inverted": "",
-            "hide-details": "",
-            "prepend-inner-icon": "mdi-magnify",
-            label: "Search"
-          },
-          model: {
+            src: __webpack_require__(/*! ../../../pics/sports_motorsports_white_24dp.svg */ "./resources/pics/sports_motorsports_white_24dp.svg"),
+            alt: "..."
+          }
+        }), _vm._v(" "), _c("h4", {
+          staticClass: "ml-2"
+        }, [_vm._v("Driver List")]), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("div", {
+          staticClass: "containered"
+        }, [_c("input", {
+          directives: [{
+            name: "model",
+            rawName: "v-model",
             value: _vm.search,
-            callback: function callback($$v) {
-              _vm.search = $$v;
-            },
             expression: "search"
-          }
-        }), _vm._v(" "), _vm.$vuetify.breakpoint.mdAndUp ? [_c("v-spacer"), _vm._v(" "), _c("v-select", {
+          }],
+          staticClass: "inputted",
           attrs: {
-            flat: "",
-            "solo-inverted": "",
-            "hide-details": "",
-            items: _vm.keys,
-            "prepend-inner-icon": "mdi-magnify",
-            label: "Sort by"
+            placeholder: "Type to search...",
+            required: "",
+            name: "text",
+            type: "text"
           },
-          model: {
-            value: _vm.sortBy,
-            callback: function callback($$v) {
-              _vm.sortBy = $$v;
-            },
-            expression: "sortBy"
-          }
-        }), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("v-btn-toggle", {
-          attrs: {
-            mandatory: ""
+          domProps: {
+            value: _vm.search
           },
-          model: {
-            value: _vm.sortDesc,
-            callback: function callback($$v) {
-              _vm.sortDesc = $$v;
-            },
-            expression: "sortDesc"
+          on: {
+            input: function input($event) {
+              if ($event.target.composing) return;
+              _vm.search = $event.target.value;
+            }
           }
-        }, [_c("v-btn", {
+        }), _vm._v(" "), _c("div", {
+          staticClass: "icon"
+        }, [_c("svg", {
+          staticClass: "ionicon",
           attrs: {
-            large: "",
-            depressed: "",
-            color: "blue",
-            value: false
+            viewBox: "0 0 512 512",
+            xmlns: "http://www.w3.org/2000/svg"
           }
-        }, [_c("v-icon", [_vm._v("mdi-arrow-up")])], 1), _vm._v(" "), _c("v-btn", {
+        }, [_c("title", [_vm._v("Search")]), _vm._v(" "), _c("path", {
           attrs: {
-            large: "",
-            depressed: "",
-            color: "blue",
-            value: true
+            "stroke-width": "32",
+            "stroke-miterlimit": "10",
+            stroke: "currentColor",
+            fill: "none",
+            d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
           }
-        }, [_c("v-icon", [_vm._v("mdi-arrow-down")])], 1)], 1)] : _vm._e()], 2)];
+        }), _vm._v(" "), _c("path", {
+          attrs: {
+            d: "M338.29 338.29L448 448",
+            "stroke-width": "32",
+            "stroke-miterlimit": "10",
+            "stroke-linecap": "round",
+            stroke: "currentColor",
+            fill: "none"
+          }
+        })])])])], 1)];
       },
       proxy: true
     }, {
@@ -5333,13 +5362,47 @@ var render = function render() {
             key: item.name,
             attrs: {
               cols: "12",
-              sm: "6",
-              md: "4",
-              lg: "3"
+              sm: "10",
+              md: "8",
+              lg: "6"
             }
-          }, [_c("v-card", [_c("v-card-title", {
+          }, [_c("v-card", {
+            staticClass: "table-text"
+          }, [_c("v-card-title", {
             staticClass: "subheading font-weight-bold"
-          }, [_vm._v("\n                                            " + _vm._s(item.name) + "\n                                        ")]), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-list", {
+          }, [_c("img", {
+            staticClass: "profile",
+            attrs: {
+              src: __webpack_require__(/*! ../../../pics/John Michael Cagadas_.jpg */ "./resources/pics/John Michael Cagadas_.jpg"),
+              alt: "profile"
+            }
+          }), _vm._v(" "), _c("h6", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("div", {
+            staticClass: "ml-10 button-tourism"
+          }, [_c("button", {
+            staticClass: "button m-1"
+          }, [_vm._v(" View Details")]), _vm._v(" "), _c("button", {
+            staticClass: "noselect m-1",
+            attrs: {
+              "data-bs-toggle": "modal",
+              "data-bs-target": "#exampleModal3"
+            }
+          }, [_c("span", {
+            staticClass: "text"
+          }, [_vm._v("Delete")]), _c("span", {
+            staticClass: "icone"
+          }, [_c("svg", {
+            attrs: {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "24",
+              height: "24",
+              viewBox: "0 0 24 24"
+            }
+          }, [_c("path", {
+            attrs: {
+              d: "M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+            }
+          })])])])])], 1), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-list", {
+            staticClass: "table-text",
             attrs: {
               dense: ""
             }
@@ -5350,12 +5413,12 @@ var render = function render() {
               "class": {
                 "blue--text": _vm.sortBy === key
               }
-            }, [_vm._v("\n                                                " + _vm._s(key) + ":\n                                            ")]), _vm._v(" "), _c("v-list-item-content", {
+            }, [_vm._v("\n                                                        " + _vm._s(key) + ":\n                                                    ")]), _vm._v(" "), _c("v-list-item-content", {
               staticClass: "align-end",
               "class": {
                 "blue--text": _vm.sortBy === key
               }
-            }, [_vm._v("\n                                                " + _vm._s(item[key.toLowerCase()]) + "\n                                            ")])], 1);
+            }, [_vm._v("\n                                                        " + _vm._s(item[key.toLowerCase()]) + "\n                                                    ")])], 1);
           }), 1)], 1)], 1);
         }), 1)];
       }
@@ -5386,7 +5449,7 @@ var render = function render() {
                   text: "",
                   color: "primary"
                 }
-              }, "v-btn", attrs, false), on), [_vm._v("\n                                            " + _vm._s(_vm.itemsPerPage) + "\n                                            "), _c("v-icon", [_vm._v("mdi-chevron-down")])], 1)];
+              }, "v-btn", attrs, false), on), [_vm._v("\n                                                    " + _vm._s(_vm.itemsPerPage) + "\n                                                    "), _c("v-icon", [_vm._v("mdi-chevron-down")])], 1)];
             }
           }])
         }, [_vm._v(" "), _c("v-list", _vm._l(_vm.itemsPerPageArray, function (number, index) {
@@ -5428,13 +5491,646 @@ var render = function render() {
     attrs: {
       flat: ""
     }
-  }, [_c("v-card-text", [_vm._v("\n                        hi\n\n  \n\n\n                    ")])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+  }, [_c("v-card-text", [_c("div", {
+    staticClass: "accordion-item"
+  }, [_c("h2", {
+    staticClass: "accordion-header",
+    attrs: {
+      id: "headingOne"
+    }
+  }, [_c("button", {
+    staticClass: "accordion-button collapsed vehicle-body",
+    attrs: {
+      type: "button",
+      "data-bs-toggle": "collapse",
+      "data-bs-target": "#collapseOne",
+      "aria-expanded": "true",
+      "aria-controls": "collapseOne"
+    }
+  }, [_c("img", {
+    staticClass: "vehicle-img mr-5",
+    attrs: {
+      src: __webpack_require__(/*! ./../../../pics/no_crash_white_24dp.svg */ "./resources/pics/no_crash_white_24dp.svg")
+    }
+  }), _vm._v(" Vehicle Registration\n                            ")])]), _vm._v(" "), _c("div", {
+    staticClass: "accordion-collapse collapse",
+    attrs: {
+      id: "collapseOne",
+      "aria-labelledby": "headingOne",
+      "data-bs-parent": "#accordionExample"
+    }
+  }, [_c("div", {
+    staticClass: "accordion-body"
+  }, [[_c("v-container", {
+    attrs: {
+      fluid: ""
+    }
+  }, [_c("v-data-iterator", {
+    attrs: {
+      items: _vm.registrationReq,
+      "items-per-page": _vm.itemsPerPageVreq,
+      page: _vm.pageVreq,
+      search: _vm.searchVreq,
+      "sort-by": _vm.sortByVreq.toLowerCase(),
+      "sort-desc": _vm.sortDescVreq,
+      "hide-default-footer": ""
+    },
+    on: {
+      "update:itemsPerPage": function updateItemsPerPage($event) {
+        _vm.itemsPerPageVreq = $event;
+      },
+      "update:items-per-page": function updateItemsPerPage($event) {
+        _vm.itemsPerPageVreq = $event;
+      },
+      "update:page": function updatePage($event) {
+        _vm.pageVreq = $event;
+      }
+    },
+    scopedSlots: _vm._u([{
+      key: "header",
+      fn: function fn() {
+        return [_c("v-toolbar", {
+          staticClass: "mb-3",
+          attrs: {
+            color: "dark"
+          }
+        }, [_c("img", {
+          staticClass: "vehicle-img mr-5",
+          attrs: {
+            src: __webpack_require__(/*! ./../../../pics/no_crash_white_24dp.svg */ "./resources/pics/no_crash_white_24dp.svg")
+          }
+        }), _vm._v(" "), _c("h6", {
+          staticClass: "ml-2"
+        }, [_vm._v("Vehicle Requirement List")]), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("div", {
+          staticClass: "containered"
+        }, [_c("input", {
+          directives: [{
+            name: "model",
+            rawName: "v-model",
+            value: _vm.searchVreq,
+            expression: "searchVreq"
+          }],
+          staticClass: "inputted",
+          attrs: {
+            placeholder: "Type to search...",
+            required: "",
+            name: "text",
+            type: "text"
+          },
+          domProps: {
+            value: _vm.searchVreq
+          },
+          on: {
+            input: function input($event) {
+              if ($event.target.composing) return;
+              _vm.searchVreq = $event.target.value;
+            }
+          }
+        }), _vm._v(" "), _c("div", {
+          staticClass: "icon"
+        }, [_c("svg", {
+          staticClass: "ionicon",
+          attrs: {
+            viewBox: "0 0 512 512",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        }, [_c("title", [_vm._v("Search")]), _vm._v(" "), _c("path", {
+          attrs: {
+            "stroke-width": "32",
+            "stroke-miterlimit": "10",
+            stroke: "currentColor",
+            fill: "none",
+            d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+          }
+        }), _vm._v(" "), _c("path", {
+          attrs: {
+            d: "M338.29 338.29L448 448",
+            "stroke-width": "32",
+            "stroke-miterlimit": "10",
+            "stroke-linecap": "round",
+            stroke: "currentColor",
+            fill: "none"
+          }
+        })])])])], 1)];
+      },
+      proxy: true
+    }, {
+      key: "default",
+      fn: function fn(props) {
+        return [_c("v-row", _vm._l(props.items, function (item) {
+          return _c("v-col", {
+            key: item.name,
+            attrs: {
+              cols: "6",
+              sm: "6",
+              md: "4",
+              lg: "4"
+            }
+          }, [_c("v-card", {
+            staticClass: "table-text",
+            attrs: {
+              color: "blue darken-4"
+            }
+          }, [_c("v-card-title", {
+            staticClass: "subheading font-weight-bold"
+          }, [_c("h6", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("v-card", {
+            attrs: {
+              color: "warning"
+            }
+          }, [_c("v-icon", {
+            staticClass: "m-1",
+            attrs: {
+              small: ""
+            },
+            on: {
+              click: function click($event) {
+                return _vm.editItem(item);
+              }
+            }
+          }, [_vm._v("\n                                                                mdi-pencil\n                                                            ")]), _vm._v(" "), _c("v-icon", {
+            staticClass: "m-1",
+            attrs: {
+              small: "",
+              "data-bs-toggle": "modal",
+              "data-bs-target": "#delete-Vreq"
+            }
+          }, [_vm._v("\n                                                                mdi-delete\n                                                            ")])], 1)], 1), _vm._v(" "), _c("v-list", {
+            staticClass: "table-text",
+            attrs: {
+              dense: ""
+            }
+          }, _vm._l(_vm.filteredKeysVreq, function (key, index) {
+            return _c("v-list-item", {
+              key: index
+            }, [_c("v-list-item-content", {
+              "class": {
+                "blue--text": _vm.sortByVreq === key
+              }
+            }, [_vm._v("\n                                                        " + _vm._s(key) + ":\n                                                    ")]), _vm._v(" "), _c("v-list-item-content", {
+              staticClass: "align-end",
+              "class": {
+                "blue--text": _vm.sortByVreq === key
+              }
+            }, [_vm._v("\n                                                        " + _vm._s(item[key.toLowerCase()]) + "\n                                                    ")])], 1);
+          }), 1)], 1)], 1);
+        }), 1)];
+      }
+    }, {
+      key: "footer",
+      fn: function fn() {
+        return [_c("v-row", {
+          staticClass: "mt-2",
+          attrs: {
+            align: "center",
+            justify: "center"
+          }
+        }, [_c("span", {
+          staticClass: "grey--text"
+        }, [_vm._v("Items per page")]), _vm._v(" "), _c("v-menu", {
+          attrs: {
+            "offset-y": ""
+          },
+          scopedSlots: _vm._u([{
+            key: "activator",
+            fn: function fn(_ref2) {
+              var on = _ref2.on,
+                attrs = _ref2.attrs;
+              return [_c("v-btn", _vm._g(_vm._b({
+                staticClass: "ml-2",
+                attrs: {
+                  dark: "",
+                  text: "",
+                  color: "primary"
+                }
+              }, "v-btn", attrs, false), on), [_vm._v("\n                                                    " + _vm._s(_vm.itemsPerPageVreq) + "\n                                                    "), _c("v-icon", [_vm._v("mdi-chevron-down")])], 1)];
+            }
+          }])
+        }, [_vm._v(" "), _c("v-list", _vm._l(_vm.itemsPerPageArrayVreq, function (numberVreq, index) {
+          return _c("v-list-item", {
+            key: index,
+            on: {
+              click: function click($event) {
+                return _vm.updateItemsPerPageVreq(numberVreq);
+              }
+            }
+          }, [_c("v-list-item-title", [_vm._v(_vm._s(numberVreq))])], 1);
+        }), 1)], 1), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("span", {
+          staticClass: "mr-4 grey--text"
+        }, [_vm._v("\n                                        Page " + _vm._s(_vm.pageVreq) + " of " + _vm._s(_vm.numberOfPagesVreq) + "\n                                    ")]), _vm._v(" "), _c("v-btn", {
+          staticClass: "mr-1",
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "blue darken-3"
+          },
+          on: {
+            click: _vm.formerPageVreq
+          }
+        }, [_c("v-icon", [_vm._v("mdi-chevron-left")])], 1), _vm._v(" "), _c("v-btn", {
+          staticClass: "ml-1",
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "blue darken-3"
+          },
+          on: {
+            click: _vm.nextPageVreq
+          }
+        }, [_c("v-icon", [_vm._v("mdi-chevron-right")])], 1)], 1)];
+      },
+      proxy: true
+    }])
+  })], 1)]], 2)])]), _vm._v(" "), _c("div", {
+    staticClass: "accordion-item"
+  }, [_c("h2", {
+    staticClass: "accordion-header",
+    attrs: {
+      id: "headingTwo"
+    }
+  }, [_c("button", {
+    staticClass: "accordion-button collapsed vehicle-body",
+    attrs: {
+      type: "button",
+      "data-bs-toggle": "collapse",
+      "data-bs-target": "#collapseTwo",
+      "aria-expanded": "false",
+      "aria-controls": "collapseTwo"
+    }
+  }, [_c("img", {
+    staticClass: "vehicle-img mr-5",
+    attrs: {
+      src: __webpack_require__(/*! ./../../../pics/how_to_reg_white_24dp.svg */ "./resources/pics/how_to_reg_white_24dp.svg")
+    }
+  }), _vm._v(" Driver's License\n                    ")])]), _vm._v(" "), _c("div", {
+    staticClass: "accordion-collapse collapse",
+    attrs: {
+      id: "collapseTwo",
+      "aria-labelledby": "headingTwo",
+      "data-bs-parent": "#accordionExample"
+    }
+  }, [_c("div", {
+    staticClass: "accordion-body"
+  }, [[_c("v-container", {
+    attrs: {
+      fluid: ""
+    }
+  }, [_c("v-data-iterator", {
+    attrs: {
+      items: _vm.licenseReq,
+      "items-per-page": _vm.itemsPerPageLreq,
+      page: _vm.pageLreq,
+      search: _vm.searchLreq,
+      "sort-by": _vm.sortByLreq.toLowerCase(),
+      "sort-desc": _vm.sortDescLreq,
+      "hide-default-footer": ""
+    },
+    on: {
+      "update:itemsPerPage": function updateItemsPerPage($event) {
+        _vm.itemsPerPageLreq = $event;
+      },
+      "update:items-per-page": function updateItemsPerPage($event) {
+        _vm.itemsPerPageLreq = $event;
+      },
+      "update:page": function updatePage($event) {
+        _vm.pageLreq = $event;
+      }
+    },
+    scopedSlots: _vm._u([{
+      key: "header",
+      fn: function fn() {
+        return [_c("v-toolbar", {
+          staticClass: "mb-3",
+          attrs: {
+            color: "dark"
+          }
+        }, [_c("img", {
+          staticClass: "vehicle-img mr-5",
+          attrs: {
+            src: __webpack_require__(/*! ./../../../pics/no_crash_white_24dp.svg */ "./resources/pics/no_crash_white_24dp.svg")
+          }
+        }), _vm._v(" "), _c("h6", {
+          staticClass: "ml-2"
+        }, [_vm._v("Driver's License Requirement List")]), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("div", {
+          staticClass: "containered"
+        }, [_c("input", {
+          directives: [{
+            name: "model",
+            rawName: "v-model",
+            value: _vm.searchLreq,
+            expression: "searchLreq"
+          }],
+          staticClass: "inputted",
+          attrs: {
+            placeholder: "Type to search...",
+            required: "",
+            name: "text",
+            type: "text"
+          },
+          domProps: {
+            value: _vm.searchLreq
+          },
+          on: {
+            input: function input($event) {
+              if ($event.target.composing) return;
+              _vm.searchLreq = $event.target.value;
+            }
+          }
+        }), _vm._v(" "), _c("div", {
+          staticClass: "icon"
+        }, [_c("svg", {
+          staticClass: "ionicon",
+          attrs: {
+            viewBox: "0 0 512 512",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        }, [_c("title", [_vm._v("Search")]), _vm._v(" "), _c("path", {
+          attrs: {
+            "stroke-width": "32",
+            "stroke-miterlimit": "10",
+            stroke: "currentColor",
+            fill: "none",
+            d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+          }
+        }), _vm._v(" "), _c("path", {
+          attrs: {
+            d: "M338.29 338.29L448 448",
+            "stroke-width": "32",
+            "stroke-miterlimit": "10",
+            "stroke-linecap": "round",
+            stroke: "currentColor",
+            fill: "none"
+          }
+        })])])])], 1)];
+      },
+      proxy: true
+    }, {
+      key: "default",
+      fn: function fn(props) {
+        return [_c("v-row", _vm._l(props.items, function (item) {
+          return _c("v-col", {
+            key: item.name,
+            attrs: {
+              cols: "6",
+              sm: "6",
+              md: "4",
+              lg: "4"
+            }
+          }, [_c("v-card", {
+            staticClass: "table-text",
+            attrs: {
+              color: "blue darken-4"
+            }
+          }, [_c("v-card-title", {
+            staticClass: "subheading font-weight-bold"
+          }, [_c("h6", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("v-card", {
+            attrs: {
+              color: "warning"
+            }
+          }, [_c("v-icon", {
+            staticClass: "m-1",
+            attrs: {
+              small: ""
+            },
+            on: {
+              click: function click($event) {
+                return _vm.editItem(item);
+              }
+            }
+          }, [_vm._v("\n                                                                mdi-pencil\n                                                            ")]), _vm._v(" "), _c("v-icon", {
+            staticClass: "m-1",
+            attrs: {
+              small: "",
+              "data-bs-toggle": "modal",
+              "data-bs-target": "#delete-Lreq"
+            }
+          }, [_vm._v("\n                                                                mdi-delete\n                                                            ")])], 1)], 1), _vm._v(" "), _c("v-list", {
+            staticClass: "table-text",
+            attrs: {
+              dense: ""
+            }
+          }, _vm._l(_vm.filteredKeysLreq, function (key, index) {
+            return _c("v-list-item", {
+              key: index
+            }, [_c("v-list-item-content", {
+              "class": {
+                "blue--text": _vm.sortByLreq === key
+              }
+            }, [_vm._v("\n                                                        " + _vm._s(key) + ":\n                                                    ")]), _vm._v(" "), _c("v-list-item-content", {
+              staticClass: "align-end",
+              "class": {
+                "blue--text": _vm.sortByLreq === key
+              }
+            }, [_vm._v("\n                                                        " + _vm._s(item[key.toLowerCase()]) + "\n                                                    ")])], 1);
+          }), 1)], 1)], 1);
+        }), 1)];
+      }
+    }, {
+      key: "footer",
+      fn: function fn() {
+        return [_c("v-row", {
+          staticClass: "mt-2",
+          attrs: {
+            align: "center",
+            justify: "center"
+          }
+        }, [_c("span", {
+          staticClass: "grey--text"
+        }, [_vm._v("Items per page")]), _vm._v(" "), _c("v-menu", {
+          attrs: {
+            "offset-y": ""
+          },
+          scopedSlots: _vm._u([{
+            key: "activator",
+            fn: function fn(_ref3) {
+              var on = _ref3.on,
+                attrs = _ref3.attrs;
+              return [_c("v-btn", _vm._g(_vm._b({
+                staticClass: "ml-2",
+                attrs: {
+                  dark: "",
+                  text: "",
+                  color: "primary"
+                }
+              }, "v-btn", attrs, false), on), [_vm._v("\n                                                    " + _vm._s(_vm.itemsPerPageLreq) + "\n                                                    "), _c("v-icon", [_vm._v("mdi-chevron-down")])], 1)];
+            }
+          }])
+        }, [_vm._v(" "), _c("v-list", _vm._l(_vm.itemsPerPageArrayLreq, function (numberLreq, index) {
+          return _c("v-list-item", {
+            key: index,
+            on: {
+              click: function click($event) {
+                return _vm.updateItemsPerPageLreq(numberLreq);
+              }
+            }
+          }, [_c("v-list-item-title", [_vm._v(_vm._s(numberLreq))])], 1);
+        }), 1)], 1), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("span", {
+          staticClass: "mr-4 grey--text"
+        }, [_vm._v("\n                                        Page " + _vm._s(_vm.pageLreq) + " of " + _vm._s(_vm.numberOfPagesLreq) + "\n                                    ")]), _vm._v(" "), _c("v-btn", {
+          staticClass: "mr-1",
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "blue darken-3"
+          },
+          on: {
+            click: _vm.formerPageLreq
+          }
+        }, [_c("v-icon", [_vm._v("mdi-chevron-left")])], 1), _vm._v(" "), _c("v-btn", {
+          staticClass: "ml-1",
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "blue darken-3"
+          },
+          on: {
+            click: _vm.nextPageLreq
+          }
+        }, [_c("v-icon", [_vm._v("mdi-chevron-right")])], 1)], 1)];
+      },
+      proxy: true
+    }])
+  })], 1)]], 2)])])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
     attrs: {
       flat: ""
     }
-  }, [_c("v-card-text", [_vm._v("\n                        bro\n                    ")])], 1)], 1)], 1)], 1)], 1)], 1)]);
+  }, [_c("v-card-text", [_vm._v("\n                                bro\n                            ")])], 1)], 1)], 1)], 1)], 1)], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "exampleModal3",
+      tabindex: "-1",
+      "aria-labelledby": "exampleModalLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered"
+  }, [_c("div", {
+    staticClass: "modal-content bg-dark"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title text-white",
+    attrs: {
+      id: "exampleModalLabel"
+    }
+  }, [_vm._v("Warning!")]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body text-white"
+  }, [_vm._v("\n                            Are you sure you want to delete this driver's profile?\n                        ")]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "button-back btn-success",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal"
+    }
+  }, [_vm._v("Close")]), _vm._v(" "), _c("button", {
+    staticClass: "button-back btn-danger",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Save changes")])])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "delete-Vreq",
+      tabindex: "-1",
+      "aria-labelledby": "exampleModalLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered"
+  }, [_c("div", {
+    staticClass: "modal-content bg-dark"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title text-white",
+    attrs: {
+      id: "exampleModalLabel"
+    }
+  }, [_vm._v("Warning!")]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body text-white"
+  }, [_vm._v("\n                            Are you sure you want delete this registration requirement?\n                        ")]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "button-back btn-success",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal"
+    }
+  }, [_vm._v("Close")]), _vm._v(" "), _c("button", {
+    staticClass: "button-back btn-danger",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Save changes")])])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "delete-Lreq",
+      tabindex: "-1",
+      "aria-labelledby": "exampleModalLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered"
+  }, [_c("div", {
+    staticClass: "modal-content bg-dark"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title text-white",
+    attrs: {
+      id: "exampleModalLabel"
+    }
+  }, [_vm._v("Warning!")]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body text-white"
+  }, [_vm._v("\n                            Are you sure you want delete this license requirement?\n                        ")]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "button-back btn-success",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal"
+    }
+  }, [_vm._v("Close")]), _vm._v(" "), _c("button", {
+    staticClass: "button-back btn-danger",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Save changes")])])])])]);
+}];
 render._withStripped = true;
 
 
@@ -9088,7 +9784,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "[data-v-17e31f18] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.tourism-body[data-v-17e31f18] {\n  width: 95%;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.max-content[data-v-17e31f18] {\n  height: 600px;\n}\n.navs[data-v-17e31f18] {\n  position: absolute;\n  height: 200px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "[data-v-17e31f18] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.tourism-body[data-v-17e31f18] {\n  width: 95%;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.max-content[data-v-17e31f18] {\n  max-height: -moz-fit-content;\n  max-height: fit-content;\n  min-height: 550px;\n}\n.navs[data-v-17e31f18] {\n  position: absolute;\n  height: 200px;\n}\n.table-text[data-v-17e31f18] {\n  background-color: #292929;\n  color: white;\n  font-family: monospace;\n}\n.profile[data-v-17e31f18] {\n  width: 80px;\n  height: 80px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 4px;\n  border: 2px solid #979797;\n  margin-right: 10px;\n}\n.text-white[data-v-17e31f18] {\n  color: white;\n}\n.button-tourism[data-v-17e31f18] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  position: relative;\n}\n.driver-icon[data-v-17e31f18] {\n  width: 40px;\n  height: 40px;\n}\n@media only screen and (max-width: 750px) {\n.button-tourism[data-v-17e31f18] {\n    flex-direction: row;\n    left: -10%;\n    margin-top: 3%;\n}\n}\n@media only screen and (max-width: 450px) {\n.button-tourism[data-v-17e31f18] {\n    flex-direction: row;\n    left: -25%;\n    margin-top: 3%;\n}\n}\n@media only screen and (max-width: 400px) {\n.button-tourism[data-v-17e31f18] {\n    flex-direction: row;\n    left: -30%;\n    margin-top: 3%;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9261,6 +9957,16 @@ module.exports = "/images/account.svg?2cf6bd4fd4a81d3ae197559ff874f337";
 
 /***/ }),
 
+/***/ "./resources/pics/city tourism.jpg":
+/*!*****************************************!*\
+  !*** ./resources/pics/city tourism.jpg ***!
+  \*****************************************/
+/***/ ((module) => {
+
+module.exports = "/images/city tourism.jpg?42e939cb2f6d155167f6b5a4cbce551c";
+
+/***/ }),
+
 /***/ "./resources/pics/feed_white_24dp.svg":
 /*!********************************************!*\
   !*** ./resources/pics/feed_white_24dp.svg ***!
@@ -9358,6 +10064,16 @@ module.exports = "/images/no_crash_white_24dp.svg?492811a20d5da79cd153c6c2f21852
 /***/ ((module) => {
 
 module.exports = "/images/note_alt_white_24dp.svg?a1f1bbcd97f4e9844f5446e8af9c9dd0";
+
+/***/ }),
+
+/***/ "./resources/pics/sports_motorsports_white_24dp.svg":
+/*!**********************************************************!*\
+  !*** ./resources/pics/sports_motorsports_white_24dp.svg ***!
+  \**********************************************************/
+/***/ ((module) => {
+
+module.exports = "/images/sports_motorsports_white_24dp.svg?38f2ea6af1a0e74832178c46e3cca112";
 
 /***/ }),
 

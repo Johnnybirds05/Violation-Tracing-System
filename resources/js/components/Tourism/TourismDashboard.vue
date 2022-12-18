@@ -1,241 +1,402 @@
 <template>
-        <div class="container-fluid max-content">
-            <div class="container tourism-body mt-3">
-                <v-app>
-                    <v-card >
-                        <v-navigation-drawer
-                        v-model="drawer"
-                        temporary
-                        class="navs"
-                        >
-                        <v-list-item>
-                            <v-list-item-avatar>
-                            <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-                            </v-list-item-avatar>
+    <div class="container-fluid max-content mb-4">
+        <div class="container tourism-body mt-3 mb-4">
+        <v-app>
+            <v-card >
+                <v-navigation-drawer v-model="drawer" temporary class="navs">
+                    <v-divider></v-divider>
+                <v-list-item>
+                    <v-list-item-avatar>
+                        <img src="../../../pics/city tourism.jpg" class="card-img-top" alt="...">
+                    </v-list-item-avatar>
 
-                            <v-list-item-content>
-                            <v-list-item-title>John Leider</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
+                    <v-list-item-content>
+                        <v-list-item-title><h5>Tourism Office</h5> </v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
 
+                <v-list dense>
+                    <v-list-item>
+                        <a href="#" class="btn">
+                            <button class="cssbuttons-io-button button-back"> Logout
+                                <div class="icon">
+                                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                                </div>
+                            </button>
+                        </a>
+                    </v-list-item>
+                            
+                    </v-list>
                         <v-divider></v-divider>
+                </v-navigation-drawer>
 
-                        <v-list dense>
-                            <v-list-item v-for="item in items" :key="item.title" link>
-                            <v-list-item-icon>
-                                <v-icon>{{ item.icon }}</v-icon>
-                            </v-list-item-icon>
-
-                            <v-list-item-content>
-                                <v-list-item-title>{{ item.title }}</v-list-item-title>
-                            </v-list-item-content>
-                            </v-list-item>
-                        </v-list>
-                        </v-navigation-drawer>
-                        <v-toolbar color="grey darken-3" dark flat>
-                        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-                        
-                        
-
-                        <v-toolbar-title>CTO Dashboard</v-toolbar-title>
-
-                        <v-spacer></v-spacer>
-
-
+                <v-toolbar color="grey darken-4" dark flat>
+                    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+                    <v-toolbar-title>
+                        <v-list-item-avatar>
+                            <img src="../../../pics/city tourism.jpg" class="card-img-top" alt="...">
+                        </v-list-item-avatar>
+                        Tourism Office
+                    </v-toolbar-title>
+                    <v-spacer></v-spacer>
                         <template v-slot:extension>
                             <v-tabs v-model="tab" align-with-title>
-                            <v-tabs-slider color="yellow"></v-tabs-slider>
+                            <v-tabs-slider color="white"></v-tabs-slider>
                                 <v-tab>Drivers</v-tab>
-                                <v-tab>Driving Requirement</v-tab>
+                                <v-tab>Requirements</v-tab>
                                 <v-tab>Accounts</v-tab>
                             </v-tabs>
                         </template>
-                        </v-toolbar>
+                </v-toolbar>
 
-                        <!-- This is for the driver's data -->
-                        <v-tabs-items v-model="tab">
-                        <v-tab-item>
-                            <v-card flat>
-                            <v-card-text >
-                                <template>
-                                    <v-container fluid>
-                                        <v-data-iterator
-                                        :items="items"
+            <!-- This is for the driver's data -->
+                <v-tabs-items v-model="tab">
+                    <v-tab-item>
+                    <v-card flat>
+                        <v-card-text >
+                            <template>
+                                <v-container fluid>
+                                    <v-data-iterator
+                                        :items="drivers"
                                         :items-per-page.sync="itemsPerPage"
                                         :page.sync="page"
                                         :search="search"
                                         :sort-by="sortBy.toLowerCase()"
                                         :sort-desc="sortDesc"
                                         hide-default-footer
-                                        >
-                                        <template v-slot:header>
-                                            <v-toolbar
-                                            dark
-                                            color="blue darken-3"
-                                            class="mb-1"
-                                            >
-                                            <v-text-field
-                                                v-model="search"
-                                                clearable
-                                                flat
-                                                solo-inverted
-                                                hide-details
-                                                prepend-inner-icon="mdi-magnify"
-                                                label="Search"
-                                            ></v-text-field>
-                                            <template v-if="$vuetify.breakpoint.mdAndUp">
-                                                <v-spacer></v-spacer>
-                                                <v-select
-                                                v-model="sortBy"
-                                                flat
-                                                solo-inverted
-                                                hide-details
-                                                :items="keys"
-                                                prepend-inner-icon="mdi-magnify"
-                                                label="Sort by"
-                                                ></v-select>
-                                                <v-spacer></v-spacer>
-                                                <v-btn-toggle
-                                                v-model="sortDesc"
-                                                mandatory
-                                                >
-                                                <v-btn
-                                                    large
-                                                    depressed
-                                                    color="blue"
-                                                    :value="false"
-                                                >
-                                                    <v-icon>mdi-arrow-up</v-icon>
-                                                </v-btn>
-                                                <v-btn
-                                                    large
-                                                    depressed
-                                                    color="blue"
-                                                    :value="true"
-                                                >
-                                                    <v-icon>mdi-arrow-down</v-icon>
-                                                </v-btn>
-                                                </v-btn-toggle>
-                                            </template>
-                                            </v-toolbar>
-                                        </template>
+                                    >
+                            <template v-slot:header>
+                                <v-toolbar color="dark" class="mb-3">
+                                    <img src="../../../pics/sports_motorsports_white_24dp.svg" class="driver-icon" alt="...">
+                                    <h4 class="ml-2">Driver List</h4>
+                                <v-spacer></v-spacer>
+                                    <div class="containered">
+                                        <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="search">
+                                        <div class="icon">
+                                            <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
+                                                <title>Search</title>
+                                                <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
+                                                <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </v-toolbar>
+                            </template>
 
-                                        <template v-slot:default="props">
-                                            <v-row>
-                                            <v-col
-                                                v-for="item in props.items"
-                                                :key="item.name"
-                                                cols="12"
-                                                sm="6"
-                                                md="4"
-                                                lg="3"
-                                            >
-                                                <v-card>
-                                                <v-card-title class="subheading font-weight-bold">
-                                                    {{ item.name }}
-                                                </v-card-title>
 
-                                                <v-divider></v-divider>
+<!-- this is for the driver tab -->
 
-                                                <v-list dense>
-                                                    <v-list-item
-                                                    v-for="(key, index) in filteredKeys"
-                                                    :key="index"
-                                                    >
+                            <template v-slot:default="props">
+                                <v-row>
+                                    <v-col v-for="item in props.items" :key="item.name" cols="12" sm="10" md="8" lg="6">
+                                        <v-card class="table-text">
+                                            <v-card-title class="subheading font-weight-bold">
+                                                <img src="../../../pics/John Michael Cagadas_.jpg" alt="profile" class="profile">
+                                                    <h6>{{ item.name }}</h6>
+                                                    <v-spacer></v-spacer> 
+                                                <div class=" ml-10 button-tourism">
+                                                    <button class="button m-1"> View Details</button>
+                                                    <button class="noselect m-1" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                                        <span class="text">Delete</span><span class="icone"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span>
+                                                    </button>
+                                                </div>
+                                            </v-card-title>
+
+                                            <v-divider></v-divider>
+
+                                            <v-list dense class="table-text">
+                                                <v-list-item v-for="(key, index) in filteredKeys" :key="index">
                                                     <v-list-item-content :class="{ 'blue--text': sortBy === key }">
                                                         {{ key }}:
                                                     </v-list-item-content>
-                                                    <v-list-item-content
-                                                        class="align-end"
-                                                        :class="{ 'blue--text': sortBy === key }"
-                                                    >
+                                                    <v-list-item-content class="align-end" :class="{ 'blue--text': sortBy === key }">
                                                         {{ item[key.toLowerCase()] }}
                                                     </v-list-item-content>
-                                                    </v-list-item>
-                                                </v-list>
-                                                </v-card>
-                                            </v-col>
-                                            </v-row>
-                                        </template>
+                                                </v-list-item>
+                                            </v-list>
+                                        </v-card>
+                                    </v-col>
+                                </v-row>
+                            </template>
 
-                                        <template v-slot:footer>
-                                            <v-row
-                                            class="mt-2"
-                                            align="center"
-                                            justify="center"
-                                            >
-                                            <span class="grey--text">Items per page</span>
-                                            <v-menu offset-y>
-                                                <template v-slot:activator="{ on, attrs }">
-                                                <v-btn
-                                                    dark
-                                                    text
-                                                    color="primary"
-                                                    class="ml-2"
-                                                    v-bind="attrs"
-                                                    v-on="on"
-                                                >
+                            <template v-slot:footer>
+                                <v-row class="mt-2" align="center" justify="center">
+                                    <span class="grey--text">Items per page</span>
+                                        <v-menu offset-y>
+                                            <template v-slot:activator="{ on, attrs }">
+                                                <v-btn dark text color="primary" class="ml-2" v-bind="attrs" v-on="on">
                                                     {{ itemsPerPage }}
                                                     <v-icon>mdi-chevron-down</v-icon>
                                                 </v-btn>
-                                                </template>
-                                                <v-list>
-                                                <v-list-item
-                                                    v-for="(number, index) in itemsPerPageArray"
-                                                    :key="index"
-                                                    @click="updateItemsPerPage(number)"
-                                                >
+                                            </template>
+                                            <v-list>
+                                                <v-list-item v-for="(number, index) in itemsPerPageArray" :key="index" @click="updateItemsPerPage(number)">
                                                     <v-list-item-title>{{ number }}</v-list-item-title>
                                                 </v-list-item>
-                                                </v-list>
-                                            </v-menu>
+                                            </v-list>
+                                        </v-menu>
 
-                                            <v-spacer></v-spacer>
+                                        <v-spacer></v-spacer>
 
-                                            <span
-                                                class="mr-4
-                                                grey--text"
-                                            >
-                                                Page {{ page }} of {{ numberOfPages }}
-                                            </span>
-                                            <v-btn
-                                                fab
-                                                dark
-                                                color="blue darken-3"
-                                                class="mr-1"
-                                                @click="formerPage"
-                                            >
-                                                <v-icon>mdi-chevron-left</v-icon>
-                                            </v-btn>
-                                            <v-btn
-                                                fab
-                                                dark
-                                                color="blue darken-3"
-                                                class="ml-1"
-                                                @click="nextPage"
-                                            >
+                                    <span class="mr-4 grey--text">
+                                        Page {{ page }} of {{ numberOfPages }}
+                                    </span>
+
+                                    <v-btn fab dark color="blue darken-3" class="mr-1" @click="formerPage">
+                                        <v-icon>mdi-chevron-left</v-icon>
+                                    </v-btn>
+                                    <v-btn fab dark color="blue darken-3" class="ml-1" @click="nextPage">
                                                 <v-icon>mdi-chevron-right</v-icon>
-                                            </v-btn>
-                                            </v-row>
-                                        </template>
-                                        </v-data-iterator>
-                                    </v-container>
-                                    </template>
-                            </v-card-text>
-                            </v-card>
-                        </v-tab-item>
+                                    </v-btn>
+                                </v-row>
+                            </template>
 
-                        <v-tab-item>
-                            <v-card flat>
-                            <v-card-text>
-                                hi
- 
-          
+                                </v-data-iterator>
+                            </v-container>
+                            </template>
+                </v-card-text>
+            </v-card>
+    </v-tab-item>
+
+
+    <!-- This is for the requirement Side -->
+        <v-tab-item>
+            <v-card flat>
+                <v-card-text>
+                    <!-- this is for the vehicle registration -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed vehicle-body" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <img src="./../../../pics/no_crash_white_24dp.svg" class="vehicle-img mr-5"> Vehicle Registration
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <template>
+                                <v-container fluid>
+                                    <v-data-iterator
+                                        :items="registrationReq"
+                                        :items-per-page.sync="itemsPerPageVreq"
+                                        :page.sync="pageVreq"
+                                        :search="searchVreq"
+                                        :sort-by="sortByVreq.toLowerCase()"
+                                        :sort-desc="sortDescVreq"
+                                        hide-default-footer
+                                    >
+                            <template v-slot:header>
+                                <v-toolbar color="dark" class="mb-3">
+                                    <img src="./../../../pics/no_crash_white_24dp.svg" class="vehicle-img mr-5">
+                                    <h6 class="ml-2">Vehicle Requirement List</h6>
+                                <v-spacer></v-spacer>
+                                    <div class="containered">
+                                        <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="searchVreq">
+                                        <div class="icon">
+                                            <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
+                                                <title>Search</title>
+                                                <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
+                                                <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </v-toolbar>
+                            </template>
+                            <template v-slot:default="props">
+                                <v-row>
+                                    <v-col v-for="item in props.items" :key="item.name" cols="6" sm="6" md="4" lg="4">
+                                        <v-card class="table-text" color="blue darken-4">
+                                            <v-card-title class="subheading font-weight-bold">  
+                                                    <h6>{{ item.name }}</h6>
+                                                    <v-spacer></v-spacer>
+                                                            <v-card color="warning">
+                                                                <v-icon small class="m-1" @click="editItem(item)">
+                                                                mdi-pencil
+                                                            </v-icon> 
+                                                            <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#delete-Vreq"
+                                                            >
+                                                                mdi-delete
+                                                            </v-icon>
+                                                            </v-card>
+                                    
+                                            </v-card-title>
+
+                                            <v-list dense class="table-text">
+                                                <v-list-item v-for="(key, index) in filteredKeysVreq" :key="index">
+                                                    <v-list-item-content :class="{ 'blue--text': sortByVreq === key }">
+                                                        {{ key }}:
+                                                    </v-list-item-content>
+                                                    <v-list-item-content class="align-end" :class="{ 'blue--text': sortByVreq === key }">
+                                                        {{ item[key.toLowerCase()] }}
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                            </v-list>
+                                        </v-card>
+                                    </v-col>
+                                </v-row>
+                            </template>
+
+                            <template v-slot:footer>
+                                <v-row class="mt-2" align="center" justify="center">
+                                    <span class="grey--text">Items per page</span>
+                                        <v-menu offset-y>
+                                            <template v-slot:activator="{ on, attrs }">
+                                                <v-btn dark text color="primary" class="ml-2" v-bind="attrs" v-on="on">
+                                                    {{ itemsPerPageVreq }}
+                                                    <v-icon>mdi-chevron-down</v-icon>
+                                                </v-btn>
+                                            </template>
+                                            <v-list>
+                                                <v-list-item v-for="(numberVreq, index) in itemsPerPageArrayVreq" :key="index" @click="updateItemsPerPageVreq(numberVreq)">
+                                                    <v-list-item-title>{{ numberVreq }}</v-list-item-title>
+                                                </v-list-item>
+                                            </v-list>
+                                        </v-menu>
+
+                                        <v-spacer></v-spacer>
+
+                                    <span class="mr-4 grey--text">
+                                        Page {{ pageVreq }} of {{ numberOfPagesVreq }}
+                                    </span>
+
+                                    <v-btn fab dark color="blue darken-3" class="mr-1" @click="formerPageVreq">
+                                        <v-icon>mdi-chevron-left</v-icon>
+                                    </v-btn>
+                                    <v-btn fab dark color="blue darken-3" class="ml-1" @click="nextPageVreq">
+                                                <v-icon>mdi-chevron-right</v-icon>
+                                    </v-btn>
+                                </v-row>
+                            </template>
+
+                                </v-data-iterator>
+                                
+                            </v-container>
+                                </template>
+
+                            </div>
+                        </div>
+                 
+                        
+                    </div>
+
+
+
+
+
+                    <!-- this is for the driver's license -->
+                    <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed vehicle-body" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <img src="./../../../pics/how_to_reg_white_24dp.svg" class="vehicle-img mr-5"> Driver's License
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <template>
+                                <v-container fluid>
+                                    <v-data-iterator
+                                        :items="licenseReq"
+                                        :items-per-page.sync="itemsPerPageLreq"
+                                        :page.sync="pageLreq"
+                                        :search="searchLreq"
+                                        :sort-by="sortByLreq.toLowerCase()"
+                                        :sort-desc="sortDescLreq"
+                                        hide-default-footer
+                                    >
+                            <template v-slot:header>
+                                <v-toolbar color="dark" class="mb-3">
+                                    <img src="./../../../pics/no_crash_white_24dp.svg" class="vehicle-img mr-5">
+                                    <h6 class="ml-2">Driver's License Requirement List</h6>
+                                <v-spacer></v-spacer>
+                                    <div class="containered">
+                                        <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="searchLreq">
+                                        <div class="icon">
+                                            <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
+                                                <title>Search</title>
+                                                <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
+                                                <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </v-toolbar>
+                            </template>
+                            <template v-slot:default="props">
+                                <v-row>
+                                    <v-col v-for="item in props.items" :key="item.name" cols="6" sm="6" md="4" lg="4">
+                                        <v-card class="table-text" color="blue darken-4">
+                                            <v-card-title class="subheading font-weight-bold">  
+                                                    <h6>{{ item.name }}</h6>
+                                                    <v-spacer></v-spacer>
+                                                            <v-card color="warning">
+                                                                <v-icon small class="m-1" @click="editItem(item)">
+                                                                mdi-pencil
+                                                            </v-icon> 
+                                                            <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#delete-Lreq"
+                                                            >
+                                                                mdi-delete
+                                                            </v-icon>
+                                                            </v-card>
+                                    
+                                            </v-card-title>
+
+                                            <v-list dense class="table-text">
+                                                <v-list-item v-for="(key, index) in filteredKeysLreq" :key="index">
+                                                    <v-list-item-content :class="{ 'blue--text': sortByLreq === key }">
+                                                        {{ key }}:
+                                                    </v-list-item-content>
+                                                    <v-list-item-content class="align-end" :class="{ 'blue--text': sortByLreq === key }">
+                                                        {{ item[key.toLowerCase()] }}
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                            </v-list>
+                                        </v-card>
+                                    </v-col>
+                                </v-row>
+                            </template>
+
+                            <template v-slot:footer>
+                                <v-row class="mt-2" align="center" justify="center">
+                                    <span class="grey--text">Items per page</span>
+                                        <v-menu offset-y>
+                                            <template v-slot:activator="{ on, attrs }">
+                                                <v-btn dark text color="primary" class="ml-2" v-bind="attrs" v-on="on">
+                                                    {{ itemsPerPageLreq }}
+                                                    <v-icon>mdi-chevron-down</v-icon>
+                                                </v-btn>
+                                            </template>
+                                            <v-list>
+                                                <v-list-item v-for="(numberLreq, index) in itemsPerPageArrayLreq" :key="index" @click="updateItemsPerPageLreq(numberLreq)">
+                                                    <v-list-item-title>{{ numberLreq }}</v-list-item-title>
+                                                </v-list-item>
+                                            </v-list>
+                                        </v-menu>
+
+                                        <v-spacer></v-spacer>
+
+                                    <span class="mr-4 grey--text">
+                                        Page {{ pageLreq }} of {{ numberOfPagesLreq }}
+                                    </span>
+
+                                    <v-btn fab dark color="blue darken-3" class="mr-1" @click="formerPageLreq">
+                                        <v-icon>mdi-chevron-left</v-icon>
+                                    </v-btn>
+                                    <v-btn fab dark color="blue darken-3" class="ml-1" @click="nextPageLreq">
+                                                <v-icon>mdi-chevron-right</v-icon>
+                                    </v-btn>
+                                </v-row>
+                            </template>
+
+                                </v-data-iterator>
+                                
+                            </v-container>
+                                </template>
+                    </div>
+                  </div>
+                </div>
     
 
-                            </v-card-text>
-                            </v-card>
-                        </v-tab-item>
+                </v-card-text>
+            </v-card>
+        </v-tab-item>
+
 
                         <v-tab-item>
                             <v-card flat>
@@ -244,12 +405,69 @@
                             </v-card-text>
                             </v-card>
                         </v-tab-item>
-                        </v-tabs-items>
+                </v-tabs-items>
+                        
                     </v-card>
                 </v-app>
 
             </div>
+            <!-- modal for delete driver-->
+            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title  text-white" id="exampleModalLabel">Warning!</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Are you sure you want to delete this driver's profile?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="button-back btn-danger">Save changes</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- modals for delete vehicle req -->
+                <div class="modal fade" id="delete-Vreq" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title  text-white" id="exampleModalLabel">Warning!</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Are you sure you want delete this registration requirement?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="button-back btn-danger">Save changes</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- modals for delete License req -->
+                <div class="modal fade" id="delete-Lreq" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title  text-white" id="exampleModalLabel">Warning!</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-white">
+                            Are you sure you want delete this license requirement?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="button-back btn-danger">Save changes</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
         </div>
+        
    
     
 </template>
@@ -257,129 +475,122 @@
 <script>
 
     export default {
+        
     data () {
       return {
         tab: null,
         drawer: null,
-        itemsPerPageArray: [4, 8, 12],
+        itemsPerPageArray: [2, 4, 6],
         search: '',
         filter: {},
         sortDesc: false,
         page: 1,
-        itemsPerPage: 4,
+        itemsPerPage: 2,
         sortBy: 'name',
         keys: [
           'Name',
-          'Calories',
-          'Fat',
-          'Carbs',
-          'Protein',
-          'Sodium',
-          'Calcium',
-          'Iron',
+          'Email',
+          'Number',
+          'Status',
         ],
-        items: [
+        drivers: [
           {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            sodium: 87,
-            calcium: '14%',
-            iron: '1%',
+            name: 'John Michael Cagadas',
+            email: 'johnmichaelcagadas@gmail.com',
+            number: '0905123212',
+            status: 'unverified',
           },
           {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            sodium: 129,
-            calcium: '8%',
-            iron: '1%',
+            name: 'Mary Rose Ann Yow',
+            email: 'ksjdsah@gmail.com',
+            number: '09052323212',
+            status: 'unverified',
           },
           {
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-            sodium: 337,
-            calcium: '6%',
-            iron: '7%',
+            name: 'John Doe',
+            email: 'joasdjlkjasd.com',
+            number: '0903133312',
+            status: 'verified',
           },
           {
-            name: 'Cupcake',
-            calories: 305,
-            fat: 3.7,
-            carbs: 67,
-            protein: 4.3,
-            sodium: 413,
-            calcium: '3%',
-            iron: '8%',
+            name: 'Helvic Judason',
+            email: 'john@gmail.com',
+            number: '003223212',
+            status: 'verified',
           },
           {
-            name: 'Gingerbread',
-            calories: 356,
-            fat: 16.0,
-            carbs: 49,
-            protein: 3.9,
-            sodium: 327,
-            calcium: '7%',
-            iron: '16%',
+            name: 'Anna Banana',
+            email: 'cagadas@gmail.com',
+            number: '090322123212',
+            status: 'unverified',
           },
           {
-            name: 'Jelly bean',
-            calories: 375,
-            fat: 0.0,
-            carbs: 94,
-            protein: 0.0,
-            sodium: 50,
-            calcium: '0%',
-            iron: '0%',
+            name: 'Barbie Doll',
+            email: 'michael@gmail.com',
+            number: '0905123212',
+            status: 'unverified',
           },
-          {
-            name: 'Lollipop',
-            calories: 392,
-            fat: 0.2,
-            carbs: 98,
-            protein: 0,
-            sodium: 38,
-            calcium: '0%',
-            iron: '2%',
-          },
-          {
-            name: 'Honeycomb',
-            calories: 408,
-            fat: 3.2,
-            carbs: 87,
-            protein: 6.5,
-            sodium: 562,
-            calcium: '0%',
-            iron: '45%',
-          },
-          {
-            name: 'Donut',
-            calories: 452,
-            fat: 25.0,
-            carbs: 51,
-            protein: 4.9,
-            sodium: 326,
-            calcium: '2%',
-            iron: '22%',
-          },
-          {
-            name: 'KitKat',
-            calories: 518,
-            fat: 26.0,
-            carbs: 65,
-            protein: 7,
-            sodium: 54,
-            calcium: '12%',
-            iron: '6%',
-          },
+          
         ],
+        itemsPerPageArrayVreq: [3, 6, 9],
+        searchVreq: '',
+        filter: {},
+        sortDescVreq: false,
+        pageVreq: 1,
+        itemsPerPageVreq: 3,
+        sortByVreq: 'name',
+        keysVreq: [
+          'Name',
+          'Location',
+          'Cost',
+        ],
+        registrationReq: [
+            {
+              name : 'Barangay Clearance',
+              location : 'Current Address',
+              cost : 0,
+            },
+            {
+              name : 'Insurance',
+              location : 'LTO',
+              cost : 750
+            },
+            {
+              name : 'Smoke Test',
+              location : 'LTO',
+              cost : 500
+            },
+            {
+              name : 'Smoke Test',
+              location : 'LTO',
+              cost : 500
+            }
+          ],
+            itemsPerPageArrayLreq: [3, 6, 9],
+            searchLreq: '',
+            filter: {},
+            sortDescLreq: false,
+            pageLreq: 1,
+            itemsPerPageLreq: 3,
+            sortByLreq: 'name',
+            keysLreq: [
+            'Name',
+            'Location',
+            'Cost',
+            ],
+            licenseReq: [
+            {
+              name : 'PSA Birth Certificate',
+              location : 'Gaisano Ozamis City',
+              cost : '120'
+            },
+            {
+              name : 'Driving School',
+              location : 'LTO',
+              cost : '0'
+            },
+
+          ],
       }
     },
     
@@ -387,12 +598,27 @@
 
         computed: {
             numberOfPages () {
-                return Math.ceil(this.items.length / this.itemsPerPage)
+                return Math.ceil(this.drivers.length / this.itemsPerPage)
             },
             filteredKeys () {
                 return this.keys.filter(key => key !== 'Name')
             },
+            numberOfPagesVreq () {
+                return Math.ceil(this.registrationReq.length / this.itemsPerPageVreq)
             },
+            filteredKeysVreq () {
+                return this.keysVreq.filter(key => key !== 'Name')
+            },
+
+            numberOfPagesLreq () {
+                return Math.ceil(this.licenseReq.length / this.itemsPerPageLreq)
+            },
+            filteredKeysLreq () {
+                return this.keysLreq.filter(key => key !== 'Name')
+            },
+            },
+
+            
         methods: {
             nextPage () {
                 if(this.page + 1 <= this.numberOfPages) this.page += 1
@@ -403,9 +629,29 @@
             updateItemsPerPage (number) {
                 this.itemsPerPage = number
             },
+
+            nextPageVreq () {
+                if(this.pageVreq + 1 <= this.numberOfPagesVreq) this.pageVreq += 1
+            },
+            formerPageVreq () {
+                if(this.pageVreq - 1 >= 1) this.pageVreq -= 1
+            },
+            updateItemsPerPageVreq (numberVreq) {
+                this.itemsPerPageVreq = numberVreq
+            },
+
+            nextPageLreq () {
+                if(this.pageLreq + 1 <= this.numberOfPagesLreq) this.pageLreq += 1
+            },
+            formerPageLreq () {
+                if(this.pageLreq - 1 >= 1) this.pageLreq -= 1
+            },
+            updateItemsPerPageLreq (numberLreq) {
+                this.itemsPerPageLreq = numberLreq
             },
   
       }
+    }
 
   
 </script>
@@ -424,10 +670,62 @@
     border-radius: 10px;
 }
 .max-content{
-    height: 600px;
+    max-height: fit-content;
+    min-height: 550px;
 }
 .navs{
     position: absolute;
     height: 200px;
+}
+.table-text{
+    background-color: rgb(41, 41, 41);
+    color: rgb(255, 255, 255);
+    font-family: monospace;
+}
+.profile{
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 2px solid rgb(151, 151, 151);
+  margin-right: 10px;
+}
+.text-white{
+  color: white;
+}
+.button-tourism{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.driver-icon{
+    width: 40px;
+    height: 40px;
+}
+@media only screen and (max-width: 750px){
+    .button-tourism{
+        flex-direction: row;
+        left: -10%;
+        margin-top: 3%;
+    }
+
+}
+@media only screen and (max-width: 450px){
+    .button-tourism{
+        flex-direction: row;
+        left: -25%;
+        margin-top: 3%;
+    }
+
+}
+@media only screen and (max-width: 400px){
+    .button-tourism{
+        flex-direction: row;
+        left: -30%;
+        margin-top: 3%;
+    }
+
 }
 </style>
