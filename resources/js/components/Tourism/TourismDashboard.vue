@@ -49,10 +49,11 @@
                         </template>
                 </v-toolbar>
 
-            <!-- This is for the driver's data -->
                 <v-tabs-items v-model="tab">
+
+<!-- This is for the driver's data -->
                     <v-tab-item>
-                    <v-card flat>
+                        <v-card flat>
                         <v-card-text >
                             <template>
                                 <v-container fluid>
@@ -181,7 +182,7 @@
                             <template v-slot:header>
                                 <v-toolbar color="dark" class="mb-3">
                                     <img src="./../../../pics/no_crash_white_24dp.svg" class="vehicle-img mr-5">
-                                    <h6 class="ml-2">Vehicle Requirement List</h6>
+                                    <h6 class="ml-2">Vehicle Registration Requirement List</h6>
                                 <v-spacer></v-spacer>
                                 <div class="containered">
                                         <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="searchVreq">
@@ -193,12 +194,10 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <a href="/addvehicle" class="ml-2 mr-2">
-                                        <button class="icon-btn add-btn">
+                                        <button class="icon-btn add-btn" data-bs-toggle="modal" data-bs-target="#editRegistration">
                                             <div class="add-icon"></div>
-                                            <div class="btn-txt"><b>Add Vehicle</b></div>
+                                            <div class="btn-txt"><b>Add Requirement</b></div>
                                         </button>
-                                    </a>
                                     
                                 </v-toolbar>
                             </template>
@@ -210,10 +209,10 @@
                                                     <h6>{{ item.name }}</h6>
                                                     <v-spacer></v-spacer>
                                                             <v-card color="warning">
-                                                                <v-icon small class="m-1" @click="editItem(item)">
+                                                                <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#editRegistration">
                                                                 mdi-pencil
                                                             </v-icon> 
-                                                            <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#delete-Account"
+                                                            <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#delete-Vreq"
                                                             >
                                                                 mdi-delete
                                                             </v-icon>
@@ -317,12 +316,10 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <a href="/addvehicle" class="ml-2 mr-2">
-                                        <button class="icon-btn add-btn">
+                                        <button class="icon-btn add-btn" data-bs-toggle="modal" data-bs-target="#editLicense">
                                             <div class="add-icon"></div>
-                                            <div class="btn-txt"><b>Add Vehicle</b></div>
+                                            <div class="btn-txt"><b>Add Requirement</b></div>
                                         </button>
-                                    </a>
                                 </v-toolbar>
                             </template>
                             <template v-slot:default="props">
@@ -333,7 +330,7 @@
                                                     <h6>{{ item.name }}</h6>
                                                     <v-spacer></v-spacer>
                                                             <v-card color="warning">
-                                                                <v-icon small class="m-1" @click="editItem(item)">
+                                                                <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#editLicense">
                                                                 mdi-pencil
                                                             </v-icon> 
                                                             <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#delete-Lreq"
@@ -434,12 +431,10 @@
                                             </svg>  
                                         </div>
                                     </div>
-                                    <a href="/addvehicle" class="ml-2 mr-2">
-                                        <button class="icon-btn add-btn">
+                                        <button class="icon-btn add-btn"  data-bs-toggle="modal" data-bs-target="#editOffice">
                                             <div class="add-icon"></div>
-                                            <div class="btn-txt"><b>Add Vehicle</b></div>
+                                            <div class="btn-txt"><b>Add Account</b></div>
                                         </button>
-                                    </a>
                                 </v-toolbar>
                             </template>
 
@@ -452,8 +447,8 @@
                                                     <h6>{{ item.name }}</h6>
                                                     <v-spacer></v-spacer> 
                                                 <div class=" ml-10 button-tourism">
-                                                    <button class="button m-1" > View Details</button>
-                                                    <button class="noselect m-1" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                                    <button class="button m-1"  data-bs-toggle="modal" data-bs-target="#editOffice"> View Details</button>
+                                                    <button class="noselect m-1" data-bs-toggle="modal" data-bs-target="#delete-account">
                                                         <span class="text">Delete</span><span class="icone"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span>
                                                     </button>
                                                 </div>
@@ -519,28 +514,28 @@
             </v-card>
         </v-app>
 
-            </div>
+        </div>
 
 <!-- Modals! -->
             <!-- modal for delete driver-->
-            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title  text-white" id="exampleModalLabel">Warning!</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h5 class="modal-title  text-white" id="exampleModalLabel">Warning!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-white">
+                                Are you sure you want to delete this driver's profile?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="button-back btn-danger">Save changes</button>
+                            </div>
+                            </div>
                         </div>
-                        <div class="modal-body text-white">
-                            Are you sure you want to delete this driver's profile?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-danger">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
                 </div>
-                <!-- modals for delete vehicle req -->
+            <!-- modals for delete vehicle req -->
                 <div class="modal fade" id="delete-Vreq" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content bg-dark">
@@ -559,7 +554,7 @@
                     </div>
                 </div>
 
-                <!-- modals for delete License req -->
+            <!-- modals for delete License req -->
                 <div class="modal fade" id="delete-Lreq" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content bg-dark">
@@ -578,7 +573,7 @@
                     </div>
                 </div>
 
-                <!-- modal for delete account -->
+            <!-- modal for delete account -->
                 <div class="modal fade" id="delete-account" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content bg-dark">
@@ -596,8 +591,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- modals for view detail and update driver account -->
-
+            <!-- modals for view detail and update driver account -->
                 <div class="modal fade" id="insertDriver" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
                         <div class="modal-content bg-dark">
@@ -606,13 +600,14 @@
                                 <img src="../../../pics/sports_motorsports_white_24dp.svg" class="driver-icon" alt="...">
                                 Driver Details</h5>
                                 <v-spacer></v-spacer>
-                                <button class="button btn button-detail text-center mt-2 mr-3" style="vertical-align:middle" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <span><b>Vehicle </b></span>
-                                </button>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <label class="switch">
+                                        <input type="checkbox" class="inputer">
+                                        <span class="slider"></span>
+                                </label>
                         </div>
                         <div class="modal-body text-white">
                             <div class="container-fluid">
+
                                 <div class="row g-2">
                                     <div class="col-md-3">
                                         <label class="form-label"> First Name: </label>
@@ -634,7 +629,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <label class="form-label">Sex: </label>
                                         <select class="form-select input" name="sex" aria-label="Default select example">
                                             <option selected disabled>Select</option>
@@ -696,7 +691,7 @@
                                         <input type="email" class="form-control input" id="driver-email">
                                     </div>
 
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <label class="form-label">Mobile Number:</label>
                                         <input type="number" class="form-control input" id="driver-number">
                                     </div>
@@ -753,11 +748,247 @@
                         <div class="modal-footer">
                             <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
                             <button type="button" class="button-back btn-success">Save</button>
+                            <button class="button-back  text-center mr-2" style="vertical-align:middle" data-bs-toggle="modal" data-bs-target="#vehiclelist" data-bs-dismiss="modal">
+                                    <span><b>Vehicles</b></span>
+                            </button>
                         </div>
                         </div>
                     </div>
-                    </div>
+                </div>
+            
+            <!-- modals for view vehicle list -->
+                <div class="modal fade" id="vehiclelist" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                        <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                <img src="../../../pics/two_wheeler_white_24dp.svg" class="driver-icon" alt="...">
+                                Driver's Vehicle List</h5>
+                                <v-spacer></v-spacer>
+                                <button class="button btn button-detail text-center mt-2 mr-3" style="vertical-align:middle" data-bs-toggle="modal" data-bs-target="#insertDriver" data-bs-dismiss="modal">
+                                    <span><b> Driver </b></span>
+                                </button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-white">
+                            <div class="row g-3 centered">
+                                <div class="col-md-2">
+                                    <label class="switch">
+                                        <input type="checkbox" class="inputer">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row g-3 centered">
+                                <div class="col-md-3">
+                                    <label class="form-label"> Model: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
 
+                                <div class="col-md-3">
+                                    <label class="form-label">Body Type: </label>
+                                    <select class="form-select input" name="sex" aria-label="Default select example">
+                                        <option selected disabled>Select</option>
+                                        <option value="1">Motocycle</option>
+                                        <option value="2">Tricycle</option>
+                                        <option value="3">Car</option>
+                                        <option value="2">Truck</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Color: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                            </div>
+
+                            <div class="row g-3 centered">
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Plate No: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Serial No: </label>
+                                    <input type="text" class="form-control" id="driver-firstname">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Receipt No: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                            </div>
+
+                            <div class="row g-3 centered mb-3">
+
+                                <div class="col-md-3">
+                                    <label for="date" class="form-label">Expiration Date: </label>
+                                    <div class="input-group date" id="expiration">
+                                        <input type="text" class="form-control input">
+                                        <span class="input-group-append">
+                                            <span class="input-group-text bg-white">
+                                                <i class="fa fa-calendar icons"></i>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="formFileSm" class="form-label input">Vehicle Photo:</label>
+                                    <input class="form-control" id="formFile" type="file" accept="image/png, image/gif, image/jpeg">
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="button-back btn-success">Save</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- modals for edit vehicle registration Requirements -->
+            <div class="modal fade" id="editRegistration" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                        <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                <img src="../../../pics/no_crash_white_24dp.svg" class="driver-icon" alt="...">
+                                Registration Requirement</h5>
+                                <v-spacer></v-spacer>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-white">
+                            <div class="row g-3 centered">
+                                <div class="col-md-3">
+                                    <label class="form-label"> Name: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Location: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"> Cost: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                            </div>  
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="button-back btn-success">Save</button>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+            <!-- modals for edit license requirement -->
+            <div class="modal fade" id="editLicense" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                        <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                <img src="../../../pics/how_to_reg_white_24dp.svg" class="driver-icon" alt="...">
+                                Driver's License Requirement</h5>
+                                <v-spacer></v-spacer>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-white">
+                            <div class="row g-3 centered">
+                                <div class="col-md-3">
+                                    <label class="form-label"> Name: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Location: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"> Cost: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                            </div>  
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="button-back btn-success">Save</button>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+            <!-- add edit offices account -->
+            <div class="modal fade" id="editOffice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                        <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                <img src="../../../pics/perm_identity_white_36dp.svg" class="driver-icon" alt="...">
+                                Office Account</h5>
+                                <v-spacer></v-spacer>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-white">
+                            <div class="row g-3 centered">
+                                <div class="col-md-3">
+                                    <label class="form-label"> First Name: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Middle Name: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"> Last Name: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="modal-body text-white">
+                            <div class="row g-3 centered">
+                                <div class="col-md-3">
+                                    <label class="form-label"> Office: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Position: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"> ID: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="modal-body text-white">
+                            <div class="row g-3 centered">
+                                <div class="col-md-3">
+                                    <label class="form-label"> Account: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Password: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="button-back btn-success">Save</button>
+                        </div>
+                        </div>
+                    </div>
+            </div>
         </div>
         
         
@@ -1079,6 +1310,13 @@
 }
 .text-white{
   color: white;
+}
+.centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blanchedalmond;
+    border-radius: 10px;
 }
 .button-tourism{
     display: flex;

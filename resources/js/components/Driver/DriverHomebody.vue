@@ -99,6 +99,93 @@
                 </div>
               </div>
             </div>
+            <!-- Modals for Insert Vehicle -->
+            <div class="modal fade" id="vehiclelist" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                        <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                <img src="../../../pics/sports_motorsports_white_24dp.svg" class="driver-icon" alt="...">
+                                Driver's Vehicle List</h5>
+                                <v-spacer></v-spacer>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-white">
+                            <div class="row g-3 centered">
+                                <div class="col-md-3">
+                                    <label class="form-label"> Model: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label">Body Type: </label>
+                                    <select class="form-select input" name="sex" aria-label="Default select example">
+                                        <option selected disabled>Select</option>
+                                        <option value="1">Motocycle</option>
+                                        <option value="2">Tricycle</option>
+                                        <option value="3">Car</option>
+                                        <option value="2">Truck</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Color: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                            </div>
+
+                            <div class="row g-3 centered">
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Plate No: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Serial No: </label>
+                                    <input type="text" class="form-control" id="driver-firstname">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label"> Receipt No: </label>
+                                    <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+
+                            </div>
+
+                            <div class="row g-3 centered mb-3">
+
+                                <div class="col-md-3">
+                                    <label for="date" class="form-label">Expiration Date: </label>
+                                    <div class="input-group date" id="expiration">
+                                        <input type="text" class="form-control input">
+                                        <span class="input-group-append">
+                                            <span class="input-group-text bg-white">
+                                                <i class="fa fa-calendar icons"></i>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="formFileSm" class="form-label input">Vehicle Photo:</label>
+                                    <input class="form-control" id="formFile" type="file" accept="image/png, image/gif, image/jpeg">
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="button-back btn-success">Save</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Driver Details -->
             
             <div class="container-fluid overflowing me-3">
                 <div class="accordion" id="accordionExample">
@@ -166,12 +253,10 @@
                 </div>
                 
                 <div class="container">
-                  <a href="/addvehicle">
-                    <button class="icon-btn add-btn">
+                    <button class="icon-btn add-btn" data-bs-toggle="modal" data-bs-target="#vehiclelist" data-bs-dismiss="modal">
                       <div class="add-icon"></div>
                       <div class="btn-txt"><b>Add Vehicle</b></div>
                   </button>
-                  </a>
                   
                 </div>
             </div>
@@ -345,11 +430,19 @@
                           <div class="container ml-0 mt-3">
                             <div class="row g-0" v-if="ordinance.offense1 != ''">
                             <div class="col-md-2">
+                              <b>Date Created: </b>
+                            </div>
+                            <div class="col-md-4">
+                              <span>Php {{ordinance.dateCreated}}</span>
+                            </div>
+                          </div>
+                            <div class="row g-0" v-if="ordinance.offense1 != ''">
+                            <div class="col-md-2">
                               <b>First Offense: </b>
                             </div>
                             <div class="col-md-4">
                               <span>Php {{ordinance.offense1}}</span>
-                              <span v-if="ordinance.additional != ''"> {{ordinance.additional}}</span>
+                              <span v-if="ordinance.additional1 != ''"> {{ordinance.additional}}</span>
                             </div>
                           </div>
 
@@ -509,18 +602,20 @@
             {
               name: 'Wearing of Slippers',
               description : 'Wearing of slippers while riding will violate the city ordinance code 1237 that states that all the driver must wear shoes!',
+              dateCreated: '12/12/12', 
               offense1: 100,
-              additional: '' ,
+              additional1: '' ,
               offense2: 500,
               additional2: '' ,
               offense3: 1000,
-              additional2: '' ,
+              additional3: '' ,
             },
             {
               name: 'No Helmet',
               description : "All driver's must wear helmet all the time to protect their head from collision caused by accident and etc. ",
+              dateCreated: '12/12/12',
               offense1: 500,
-              additional2: '' ,
+              additional1: '' ,
               offense2: 1000,
               additional2: 'impounding' ,
               offense3: 1000,
@@ -529,8 +624,9 @@
             {
               name: "No Driver's License",
               description : "All driver's must obtain a license before driving a vehicle to ensure that he is capable of observing the road policy and guidelines",
+              dateCreated: '12/12/11',
               offense1: 500,
-              additional2: '' ,
+              additional1: '' ,
               offense2: 1000,
               additional2: 'impounding' ,
               offense3: 1000,
@@ -539,8 +635,9 @@
             {
               name: "No Vehicle Registration",
               description : "All vehicle must be registered to the LTO to ensure that the vehicle is rightfully owned by the driver and not from car nap.",
+              dateCreated: '09/05/12', 
               offense1: 500,
-              additional2: '' ,
+              additional1: '' ,
               offense2: 1000,
               additional2: 'impounding' ,
               offense3: 1000,
@@ -549,8 +646,9 @@
             {
               name: "No Side Mirror",
               description : "The vehicle must be equipped with a side mirror to ensure that the driver will be able to detect what's happening in his back view to avoid collision.",
+              dateCreated: '07/17/12', 
               offense1: 500,
-              additional2: '' ,
+              additional1: '' ,
               offense2: 1000,
               additional2: 'impounding' ,
               offense3: 1000,
@@ -559,8 +657,9 @@
             {
               name: "No Back Light",
               description : "The vehicle must be equipped with a backlight for the rider following them during night will be able to detect the driver's presence and avoid collision.",
+              dateCreated: '02/11/12', 
               offense1: 500,
-              additional2: '' ,
+              additional1: '' ,
               offense2: 1000,
               additional2: 'impounding' ,
               offense3: 1000,
@@ -569,8 +668,9 @@
             {
               name: "No Rear Light",
               description : "The vehicle must be equipped with a rear light to have a vision during night time and in dark places to avoid collision.",
+              dateCreated: '12/12/12', 
               offense1: 500,
-              additional2: '' ,
+              additional1: '' ,
               offense2: 1000,
               additional2: 'impounding' ,
               offense3: 1000,
@@ -579,8 +679,9 @@
             {
               name: "No Signal Light",
               description : "The vehicle must be equipped with a signal light for the other driver to be aware when the said driver will change its direction.",
+              dateCreated: '05/12/16',
               offense1: 500,
-              additional2: '' ,
+              additional1: '' ,
               offense2: 1000,
               additional2: 'impounding' ,
               offense3: 1000,
@@ -726,6 +827,16 @@ h3{
 .tab-size{
   width: 10%;
 }
+.centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blanchedalmond;
+    border-radius: 10px;
+}
+.icons{
+    font-size: 25px;
+  }
 @media only screen and (max-width: 500px){
     .cols-name{
         display: flex;
