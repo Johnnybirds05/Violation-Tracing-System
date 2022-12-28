@@ -31,7 +31,7 @@ class DriverLoginController extends Controller
         }
         return response()->json([
             'errors' => [
-                'username' => ['Username and password error. Access denied.']
+                'username' => ['Invalid Credentials. Access denied.']
             ]
         ], 422);
     }

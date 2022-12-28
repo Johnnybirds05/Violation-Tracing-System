@@ -93,7 +93,7 @@
                                                     <h6>{{ item.name }}</h6>
                                                     <v-spacer></v-spacer> 
                                                 <div class=" ml-10 button-tourism">
-                                                    <button class="button m-1" data-bs-toggle="modal" data-bs-target="#insertDriver"> View Details</button>
+                                                    <button class="button m-1" data-bs-toggle="modal" data-bs-target="#insertDriver"> Edit Details</button>
                                                     <button class="noselect m-1" data-bs-toggle="modal" data-bs-target="#exampleModal3">
                                                         <span class="text">Delete</span><span class="icone"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span>
                                                     </button>
@@ -447,7 +447,7 @@
                                                     <h6>{{ item.name }}</h6>
                                                     <v-spacer></v-spacer> 
                                                 <div class=" ml-10 button-tourism">
-                                                    <button class="button m-1"  data-bs-toggle="modal" data-bs-target="#editOffice"> View Details</button>
+                                                    <button class="button m-1"  data-bs-toggle="modal" data-bs-target="#editOffice"> Edit Details</button>
                                                     <button class="noselect m-1" data-bs-toggle="modal" data-bs-target="#delete-account">
                                                         <span class="text">Delete</span><span class="icone"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span>
                                                     </button>
@@ -772,12 +772,19 @@
                         </div>
                         <div class="modal-body text-white">
                             <div class="row g-3 centered">
+                                <div class="col-md-3">
+                                    <button class="dev-buttons">
+                                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="currentColor"></path></svg>
+                                        <span>Generate QR</span>
+                                    </button>
+                                </div>
                                 <div class="col-md-2">
                                     <label class="switch">
                                         <input type="checkbox" class="inputer">
                                         <span class="slider"></span>
                                     </label>
                                 </div>
+                                
                             </div>
                             <div class="row g-3 centered">
                                 <div class="col-md-3">
@@ -971,6 +978,10 @@
                         </div>
                         <div class="modal-body text-white">
                             <div class="row g-3 centered">
+                                <div class="col-md-3">
+                                        <label for="formFileSm" class="form-label input">Picture(2by2):</label>
+                                        <input class="form-control  bg-dark" id="formFile" type="file" accept="image/png, image/gif, image/jpeg">
+                                    </div>  
                                 <div class="col-md-3">
                                     <label class="form-label"> Account: </label>
                                     <input type="text" class="form-control input" id="driver-firstname">
