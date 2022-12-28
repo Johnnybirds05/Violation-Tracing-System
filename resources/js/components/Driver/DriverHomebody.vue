@@ -442,7 +442,7 @@
                             </div>
                             <div class="col-md-4">
                               <span>Php {{ordinance.offense1}}</span>
-                              <span v-if="ordinance.additional1 != ''"> {{ordinance.additional}}</span>
+                              <span v-if="ordinance.additional1 != ''"> {{ordinance.additional1}}</span>
                             </div>
                           </div>
 

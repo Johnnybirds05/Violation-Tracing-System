@@ -3,7 +3,7 @@
 @section('content')
     <div id="app">
         <driver-homeheader></driver-homeheader>
-        <add-vehicle></add-vehicle>
+        <counseltreasury-dashboard></counseltreasury-dashboard>
         <footer-home></footer-home>
     </div>
 @endsection

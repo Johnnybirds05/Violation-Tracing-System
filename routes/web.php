@@ -42,6 +42,9 @@ Route::get('/tourism-dashboard', function () {
 Route::get('/legislative-dashboard', function () {
     return view('legislative/legislative-dashboard');
 });
+Route::get('/counsel-treasury-dashboard', function () {
+    return view('counsel-treasury/counsel-treasury-dashboard');
+});
 
 //-----------------DRIVER ROUTES----------------------
 Route::get('/driver-login', [App\Http\Controllers\Driver\DriverLoginController::class, 'index']);
@@ -56,10 +59,6 @@ Route::get('/driver-dashboard', [App\Http\Controllers\Driver\DriverDashboardCont
 
 //-----------------DRIVER ROUTES----------------------
 
-
-Route::get('/addvehicle', function () {
-    return view('driver/addvehicle');
-});
 
 
 

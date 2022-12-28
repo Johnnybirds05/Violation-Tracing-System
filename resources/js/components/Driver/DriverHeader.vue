@@ -14,7 +14,7 @@
     
 </template>
 
-<script lang="ts">
+<script>
     export default {
         mounted() {
             console.log('Component mounted.')
