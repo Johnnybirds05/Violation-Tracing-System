@@ -3617,6 +3617,164 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      tab: null,
+      drawer: null,
+      itemsPerPageArray: [2, 4, 8],
+      search: '',
+      filter: {},
+      sortDesc: false,
+      page: 1,
+      itemsPerPage: 2,
+      sortBy: 'name',
+      keys: ['Name', 'Description', 'Datecreated', 'Offense1', 'Additional1', 'Offense2', 'Additional2', 'Offense3', 'Additional3'],
+      ordinances: [{
+        name: 'Wearing of Slippers',
+        description: 'Wearing of slippers while riding will violate the city ordinance code 1237 that states that all the driver must wear shoes!',
+        dateCreated: '12/12/12',
+        offense1: 100,
+        additional1: '',
+        offense2: 500,
+        additional2: '',
+        offense3: 1000,
+        additional3: ''
+      }, {
+        name: 'No Helmet',
+        description: "All driver's must wear helmet all the time to protect their head from collision caused by accident and etc. ",
+        dateCreated: '12/12/12',
+        offense1: 500,
+        additional1: '',
+        offense2: 1000,
+        additional2: 'impounding',
+        offense3: 1000,
+        additional3: 'impounding'
+      }, {
+        name: "No Driver's License",
+        description: "All driver's must obtain a license before driving a vehicle to ensure that he is capable of observing the road policy and guidelines",
+        dateCreated: '12/12/11',
+        offense1: 500,
+        additional1: '',
+        offense2: 1000,
+        additional2: 'impounding',
+        offense3: 1000,
+        additional3: 'impounding'
+      }, {
+        name: "No Vehicle Registration",
+        description: "All vehicle must be registered to the LTO to ensure that the vehicle is rightfully owned by the driver and not from car nap.",
+        dateCreated: '09/05/12',
+        offense1: 500,
+        additional1: '',
+        offense2: 1000,
+        additional2: 'impounding',
+        offense3: 1000,
+        additional3: 'impounding'
+      }, {
+        name: "No Side Mirror",
+        description: "The vehicle must be equipped with a side mirror to ensure that the driver will be able to detect what's happening in his back view to avoid collision.",
+        dateCreated: '07/17/12',
+        offense1: 500,
+        additional1: '',
+        offense2: 1000,
+        additional2: 'impounding',
+        offense3: 1000,
+        additional3: 'impounding'
+      }, {
+        name: "No Back Light",
+        description: "The vehicle must be equipped with a backlight for the rider following them during night will be able to detect the driver's presence and avoid collision.",
+        dateCreated: '02/11/12',
+        offense1: 500,
+        additional1: '',
+        offense2: 1000,
+        additional2: 'impounding',
+        offense3: 1000,
+        additional3: 'impounding'
+      }, {
+        name: "No Rear Light",
+        description: "The vehicle must be equipped with a rear light to have a vision during night time and in dark places to avoid collision.",
+        dateCreated: '12/12/12',
+        offense1: 500,
+        additional1: '',
+        offense2: 1000,
+        additional2: 'impounding',
+        offense3: 1000,
+        additional3: 'impounding'
+      }, {
+        name: "No Signal Light",
+        description: "The vehicle must be equipped with a signal light for the other driver to be aware when the said driver will change its direction.",
+        dateCreated: '05/12/16',
+        offense1: 500,
+        additional1: '',
+        offense2: 1000,
+        additional2: 'impounding',
+        offense3: 1000,
+        additional3: 'impounding'
+      }],
+      violations: [{
+        name: 'Wearing of Slippers',
+        Date: '12/26/22',
+        fines: 120,
+        DayLeft: 2,
+        Status: false
+      }, {
+        name: 'No Helmet',
+        Date: '12/23/22',
+        fines: 500,
+        DayLeft: 2,
+        Status: true
+      }, {
+        name: 'No License',
+        Date: '12/23/22',
+        fines: 200,
+        DayLeft: 2,
+        Status: true
+      }]
+    };
+  },
+  computed: {
+    numberOfPages: function numberOfPages() {
+      return Math.ceil(this.ordinances.length / this.itemsPerPage);
+    },
+    filteredKeys: function filteredKeys() {
+      return this.keys.filter(function (key) {
+        return key !== 'Name';
+      });
+    }
+  },
+  methods: {
+    nextPage: function nextPage() {
+      if (this.page + 1 <= this.numberOfPages) this.page += 1;
+    },
+    formerPage: function formerPage() {
+      if (this.page - 1 >= 1) this.page -= 1;
+    },
+    updateItemsPerPage: function updateItemsPerPage(number) {
+      this.itemsPerPage = number;
+    }
+  },
+  mounted: function mounted() {
+    $(function () {
+      $('#birthdate').datepicker();
+      $('#license').datepicker();
+      $('#vehicle').datepicker();
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Counsel&Treasurer/CounseltreasuryDashboard.vue?vue&type=template&id=ab3a09b8&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Counsel&Treasurer/CounseltreasuryDashboard.vue?vue&type=template&id=ab3a09b8&scoped=true& ***!
@@ -10402,6 +10560,628 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=template&id=049d897c&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=template&id=049d897c&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "container-fluid max-content mb-4"
+  }, [_c("div", {
+    staticClass: "container tourism-body mt-3 mb-4"
+  }, [_c("v-app", [_c("v-card", [_c("v-navigation-drawer", {
+    staticClass: "navs",
+    attrs: {
+      temporary: ""
+    },
+    model: {
+      value: _vm.drawer,
+      callback: function callback($$v) {
+        _vm.drawer = $$v;
+      },
+      expression: "drawer"
+    }
+  }, [_c("v-divider"), _vm._v(" "), _c("v-list-item", [_c("v-list-item-avatar", [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/city tourism.jpg */ "./resources/pics/city tourism.jpg"),
+      alt: "..."
+    }
+  })]), _vm._v(" "), _c("v-list-item-content", [_c("v-list-item-title", [_c("h5", [_vm._v("Legislative Office")])])], 1)], 1), _vm._v(" "), _c("v-list", {
+    attrs: {
+      dense: ""
+    }
+  }, [_c("v-list-item", [_c("a", {
+    staticClass: "btn",
+    attrs: {
+      href: "#"
+    }
+  }, [_c("button", {
+    staticClass: "cssbuttons-io-button button-back"
+  }, [_vm._v(" Logout\n                                "), _c("div", {
+    staticClass: "icon"
+  }, [_c("svg", {
+    attrs: {
+      height: "24",
+      width: "24",
+      viewBox: "0 0 24 24",
+      xmlns: "http://www.w3.org/2000/svg"
+    }
+  }, [_c("path", {
+    attrs: {
+      d: "M0 0h24v24H0z",
+      fill: "none"
+    }
+  }), _c("path", {
+    attrs: {
+      d: "M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z",
+      fill: "currentColor"
+    }
+  })])])])])])], 1), _vm._v(" "), _c("v-divider")], 1), _vm._v(" "), _c("v-toolbar", {
+    attrs: {
+      color: "grey darken-4",
+      dark: "",
+      flat: ""
+    },
+    scopedSlots: _vm._u([{
+      key: "extension",
+      fn: function fn() {
+        return [_c("v-tabs", {
+          attrs: {
+            "align-with-title": ""
+          },
+          model: {
+            value: _vm.tab,
+            callback: function callback($$v) {
+              _vm.tab = $$v;
+            },
+            expression: "tab"
+          }
+        }, [_c("v-tabs-slider", {
+          attrs: {
+            color: "white"
+          }
+        }), _vm._v(" "), _c("v-tab", [_vm._v("Violation")]), _vm._v(" "), _c("v-tab", [_vm._v("Ordinances")])], 1)];
+      },
+      proxy: true
+    }])
+  }, [_c("v-app-bar-nav-icon", {
+    on: {
+      click: function click($event) {
+        $event.stopPropagation();
+        _vm.drawer = !_vm.drawer;
+      }
+    }
+  }), _vm._v(" "), _c("v-toolbar-title", [_c("v-list-item-avatar", [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/city tourism.jpg */ "./resources/pics/city tourism.jpg"),
+      alt: "..."
+    }
+  })]), _vm._v("\n                        Local Legislative Office\n                    ")], 1), _vm._v(" "), _c("v-spacer")], 1), _vm._v(" "), _c("v-tabs-items", {
+    model: {
+      value: _vm.tab,
+      callback: function callback($$v) {
+        _vm.tab = $$v;
+      },
+      expression: "tab"
+    }
+  }, [_c("v-tab-item", [_c("v-card", {
+    attrs: {
+      flat: ""
+    }
+  }, [_c("v-card-text", [_c("div", {
+    staticClass: "row centered g-3 mb-5"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("button", {
+    staticClass: "continue-application",
+    attrs: {
+      "data-bs-toggle": "modal",
+      "data-bs-target": "#add-violation"
+    }
+  }, [_c("div", [_c("div", {
+    staticClass: "pencil"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "folder"
+  }, [_c("div", {
+    staticClass: "top"
+  }, [_c("svg", {
+    attrs: {
+      viewBox: "0 0 24 27"
+    }
+  }, [_c("path", {
+    attrs: {
+      d: "M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "paper"
+  })])]), _vm._v("\n                                            Scan QR Code\n                                        ")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("button", {
+    staticClass: "continue-application",
+    attrs: {
+      "data-bs-toggle": "modal",
+      "data-bs-target": "#add-violation"
+    }
+  }, [_c("div", [_c("div", {
+    staticClass: "pencil"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "folder"
+  }, [_c("div", {
+    staticClass: "top"
+  }, [_c("svg", {
+    attrs: {
+      viewBox: "0 0 24 27"
+    }
+  }, [_c("path", {
+    attrs: {
+      d: "M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "paper"
+  })])]), _vm._v("\n                                            Manual Input\n                                        ")])])])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+    attrs: {
+      flat: ""
+    }
+  }, [_c("v-card-text", [[_c("v-container", {
+    attrs: {
+      fluid: ""
+    }
+  }, [_c("v-data-iterator", {
+    attrs: {
+      items: _vm.ordinances,
+      "items-per-page": _vm.itemsPerPage,
+      page: _vm.page,
+      search: _vm.search,
+      "sort-by": _vm.sortBy.toLowerCase(),
+      "sort-desc": _vm.sortDesc,
+      "hide-default-footer": ""
+    },
+    on: {
+      "update:itemsPerPage": function updateItemsPerPage($event) {
+        _vm.itemsPerPage = $event;
+      },
+      "update:items-per-page": function updateItemsPerPage($event) {
+        _vm.itemsPerPage = $event;
+      },
+      "update:page": function updatePage($event) {
+        _vm.page = $event;
+      }
+    },
+    scopedSlots: _vm._u([{
+      key: "header",
+      fn: function fn() {
+        return [_c("v-toolbar", {
+          staticClass: "mb-3",
+          attrs: {
+            color: "dark"
+          }
+        }, [_c("img", {
+          staticClass: "vehicle-img mr-5",
+          attrs: {
+            src: __webpack_require__(/*! ./../../../pics/note_alt_white_24dp.svg */ "./resources/pics/note_alt_white_24dp.svg")
+          }
+        }), _vm._v(" "), _c("h6", {
+          staticClass: "ml-2"
+        }, [_vm._v("Tangub City Ordinances List")]), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("div", {
+          staticClass: "containered"
+        }, [_c("input", {
+          directives: [{
+            name: "model",
+            rawName: "v-model",
+            value: _vm.search,
+            expression: "search"
+          }],
+          staticClass: "inputted",
+          attrs: {
+            placeholder: "Type to search...",
+            required: "",
+            name: "text",
+            type: "text"
+          },
+          domProps: {
+            value: _vm.search
+          },
+          on: {
+            input: function input($event) {
+              if ($event.target.composing) return;
+              _vm.search = $event.target.value;
+            }
+          }
+        }), _vm._v(" "), _c("div", {
+          staticClass: "icon"
+        }, [_c("svg", {
+          staticClass: "ionicon",
+          attrs: {
+            viewBox: "0 0 512 512",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        }, [_c("title", [_vm._v("Search")]), _vm._v(" "), _c("path", {
+          attrs: {
+            "stroke-width": "32",
+            "stroke-miterlimit": "10",
+            stroke: "currentColor",
+            fill: "none",
+            d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+          }
+        }), _vm._v(" "), _c("path", {
+          attrs: {
+            d: "M338.29 338.29L448 448",
+            "stroke-width": "32",
+            "stroke-miterlimit": "10",
+            "stroke-linecap": "round",
+            stroke: "currentColor",
+            fill: "none"
+          }
+        })])])])], 1)];
+      },
+      proxy: true
+    }, {
+      key: "default",
+      fn: function fn(props) {
+        return [_c("v-row", _vm._l(props.items, function (item) {
+          return _c("v-col", {
+            key: item.name,
+            attrs: {
+              cols: "12",
+              sm: "10",
+              md: "8",
+              lg: "6"
+            }
+          }, [_c("v-card", {
+            staticClass: "table-text",
+            attrs: {
+              color: "blue darken-4"
+            }
+          }, [_c("v-card-title", {
+            staticClass: "subheading font-weight-bold"
+          }, [_c("img", {
+            staticClass: "vehicle-img mr-5",
+            attrs: {
+              src: __webpack_require__(/*! ./../../../pics/task_alt_white_24dp.svg */ "./resources/pics/task_alt_white_24dp.svg")
+            }
+          }), _vm._v(" "), _c("h6", [_c("b", [_vm._v(_vm._s(item.name))])]), _vm._v(" "), _c("v-spacer")], 1), _vm._v(" "), _c("v-list", {
+            staticClass: "table-text",
+            attrs: {
+              dense: ""
+            }
+          }, [_c("v-list-item", [_c("div", {
+            staticClass: "container-fluid"
+          }, [_c("div", {
+            staticClass: "row g-2"
+          }, [_c("div", {
+            staticClass: "col-md-3"
+          }, [_c("h7", [_c("b", [_vm._v("Description:")])])], 1), _vm._v(" "), _c("div", {
+            staticClass: "col-md-9 justified font12"
+          }, [_c("b", [_vm._v(_vm._s(item.description))])])]), _vm._v(" "), _c("div", {
+            staticClass: "container ml-0 mt-3"
+          }, [item.offense1 != "" ? _c("div", {
+            staticClass: "row g-0 font12"
+          }, [_c("div", {
+            staticClass: "col-md-4"
+          }, [_c("b", [_vm._v("Date Created: ")])]), _vm._v(" "), _c("div", {
+            staticClass: "col-md-4"
+          }, [_c("span", [_vm._v("Php " + _vm._s(item.dateCreated))])])]) : _vm._e(), _vm._v(" "), item.offense1 != "" ? _c("div", {
+            staticClass: "row g-0 font12"
+          }, [_c("div", {
+            staticClass: "col-md-4"
+          }, [_c("b", [_vm._v("First Offense: ")])]), _vm._v(" "), _c("div", {
+            staticClass: "col-md-5"
+          }, [_c("span", [_vm._v("Php " + _vm._s(item.offense1))]), _vm._v(" "), item.additional1 != "" ? _c("span", [_vm._v(" " + _vm._s(item.additional1))]) : _vm._e()])]) : _vm._e(), _vm._v(" "), item.offense2 != "" ? _c("div", {
+            staticClass: "row g-0 font12"
+          }, [_c("div", {
+            staticClass: "col-md-4"
+          }, [_c("b", [_vm._v(" Second Offense: ")])]), _vm._v(" "), _c("div", {
+            staticClass: "col-md-5"
+          }, [_c("span", [_vm._v("Php " + _vm._s(item.offense2))]), _vm._v(" "), item.additional2 != "" ? _c("span", [_vm._v(" " + _vm._s(item.additional2))]) : _vm._e()])]) : _vm._e(), _vm._v(" "), item.offense3 != "" ? _c("div", {
+            staticClass: "row g-0 font12"
+          }, [_c("div", {
+            staticClass: "col-md-4"
+          }, [_c("b", [_vm._v("Third Offense: ")])]), _vm._v(" "), _c("div", {
+            staticClass: "col-md-5"
+          }, [_c("span", [_vm._v("Php " + _vm._s(item.offense3))]), _vm._v(" "), item.additional3 != "" ? _c("span", [_vm._v(" " + _vm._s(item.additional3))]) : _vm._e()])]) : _vm._e()])])])], 1)], 1)], 1);
+        }), 1)];
+      }
+    }, {
+      key: "footer",
+      fn: function fn() {
+        return [_c("v-row", {
+          staticClass: "mt-2",
+          attrs: {
+            align: "center",
+            justify: "center"
+          }
+        }, [_c("span", {
+          staticClass: "grey--text"
+        }, [_vm._v("Items per page")]), _vm._v(" "), _c("v-menu", {
+          attrs: {
+            "offset-y": ""
+          },
+          scopedSlots: _vm._u([{
+            key: "activator",
+            fn: function fn(_ref) {
+              var on = _ref.on,
+                attrs = _ref.attrs;
+              return [_c("v-btn", _vm._g(_vm._b({
+                staticClass: "ml-2",
+                attrs: {
+                  dark: "",
+                  text: "",
+                  color: "primary"
+                }
+              }, "v-btn", attrs, false), on), [_vm._v("\n                                                    " + _vm._s(_vm.itemsPerPage) + "\n                                                    "), _c("v-icon", [_vm._v("mdi-chevron-down")])], 1)];
+            }
+          }])
+        }, [_vm._v(" "), _c("v-list", _vm._l(_vm.itemsPerPageArray, function (number, index) {
+          return _c("v-list-item", {
+            key: index,
+            on: {
+              click: function click($event) {
+                return _vm.updateItemsPerPage(number);
+              }
+            }
+          }, [_c("v-list-item-title", [_vm._v(_vm._s(number))])], 1);
+        }), 1)], 1), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("span", {
+          staticClass: "mr-4 grey--text"
+        }, [_vm._v("\n                                        Page " + _vm._s(_vm.page) + " of " + _vm._s(_vm.numberOfPages) + "\n                                    ")]), _vm._v(" "), _c("v-btn", {
+          staticClass: "mr-1",
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "blue darken-3"
+          },
+          on: {
+            click: _vm.formerPage
+          }
+        }, [_c("v-icon", [_vm._v("mdi-chevron-left")])], 1), _vm._v(" "), _c("v-btn", {
+          staticClass: "ml-1",
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "blue darken-3"
+          },
+          on: {
+            click: _vm.nextPage
+          }
+        }, [_c("v-icon", [_vm._v("mdi-chevron-right")])], 1)], 1)];
+      },
+      proxy: true
+    }])
+  })], 1)]], 2)], 1)], 1)], 1)], 1)], 1)], 1), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "add-violation",
+      "data-bs-backdrop": "static",
+      "data-bs-keyboard": "false",
+      tabindex: "-1",
+      "aria-labelledby": "staticBackdropLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable"
+  }, [_c("div", {
+    staticClass: "modal-content bg-dark"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_vm._m(0), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  })], 1), _vm._v(" "), _c("div", {
+    staticClass: "modal-body text-white"
+  }, [_c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
+    staticClass: "col-md-8"
+  }, [_vm._m(1), _vm._v(" "), _c("hr"), _vm._v(" "), _c("h5", {
+    staticClass: "centered"
+  }, [_vm._v("Information")]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "row g-1"
+  }, [_vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5), _vm._v(" "), _c("hr"), _vm._v(" "), _c("h5", {
+    staticClass: "centered"
+  }, [_vm._v("Violation History")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "container overflowing table-responsive"
+  }, [_c("table", {
+    staticClass: "table table-dark table-striped table-hover"
+  }, [_vm._m(6), _vm._v(" "), _vm._l(_vm.violations, function (violation, index) {
+    return _c("tbody", [index >= 0 ? _c("tr", [_c("th", {
+      attrs: {
+        scope: "row"
+      }
+    }, [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.Date))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.fines))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.DayLeft) + " Day(s) left ")]), _vm._v(" "), violation.Status === true ? _c("td", [_vm._v("Settled")]) : _c("td", [_vm._v("Unsettled")])]) : _vm._e()]);
+  })], 2)])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_vm._v("\n                                    sadjhaskjdhk\n                                ")])])]), _vm._v(" "), _vm._m(7)])])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h5", {
+    staticClass: "modal-title text-white",
+    attrs: {
+      id: "staticBackdropLabel"
+    }
+  }, [_c("img", {
+    staticClass: "driver-icon",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/stacked_bar_chart_white_24dp.svg */ "./resources/pics/stacked_bar_chart_white_24dp.svg"),
+      alt: "..."
+    }
+  }), _vm._v("\n                                Driver's Violation")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "row g-1 centered"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "profile-icon",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/user.svg */ "./resources/pics/user.svg"),
+      alt: "..."
+    }
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Firstname: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-firstname"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Middlename: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-firstname"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Lastname: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-firstname"
+    }
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Province:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "province",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("City:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "city",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Barangay:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "barangay",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("thead", [_c("tr", {
+    staticClass: "table-dark"
+  }, [_c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("#")]), _vm._v(" "), _c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("Violation")]), _vm._v(" "), _c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("Date")]), _vm._v(" "), _c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("Fines")]), _vm._v(" "), _c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("Warning")]), _vm._v(" "), _c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("Status")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "button-back btn-primary",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal"
+    }
+  }, [_vm._v("Close")]), _vm._v(" "), _c("button", {
+    staticClass: "button-back btn-success",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Receipt")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -12889,6 +13669,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "[data-v-17e31f18] .v-application--wrap
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=style&index=0&id=049d897c&lang=scss&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=style&index=0&id=049d897c&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "[data-v-049d897c] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.tourism-body[data-v-049d897c] {\n  width: 95%;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.max-content[data-v-049d897c] {\n  max-height: -moz-fit-content;\n  max-height: fit-content;\n  min-height: 550px;\n}\n.navs[data-v-049d897c] {\n  position: absolute;\n  height: 200px;\n}\n.table-text[data-v-049d897c] {\n  background-color: #292929;\n  color: white;\n  font-family: monospace;\n}\n.text-white[data-v-049d897c] {\n  color: white;\n}\n.centered[data-v-049d897c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: blanchedalmond;\n  border-radius: 10px;\n}\n.driver-icon[data-v-049d897c] {\n  width: 40px;\n  height: 40px;\n}\n.profile-icon[data-v-049d897c] {\n  height: 150px;\n  width: 150px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.form-control[data-v-049d897c], .form-select[data-v-049d897c], .input-group[data-v-049d897c] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-049d897c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.input[data-v-049d897c] {\n  transition: 0.5s linear;\n}\n.input[data-v-049d897c]:focus {\n  color: #1d1d1d;\n  box-shadow: 4px 4px 10px #070707;\n}\n.icons[data-v-049d897c] {\n  font-size: 25px;\n}\n.input[data-v-049d897c]:focus::-moz-placeholder {\n  color: #fa4753;\n}\n.input[data-v-049d897c]:focus::placeholder {\n  color: #fa4753;\n}\nlabel[data-v-049d897c] {\n  font-size: 12px;\n}\n.justified[data-v-049d897c] {\n  text-align: justify;\n}\n.font12[data-v-049d897c] {\n  font-size: 13px;\n}\n@media only screen and (max-width: 750px) {\n.button-tourism[data-v-049d897c] {\n    flex-direction: row;\n    left: -10%;\n    margin-top: 3%;\n}\n}\n@media only screen and (max-width: 450px) {\n.button-tourism[data-v-049d897c] {\n    flex-direction: row;\n    left: -25%;\n    margin-top: 3%;\n}\n}\n@media only screen and (max-width: 400px) {\n.button-tourism[data-v-049d897c] {\n    flex-direction: row;\n    left: -30%;\n    margin-top: 3%;\n}\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/runtime/api.js":
 /*!*****************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/api.js ***!
@@ -14112,6 +14916,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismDashboard_vue_vue_type_style_index_0_id_17e31f18_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=style&index=0&id=049d897c&lang=scss&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=style&index=0&id=049d897c&lang=scss&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskforceDashboard_vue_vue_type_style_index_0_id_049d897c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TaskforceDashboard.vue?vue&type=style&index=0&id=049d897c&lang=scss&scoped=true& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=style&index=0&id=049d897c&lang=scss&scoped=true&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskforceDashboard_vue_vue_type_style_index_0_id_049d897c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskforceDashboard_vue_vue_type_style_index_0_id_049d897c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -15403,6 +16237,47 @@ component.options.__file = "resources/js/components/login/TourismLogin.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/taskforce/TaskforceDashboard.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/taskforce/TaskforceDashboard.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _TaskforceDashboard_vue_vue_type_template_id_049d897c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TaskforceDashboard.vue?vue&type=template&id=049d897c&scoped=true& */ "./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=template&id=049d897c&scoped=true&");
+/* harmony import */ var _TaskforceDashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TaskforceDashboard.vue?vue&type=script&lang=js& */ "./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=script&lang=js&");
+/* harmony import */ var _TaskforceDashboard_vue_vue_type_style_index_0_id_049d897c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TaskforceDashboard.vue?vue&type=style&index=0&id=049d897c&lang=scss&scoped=true& */ "./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=style&index=0&id=049d897c&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _TaskforceDashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TaskforceDashboard_vue_vue_type_template_id_049d897c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _TaskforceDashboard_vue_vue_type_template_id_049d897c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "049d897c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/taskforce/TaskforceDashboard.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Counsel&Treasurer/CounseltreasuryDashboard.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************!*\
   !*** ./resources/js/components/Counsel&Treasurer/CounseltreasuryDashboard.vue?vue&type=script&lang=js& ***!
@@ -15800,6 +16675,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismLogin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TourismLogin.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/login/TourismLogin.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismLogin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskforceDashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TaskforceDashboard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskforceDashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -16228,6 +17119,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=template&id=049d897c&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=template&id=049d897c&scoped=true& ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskforceDashboard_vue_vue_type_template_id_049d897c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskforceDashboard_vue_vue_type_template_id_049d897c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskforceDashboard_vue_vue_type_template_id_049d897c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TaskforceDashboard.vue?vue&type=template&id=049d897c&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=template&id=049d897c&scoped=true&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Driver/DriverHeader.vue?vue&type=style&index=0&id=6b795761&scoped=true&lang=css&":
 /*!******************************************************************************************************************!*\
   !*** ./resources/js/components/Driver/DriverHeader.vue?vue&type=style&index=0&id=6b795761&scoped=true&lang=css& ***!
@@ -16445,6 +17353,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TourismDashboard_vue_vue_type_style_index_0_id_17e31f18_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Tourism/TourismDashboard.vue?vue&type=style&index=0&id=17e31f18&lang=scss&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=style&index=0&id=049d897c&lang=scss&scoped=true&":
+/*!****************************************************************************************************************************!*\
+  !*** ./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=style&index=0&id=049d897c&lang=scss&scoped=true& ***!
+  \****************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskforceDashboard_vue_vue_type_style_index_0_id_049d897c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TaskforceDashboard.vue?vue&type=style&index=0&id=049d897c&lang=scss&scoped=true& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/taskforce/TaskforceDashboard.vue?vue&type=style&index=0&id=049d897c&lang=scss&scoped=true&");
 
 
 /***/ }),
@@ -74943,7 +75864,8 @@ var map = {
 	"./components/login/LegalLogin.vue": "./resources/js/components/login/LegalLogin.vue",
 	"./components/login/LegislativeLogin.vue": "./resources/js/components/login/LegislativeLogin.vue",
 	"./components/login/TaskLogin.vue": "./resources/js/components/login/TaskLogin.vue",
-	"./components/login/TourismLogin.vue": "./resources/js/components/login/TourismLogin.vue"
+	"./components/login/TourismLogin.vue": "./resources/js/components/login/TourismLogin.vue",
+	"./components/taskforce/TaskforceDashboard.vue": "./resources/js/components/taskforce/TaskforceDashboard.vue"
 };
 
 

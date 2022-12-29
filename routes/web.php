@@ -45,6 +45,9 @@ Route::get('/legislative-dashboard', function () {
 Route::get('/counsel-treasury-dashboard', function () {
     return view('counsel-treasury/counsel-treasury-dashboard');
 });
+Route::get('/taskforce-dashboard', function () {
+    return view('taskforce/taskforce-dashboard');
+});
 
 //-----------------DRIVER ROUTES----------------------
 Route::get('/driver-login', [App\Http\Controllers\Driver\DriverLoginController::class, 'index']);
