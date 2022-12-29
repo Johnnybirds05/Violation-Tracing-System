@@ -55,9 +55,13 @@ Route::post('/driver-login', [App\Http\Controllers\Driver\DriverLoginController:
 Route::post('/logout', [App\Http\Controllers\Driver\DriverLoginController::class, 'logout']);
 
 Route::get('/driver-register', [App\Http\Controllers\Driver\DriverRegisterController::class, 'index']);
+Route::post('/driver-register', [App\Http\Controllers\Driver\DriverRegisterController::class, 'store']);
 
 Route::get('/driver-dashboard', [App\Http\Controllers\Driver\DriverDashboardController::class, 'index']);
 
+Route::get('/test', function(){
+    return view('test');
+});
 
 
 //-----------------DRIVER ROUTES----------------------

@@ -16,4 +16,6 @@ class DriverDashboardController extends Controller
     public function index(){
         return view('driver.driver-dashboard');
     }
+
+
 }

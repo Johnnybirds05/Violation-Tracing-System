@@ -13,6 +13,12 @@ import Vue from 'vue'
 import vuetify from "../js/plugins/vuetify.js" // path to vuetify export
 
 
+//QR Scanner
+import VueQrcodeReader from "vue-qrcode-reader";
+//for QR CODE Generation
+import VueQrcode from '@chenfengyuan/vue-qrcode';
+//npm i @chenfengyuan/vue-qrcode
+
 
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
@@ -28,6 +34,10 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 //import ExampleComponent from './components/ExampleComponent.vue';
 //app.component('example-component', ExampleComponent);
+
+Vue.use(VueQrcodeReader); //https://gruhn.github.io/vue-qrcode-reader/demos/CustomTracking.html
+Vue.component(VueQrcode.name, VueQrcode);
+
 
 
 const app = new Vue({

@@ -18,7 +18,7 @@ class DriverRegisterController extends Controller
 
     public function store(Request $req){
 
-        $validate = $req->validate([
+        $req->validate([
             'username' => ['required', 'string', 'unique:users'],
             'lname' => ['required', 'string', 'max:100'],
             'fname' => ['required', 'string', 'max:100'],
