@@ -7,11 +7,11 @@
                     <v-divider></v-divider>
                 <v-list-item>
                     <v-list-item-avatar>
-                        <img src="../../../pics/city tourism.jpg" class="card-img-top" alt="...">
+                        <img src="../../../pics/perm_identity_white_36dp.svg" class="card-img-top" alt="...">
                     </v-list-item-avatar>
 
                     <v-list-item-content>
-                        <v-list-item-title><h5>Legislative Office</h5> </v-list-item-title>
+                        <v-list-item-title><h5>Task Force</h5> </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
 
@@ -34,9 +34,9 @@
                     <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
                     <v-toolbar-title>
                         <v-list-item-avatar>
-                            <img src="../../../pics/city tourism.jpg" class="card-img-top" alt="...">
+                            <img src="../../../pics/perm_identity_white_36dp.svg" class="card-img-top" alt="...">
                         </v-list-item-avatar>
-                        Local Legislative Office
+                        Task Force
                     </v-toolbar-title>
                     <v-spacer></v-spacer>
                         <template v-slot:extension>
@@ -232,7 +232,7 @@
                                 </v-data-iterator>
                                 
                             </v-container>
-                                </template>
+                            </template>
 
                 </v-card-text>
             </v-card>
@@ -306,43 +306,131 @@
                                                 <option selected disabled>Select</option>
                                             </select>
                                         </div>
-
+                                    </div>
+                                    <div class="row g-1">
+                                        <div class="col-md-4">
+                                            <label class="form-label">Mobile Number:</label>
+                                            <input type="number" class="form-control input" id="driver-number">
+                                        </div>
+                                    </div>
                                     <hr>
                                         <h5 class="centered">Violation History</h5>
                                     <hr> 
                                     <div class="container overflowing table-responsive">
                                         <table class="table table-dark table-striped table-hover">
                                             <thead>
-                                            <tr class="table-dark">
-                                                <th scope="col">#</th>
-                                                <th scope="col">Violation</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Fines</th>
-                                                <th scope="col">Warning</th>
-                                                <th scope="col">Status</th>
-                                            </tr>
+                                                <tr class="table-dark">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Violation</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Fines</th>
+                                                    <th scope="col">Warning</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
                                             </thead>
-                                            <tbody v-for="(violation, index) in violations">
-                                            <tr v-if="index>=0">
-                                                <th scope="row">{{index+1}}</th>
-                                                <td>{{violation.name}}</td>
-                                                <td>{{violation.Date}}</td>
-                                                <td>{{violation.fines}}</td>
-                                                <td>{{violation.DayLeft}} Day(s) left </td>
-                                                <td v-if="violation.Status === true">Settled</td>
-                                                <td v-else>Unsettled</td>
-                                            </tr>
+                                            <tbody>
+                                                <tr v-for="(violation, index) in violations" :key="index">
+                                                    <th scope="row">{{index+1}}</th>
+                                                    <td>{{violation.name}}</td>
+                                                    <td>{{violation.Date}}</td>
+                                                    <td>{{violation.fines}}</td>
+                                                    <td>{{violation.DayLeft}} Day(s) left </td>
+                                                    <td>
+                                                        <span v-if="violation.Status === true">
+                                                            Settled
+                                                        </span>
+                                                        <span v-else>Unsettled</span>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
-
-                                        </div>
-
 
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
-                                    sadjhaskjdhk
+                                    <v-app>
+                                        <v-card flat> 
+                                        <v-card-text>
+                                                    <template>
+                                                        <v-container fluid>
+                                                            <v-data-iterator
+                                                                :items="ordinances"
+                                                                :items-per-page.sync="itemsPerPageViolation"
+                                                                :page.sync="page"
+                                                                :search="search"
+                                                                :sort-by="sortBy.toLowerCase()"
+                                                                :sort-desc="sortDesc"
+                                                                hide-default-footer
+                                                            >
+                                                    <template v-slot:header>
+                                                        <v-toolbar color="dark" class="mb-3">
+                                                            Add Violations
+                                                        <v-spacer></v-spacer>
+                                                        <div class="containered">
+                                                                <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="search">
+                                                                <div class="icon">
+                                                                    <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
+                                                                        <title>Search</title>
+                                                                        <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
+                                                                        <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                        </v-toolbar>
+                                                    </template>
+                                                    <template v-slot:default="props">
+                                                        <v-row>
+                                                            <v-col v-for="item in props.items" :key="item.name" cols="15" sm="15" md="13" lg="12">
+                                                                <v-card class="table-text" color="grey darken-4">
+                                                                    <v-card-title class="subheading font-weight-bold"> 
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                                            <label class="form-check-label" for="flexCheckDefault">
+                                                                                <h6> <b>{{ item.name }}</b> </h6>
+                                                                            </label>
+                                                                        </div>
+                                                                            
+                                                                            <v-spacer></v-spacer>
+                                                                    </v-card-title>
+                                                                </v-card>
+                                                            </v-col>
+                                                        </v-row>
+                                                    </template>
+
+                                                    <template v-slot:footer>
+                                                        <v-row class="mt-2" align="center" justify="center">
+                                                                <v-menu offset-y>
+                                                                    <v-list>
+                                                                        <v-list-item v-for="(number, index) in itemsPerPageArrayViolation" :key="index" @click="updateItemsPerPageViolation(number)">
+                                                                            <v-list-item-title>{{ number }}</v-list-item-title>
+                                                                        </v-list-item>
+                                                                    </v-list>
+                                                                </v-menu>
+
+                                                                <v-spacer></v-spacer>
+
+                                                            <span class="mr-4 grey--text">
+                                                                Page {{ page }} of {{ numberOfPagesViolation }}
+                                                            </span>
+
+                                                            <v-btn fab dark color="blue darken-3" class="mr-1" @click="formerPageViolation">
+                                                                <v-icon>mdi-chevron-left</v-icon>
+                                                            </v-btn>
+                                                            <v-btn fab dark color="blue darken-3" class="ml-1" @click="nextPageViolation">
+                                                                        <v-icon>mdi-chevron-right</v-icon>
+                                                            </v-btn>
+                                                        </v-row>
+                                                    </template>
+
+                                                        </v-data-iterator>
+                                                        
+                                                    </v-container>
+                                                    </template>
+
+                                        </v-card-text>
+                                    </v-card>
+                                    </v-app>
                                 </div>
 
                             </div>
@@ -373,11 +461,13 @@
         tab: null,
         drawer: null,
         itemsPerPageArray: [2, 4, 8],
+        itemsPerPageArrayViolation: [5, 8, 10],
         search: '',
         filter: {},
         sortDesc: false,
         page: 1,
         itemsPerPage: 2,
+        itemsPerPageViolation: 5,
         sortBy: 'name',
         keys: [
           'Name',
@@ -513,6 +603,9 @@
             numberOfPages () {
                 return Math.ceil(this.ordinances.length / this.itemsPerPage)
             },
+            numberOfPagesViolation () {
+                return Math.ceil(this.ordinances.length / this.itemsPerPageViolation)
+            },
             filteredKeys () {
                 return this.keys.filter(key => key !== 'Name')
             },
@@ -530,6 +623,15 @@
             },
             updateItemsPerPage (number) {
                 this.itemsPerPage = number
+            },
+            nextPageViolation () {
+                if(this.page + 1 <= this.numberOfPagesViolation) this.page += 1
+            },
+            formerPageViolation () {
+                if(this.page - 1 >= 1) this.page -= 1
+            },
+            updateItemsPerPageViolation (number) {
+                this.itemsPerPageViolation = number
             },
 
       },
@@ -562,7 +664,7 @@
 }
 .max-content{
     max-height: fit-content;
-    min-height: 550px;
+    min-height: 650px;
 }
 .navs{
     position: absolute;

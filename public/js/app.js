@@ -3634,11 +3634,13 @@ __webpack_require__.r(__webpack_exports__);
       tab: null,
       drawer: null,
       itemsPerPageArray: [2, 4, 8],
+      itemsPerPageArrayViolation: [5, 8, 10],
       search: '',
       filter: {},
       sortDesc: false,
       page: 1,
       itemsPerPage: 2,
+      itemsPerPageViolation: 5,
       sortBy: 'name',
       keys: ['Name', 'Description', 'Datecreated', 'Offense1', 'Additional1', 'Offense2', 'Additional2', 'Offense3', 'Additional3'],
       ordinances: [{
@@ -3747,6 +3749,9 @@ __webpack_require__.r(__webpack_exports__);
     numberOfPages: function numberOfPages() {
       return Math.ceil(this.ordinances.length / this.itemsPerPage);
     },
+    numberOfPagesViolation: function numberOfPagesViolation() {
+      return Math.ceil(this.ordinances.length / this.itemsPerPageViolation);
+    },
     filteredKeys: function filteredKeys() {
       return this.keys.filter(function (key) {
         return key !== 'Name';
@@ -3762,6 +3767,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     updateItemsPerPage: function updateItemsPerPage(number) {
       this.itemsPerPage = number;
+    },
+    nextPageViolation: function nextPageViolation() {
+      if (this.page + 1 <= this.numberOfPagesViolation) this.page += 1;
+    },
+    formerPageViolation: function formerPageViolation() {
+      if (this.page - 1 >= 1) this.page -= 1;
+    },
+    updateItemsPerPageViolation: function updateItemsPerPageViolation(number) {
+      this.itemsPerPageViolation = number;
     }
   },
   mounted: function mounted() {
@@ -10594,10 +10608,10 @@ var render = function render() {
   }, [_c("v-divider"), _vm._v(" "), _c("v-list-item", [_c("v-list-item-avatar", [_c("img", {
     staticClass: "card-img-top",
     attrs: {
-      src: __webpack_require__(/*! ../../../pics/city tourism.jpg */ "./resources/pics/city tourism.jpg"),
+      src: __webpack_require__(/*! ../../../pics/perm_identity_white_36dp.svg */ "./resources/pics/perm_identity_white_36dp.svg"),
       alt: "..."
     }
-  })]), _vm._v(" "), _c("v-list-item-content", [_c("v-list-item-title", [_c("h5", [_vm._v("Legislative Office")])])], 1)], 1), _vm._v(" "), _c("v-list", {
+  })]), _vm._v(" "), _c("v-list-item-content", [_c("v-list-item-title", [_c("h5", [_vm._v("Task Force")])])], 1)], 1), _vm._v(" "), _c("v-list", {
     attrs: {
       dense: ""
     }
@@ -10665,10 +10679,10 @@ var render = function render() {
   }), _vm._v(" "), _c("v-toolbar-title", [_c("v-list-item-avatar", [_c("img", {
     staticClass: "card-img-top",
     attrs: {
-      src: __webpack_require__(/*! ../../../pics/city tourism.jpg */ "./resources/pics/city tourism.jpg"),
+      src: __webpack_require__(/*! ../../../pics/perm_identity_white_36dp.svg */ "./resources/pics/perm_identity_white_36dp.svg"),
       alt: "..."
     }
-  })]), _vm._v("\n                        Local Legislative Office\n                    ")], 1), _vm._v(" "), _c("v-spacer")], 1), _vm._v(" "), _c("v-tabs-items", {
+  })]), _vm._v("\n                        Task Force\n                    ")], 1), _vm._v(" "), _c("v-spacer")], 1), _vm._v(" "), _c("v-tabs-items", {
     model: {
       value: _vm.tab,
       callback: function callback($$v) {
@@ -10989,23 +11003,197 @@ var render = function render() {
     staticClass: "col-md-8"
   }, [_vm._m(1), _vm._v(" "), _c("hr"), _vm._v(" "), _c("h5", {
     staticClass: "centered"
-  }, [_vm._v("Information")]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
-    staticClass: "row g-1"
-  }, [_vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5), _vm._v(" "), _c("hr"), _vm._v(" "), _c("h5", {
+  }, [_vm._v("Information")]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("hr"), _vm._v(" "), _c("h5", {
     staticClass: "centered"
   }, [_vm._v("Violation History")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container overflowing table-responsive"
   }, [_c("table", {
     staticClass: "table table-dark table-striped table-hover"
-  }, [_vm._m(6), _vm._v(" "), _vm._l(_vm.violations, function (violation, index) {
-    return _c("tbody", [index >= 0 ? _c("tr", [_c("th", {
+  }, [_vm._m(5), _vm._v(" "), _c("tbody", _vm._l(_vm.violations, function (violation, index) {
+    return _c("tr", {
+      key: index
+    }, [_c("th", {
       attrs: {
         scope: "row"
       }
-    }, [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.Date))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.fines))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.DayLeft) + " Day(s) left ")]), _vm._v(" "), violation.Status === true ? _c("td", [_vm._v("Settled")]) : _c("td", [_vm._v("Unsettled")])]) : _vm._e()]);
-  })], 2)])])]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.Date))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.fines))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.DayLeft) + " Day(s) left ")]), _vm._v(" "), _c("td", [violation.Status === true ? _c("span", [_vm._v("\n                                                            Settled\n                                                        ")]) : _c("span", [_vm._v("Unsettled")])])]);
+  }), 0)])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4"
-  }, [_vm._v("\n                                    sadjhaskjdhk\n                                ")])])]), _vm._v(" "), _vm._m(7)])])])]);
+  }, [_c("v-app", [_c("v-card", {
+    attrs: {
+      flat: ""
+    }
+  }, [_c("v-card-text", [[_c("v-container", {
+    attrs: {
+      fluid: ""
+    }
+  }, [_c("v-data-iterator", {
+    attrs: {
+      items: _vm.ordinances,
+      "items-per-page": _vm.itemsPerPageViolation,
+      page: _vm.page,
+      search: _vm.search,
+      "sort-by": _vm.sortBy.toLowerCase(),
+      "sort-desc": _vm.sortDesc,
+      "hide-default-footer": ""
+    },
+    on: {
+      "update:itemsPerPage": function updateItemsPerPage($event) {
+        _vm.itemsPerPageViolation = $event;
+      },
+      "update:items-per-page": function updateItemsPerPage($event) {
+        _vm.itemsPerPageViolation = $event;
+      },
+      "update:page": function updatePage($event) {
+        _vm.page = $event;
+      }
+    },
+    scopedSlots: _vm._u([{
+      key: "header",
+      fn: function fn() {
+        return [_c("v-toolbar", {
+          staticClass: "mb-3",
+          attrs: {
+            color: "dark"
+          }
+        }, [_vm._v("\n                                                            Add Violations\n                                                        "), _c("v-spacer"), _vm._v(" "), _c("div", {
+          staticClass: "containered"
+        }, [_c("input", {
+          directives: [{
+            name: "model",
+            rawName: "v-model",
+            value: _vm.search,
+            expression: "search"
+          }],
+          staticClass: "inputted",
+          attrs: {
+            placeholder: "Type to search...",
+            required: "",
+            name: "text",
+            type: "text"
+          },
+          domProps: {
+            value: _vm.search
+          },
+          on: {
+            input: function input($event) {
+              if ($event.target.composing) return;
+              _vm.search = $event.target.value;
+            }
+          }
+        }), _vm._v(" "), _c("div", {
+          staticClass: "icon"
+        }, [_c("svg", {
+          staticClass: "ionicon",
+          attrs: {
+            viewBox: "0 0 512 512",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        }, [_c("title", [_vm._v("Search")]), _vm._v(" "), _c("path", {
+          attrs: {
+            "stroke-width": "32",
+            "stroke-miterlimit": "10",
+            stroke: "currentColor",
+            fill: "none",
+            d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+          }
+        }), _vm._v(" "), _c("path", {
+          attrs: {
+            d: "M338.29 338.29L448 448",
+            "stroke-width": "32",
+            "stroke-miterlimit": "10",
+            "stroke-linecap": "round",
+            stroke: "currentColor",
+            fill: "none"
+          }
+        })])])])], 1)];
+      },
+      proxy: true
+    }, {
+      key: "default",
+      fn: function fn(props) {
+        return [_c("v-row", _vm._l(props.items, function (item) {
+          return _c("v-col", {
+            key: item.name,
+            attrs: {
+              cols: "15",
+              sm: "15",
+              md: "13",
+              lg: "12"
+            }
+          }, [_c("v-card", {
+            staticClass: "table-text",
+            attrs: {
+              color: "grey darken-4"
+            }
+          }, [_c("v-card-title", {
+            staticClass: "subheading font-weight-bold"
+          }, [_c("div", {
+            staticClass: "form-check"
+          }, [_c("input", {
+            staticClass: "form-check-input",
+            attrs: {
+              type: "checkbox",
+              value: "",
+              id: "flexCheckDefault"
+            }
+          }), _vm._v(" "), _c("label", {
+            staticClass: "form-check-label",
+            attrs: {
+              "for": "flexCheckDefault"
+            }
+          }, [_c("h6", [_c("b", [_vm._v(_vm._s(item.name))])])])]), _vm._v(" "), _c("v-spacer")], 1)], 1)], 1);
+        }), 1)];
+      }
+    }, {
+      key: "footer",
+      fn: function fn() {
+        return [_c("v-row", {
+          staticClass: "mt-2",
+          attrs: {
+            align: "center",
+            justify: "center"
+          }
+        }, [_c("v-menu", {
+          attrs: {
+            "offset-y": ""
+          }
+        }, [_c("v-list", _vm._l(_vm.itemsPerPageArrayViolation, function (number, index) {
+          return _c("v-list-item", {
+            key: index,
+            on: {
+              click: function click($event) {
+                return _vm.updateItemsPerPageViolation(number);
+              }
+            }
+          }, [_c("v-list-item-title", [_vm._v(_vm._s(number))])], 1);
+        }), 1)], 1), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("span", {
+          staticClass: "mr-4 grey--text"
+        }, [_vm._v("\n                                                                Page " + _vm._s(_vm.page) + " of " + _vm._s(_vm.numberOfPagesViolation) + "\n                                                            ")]), _vm._v(" "), _c("v-btn", {
+          staticClass: "mr-1",
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "blue darken-3"
+          },
+          on: {
+            click: _vm.formerPageViolation
+          }
+        }, [_c("v-icon", [_vm._v("mdi-chevron-left")])], 1), _vm._v(" "), _c("v-btn", {
+          staticClass: "ml-1",
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "blue darken-3"
+          },
+          on: {
+            click: _vm.nextPageViolation
+          }
+        }, [_c("v-icon", [_vm._v("mdi-chevron-right")])], 1)], 1)];
+      },
+      proxy: true
+    }])
+  })], 1)]], 2)], 1)], 1)], 1)])]), _vm._v(" "), _vm._m(6)])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -11076,6 +11264,8 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
     staticClass: "col-md-4"
   }, [_c("label", {
     staticClass: "form-label"
@@ -11090,11 +11280,7 @@ var staticRenderFns = [function () {
       selected: "",
       disabled: ""
     }
-  }, [_vm._v("Select")])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4"
   }, [_c("label", {
     staticClass: "form-label"
@@ -11109,11 +11295,7 @@ var staticRenderFns = [function () {
       selected: "",
       disabled: ""
     }
-  }, [_vm._v("Select")])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4"
   }, [_c("label", {
     staticClass: "form-label"
@@ -11128,7 +11310,23 @@ var staticRenderFns = [function () {
       selected: "",
       disabled: ""
     }
-  }, [_vm._v("Select")])])]);
+  }, [_vm._v("Select")])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Mobile Number:")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "number",
+      id: "driver-number"
+    }
+  })])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -13686,7 +13884,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "[data-v-049d897c] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.tourism-body[data-v-049d897c] {\n  width: 95%;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.max-content[data-v-049d897c] {\n  max-height: -moz-fit-content;\n  max-height: fit-content;\n  min-height: 550px;\n}\n.navs[data-v-049d897c] {\n  position: absolute;\n  height: 200px;\n}\n.table-text[data-v-049d897c] {\n  background-color: #292929;\n  color: white;\n  font-family: monospace;\n}\n.text-white[data-v-049d897c] {\n  color: white;\n}\n.centered[data-v-049d897c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: blanchedalmond;\n  border-radius: 10px;\n}\n.driver-icon[data-v-049d897c] {\n  width: 40px;\n  height: 40px;\n}\n.profile-icon[data-v-049d897c] {\n  height: 150px;\n  width: 150px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.form-control[data-v-049d897c], .form-select[data-v-049d897c], .input-group[data-v-049d897c] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-049d897c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.input[data-v-049d897c] {\n  transition: 0.5s linear;\n}\n.input[data-v-049d897c]:focus {\n  color: #1d1d1d;\n  box-shadow: 4px 4px 10px #070707;\n}\n.icons[data-v-049d897c] {\n  font-size: 25px;\n}\n.input[data-v-049d897c]:focus::-moz-placeholder {\n  color: #fa4753;\n}\n.input[data-v-049d897c]:focus::placeholder {\n  color: #fa4753;\n}\nlabel[data-v-049d897c] {\n  font-size: 12px;\n}\n.justified[data-v-049d897c] {\n  text-align: justify;\n}\n.font12[data-v-049d897c] {\n  font-size: 13px;\n}\n@media only screen and (max-width: 750px) {\n.button-tourism[data-v-049d897c] {\n    flex-direction: row;\n    left: -10%;\n    margin-top: 3%;\n}\n}\n@media only screen and (max-width: 450px) {\n.button-tourism[data-v-049d897c] {\n    flex-direction: row;\n    left: -25%;\n    margin-top: 3%;\n}\n}\n@media only screen and (max-width: 400px) {\n.button-tourism[data-v-049d897c] {\n    flex-direction: row;\n    left: -30%;\n    margin-top: 3%;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "[data-v-049d897c] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.tourism-body[data-v-049d897c] {\n  width: 95%;\n  font-family: monospace;\n  color: white;\n  font-size: 15px;\n  opacity: 0.8;\n  border-radius: 10px;\n}\n.max-content[data-v-049d897c] {\n  max-height: -moz-fit-content;\n  max-height: fit-content;\n  min-height: 650px;\n}\n.navs[data-v-049d897c] {\n  position: absolute;\n  height: 200px;\n}\n.table-text[data-v-049d897c] {\n  background-color: #292929;\n  color: white;\n  font-family: monospace;\n}\n.text-white[data-v-049d897c] {\n  color: white;\n}\n.centered[data-v-049d897c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: blanchedalmond;\n  border-radius: 10px;\n}\n.driver-icon[data-v-049d897c] {\n  width: 40px;\n  height: 40px;\n}\n.profile-icon[data-v-049d897c] {\n  height: 150px;\n  width: 150px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.form-control[data-v-049d897c], .form-select[data-v-049d897c], .input-group[data-v-049d897c] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-049d897c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.input[data-v-049d897c] {\n  transition: 0.5s linear;\n}\n.input[data-v-049d897c]:focus {\n  color: #1d1d1d;\n  box-shadow: 4px 4px 10px #070707;\n}\n.icons[data-v-049d897c] {\n  font-size: 25px;\n}\n.input[data-v-049d897c]:focus::-moz-placeholder {\n  color: #fa4753;\n}\n.input[data-v-049d897c]:focus::placeholder {\n  color: #fa4753;\n}\nlabel[data-v-049d897c] {\n  font-size: 12px;\n}\n.justified[data-v-049d897c] {\n  text-align: justify;\n}\n.font12[data-v-049d897c] {\n  font-size: 13px;\n}\n@media only screen and (max-width: 750px) {\n.button-tourism[data-v-049d897c] {\n    flex-direction: row;\n    left: -10%;\n    margin-top: 3%;\n}\n}\n@media only screen and (max-width: 450px) {\n.button-tourism[data-v-049d897c] {\n    flex-direction: row;\n    left: -25%;\n    margin-top: 3%;\n}\n}\n@media only screen and (max-width: 400px) {\n.button-tourism[data-v-049d897c] {\n    flex-direction: row;\n    left: -30%;\n    margin-top: 3%;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
