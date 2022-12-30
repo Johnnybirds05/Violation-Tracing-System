@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Driver;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
 
 class DriverDashboardController extends Controller
 {
@@ -17,5 +20,19 @@ class DriverDashboardController extends Controller
         return view('driver.driver-dashboard');
     }
 
+    public function getDriver(){
+        $user = Auth::user();
+
+        $data = User::with(['province', 'city', 'barangay'])
+            ->find($user->user_id);
+
+        return $data;
+    }
+
+
+    public function store(Request $req){
+        return $req;
+        
+    }
 
 }

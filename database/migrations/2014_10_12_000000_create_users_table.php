@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('qr_ref')->nullable();
             $table->string('username')->nullable();
-            
+
             $table->string('lname')->nullable();
             $table->string('fname')->nullable();
             $table->string('mname')->nullable();
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('sex')->nullable();
             $table->date('bdate')->nullable();
             $table->string('pic_path')->nullable();
-            
+
             $table->string('province')->nullable();
             $table->string('city')->nullable();
             $table->string('barangay')->nullable();
@@ -35,8 +35,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('mobile_no')->unique();
 
-            $table->string('id_type')->nullable();
-            $table->string('id_no')->nullable();
+            $table->string('driver_license_no')->nullable();
             $table->date('expr_date')->nullable();
 
             $table->tinyInteger('is_verified')->default(0);

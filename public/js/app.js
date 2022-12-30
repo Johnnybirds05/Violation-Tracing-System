@@ -8159,11 +8159,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
-});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -8180,157 +8176,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
-    var myModal = document.getElementById('myModal');
-    var myInput = document.getElementById('myInput');
-    myModal.addEventListener('shown.bs.modal', function () {
-      myInput.focus();
-    });
+    this.intiData();
+    this.getUser();
   },
   data: function data() {
     return {
-      plates: ['2532KD', '23YDJD', 'SA2021K'],
-      models: ['Honda', 'Ruster', 'Tesla'],
-      Btypes: ['Motor', 'Car', 'Truck'],
-      serial: ['Kvsdghaj', 'dsjahjsad', 'jashdkjhas'],
-      color: ['red', 'blue', 'green'],
-      Expiration: ['11/21/22', '02/23/24', '05/24/25'],
-      ReceiptNo: ['1272132', '12y38123', '71267123'],
-      vehiclepics: ['motor.png', 'car.jpg', 'truck.jpg'],
-      verified: [false, true, false],
-      registrationReq: [{
-        name: 'Barangay Clearance',
-        location: 'Current Address',
-        cost: 0
-      }, {
-        name: 'Insurance',
-        location: 'LTO',
-        cost: 750
-      }, {
-        name: 'Smoke Test',
-        location: 'LTO',
-        cost: 500
-      }],
-      LicenseReq: [{
-        name: 'PSA Birth Certificate',
-        location: 'Gaisano Ozamis City',
-        cost: '120'
-      }, {
-        name: 'Driving School',
-        location: 'LTO',
-        cost: '0'
-      }],
-      violations: [{
-        name: 'Wearing of Slippers',
-        Date: '12/26/22',
-        fines: 120,
-        DayLeft: 2,
-        Status: false
-      }, {
-        name: 'No Helmet',
-        Date: '12/23/22',
-        fines: 500,
-        DayLeft: 2,
-        Status: true
-      }, {
-        name: 'No License',
-        Date: '12/23/22',
-        fines: 200,
-        DayLeft: 2,
-        Status: true
-      }],
-      ordinances: [{
-        name: 'Wearing of Slippers',
-        description: 'Wearing of slippers while riding will violate the city ordinance code 1237 that states that all the driver must wear shoes!',
-        dateCreated: '12/12/12',
-        offense1: 100,
-        additional1: '',
-        offense2: 500,
-        additional2: '',
-        offense3: 1000,
-        additional3: ''
-      }, {
-        name: 'No Helmet',
-        description: "All driver's must wear helmet all the time to protect their head from collision caused by accident and etc. ",
-        dateCreated: '12/12/12',
-        offense1: 500,
-        additional1: '',
-        offense2: 1000,
-        additional2: 'impounding',
-        offense3: 1000,
-        additional3: 'impounding'
-      }, {
-        name: "No Driver's License",
-        description: "All driver's must obtain a license before driving a vehicle to ensure that he is capable of observing the road policy and guidelines",
-        dateCreated: '12/12/11',
-        offense1: 500,
-        additional1: '',
-        offense2: 1000,
-        additional2: 'impounding',
-        offense3: 1000,
-        additional3: 'impounding'
-      }, {
-        name: "No Vehicle Registration",
-        description: "All vehicle must be registered to the LTO to ensure that the vehicle is rightfully owned by the driver and not from car nap.",
-        dateCreated: '09/05/12',
-        offense1: 500,
-        additional1: '',
-        offense2: 1000,
-        additional2: 'impounding',
-        offense3: 1000,
-        additional3: 'impounding'
-      }, {
-        name: "No Side Mirror",
-        description: "The vehicle must be equipped with a side mirror to ensure that the driver will be able to detect what's happening in his back view to avoid collision.",
-        dateCreated: '07/17/12',
-        offense1: 500,
-        additional1: '',
-        offense2: 1000,
-        additional2: 'impounding',
-        offense3: 1000,
-        additional3: 'impounding'
-      }, {
-        name: "No Back Light",
-        description: "The vehicle must be equipped with a backlight for the rider following them during night will be able to detect the driver's presence and avoid collision.",
-        dateCreated: '02/11/12',
-        offense1: 500,
-        additional1: '',
-        offense2: 1000,
-        additional2: 'impounding',
-        offense3: 1000,
-        additional3: 'impounding'
-      }, {
-        name: "No Rear Light",
-        description: "The vehicle must be equipped with a rear light to have a vision during night time and in dark places to avoid collision.",
-        dateCreated: '12/12/12',
-        offense1: 500,
-        additional1: '',
-        offense2: 1000,
-        additional2: 'impounding',
-        offense3: 1000,
-        additional3: 'impounding'
-      }, {
-        name: "No Signal Light",
-        description: "The vehicle must be equipped with a signal light for the other driver to be aware when the said driver will change its direction.",
-        dateCreated: '05/12/16',
-        offense1: 500,
-        additional1: '',
-        offense2: 1000,
-        additional2: 'impounding',
-        offense3: 1000,
-        additional3: 'impounding'
-      }],
-      License: [{
-        id: '2923jsaj82',
-        Expiration: '12/12/25',
-        verified: false
-      }]
+      user: {
+        lname: '',
+        fname: '',
+        mname: '',
+        sex: '',
+        suffix: '',
+        driver_license_type: '',
+        driver_license_no: '',
+        expr_date: null,
+        province: {},
+        city: {},
+        barangay: {},
+        street: ''
+      },
+      fields: {},
+      errors: {}
     };
   },
   methods: {
+    intiData: function intiData() {
+      // var myModal = document.getElementById('myModal')
+      // var myInput = document.getElementById('myInput')
+
+      // myModal.addEventListener('shown.bs.modal', function () {
+      //     myInput.focus()
+      // })
+
+      $('#expiration').datepicker();
+    },
     logout: function logout() {
       axios.post('/logout').then(function () {
         window.location = '/';
       });
+    },
+    getUser: function getUser() {
+      var _this = this;
+      axios.get('/get-driver').then(function (res) {
+        _this.user = res.data;
+      });
+    },
+    submitVehicle: function submitVehicle() {
+      axios.post('/').then(function (res) {})["catch"](function (err) {});
+    }
+  },
+  computed: {
+    fullName: function fullName() {
+      return this.user.fname + ' ' + this.user.mname + ' ' + this.user.lname + ' ' + this.user.suffix;
+    },
+    driverAddress: function driverAddress() {
+      return this.user.province.provDesc + ', ' + this.user.city.citymunDesc + ' ' + this.user.barangay.brgyDesc + ' ' + this.user.street;
     }
   }
 });
@@ -8348,11 +8248,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
-});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -8422,7 +8318,11 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       e1: 1,
-      fields: {}
+      fields: {},
+      errors: {},
+      provinces: [],
+      cities: [],
+      barangays: []
     };
   },
   setup: function setup() {
@@ -8440,16 +8340,51 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    loadProvince: function loadProvince() {
+      var _this = this;
+      axios.get('/load-provinces').then(function (res) {
+        _this.provinces = res.data;
+      });
+    },
+    loadCity: function loadCity() {
+      var _this2 = this;
+      axios.get('/load-cities?prov=' + this.fields.province).then(function (res) {
+        _this2.cities = res.data;
+      });
+    },
+    loadBarangay: function loadBarangay() {
+      var _this3 = this;
+      axios.get('/load-barangays?prov=' + this.fields.province + '&city_code=' + this.fields.city).then(function (res) {
+        _this3.barangays = res.data;
+      });
+    },
     submit: function submit() {
-      axios.post('/driver-register', this.fields).then(function (res) {});
+      var _this4 = this;
+      var bdate = new Date(this.fields.bdate);
+      this.fields.bdate = bdate.getFullYear() + '-' + (bdate.getMonth() + 1) + '-' + bdate.getDate();
+      axios.post('/driver-register', this.fields).then(function (res) {
+        if (res.data.status === 'saved') {
+          //if success register
+
+          window.location = '/driver-dashboard';
+        }
+      })["catch"](function (err) {
+        if (err.response.status === 422) {
+          _this4.errors = err.response.data.errors;
+        }
+      });
+    },
+    initData: function initData() {
+      $(function () {
+        $('#birthdate').datepicker();
+        $('#license').datepicker();
+        $('#vehicle').datepicker();
+      });
+      this.loadProvince();
     }
   },
   mounted: function mounted() {
-    $(function () {
-      $('#birthdate').datepicker();
-      $('#license').datepicker();
-      $('#vehicle').datepicker();
-    });
+    this.initData();
   }
 });
 
@@ -10328,35 +10263,33 @@ var render = function render() {
     staticClass: "container-fluid"
   }, [_c("div", {
     staticClass: "container driver-body mt-3"
-  }, _vm._l(_vm.License, function (license) {
-    return _c("div", {
-      staticClass: "row rowleft p-2"
-    }, [_vm._m(0, true), _vm._v(" "), _c("div", {
-      staticClass: "col-md-7 cols-name"
-    }, [_c("h3", [_vm._v("John Michael Cagadas ")]), _vm._v(" "), _c("span", [_vm._v("ID: " + _vm._s(license.id) + " "), license.verified === false ? _c("b", {
-      staticClass: "status ml-2 p-1"
-    }, [_vm._v(" ! Unverified Account")]) : _vm._e()]), _vm._v(" "), _c("span", [_vm._v("Expiration Date: " + _vm._s(license.Expiration) + " ")]), _vm._v(" "), _c("span", [_vm._v("Kauswagan Tangub City")]), _vm._v(" "), _c("span", [_vm._v("johnmichaelcagadas@gmail.com")]), _vm._v(" "), _c("span", [_vm._v("09683013603")])]), _vm._v(" "), _c("div", {
-      staticClass: "col"
-    }), _vm._v(" "), _c("div", {
-      staticClass: "col-md-3 logout-button"
-    }, [_c("div", {
-      staticClass: "row"
-    }, [_c("div", {
-      staticClass: "col"
-    }, [_c("button", {
-      staticClass: "button-back btn-warning",
-      attrs: {
-        role: "button"
-      },
-      on: {
-        click: _vm.logout
-      }
-    }, [_vm._v("Logout \n                    "), _c("img", {
-      attrs: {
-        src: __webpack_require__(/*! ../../../pics/logout_white_24dp.svg */ "./resources/pics/logout_white_24dp.svg")
-      }
-    })])])])])]);
-  }), 0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "row rowleft p-2"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "col-md-7 cols-name"
+  }, [_c("h3", [_vm._v(_vm._s(_vm.fullName))]), _vm._v(" "), _c("span", [_vm._v("ID: " + _vm._s(_vm.user.driver_license_no) + "\n                    "), _vm.user.is_verified === 0 ? _c("b", {
+    staticClass: "status ml-2 p-1"
+  }, [_vm._v(" ! Unverified Account")]) : _vm._e()]), _vm._v(" "), _c("span", [_vm._v("Expiration Date:  " + _vm._s(_vm.user.expr_date))]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.driverAddress))]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.user.email))]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.user.mobile_no))])]), _vm._v(" "), _c("div", {
+    staticClass: "col"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 logout-button"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("button", {
+    staticClass: "button-back btn-warning",
+    attrs: {
+      role: "button"
+    },
+    on: {
+      click: _vm.logout
+    }
+  }, [_vm._v("Logout\n                    "), _c("img", {
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/logout_white_24dp.svg */ "./resources/pics/logout_white_24dp.svg")
+    }
+  })])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "container drivers-links"
   }, [_c("v-app", [_c("v-card", [_c("v-tabs", {
     attrs: {
@@ -10370,7 +10303,7 @@ var render = function render() {
     attrs: {
       src: __webpack_require__(/*! ../../../pics/two_wheeler_white_24dp.svg */ "./resources/pics/two_wheeler_white_24dp.svg")
     }
-  }), _vm._v(" Vehicles                        \n                ")]), _vm._v(" "), _c("v-tab", {
+  }), _vm._v(" Vehicles\n                ")]), _vm._v(" "), _c("v-tab", {
     staticClass: "tabs-title"
   }, [_c("img", {
     staticClass: "mr-2",
@@ -10517,20 +10450,51 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Model: ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.model,
+      expression: "fields.model"
+    }],
     staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-firstname"
+    },
+    domProps: {
+      value: _vm.fields.model
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "model", $event.target.value);
+      }
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Body Type: ")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.body_type,
+      expression: "fields.body_type"
+    }],
     staticClass: "form-select input",
     attrs: {
-      name: "sex",
       "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.fields, "body_type", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
     }
   }, [_c("option", {
     attrs: {
@@ -10558,10 +10522,25 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Color: ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.color,
+      expression: "fields.color"
+    }],
     staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-firstname"
+    },
+    domProps: {
+      value: _vm.fields.color
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "color", $event.target.value);
+      }
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "row g-3 centered"
@@ -10570,30 +10549,75 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Plate No: ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.plate,
+      expression: "fields.plate"
+    }],
     staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-firstname"
+    },
+    domProps: {
+      value: _vm.fields.plate
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "plate", $event.target.value);
+      }
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Serial No: ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.serial,
+      expression: "fields.serial"
+    }],
     staticClass: "form-control",
     attrs: {
       type: "text",
       id: "driver-firstname"
+    },
+    domProps: {
+      value: _vm.fields.serial
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "serial", $event.target.value);
+      }
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Receipt No: ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.receipt_no,
+      expression: "fields.receipt_no"
+    }],
     staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-firstname"
+    },
+    domProps: {
+      value: _vm.fields.receipt_no
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "receipt_no", $event.target.value);
+      }
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "row g-3 centered mb-3"
@@ -10610,9 +10634,24 @@ var render = function render() {
       id: "expiration"
     }
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.expiration,
+      expression: "fields.expiration"
+    }],
     staticClass: "form-control input",
     attrs: {
       type: "text"
+    },
+    domProps: {
+      value: _vm.fields.expiration
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "expiration", $event.target.value);
+      }
     }
   }), _vm._v(" "), _c("span", {
     staticClass: "input-group-append"
@@ -10630,7 +10669,7 @@ var render = function render() {
   }, [_vm._v("Vehicle Photo:")]), _vm._v(" "), _c("input", {
     staticClass: "form-control",
     attrs: {
-      id: "formFile",
+      id: "vehicle_img",
       type: "file",
       accept: "image/png, image/gif, image/jpeg"
     }
@@ -10646,6 +10685,9 @@ var render = function render() {
     staticClass: "button-back btn-success",
     attrs: {
       type: "button"
+    },
+    on: {
+      click: _vm.submitVehicle
     }
   }, [_vm._v("Save")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "container-fluid overflowing me-3"
@@ -10654,105 +10696,93 @@ var render = function render() {
     attrs: {
       id: "accordionExample"
     }
-  }, _vm._l(_vm.plates, function (plate, index) {
-    return _c("div", {
-      key: plate.id,
-      staticClass: "accordion-item"
-    }, [_c("h2", {
-      staticClass: "accordion-header",
-      attrs: {
-        id: "heading" + plate
-      }
-    }, [_c("button", {
-      staticClass: "accordion-button vehicle-body",
-      "class": {
-        collapsed: index !== 0
-      },
-      attrs: {
-        type: "button",
-        "data-bs-toggle": "collapse",
-        "data-bs-target": "#collapse" + plate,
-        "aria-expanded": "true",
-        "aria-controls": "collapse" + plate
-      }
-    }, [_c("div", {
-      staticClass: "row"
-    }, [_c("div", {
-      staticClass: "col-md-2"
-    }, [_c("img", {
-      staticClass: "vehicle-img",
-      attrs: {
-        src: __webpack_require__(/*! ../../../pics/truck.jpg */ "./resources/pics/truck.jpg")
-      }
-    })]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-7"
-    }, [_c("div", {
-      staticClass: "row"
-    }, [_c("div", {
-      staticClass: "col p-0 mt-6"
-    }, [_vm._v("\n                              " + _vm._s(_vm.models[index]) + " - " + _vm._s(_vm.Btypes[index]) + "\n                            ")])]), _vm._v(" "), _c("div", {
-      staticClass: "row"
-    }, [_c("div", {
-      staticClass: "col p-0"
-    }, [_vm._v("\n                              [" + _vm._s(plate) + "]\n                            ")])])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-3"
-    }, [_vm.verified[index] == true ? _c("div", [_c("v-alert", {
-      staticClass: "text-type",
-      attrs: {
-        type: "success"
-      }
-    }, [_vm._v(" Verified!")])], 1) : _c("div", [_c("v-alert", {
-      staticClass: "text-type",
-      attrs: {
-        type: "warning",
-        alt: "Go to the City Tourism Office"
-      }
-    }, [_vm._v(" Unverified!")])], 1)])])])]), _vm._v(" "), _c("div", {
-      staticClass: "accordion-collapse collapse vehicle-accord",
-      attrs: {
-        id: "collapse" + plate,
-        "aria-labelledby": "heading" + plate,
-        "data-bs-parent": "#accordionExample"
-      }
-    }, [_c("div", {
-      staticClass: "accordion-body"
-    }, [_c("div", {
-      staticClass: "row g-2"
-    }, [_c("div", {
-      staticClass: "col-md-3"
-    }, [_c("b", [_vm._v(" Serial: " + _vm._s(_vm.serial[index]) + " ")])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-2"
-    }, [_c("b", [_vm._v("Color: " + _vm._s(_vm.color[index]))])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-2"
-    }, [_c("b", [_vm._v("Reciept No: " + _vm._s(_vm.ReceiptNo[index]))])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-2"
-    }, [_c("b", [_vm._v("Expiration Date: " + _vm._s(_vm.Expiration[index]))])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-3"
-    }, [_c("button", {
-      staticClass: "noselect",
-      attrs: {
-        "data-bs-toggle": "modal",
-        "data-bs-target": "#exampleModal2"
-      }
-    }, [_c("span", {
-      staticClass: "text"
-    }, [_vm._v("Delete")]), _c("span", {
-      staticClass: "icone"
-    }, [_c("svg", {
-      attrs: {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: "24",
-        height: "24",
-        viewBox: "0 0 24 24"
-      }
-    }, [_c("path", {
-      attrs: {
-        d: "M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
-      }
-    })])])])]), _vm._v(" "), _vm.verified[index] == false ? _c("div", {
-      staticClass: "col-md-12 bg-danger text-white"
-    }, [_c("b", [_vm._v(" Note: To verify your vehicle information. Please go to the Tangub City, City Tourism Office!")])]) : _vm._e()])])])]);
-  }), 0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "accordion-item"
+  }, [_c("h2", {
+    staticClass: "accordion-header",
+    attrs: {
+      id: "heading"
+    }
+  }, [_c("button", {
+    staticClass: "accordion-button vehicle-body collapsed",
+    attrs: {
+      type: "button",
+      "data-bs-toggle": "collapse",
+      "data-bs-target": "#collapse",
+      "aria-expanded": "true",
+      "aria-controls": "collapse"
+    }
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-2"
+  }, [_c("img", {
+    staticClass: "vehicle-img",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/truck.jpg */ "./resources/pics/truck.jpg")
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-7"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col p-0 mt-6"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col p-0"
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("div", [_c("v-alert", {
+    staticClass: "text-type",
+    attrs: {
+      type: "success"
+    }
+  }, [_vm._v(" Verified!")])], 1)])])])]), _vm._v(" "), _c("div", {
+    staticClass: "accordion-collapse collapse vehicle-accord",
+    attrs: {
+      id: "collapse",
+      "aria-labelledby": "heading",
+      "data-bs-parent": "#accordionExample"
+    }
+  }, [_c("div", {
+    staticClass: "accordion-body"
+  }, [_c("div", {
+    staticClass: "row g-2"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("b", [_vm._v(" Serial: ")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2"
+  }, [_c("b", [_vm._v("Color: ")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2"
+  }, [_c("b", [_vm._v("Reciept No:")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2"
+  }, [_c("b", [_vm._v("Expiration Date: ")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("button", {
+    staticClass: "noselect",
+    attrs: {
+      "data-bs-toggle": "modal",
+      "data-bs-target": "#exampleModal2"
+    }
+  }, [_c("span", {
+    staticClass: "text"
+  }, [_vm._v("Delete")]), _c("span", {
+    staticClass: "icone"
+  }, [_c("svg", {
+    attrs: {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "24",
+      height: "24",
+      viewBox: "0 0 24 24"
+    }
+  }, [_c("path", {
+    attrs: {
+      d: "M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+    }
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12 bg-danger text-white"
+  }, [_c("b", [_vm._v(" Note: To verify your vehicle information. Please go to the Tangub City, City Tourism Office!")])])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("button", {
     staticClass: "icon-btn add-btn",
@@ -10824,20 +10854,16 @@ var render = function render() {
     attrs: {
       scope: "col"
     }
-  }, [_vm._v("Cost")])])]), _vm._v(" "), _vm._l(_vm.registrationReq, function (req, index) {
-    return _c("tbody", {
-      key: req.name
-    }, [_c("tr", [_c("th", {
-      attrs: {
-        scope: "row"
-      }
-    }, [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(req.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(req.location))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(req.cost))])])]);
-  }), _vm._v(" "), _c("tbody", [_c("tr", [_c("th", {
+  }, [_vm._v("Cost")])])]), _vm._v(" "), _c("tbody", [_c("tr", [_c("th", {
+    attrs: {
+      scope: "row"
+    }
+  }), _vm._v(" "), _c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td")])]), _vm._v(" "), _c("tbody", [_c("tr", [_c("th", {
     attrs: {
       scope: "row",
       colspan: "3"
     }
-  }, [_vm._v("total")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm.subtotal))])])])], 2)])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("total")]), _vm._v(" "), _c("td")])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "accordion-item"
   }, [_c("h2", {
     staticClass: "accordion-header",
@@ -10885,20 +10911,16 @@ var render = function render() {
     attrs: {
       scope: "col"
     }
-  }, [_vm._v("Cost")])])]), _vm._v(" "), _vm._l(_vm.LicenseReq, function (lreq, index) {
-    return _c("tbody", {
-      key: lreq.name
-    }, [_c("tr", [_c("th", {
-      attrs: {
-        scope: "row"
-      }
-    }, [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(lreq.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(lreq.location))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(lreq.cost))])])]);
-  }), _vm._v(" "), _c("tbody", [_c("tr", [_c("th", {
+  }, [_vm._v("Cost")])])]), _vm._v(" "), _c("tbody", [_c("tr", [_c("th", {
+    attrs: {
+      scope: "row"
+    }
+  }), _vm._v(" "), _c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td")])]), _vm._v(" "), _c("tbody", [_c("tr", [_c("th", {
     attrs: {
       scope: "row",
       colspan: "3"
     }
-  }, [_vm._v("total")]), _vm._v(" "), _c("td", [_vm._v("I dont know how")])])])], 2)])])])])])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+  }, [_vm._v("total")]), _vm._v(" "), _c("td", [_vm._v("I dont know how")])])])])])])])])])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
     attrs: {
       flat: ""
     }
@@ -10932,25 +10954,23 @@ var render = function render() {
     attrs: {
       scope: "col"
     }
-  }, [_vm._v("Status")])])]), _vm._v(" "), _vm._l(_vm.violations, function (violation, index) {
-    return _c("tbody", [index >= 0 ? _c("tr", [_c("th", {
-      attrs: {
-        scope: "row"
-      }
-    }, [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.Date))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.fines))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.DayLeft) + " Day(s) left ")]), _vm._v(" "), violation.Status === true ? _c("td", [_vm._v("Settled")]) : _c("td", [_vm._v("Unsettled")])]) : _vm._e()]);
-  }), _vm._v(" "), _c("tbody", [_vm.index > 0 ? _c("tr", [_c("th", {
+  }, [_vm._v("Status")])])]), _vm._v(" "), _c("tbody", [_vm._v('">\n                '), _c("th", {
+    attrs: {
+      scope: "row"
+    }
+  }), _vm._v(" "), _c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td", [_vm._v(" Day(s) left ")]), _vm._v(" "), _c("td")]), _vm._v(" "), _c("tbody", [_c("tr", [_c("th", {
     attrs: {
       colspan: "6"
     }
   }, [_c("div", {
     staticClass: "container bg-primary"
-  }, [_vm._v("\n                    No pending violation! Keep it up!\n                  ")])])]) : _c("tr", [_c("th", {
+  }, [_vm._v("\n                    No pending violation! Keep it up!\n                  ")])])]), _vm._v(" "), _c("tr", [_c("th", {
     attrs: {
       colspan: "6"
     }
   }, [_c("div", {
     staticClass: "container bg-danger"
-  }, [_c("b", [_vm._v("Note: ")]), _vm._v(" Please Settle your violation before the warning date! You may settle your violation\n                      in the City Treasurer's Office by paying the fines or in the legal counsel by doing community\n                      service.\n                  ")])])])])], 2)])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
+  }, [_c("b", [_vm._v("Note: ")]), _vm._v(" Please Settle your violation before the warning date! You may settle your violation\n                      in the City Treasurer's Office by paying the fines or in the legal counsel by doing community\n                      service.\n                  ")])])])])])])])], 1)], 1), _vm._v(" "), _c("v-tab-item", [_c("v-card", {
     attrs: {
       flat: ""
     }
@@ -10961,75 +10981,69 @@ var render = function render() {
     attrs: {
       id: "accordionExample"
     }
-  }, _vm._l(_vm.ordinances, function (ordinance, index) {
-    return _c("div", {
-      key: ordinance.name,
-      staticClass: "accordion-item"
-    }, [_c("h2", {
-      staticClass: "accordion-header",
-      attrs: {
-        id: "heading" + index
-      }
-    }, [_c("button", {
-      staticClass: "accordion-button vehicle-body",
-      "class": {
-        collapsed: index !== 0
-      },
-      attrs: {
-        type: "button",
-        "data-bs-toggle": "collapse",
-        "data-bs-target": "#collapse" + index,
-        "aria-expanded": "true",
-        "aria-controls": "collapse" + index
-      }
-    }, [_c("img", {
-      staticClass: "ordinance-img mr-5",
-      attrs: {
-        src: __webpack_require__(/*! ./../../../pics/feed_white_24dp.svg */ "./resources/pics/feed_white_24dp.svg")
-      }
-    }), _c("h5", [_vm._v(_vm._s(ordinance.name))])])]), _vm._v(" "), _c("div", {
-      staticClass: "accordion-collapse collapse vehicle-accord",
-      attrs: {
-        id: "collapse" + index,
-        "aria-labelledby": "heading" + index,
-        "data-bs-parent": "#accordionExample"
-      }
-    }, [_c("div", {
-      staticClass: "accordion-body"
-    }, [_c("div", {
-      staticClass: "row g-2"
-    }, [_c("div", {
-      staticClass: "col-md-2"
-    }, [_c("h6", [_vm._v(" Description: ")])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-10"
-    }, [_c("b", [_vm._v(_vm._s(ordinance.description))])])]), _vm._v(" "), _c("div", {
-      staticClass: "container ml-0 mt-3"
-    }, [ordinance.offense1 != "" ? _c("div", {
-      staticClass: "row g-0"
-    }, [_c("div", {
-      staticClass: "col-md-2"
-    }, [_c("b", [_vm._v("Date Created: ")])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-4"
-    }, [_c("span", [_vm._v("Php " + _vm._s(ordinance.dateCreated))])])]) : _vm._e(), _vm._v(" "), ordinance.offense1 != "" ? _c("div", {
-      staticClass: "row g-0"
-    }, [_c("div", {
-      staticClass: "col-md-2"
-    }, [_c("b", [_vm._v("First Offense: ")])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-4"
-    }, [_c("span", [_vm._v("Php " + _vm._s(ordinance.offense1))]), _vm._v(" "), ordinance.additional1 != "" ? _c("span", [_vm._v(" " + _vm._s(ordinance.additional1))]) : _vm._e()])]) : _vm._e(), _vm._v(" "), ordinance.offense2 != "" ? _c("div", {
-      staticClass: "row g-0"
-    }, [_c("div", {
-      staticClass: "col-md-2"
-    }, [_c("b", [_vm._v(" Second Offense: ")])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-4"
-    }, [_c("span", [_vm._v("Php " + _vm._s(ordinance.offense2))]), _vm._v(" "), ordinance.additional2 != "" ? _c("span", [_vm._v(" " + _vm._s(ordinance.additional2))]) : _vm._e()])]) : _vm._e(), _vm._v(" "), ordinance.offense3 != "" ? _c("div", {
-      staticClass: "row g-0"
-    }, [_c("div", {
-      staticClass: "col-md-2"
-    }, [_c("b", [_vm._v("Third Offense: ")])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-4"
-    }, [_c("span", [_vm._v("Php " + _vm._s(ordinance.offense3))]), _vm._v(" "), ordinance.additional3 != "" ? _c("span", [_vm._v(" " + _vm._s(ordinance.additional3))]) : _vm._e()])]) : _vm._e()])])])]);
-  }), 0)])])], 1)], 1)], 1)], 1)], 1)], 1)]);
+  }, [_c("div", {
+    staticClass: "accordion-item"
+  }, [_c("h2", {
+    staticClass: "accordion-header",
+    attrs: {
+      id: "heading"
+    }
+  }, [_c("button", {
+    staticClass: "accordion-button vehicle-body collapsed",
+    attrs: {
+      type: "button",
+      "data-bs-toggle": "collapse",
+      "data-bs-target": "#collapse",
+      "aria-expanded": "true",
+      "aria-controls": "collapse"
+    }
+  }, [_c("img", {
+    staticClass: "ordinance-img mr-5",
+    attrs: {
+      src: __webpack_require__(/*! ./../../../pics/feed_white_24dp.svg */ "./resources/pics/feed_white_24dp.svg")
+    }
+  }), _c("h5")])]), _vm._v(" "), _c("div", {
+    staticClass: "accordion-collapse collapse vehicle-accord",
+    attrs: {
+      id: "collapse",
+      "aria-labelledby": "heading",
+      "data-bs-parent": "#accordionExample"
+    }
+  }, [_c("div", {
+    staticClass: "accordion-body"
+  }, [_c("div", {
+    staticClass: "row g-2"
+  }, [_c("div", {
+    staticClass: "col-md-2"
+  }, [_c("h6", [_vm._v(" Description: ")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-10"
+  }, [_c("b")])]), _vm._v(" "), _c("div", {
+    staticClass: "container ml-0 mt-3"
+  }, [_c("div", {
+    staticClass: "row g-0"
+  }, [_c("div", {
+    staticClass: "col-md-2"
+  }, [_c("b", [_vm._v("Date Created: ")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("span", [_vm._v("Php ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "row g-0"
+  }, [_c("div", {
+    staticClass: "col-md-2"
+  }, [_c("b", [_vm._v("First Offense: ")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("span", [_vm._v("Php ")]), _vm._v(" "), _c("span")])]), _vm._v(" "), _c("div", {
+    staticClass: "row g-0"
+  }, [_c("div", {
+    staticClass: "col-md-2"
+  }, [_c("b", [_vm._v(" Second Offense: ")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("span", [_vm._v("Php ")]), _vm._v(" "), _c("span")])]), _vm._v(" "), _c("div", {
+    staticClass: "row g-0"
+  }, [_c("div", {
+    staticClass: "col-md-2"
+  }, [_c("b", [_vm._v("Third Offense: ")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("span", [_vm._v("Php ")]), _vm._v(" "), _c("span")])])])])])])])])])], 1)], 1)], 1)], 1)], 1)], 1)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -11363,7 +11377,9 @@ var render = function render() {
         _vm.$set(_vm.fields, "fname", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), this.errors.fname ? _c("span", {
+    staticClass: "c-error"
+  }, [_vm._v("\n                            " + _vm._s(this.errors.fname[0]) + "\n                        ")]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
@@ -11388,7 +11404,9 @@ var render = function render() {
         _vm.$set(_vm.fields, "lname", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), this.errors.lname ? _c("span", {
+    staticClass: "c-error"
+  }, [_vm._v("\n                            " + _vm._s(this.errors.lname[0]) + "\n                        ")]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
@@ -11418,12 +11436,27 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Suffix: ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.suffix,
+      expression: "fields.suffix"
+    }],
     staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-suffix",
       placeholder: "SR.",
       maxlength: "3"
+    },
+    domProps: {
+      value: _vm.fields.suffix
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "suffix", $event.target.value);
+      }
     }
   })])])]), _vm._v(" "), _c("div", {
     staticClass: "container-fluid register-fills"
@@ -11434,10 +11467,27 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Sex: ")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.sex,
+      expression: "fields.sex"
+    }],
     staticClass: "form-select input",
     attrs: {
       name: "sex",
       "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.fields, "sex", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
     }
   }, [_c("option", {
     attrs: {
@@ -11465,9 +11515,24 @@ var render = function render() {
       id: "birthdate"
     }
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.bdate,
+      expression: "fields.bdate"
+    }],
     staticClass: "form-control",
     attrs: {
       type: "text"
+    },
+    domProps: {
+      value: _vm.fields.bdate
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "bdate", $event.target.value);
+      }
     }
   }), _vm._v(" "), _c("span", {
     staticClass: "input-group-append"
@@ -11485,7 +11550,7 @@ var render = function render() {
   }, [_vm._v("Picture(2by2):")]), _vm._v(" "), _c("input", {
     staticClass: "form-control",
     attrs: {
-      id: "formFile",
+      id: "pic",
       type: "file",
       accept: "image/png, image/gif, image/jpeg"
     }
@@ -11500,47 +11565,116 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Province:")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.province,
+      expression: "fields.province"
+    }],
     staticClass: "form-select input",
     attrs: {
-      name: "province",
       "aria-label": "Default select example"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.fields, "province", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, _vm.loadCity]
     }
   }, [_c("option", {
     attrs: {
       selected: "",
       disabled: ""
     }
-  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Select")]), _vm._v(" "), _vm._l(_vm.provinces, function (item, index) {
+    return _c("option", {
+      key: index,
+      domProps: {
+        value: item.provCode
+      }
+    }, [_vm._v(_vm._s(item.provDesc))]);
+  })], 2)]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("City:")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.city,
+      expression: "fields.city"
+    }],
     staticClass: "form-select input",
     attrs: {
-      name: "city",
       "aria-label": "Default select example"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.fields, "city", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, _vm.loadBarangay]
     }
   }, [_c("option", {
     attrs: {
       selected: "",
       disabled: ""
     }
-  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Select")]), _vm._v(" "), _vm._l(_vm.cities, function (item, index) {
+    return _c("option", {
+      key: index,
+      domProps: {
+        value: item.citymunCode
+      }
+    }, [_vm._v(_vm._s(item.citymunDesc))]);
+  })], 2)]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Barangay:")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.barangay,
+      expression: "fields.barangay"
+    }],
     staticClass: "form-select input",
     attrs: {
-      name: "barangay",
       "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.fields, "barangay", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
     }
   }, [_c("option", {
     attrs: {
       selected: "",
       disabled: ""
     }
-  }, [_vm._v("Select")])])])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+  }, [_vm._v("Select")]), _vm._v(" "), _vm._l(_vm.barangays, function (item, index) {
+    return _c("option", {
+      key: index,
+      domProps: {
+        value: item.brgyCode
+      }
+    }, [_vm._v(_vm._s(item.brgyDesc))]);
+  })], 2)])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid register-fills"
   }, [_c("b", [_vm._v("Contact Information")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid mb-5"
@@ -11551,22 +11685,56 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Email:")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.email,
+      expression: "fields.email"
+    }],
     staticClass: "form-control input",
     attrs: {
       type: "email",
       id: "driver-email"
+    },
+    domProps: {
+      value: _vm.fields.email
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "email", $event.target.value);
+      }
     }
-  })]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), this.errors.email ? _c("span", {
+    staticClass: "c-error"
+  }, [_vm._v("\n                            " + _vm._s(this.errors.email[0]) + "\n                        ")]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Mobile Number:")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.mobile_no,
+      expression: "fields.mobile_no"
+    }],
     staticClass: "form-control input",
     attrs: {
       type: "number",
       id: "driver-number"
+    },
+    domProps: {
+      value: _vm.fields.mobile_no
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "mobile_no", $event.target.value);
+      }
     }
-  })])])]), _vm._v(" "), _c("hr")]), _vm._v(" "), _c("v-btn", {
+  }), _vm._v(" "), this.errors.mobile_no ? _c("span", {
+    staticClass: "c-error"
+  }, [_vm._v("\n                            " + _vm._s(this.errors.mobile_no[0]) + "\n                        ")]) : _vm._e()])])]), _vm._v(" "), _c("hr")]), _vm._v(" "), _c("v-btn", {
     attrs: {
       color: "primary"
     },
@@ -11637,9 +11805,24 @@ var render = function render() {
       id: "license"
     }
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.expr,
+      expression: "fields.expr"
+    }],
     staticClass: "form-control",
     attrs: {
       type: "text"
+    },
+    domProps: {
+      value: _vm.fields.expr
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "expr", $event.target.value);
+      }
     }
   }), _vm._v(" "), _c("span", {
     staticClass: "input-group-append"
@@ -11692,10 +11875,25 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Username: ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.username,
+      expression: "fields.username"
+    }],
     staticClass: "form-control input",
     attrs: {
       type: "text",
       id: "driver-firstname"
+    },
+    domProps: {
+      value: _vm.fields.username
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "username", $event.target.value);
+      }
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "row g-2 centers"
@@ -11704,10 +11902,25 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Password: ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.password,
+      expression: "fields.password"
+    }],
     staticClass: "form-control input",
     attrs: {
       type: "password",
       id: "driver-password"
+    },
+    domProps: {
+      value: _vm.fields.password
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "password", $event.target.value);
+      }
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "row g-2 centers"
@@ -11716,10 +11929,25 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Repeat Password: ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.password_confirmation,
+      expression: "fields.password_confirmation"
+    }],
     staticClass: "form-control input",
     attrs: {
       type: "password",
       id: "driver-reppassword"
+    },
+    domProps: {
+      value: _vm.fields.password_confirmation
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.fields, "password_confirmation", $event.target.value);
+      }
     }
   })])])], 1)]), _vm._v(" "), _c("v-btn", {
     attrs: {
@@ -19446,7 +19674,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "[data-v-6af40d1e] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.register-body[data-v-6af40d1e] {\n  opacity: 0.7;\n  animation-name: to-left;\n  animation-duration: 1s;\n}\n.register-div[data-v-6af40d1e] {\n  margin-top: 20px;\n  width: 70%;\n}\n.register-fills[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 5px;\n}\n.overflowing[data-v-6af40d1e] {\n  overflow-y: auto;\n  overflow-x: hidden;\n}\n.icons[data-v-6af40d1e] {\n  font-size: 25px;\n}\nlabel[data-v-6af40d1e] {\n  font-size: 12px;\n}\nb[data-v-6af40d1e] {\n  font-size: 15px;\n}\n.form-control[data-v-6af40d1e], .form-select[data-v-6af40d1e], .input-group[data-v-6af40d1e] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.input[data-v-6af40d1e] {\n  transition: 0.5s linear;\n}\n.input[data-v-6af40d1e]:focus {\n  color: #1d1d1d;\n  box-shadow: 4px 4px 10px #070707;\n}\n.input[data-v-6af40d1e]:focus::-moz-placeholder {\n  color: #fa4753;\n}\n.input[data-v-6af40d1e]:focus::placeholder {\n  color: #fa4753;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "[data-v-6af40d1e] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.register-body[data-v-6af40d1e] {\n  opacity: 0.7;\n  animation-name: to-left;\n  animation-duration: 1s;\n}\n.register-div[data-v-6af40d1e] {\n  margin-top: 20px;\n  width: 70%;\n}\n.register-fills[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 5px;\n}\n.overflowing[data-v-6af40d1e] {\n  overflow-y: auto;\n  overflow-x: hidden;\n}\n.icons[data-v-6af40d1e] {\n  font-size: 25px;\n}\nlabel[data-v-6af40d1e] {\n  font-size: 12px;\n}\nb[data-v-6af40d1e] {\n  font-size: 15px;\n}\n.form-control[data-v-6af40d1e], .form-select[data-v-6af40d1e], .input-group[data-v-6af40d1e] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.input[data-v-6af40d1e] {\n  transition: 0.5s linear;\n}\n.input[data-v-6af40d1e]:focus {\n  color: #1d1d1d;\n  box-shadow: 4px 4px 10px #070707;\n}\n.input[data-v-6af40d1e]:focus::-moz-placeholder {\n  color: #fa4753;\n}\n.input[data-v-6af40d1e]:focus::placeholder {\n  color: #fa4753;\n}\n.c-error[data-v-6af40d1e] {\n  font-weight: bold;\n  font-size: 1em;\n  color: red;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

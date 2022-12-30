@@ -33,8 +33,8 @@ class User extends Authenticatable
         'pic_path',
         'province', 'city', 'barangay', 'street',
         'email', 'mobile_no', 
-        'id_type', 
-        'id_no', 
+        'driver_license_type',
+        'driver_license_no', 
         'expr_date',
         'is_verified',
         'password',
@@ -59,4 +59,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    //Eloguent
+    public function province(){
+        return $this->hasOne(Province::class, 'provCode', 'province');
+    }
+
+    public function city(){
+        return $this->hasOne(City::class, 'citymunCode', 'city');
+    }
+
+    public function barangay(){
+        return $this->hasOne(Barangay::class, 'brgyCode', 'barangay');
+    }
+
+
 }

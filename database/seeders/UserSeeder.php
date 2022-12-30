@@ -34,9 +34,7 @@ class UserSeeder extends Seeder
                 'street' => 'P-6',
                 'email' => 'jan@dev.com',
                 'mobile_no' => '1234567878',
-
-                'id_type' => 'DRIVERS LICENSE',
-                'id_no' => 'K09-12-1345679',
+                'driver_license_no' => 'K09-12-1345679',
                 'expr_date' => '2025-06-12',
                 'role' => 'DRIVER',
                 'password' => Hash::make('a')

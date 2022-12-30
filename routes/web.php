@@ -13,6 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes([
+    'login' => false,
+    'register' => false
+]);
+
+
+//ADDRESS
+Route::get('/load-provinces', [App\Http\Controllers\AddressController::class, 'loadProvinces']);
+Route::get('/load-cities', [App\Http\Controllers\AddressController::class, 'loadCities']);
+Route::get('/load-barangays', [App\Http\Controllers\AddressController::class, 'loadBarangays']);
+
+
+
+
 Route::get('/', function () {
     return view('homepage/home');
 });
@@ -58,21 +72,16 @@ Route::get('/driver-register', [App\Http\Controllers\Driver\DriverRegisterContro
 Route::post('/driver-register', [App\Http\Controllers\Driver\DriverRegisterController::class, 'store']);
 
 Route::get('/driver-dashboard', [App\Http\Controllers\Driver\DriverDashboardController::class, 'index']);
+Route::post('/submit-vehicle-info', [App\Http\Controllers\Driver\DriverDashboardController::class, 'store']);
 
-Route::get('/test', function(){
-    return view('test');
-});
+Route::get('/get-driver', [App\Http\Controllers\Driver\DriverDashboardController::class, 'getDriver']);
+
 
 
 //-----------------DRIVER ROUTES----------------------
 
 
 
-
-Auth::routes([
-    'login' => false,
-    'register' => false
-]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -82,8 +91,24 @@ Route::get('/cto', [App\Http\Controllers\CtoController::class, 'index'])->name('
 
 
 
-//extra routes for testing only
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//extra routes for testing only
 Route::get('/session', function(){
     return Session::all();
 });
@@ -95,4 +120,8 @@ Route::get('/applogout', function(Request $req){
     $req->session()->regenerateToken();
 
 
+});
+
+Route::get('/test', function(){
+    return view('test');
 });
