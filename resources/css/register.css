@@ -1,0 +1,76 @@
+::v-deep .v-application--wrap {
+    min-height: fit-content;
+  }
+
+  .form-registration{
+    padding: 15px;
+  }
+  .register-body{
+    opacity: .7;
+    animation-name: to-left;
+    animation-duration: 1s;
+  }
+
+  .card-header{
+    padding: 15px;
+    margin: 15px 0;
+  }
+  .card-section-text{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.4em;
+  }
+
+  .button-term{
+    cursor: pointer;
+  }
+  .text-info{
+    margin: 15px 0;
+  }
+
+  .overflowing{
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .icons{
+    font-size: 25px;
+  }
+
+
+label{
+    font-size: 12px;
+}
+b{
+    font-size: 15px;
+}
+.form-control,.form-select,.input-group{
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.centers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input {
+  transition: .5s linear;
+}
+
+.input:focus {
+  color: #1d1d1d;
+  box-shadow: 4px 4px 10px #070707;
+}
+
+.input:focus::placeholder {
+  color: #fa4753;
+}
+
+.c-error{
+    font-weight: bold;
+    font-size: .7em;
+    color: rgb(204, 207, 13);
+}
+.skip{
+    font-size: smaller;
+    
+}

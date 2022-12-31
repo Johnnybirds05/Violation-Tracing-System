@@ -17,6 +17,13 @@ class DriverRegisterController extends Controller
     }
 
     public function store(Request $req){
+        return $req;
+        if($req->terms == false){
+            return response()->json([
+                'status' => 'terms'
+            ], 422);
+        }
+        return;
 
         $dob = date("Y-m-d", strtotime($req->bdate));
         $expr = date("Y-m-d", strtotime($req->expr));
@@ -30,6 +37,7 @@ class DriverRegisterController extends Controller
             'email' => ['required', 'unique:users'],
             'password' => ['required', 'string', 'confirmed'],
             'mobile_no' => ['required'],
+            
 
 //            'province' => ['required', 'string'],
 //            'city' => ['required', 'string'],
