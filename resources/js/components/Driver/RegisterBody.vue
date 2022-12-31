@@ -44,10 +44,16 @@
                                     <v-text-field
                                         v-model="fields.fname"
                                         :rules="validate.fnameRules"
-                                        label="First Name"
                                         outlined
                                         clearable
-                                    ></v-text-field>
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account
+                                        </v-icon>
+                                        First Name
+                                    </template>
+                                </v-text-field>
                                 </v-col>
 
                                 <v-col
@@ -374,7 +380,7 @@
                             </div>
                             <div class="row g-0  centers ">
                                 <div class="col-md-3 ml-7">
-                                    <div class="d-flex">
+                                    <div class="">
                                         <input class="form-check-input" v-model="fields.terms" type="checkbox" value="" id="flexCheckChecked" checked>
                                         <!-- <label class="form-check-label">
                                             Agree to Terms and Conditions
