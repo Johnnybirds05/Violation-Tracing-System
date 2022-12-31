@@ -833,7 +833,7 @@
 
                                 <div class="col-md-3">
                                     <label for="date" class="form-label">Expiration Date: </label>
-                                    <div class="input-group date" id="expiration">
+                                    <div class="input-group date" id="vehicle">
                                         <input type="text" class="form-control input">
                                         <span class="input-group-append">
                                             <span class="input-group-text bg-white">
@@ -949,13 +949,17 @@
                                     <input type="text" class="form-control input" id="driver-firstname">
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <label class="form-label"> Middle Name: </label>
                                     <input type="text" class="form-control input" id="driver-firstname">
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label"> Last Name: </label>
                                     <input type="text" class="form-control input" id="driver-firstname">
+                                </div>
+                                <div class="col-md-1">
+                                    <label class="form-label">Suffix: </label>
+                                    <input type="text" class="form-control input" id="driver-suffix" placeholder="SR." maxlength="3">
                                 </div>
                             </div>  
                         </div>

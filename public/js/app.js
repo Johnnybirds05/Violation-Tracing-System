@@ -8131,23 +8131,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/Alerts.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/Alerts.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['ToggleAlert']
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=js& ***!
@@ -8178,6 +8161,9 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.intiData();
     this.getUser();
+    $(function () {
+      $('#expiration').datepicker();
+    });
   },
   data: function data() {
     return {
@@ -8310,10 +8296,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Alerts_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Alerts.vue */ "./resources/js/components/Driver/Alerts.vue");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -8323,20 +8305,6 @@ __webpack_require__.r(__webpack_exports__);
       provinces: [],
       cities: [],
       barangays: []
-    };
-  },
-  setup: function setup() {
-    var AlertTrigger = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)({
-      buttonTrigger: false,
-      timedTrigger: false
-    });
-    var ToggleAlert = function ToggleAlert(trigger) {
-      AlertTrigger.value[trigger] = !AlertTrigger.value[trigger];
-    };
-    return {
-      Alerts: _Alerts_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-      AlertTrigger: AlertTrigger,
-      ToggleAlert: ToggleAlert
     };
   },
   methods: {
@@ -9260,6 +9228,45 @@ __webpack_require__.r(__webpack_exports__);
     },
     updateItemsPerPageViolation: function updateItemsPerPageViolation(number) {
       this.itemsPerPageViolation = number;
+    },
+    showDriver: function showDriver() {
+      // Get the checkbox
+      var checkBox = document.getElementById("myCheck");
+      // Get the output text
+      var text = document.getElementById("text");
+
+      // If the checkbox is checked, display the output text
+      if (checkBox.checked == true) {
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    },
+    showViolations: function showViolations() {
+      // Get the checkbox
+      var checkBox = document.getElementById("myCheck1");
+      // Get the output text
+      var text = document.getElementById("text1");
+
+      // If the checkbox is checked, display the output text
+      if (checkBox.checked == true) {
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    },
+    showGuadians: function showGuadians() {
+      // Get the checkbox
+      var checkBox = document.getElementById("myCheck2");
+      // Get the output text
+      var text = document.getElementById("text2");
+
+      // If the checkbox is checked, display the output text
+      if (checkBox.checked == true) {
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
     }
   },
   mounted: function mounted() {
@@ -10141,52 +10148,6 @@ var staticRenderFns = [function () {
     }
   }, [_vm._v("Save")])]);
 }];
-render._withStripped = true;
-
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/Alerts.vue?vue&type=template&id=b764f1ba&scoped=true&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/Alerts.vue?vue&type=template&id=b764f1ba&scoped=true& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function render() {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("v-app", [_c("div", {
-    staticClass: "container-fluid"
-  }, [_c("div", {
-    staticClass: "container"
-  }, [_vm._t("default"), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
-  }, [_c("v-alert", {
-    staticClass: "text-center",
-    attrs: {
-      type: "success"
-    }
-  }, [_c("b", [_vm._v("You are now registered to the System!")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("v-btn", {
-    staticClass: "ma-2",
-    attrs: {
-      loading: _vm.loading,
-      disabled: _vm.loading,
-      color: "primary"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.ToggleAlert();
-      }
-    }
-  }, [_vm._v("\n            proceed\n            ")])], 1)], 1)], 2)])]);
-};
-var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -11379,7 +11340,7 @@ var render = function render() {
     }
   }), _vm._v(" "), this.errors.fname ? _c("span", {
     staticClass: "c-error"
-  }, [_vm._v("\n                            " + _vm._s(this.errors.fname[0]) + "\n                        ")]) : _vm._e()]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\r\n                            " + _vm._s(this.errors.fname[0]) + "\r\n                        ")]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
@@ -11406,7 +11367,7 @@ var render = function render() {
     }
   }), _vm._v(" "), this.errors.lname ? _c("span", {
     staticClass: "c-error"
-  }, [_vm._v("\n                            " + _vm._s(this.errors.lname[0]) + "\n                        ")]) : _vm._e()]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\r\n                            " + _vm._s(this.errors.lname[0]) + "\r\n                        ")]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
@@ -11674,7 +11635,17 @@ var render = function render() {
         value: item.brgyCode
       }
     }, [_vm._v(_vm._s(item.brgyDesc))]);
-  })], 2)])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Street: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-middlename"
+    }
+  })])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid register-fills"
   }, [_c("b", [_vm._v("Contact Information")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid mb-5"
@@ -11707,7 +11678,7 @@ var render = function render() {
     }
   }), _vm._v(" "), this.errors.email ? _c("span", {
     staticClass: "c-error"
-  }, [_vm._v("\n                            " + _vm._s(this.errors.email[0]) + "\n                        ")]) : _vm._e()]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\r\n                            " + _vm._s(this.errors.email[0]) + "\r\n                        ")]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
@@ -11734,7 +11705,7 @@ var render = function render() {
     }
   }), _vm._v(" "), this.errors.mobile_no ? _c("span", {
     staticClass: "c-error"
-  }, [_vm._v("\n                            " + _vm._s(this.errors.mobile_no[0]) + "\n                        ")]) : _vm._e()])])]), _vm._v(" "), _c("hr")]), _vm._v(" "), _c("v-btn", {
+  }, [_vm._v("\r\n                            " + _vm._s(this.errors.mobile_no[0]) + "\r\n                        ")]) : _vm._e()])])]), _vm._v(" "), _c("hr")]), _vm._v(" "), _c("v-btn", {
     attrs: {
       color: "primary"
     },
@@ -11743,7 +11714,7 @@ var render = function render() {
         _vm.e1 = 2;
       }
     }
-  }, [_vm._v("\n            Next\n        ")])], 1), _vm._v(" "), _c("v-stepper-content", {
+  }, [_vm._v("\r\n            Next\r\n        ")])], 1), _vm._v(" "), _c("v-stepper-content", {
     attrs: {
       step: "2"
     }
@@ -11755,7 +11726,11 @@ var render = function render() {
     }
   }, [_c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid register-fills"
-  }, [_c("b", [_vm._v("Driver's License Information")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+  }, [_c("b", [_vm._v("Driver's License Information")])]), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid register-fills"
+  }, [_c("span", {
+    staticClass: "skip"
+  }, [_vm._v("(click next if none...)")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid"
   }, [_c("div", {
     staticClass: "row g-2 centers"
@@ -11839,7 +11814,7 @@ var render = function render() {
         _vm.e1 = 3;
       }
     }
-  }, [_vm._v("\n                    Next\n                ")]), _vm._v(" "), _c("v-btn", {
+  }, [_vm._v("\r\n                    Next\r\n                ")]), _vm._v(" "), _c("v-btn", {
     attrs: {
       color: "grey darken-3"
     },
@@ -11848,7 +11823,7 @@ var render = function render() {
         _vm.e1 = 1;
       }
     }
-  }, [_vm._v("\n                    Back\n                ")])], 1), _vm._v(" "), _c("v-stepper-content", {
+  }, [_vm._v("\r\n                    Back\r\n                ")])], 1), _vm._v(" "), _c("v-stepper-content", {
     attrs: {
       step: "3"
     }
@@ -11862,13 +11837,7 @@ var render = function render() {
     staticClass: "container-fluid register-fills"
   }, [_c("b", [_vm._v("Account Information")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container-fluid"
-  }, [_vm.AlertTrigger.buttonTrigger ? _c("Alerts", {
-    attrs: {
-      ToggleAlert: function ToggleAlert() {
-        return _vm.ToggleAlert("buttonTrigger");
-      }
-    }
-  }) : _vm._e(), _vm._v(" "), _c("div", {
+  }, [_c("div", {
     staticClass: "row g-2 centers"
   }, [_c("div", {
     staticClass: "col-md-5"
@@ -11949,14 +11918,34 @@ var render = function render() {
         _vm.$set(_vm.fields, "password_confirmation", $event.target.value);
       }
     }
-  })])])], 1)]), _vm._v(" "), _c("v-btn", {
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row g-0 centers"
+  }, [_c("div", {
+    staticClass: "col-md-3 ml-7"
+  }, [_c("div", {
+    staticClass: "form-check"
+  }, [_c("input", {
+    staticClass: "form-check-input",
     attrs: {
-      color: "light-green darken-3"
-    },
-    on: {
-      click: _vm.submit
+      type: "checkbox",
+      value: "",
+      id: "flexCheckChecked",
+      checked: ""
     }
-  }, [_vm._v("\n                    Submit\n                ")]), _vm._v(" "), _c("v-btn", {
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "flexCheckChecked",
+      "data-bs-toggle": "modal",
+      "data-bs-target": "#terms"
+    }
+  }, [_vm._v("\r\n                                Agree to Terms and Conditions\r\n                            ")])])])])])]), _vm._v(" "), _c("v-btn", {
+    attrs: {
+      color: "light-green darken-3",
+      "data-bs-toggle": "modal",
+      "data-bs-target": "#regDriver"
+    }
+  }, [_vm._v("\r\n                    Submit\r\n                ")]), _vm._v(" "), _c("v-btn", {
     attrs: {
       color: "grey darken-3"
     },
@@ -11965,9 +11954,118 @@ var render = function render() {
         _vm.e1 = 2;
       }
     }
-  }, [_vm._v("\n                    Back\n                ")])], 1)], 1)], 1)], 1)], 1);
+  }, [_vm._v("\r\n                    Back\r\n                ")])], 1)], 1)], 1)], 1), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "regDriver",
+      tabindex: "-1",
+      "aria-labelledby": "exampleModalLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered"
+  }, [_c("div", {
+    staticClass: "modal-content bg-dark"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "modal-body text-white"
+  }, [_vm._v("\r\n                            Are you sure you want register to the system?\r\n                        ")]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "button-back btn-success",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal"
+    }
+  }, [_vm._v("Close")]), _vm._v(" "), _c("button", {
+    staticClass: "button-back btn-danger",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal"
+    },
+    on: {
+      click: _vm.submit
+    }
+  }, [_vm._v("Save")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "terms",
+      "data-bs-backdrop": "static",
+      "data-bs-keyboard": "false",
+      tabindex: "-1",
+      "aria-labelledby": "staticBackdropLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"
+  }, [_c("div", {
+    staticClass: "modal-content bg-dark"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_vm._m(1), _vm._v(" "), _c("v-spacer"), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  })], 1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)])])])], 1);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title text-white",
+    attrs: {
+      id: "exampleModalLabel"
+    }
+  }, [_vm._v("Information")]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h5", {
+    staticClass: "modal-title text-white",
+    attrs: {
+      id: "staticBackdropLabel"
+    }
+  }, [_c("img", {
+    staticClass: "driver-icon",
+    attrs: {
+      src: __webpack_require__(/*! ../../../pics/stacked_bar_chart_white_24dp.svg */ "./resources/pics/stacked_bar_chart_white_24dp.svg"),
+      alt: "..."
+    }
+  }), _vm._v("\r\n                                Terms and Conditions")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal-body text-white"
+  }, [_c("h2", [_vm._v("VAVTS Terms of Use")]), _vm._v(" "), _c("p", [_vm._v("Version 1.0")]), _vm._v(" "), _c("p", [_vm._v("The VAVTS website located at www.vavts.com is a copyrighted work belonging to Vehicle Assistant and Violation Tracing System. Certain features of the Site may be subject to additional guidelines, terms, or rules, which will be posted on the Site in connection with such features.")]), _vm._v(" "), _c("p", [_vm._v("All such additional terms, guidelines, and rules are incorporated by reference into these Terms.")]), _vm._v(" "), _c("p", [_vm._v("These Terms of Use described the legally binding terms and conditions that oversee your use of the Site. BY LOGGING INTO THE SITE, YOU ARE BEING COMPLIANT THAT THESE TERMS and you represent that you have the authority and capacity to enter into these Terms. YOU SHOULD BE AT LEAST 18 YEARS OF AGE TO ACCESS THE SITE. IF YOU DISAGREE WITH ALL OF THE PROVISION OF THESE TERMS, DO NOT LOG INTO AND/OR USE THE SITE.")]), _c("p"), _c("p", [_vm._v("These terms require the use of arbitration Section 10.2 on an individual basis to resolve disputes and also limit the remedies available to you in the event of a dispute. These Terms of Use were created with the help of the "), _c("a", {
+    attrs: {
+      href: "https://www.termsofusegenerator.net"
+    }
+  }, [_vm._v("Terms Of Use Generator")]), _vm._v(".")]), _vm._v(" "), _c("h2", [_vm._v("Access to the Site")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Subject to these Terms.")]), _vm._v(" Company grants you a non-transferable, non-exclusive, revocable, limited license to access the Site solely for your own personal, noncommercial use.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Certain Restrictions.")]), _vm._v(" The rights approved to you in these Terms are subject to the following restrictions: (a) you shall not sell, rent, lease, transfer, assign, distribute, host, or otherwise commercially exploit the Site; (b) you shall not change, make derivative works of, disassemble, reverse compile or reverse engineer any part of the Site; (c) you shall not access the Site in order to build a similar or competitive website; and (d) except as expressly stated herein, no part of the Site may be copied, reproduced, distributed, republished, downloaded, displayed, posted or transmitted in any form or by any means unless otherwise indicated, any future release, update, or other addition to functionality of the Site shall be subject to these Terms.  All copyright and other proprietary notices on the Site must be retained on all copies thereof.")]), _vm._v(" "), _c("p", [_vm._v("Company reserves the right to change, suspend, or cease the Site with or without notice to you.  You approved that Company will not be held liable to you or any third-party for any change, interruption, or termination of the Site or any part.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("No Support or Maintenance.")]), _vm._v(" You agree that Company will have no obligation to provide you with any support in connection with the Site.")]), _vm._v(" "), _c("p", [_vm._v("Excluding any User Content that you may provide, you are aware that all the intellectual property rights, including copyrights, patents, trademarks, and trade secrets, in the Site and its content are owned by Company or Company’s suppliers. Note that these Terms and access to the Site do not give you any rights, title or interest in or to any intellectual property rights, except for the limited access rights expressed in Section 2.1. Company and its suppliers reserve all rights not granted in these Terms.")]), _vm._v(" "), _c("h2", [_vm._v("User Content")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("User Content.")]), _vm._v(' "User Content" means any and all information and content that a user submits to the Site. You are exclusively responsible for your User Content. You bear all risks associated with use of your User Content.  You hereby certify that your User Content does not violate our Acceptable Use Policy.  You may not represent or imply to others that your User Content is in any way provided, sponsored or endorsed by Company. Because you alone are responsible for your User Content, you may expose yourself to liability. Company is not obliged to backup any User Content that you post; also, your User Content may be deleted at any time without prior notice to you. You are solely responsible for making your own backup copies of your User Content if you desire.')]), _vm._v(" "), _c("p", [_vm._v("You hereby grant to Company an irreversible, nonexclusive, royalty-free and fully paid, worldwide license to reproduce, distribute, publicly display and perform, prepare derivative works of, incorporate into other works, and otherwise use and exploit your User Content, and to grant sublicenses of the foregoing rights, solely for the purposes of including your User Content in the Site.  You hereby irreversibly waive any claims and assertions of moral rights or attribution with respect to your User Content.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Acceptable Use Policy.")]), _vm._v(' The following terms constitute our "Acceptable Use Policy":\r\n                            You agree not to use the Site to collect, upload, transmit, display, or distribute any User Content (i) that violates any third-party right or any intellectual property or proprietary right; (ii) that is unlawful, harassing, abusive, tortious, threatening, harmful, invasive of another’s privacy, vulgar, defamatory, false, intentionally misleading, trade libelous, pornographic, obscene, patently offensive, promotes racism, bigotry, hatred, or physical harm of any kind against any group or individual; (iii) that is harmful to minors in any way; or (iv) that is in violation of any law, regulation, or obligations or restrictions imposed by any third party.')]), _vm._v(" "), _c("p", [_vm._v("In addition, you agree not to: (i) upload, transmit, or distribute to or through the Site any software intended to damage or alter a computer system or data; (ii) send through the Site unsolicited or unauthorized advertising, promotional materials, junk mail, spam, chain letters, pyramid schemes, or any other form of duplicative or unsolicited messages; (iii) use the Site to harvest, collect, gather or assemble information or data regarding other users without their consent; (iv) interfere with, disrupt, or create an undue burden on servers or networks connected to the Site, or violate the regulations, policies or procedures of such networks; (v) attempt to gain unauthorized access to the Site, whether through password mining or any other means; (vi) harass or interfere with any other user’s use and enjoyment of the Site; or (vi) use software or automated agents or scripts to produce multiple accounts on the Site, or to generate automated searches, requests, or queries to the Site.")]), _vm._v(" "), _c("p", [_vm._v("We reserve the right to review any User Content, and to investigate and/or take appropriate action against you in our sole discretion if you violate the Acceptable Use Policy or any other provision of these Terms or otherwise create liability for us or any other person. Such action may include removing or modifying your User Content, terminating your Account in accordance with Section 8, and/or reporting you to law enforcement authorities.")]), _vm._v(" "), _c("p", [_vm._v("If you provide Company with any feedback or suggestions regarding the Site, you hereby assign to Company all rights in such Feedback and agree that Company shall have the right to use and fully exploit such Feedback and related information in any manner it believes appropriate.  Company will treat any Feedback you provide to Company as non-confidential and non-proprietary.")]), _vm._v(" "), _c("p", [_vm._v("You agree to indemnify and hold Company and its officers, employees, and agents harmless, including costs and attorneys’ fees, from any claim or demand made by any third-party due to or arising out of (a) your use of the Site, (b) your violation of these Terms, (c) your violation of applicable laws or regulations or (d) your User Content.  Company reserves the right to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate with our defense of these claims.  You agree not to settle any matter without the prior written consent of Company.  Company will use reasonable efforts to notify you of any such claim, action or proceeding upon becoming aware of it.")]), _vm._v(" "), _c("h2", [_vm._v("Third-Party Links & Ads; Other Users")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Third-Party Links & Ads.")]), _vm._v(" The Site may contain links to third-party websites and services, and/or display advertisements for third-parties.  Such Third-Party Links & Ads are not under the control of Company, and Company is not responsible for any Third-Party Links & Ads.  Company provides access to these Third-Party Links & Ads only as a convenience to you, and does not review, approve, monitor, endorse, warrant, or make any representations with respect to Third-Party Links & Ads.  You use all Third-Party Links & Ads at your own risk, and should apply a suitable level of caution and discretion in doing so. When you click on any of the Third-Party Links & Ads, the applicable third party’s terms and policies apply, including the third party’s privacy and data gathering practices.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Other Users.")]), _vm._v(" Each Site user is solely responsible for any and all of its own User Content.  Because we do not control User Content, you acknowledge and agree that we are not responsible for any User Content, whether provided by you or by others.  You agree that Company will not be responsible for any loss or damage incurred as the result of any such interactions.  If there is a dispute between you and any Site user, we are under no obligation to become involved.")]), _vm._v(" "), _c("p", [_vm._v('You hereby release and forever discharge the Company and our officers, employees, agents, successors, and assigns from, and hereby waive and relinquish, each and every past, present and future dispute, claim, controversy, demand, right, obligation, liability, action and cause of action of every kind and nature, that has arisen or arises directly or indirectly out of, or that relates directly or indirectly to, the Site. If you are a California resident, you hereby waive California civil code section 1542 in connection with the foregoing, which states: "a general release does not extend to claims which the creditor does not know or suspect to exist in his or her favor at the time of executing the release, which if known by him or her must have materially affected his or her settlement with the debtor."')]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Cookies and Web Beacons.")]), _vm._v(" Like any other website, VAVTS uses ‘cookies’. These cookies are used to store information including visitors’ preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users’ experience by customizing our web page content based on visitors’ browser type and/or other information.")]), _vm._v(" "), _c("h2", [_vm._v("Disclaimers")]), _vm._v(" "), _c("p", [_vm._v('The site is provided on an "as-is" and "as available" basis, and company and our suppliers expressly disclaim any and all warranties and conditions of any kind, whether express, implied, or statutory, including all warranties or conditions of merchantability, fitness for a particular purpose, title, quiet enjoyment, accuracy, or non-infringement.  We and our suppliers make not guarantee that the site will meet your requirements, will be available on an uninterrupted, timely, secure, or error-free basis, or will be accurate, reliable, free of viruses or other harmful code, complete, legal, or safe.  If applicable law requires any warranties with respect to the site, all such warranties are limited in duration to ninety (90) days from the date of first use.')]), _vm._v(" "), _c("p", [_vm._v("Some jurisdictions do not allow the exclusion of implied warranties, so the above exclusion may not apply to you.  Some jurisdictions do not allow limitations on how long an implied warranty lasts, so the above limitation may not apply to you.")]), _vm._v(" "), _c("h2", [_vm._v("Limitation on Liability")]), _vm._v(" "), _c("p", [_vm._v("To the maximum extent permitted by law, in no event shall company or our suppliers be liable to you or any third-party for any lost profits, lost data, costs of procurement of substitute products, or any indirect, consequential, exemplary, incidental, special or punitive damages arising from or relating to these terms or your use of, or incapability to use the site even if company has been advised of the possibility of such damages.  Access to and use of the site is at your own discretion and risk, and you will be solely responsible for any damage to your device or computer system, or loss of data resulting therefrom.")]), _vm._v(" "), _c("p", [_vm._v("To the maximum extent permitted by law, notwithstanding anything to the contrary contained herein, our liability to you for any damages arising from or related to this agreement, will at all times be limited to a maximum of fifty U.S. dollars (u.s. $50). The existence of more than one claim will not enlarge this limit.  You agree that our suppliers will have no liability of any kind arising from or relating to this agreement.")]), _vm._v(" "), _c("p", [_vm._v("Some jurisdictions do not allow the limitation or exclusion of liability for incidental or consequential damages, so the above limitation or exclusion may not apply to you.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Term and Termination.")]), _vm._v(" Subject to this Section, these Terms will remain in full force and effect while you use the Site.  We may suspend or terminate your rights to use the Site at any time for any reason at our sole discretion, including for any use of the Site in violation of these Terms.  Upon termination of your rights under these Terms, your Account and right to access and use the Site will terminate immediately.  You understand that any termination of your Account may involve deletion of your User Content associated with your Account from our live databases.  Company will not have any liability whatsoever to you for any termination of your rights under these Terms.  Even after your rights under these Terms are terminated, the following provisions of these Terms will remain in effect: Sections 2 through 2.5, Section 3 and Sections 4 through 10.")]), _vm._v(" "), _c("h2", [_vm._v("Copyright Policy.")]), _vm._v(" "), _c("p", [_vm._v("Company respects the intellectual property of others and asks that users of our Site do the same.  In connection with our Site, we have adopted and implemented a policy respecting copyright law that provides for the removal of any infringing materials and for the termination of users of our online Site who are repeated infringers of intellectual property rights, including copyrights.  If you believe that one of our users is, through the use of our Site, unlawfully infringing the copyright(s) in a work, and wish to have the allegedly infringing material removed, the following information in the form of a written notification (pursuant to 17 U.S.C. § 512(c)) must be provided to our designated Copyright Agent:")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("your physical or electronic signature;")]), _vm._v(" "), _c("li", [_vm._v("identification of the copyrighted work(s) that you claim to have been infringed;")]), _vm._v(" "), _c("li", [_vm._v("identification of the material on our services that you claim is infringing and that you request us to remove;")]), _vm._v(" "), _c("li", [_vm._v("sufficient information to permit us to locate such material;")]), _vm._v(" "), _c("li", [_vm._v("your address, telephone number, and e-mail address;")]), _vm._v(" "), _c("li", [_vm._v("a statement that you have a good faith belief that use of the objectionable material is not authorized by the copyright owner, its agent, or under the law; and")]), _vm._v(" "), _c("li", [_vm._v("a statement that the information in the notification is accurate, and under penalty of perjury, that you are either the owner of the copyright that has allegedly been infringed or that you are authorized to act on behalf of the copyright owner.")])]), _vm._v(" "), _c("p", [_vm._v("Please note that, pursuant to 17 U.S.C. § 512(f), any misrepresentation of material fact in a written notification automatically subjects the complaining party to liability for any damages, costs and attorney’s fees incurred by us in connection with the written notification and allegation of copyright infringement.")]), _vm._v(" "), _c("h2", [_vm._v("General")]), _vm._v(" "), _c("p", [_vm._v("These Terms are subject to occasional revision, and if we make any substantial changes, we may notify you by sending you an e-mail to the last e-mail address you provided to us and/or by prominently posting notice of the changes on our Site.  You are responsible for providing us with your most current e-mail address.  In the event that the last e-mail address that you have provided us is not valid our dispatch of the e-mail containing such notice will nonetheless constitute effective notice of the changes described in the notice.  Any changes to these Terms will be effective upon the earliest of thirty (30) calendar days following our dispatch of an e-mail notice to you or thirty (30) calendar days following our posting of notice of the changes on our Site.  These changes will be effective immediately for new users of our Site.  Continued use of our Site following notice of such changes shall indicate your acknowledgement of such changes and agreement to be bound by the terms and conditions of such changes.\r\n                            Dispute Resolution. Please read this Arbitration Agreement carefully. It is part of your contract with Company and affects your rights.  It contains procedures for MANDATORY BINDING ARBITRATION AND A CLASS ACTION WAIVER.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Applicability of Arbitration Agreement.")]), _vm._v(" All claims and disputes in connection with the Terms or the use of any product or service provided by the Company that cannot be resolved informally or in small claims court shall be resolved by binding arbitration on an individual basis under the terms of this Arbitration Agreement.  Unless otherwise agreed to, all arbitration proceedings shall be held in English.  This Arbitration Agreement applies to you and the Company, and to any subsidiaries, affiliates, agents, employees, predecessors in interest, successors, and assigns, as well as all authorized or unauthorized users or beneficiaries of services or goods provided under the Terms.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Notice Requirement and Informal Dispute Resolution.")]), _vm._v(" Before either party may seek arbitration, the party must first send to the other party a written Notice of Dispute describing the nature and basis of the claim or dispute, and the requested relief.  A Notice to the Company should be sent to: Tangub City, Misamis Occidental. After the Notice is received, you and the Company may attempt to resolve the claim or dispute informally.  If you and the Company do not resolve the claim or dispute within thirty (30) days after the Notice is received, either party may begin an arbitration proceeding.  The amount of any settlement offer made by any party may not be disclosed to the arbitrator until after the arbitrator has determined the amount of the award to which either party is entitled.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Arbitration Rules.")]), _vm._v(" Arbitration shall be initiated through the American Arbitration Association, an established alternative dispute resolution provider that offers arbitration as set forth in this section.  If AAA is not available to arbitrate, the parties shall agree to select an alternative ADR Provider.  The rules of the ADR Provider shall govern all aspects of the arbitration except to the extent such rules are in conflict with the Terms.  The AAA Consumer Arbitration Rules governing the arbitration are available online at adr.org or by calling the AAA at 1-800-778-7879.  The arbitration shall be conducted by a single, neutral arbitrator.  Any claims or disputes where the total amount of the award sought is less than Ten Thousand U.S. Dollars (US $10,000.00) may be resolved through binding non-appearance-based arbitration, at the option of the party seeking relief.  For claims or disputes where the total amount of the award sought is Ten Thousand U.S. Dollars (US $10,000.00) or more, the right to a hearing will be determined by the Arbitration Rules.  Any hearing will be held in a location within 100 miles of your residence, unless you reside outside of the United States, and unless the parties agree otherwise.  If you reside outside of the U.S., the arbitrator shall give the parties reasonable notice of the date, time and place of any oral hearings. Any judgment on the award rendered by the arbitrator may be entered in any court of competent jurisdiction.  If the arbitrator grants you an award that is greater than the last settlement offer that the Company made to you prior to the initiation of arbitration, the Company will pay you the greater of the award or $2,500.00.  Each party shall bear its own costs and disbursements arising out of the arbitration and shall pay an equal share of the fees and costs of the ADR Provider.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Additional Rules for Non-Appearance Based Arbitration.")]), _vm._v(" If non-appearance based arbitration is elected, the arbitration shall be conducted by telephone, online and/or based solely on written submissions; the specific manner shall be chosen by the party initiating the arbitration.  The arbitration shall not involve any personal appearance by the parties or witnesses unless otherwise agreed by the parties.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Time Limits.")]), _vm._v(" If you or the Company pursues arbitration, the arbitration action must be initiated and/or demanded within the statute of limitations and within any deadline imposed under the AAA Rules for the pertinent claim.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Authority of Arbitrator.")]), _vm._v(" If arbitration is initiated, the arbitrator will decide the rights and liabilities of you and the Company, and the dispute will not be consolidated with any other matters or joined with any other cases or parties.  The arbitrator shall have the authority to grant motions dispositive of all or part of any claim.  The arbitrator shall have the authority to award monetary damages, and to grant any non-monetary remedy or relief available to an individual under applicable law, the AAA Rules, and the Terms.  The arbitrator shall issue a written award and statement of decision describing the essential findings and conclusions on which the award is based.  The arbitrator has the same authority to award relief on an individual basis that a judge in a court of law would have.  The award of the arbitrator is final and binding upon you and the Company.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Waiver of Jury Trial.")]), _vm._v(" THE PARTIES HEREBY WAIVE THEIR CONSTITUTIONAL AND STATUTORY RIGHTS TO GO TO COURT AND HAVE A TRIAL IN FRONT OF A JUDGE OR A JURY, instead electing that all claims and disputes shall be resolved by arbitration under this Arbitration Agreement.  Arbitration procedures are typically more limited, more efficient and less expensive than rules applicable in a court and are subject to very limited review by a court.  In the event any litigation should arise between you and the Company in any state or federal court in a suit to vacate or enforce an arbitration award or otherwise, YOU AND THE COMPANY WAIVE ALL RIGHTS TO A JURY TRIAL, instead electing that the dispute be resolved by a judge.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Waiver of Class or Consolidated Actions.")]), _vm._v(" All claims and disputes within the scope of this arbitration agreement must be arbitrated or litigated on an individual basis and not on a class basis, and claims of more than one customer or user cannot be arbitrated or litigated jointly or consolidated with those of any other customer or user.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Confidentiality.")]), _vm._v(" All aspects of the arbitration proceeding shall be strictly confidential.  The parties agree to maintain confidentiality unless otherwise required by law.  This paragraph shall not prevent a party from submitting to a court of law any information necessary to enforce this Agreement, to enforce an arbitration award, or to seek injunctive or equitable relief.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Severability.")]), _vm._v(" If any part or parts of this Arbitration Agreement are found under the law to be invalid or unenforceable by a court of competent jurisdiction, then such specific part or parts shall be of no force and effect and shall be severed and the remainder of the Agreement shall continue in full force and effect.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Right to Waive.")]), _vm._v(" Any or all of the rights and limitations set forth in this Arbitration Agreement may be waived by the party against whom the claim is asserted.  Such waiver shall not waive or affect any other portion of this Arbitration Agreement.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Survival of Agreement.")]), _vm._v(" This Arbitration Agreement will survive the termination of your relationship with Company.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Small Claims Court.")]), _vm._v(" Nonetheless the foregoing, either you or the Company may bring an individual action in small claims court.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Emergency Equitable Relief.")]), _vm._v(" Anyhow the foregoing, either party may seek emergency equitable relief before a state or federal court in order to maintain the status quo pending arbitration.  A request for interim measures shall not be deemed a waiver of any other rights or obligations under this Arbitration Agreement.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Claims Not Subject to Arbitration.")]), _vm._v(" Notwithstanding the foregoing, claims of defamation, violation of the Computer Fraud and Abuse Act, and infringement or misappropriation of the other party’s patent, copyright, trademark or trade secrets shall not be subject to this Arbitration Agreement.")]), _vm._v(" "), _c("p", [_vm._v("In any circumstances where the foregoing Arbitration Agreement permits the parties to litigate in court, the parties hereby agree to submit to the personal jurisdiction of the courts located within Netherlands County, California, for such purposes.")]), _vm._v(" "), _c("p", [_vm._v("The Site may be subject to U.S. export control laws and may be subject to export or import regulations in other countries. You agree not to export, re-export, or transfer, directly or indirectly, any U.S. technical data acquired from Company, or any products utilizing such data, in violation of the United States export laws or regulations.")]), _vm._v(" "), _c("p", [_vm._v("Company is located at the address in Section 10.8. If you are a California resident, you may report complaints to the Complaint Assistance Unit of the Division of Consumer Product of the California Department of Consumer Affairs by contacting them in writing at 400 R Street, Sacramento, CA 95814, or by telephone at (800) 952-5210.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Electronic Communications.")]), _vm._v(" The communications between you and Company use electronic means, whether you use the Site or send us emails, or whether Company posts notices on the Site or communicates with you via email. For contractual purposes, you (a) consent to receive communications from Company in an electronic form; and (b) agree that all terms and conditions, agreements, notices, disclosures, and other communications that Company provides to you electronically satisfy any legal obligation that such communications would satisfy if it were be in a hard copy writing.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Entire Terms.")]), _vm._v(' These Terms constitute the entire agreement between you and us regarding the use of the Site. Our failure to exercise or enforce any right or provision of these Terms shall not operate as a waiver of such right or provision. The section titles in these Terms are for convenience only and have no legal or contractual effect. The word "including" means "including without limitation". If any provision of these Terms is held to be invalid or unenforceable, the other provisions of these Terms will be unimpaired and the invalid or unenforceable provision will be deemed modified so that it is valid and enforceable to the maximum extent permitted by law.  Your relationship to Company is that of an independent contractor, and neither party is an agent or partner of the other.  These Terms, and your rights and obligations herein, may not be assigned, subcontracted, delegated, or otherwise transferred by you without Company’s prior written consent, and any attempted assignment, subcontract, delegation, or transfer in violation of the foregoing will be null and void.  Company may freely assign these Terms.  The terms and conditions set forth in these Terms shall be binding upon assignees.')]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Your Privacy.")]), _vm._v(" Please read our Privacy Policy.")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Copyright/Trademark Information.")]), _vm._v(" Copyright ©. All rights reserved.  All trademarks, logos and service marks displayed on the Site are our property or the property of other third-parties. You are not permitted to use these Marks without our prior written consent or the consent of such third party which may own the Marks.")]), _vm._v(" "), _c("h2", [_vm._v("Contact Information")]), _vm._v(" "), _c("p", [_vm._v("Address: Tangub City, Misamis Occidental")]), _vm._v(" "), _c("p", [_vm._v("Email: johnmichaelcagadas@gmail.com")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "button-back btn-primary",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal"
+    }
+  }, [_vm._v("Okay")])]);
+}];
 render._withStripped = true;
 
 
@@ -14891,7 +14989,7 @@ var staticRenderFns = [function () {
   }, [_vm._v("Expiration Date: ")]), _vm._v(" "), _c("div", {
     staticClass: "input-group date",
     attrs: {
-      id: "expiration"
+      id: "vehicle"
     }
   }, [_c("input", {
     staticClass: "form-control input",
@@ -15109,7 +15207,7 @@ var staticRenderFns = [function () {
       id: "driver-firstname"
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3"
+    staticClass: "col-md-2"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Middle Name: ")]), _vm._v(" "), _c("input", {
@@ -15127,6 +15225,18 @@ var staticRenderFns = [function () {
     attrs: {
       type: "text",
       id: "driver-firstname"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-1"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Suffix: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-suffix",
+      placeholder: "SR.",
+      maxlength: "3"
     }
   })])])]);
 }, function () {
@@ -16853,7 +16963,31 @@ var render = function render() {
     staticClass: "col-md-8"
   }, [_vm._m(1), _vm._v(" "), _c("hr"), _vm._v(" "), _c("h5", {
     staticClass: "centered"
-  }, [_vm._v("Information")]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("hr"), _vm._v(" "), _c("h5", {
+  }, [_vm._v("Owner Information")]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
+    staticClass: "col-md-4"
+  }, [_c("input", {
+    attrs: {
+      type: "checkbox",
+      id: "myCheck1"
+    },
+    on: {
+      click: _vm.showViolations
+    }
+  }), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": "myCheck1"
+    }
+  }, [_vm._v("Show Violation History of the owner?")])])]), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid",
+    staticStyle: {
+      display: "none"
+    },
+    attrs: {
+      id: "text1"
+    }
+  }, [_c("hr"), _vm._v(" "), _c("h5", {
     staticClass: "centered"
   }, [_vm._v("Violation History")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "container overflowing table-responsive"
@@ -16868,6 +17002,38 @@ var render = function render() {
       }
     }, [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.Date))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.fines))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(violation.DayLeft) + " Day(s) left ")]), _vm._v(" "), _c("td", [violation.Status === true ? _c("span", [_vm._v("\n                                                            Settled\n                                                        ")]) : _c("span", [_vm._v("Unsettled")])])]);
   }), 0)])])]), _vm._v(" "), _c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
+    staticClass: "col-md-4"
+  }, [_c("input", {
+    attrs: {
+      type: "checkbox",
+      id: "myCheck"
+    },
+    on: {
+      click: _vm.showDriver
+    }
+  }), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": "myCheck"
+    }
+  }, [_vm._v("Not the owner?")])])]), _vm._v(" "), _vm._m(6), _vm._v(" "), _c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
+    staticClass: "col-md-4"
+  }, [_c("input", {
+    attrs: {
+      type: "checkbox",
+      id: "myCheck2"
+    },
+    on: {
+      click: _vm.showGuadians
+    }
+  }), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": "myCheck2"
+    }
+  }, [_vm._v("Minor?")])])]), _vm._v(" "), _vm._m(7)]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4"
   }, [_c("v-app", [_c("v-card", {
     attrs: {
@@ -17043,7 +17209,7 @@ var render = function render() {
       },
       proxy: true
     }])
-  })], 1)]], 2)], 1)], 1)], 1)])]), _vm._v(" "), _vm._m(6)])])])]);
+  })], 1)]], 2)], 1)], 1)], 1)])]), _vm._v(" "), _vm._m(8)])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -17080,7 +17246,7 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "row g-1"
   }, [_c("div", {
-    staticClass: "col-md-4"
+    staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Firstname: ")]), _vm._v(" "), _c("input", {
@@ -17090,7 +17256,7 @@ var staticRenderFns = [function () {
       id: "driver-firstname"
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-4"
+    staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Middlename: ")]), _vm._v(" "), _c("input", {
@@ -17100,7 +17266,7 @@ var staticRenderFns = [function () {
       id: "driver-firstname"
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-4"
+    staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v(" Lastname: ")]), _vm._v(" "), _c("input", {
@@ -17109,6 +17275,18 @@ var staticRenderFns = [function () {
       type: "text",
       id: "driver-firstname"
     }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Suffix: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-suffix",
+      placeholder: "SR.",
+      maxlength: "3"
+    }
   })])]);
 }, function () {
   var _vm = this,
@@ -17116,7 +17294,7 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "row g-1"
   }, [_c("div", {
-    staticClass: "col-md-4"
+    staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Province:")]), _vm._v(" "), _c("select", {
@@ -17131,7 +17309,7 @@ var staticRenderFns = [function () {
       disabled: ""
     }
   }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-4"
+    staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("City:")]), _vm._v(" "), _c("select", {
@@ -17146,7 +17324,7 @@ var staticRenderFns = [function () {
       disabled: ""
     }
   }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-4"
+    staticClass: "col-md-3"
   }, [_c("label", {
     staticClass: "form-label"
   }, [_vm._v("Barangay:")]), _vm._v(" "), _c("select", {
@@ -17160,7 +17338,17 @@ var staticRenderFns = [function () {
       selected: "",
       disabled: ""
     }
-  }, [_vm._v("Select")])])])]);
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Street: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-middlename"
+    }
+  })])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -17207,6 +17395,260 @@ var staticRenderFns = [function () {
       scope: "col"
     }
   }, [_vm._v("Status")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "container-fluid",
+    staticStyle: {
+      display: "none"
+    },
+    attrs: {
+      id: "text"
+    }
+  }, [_c("hr"), _vm._v(" "), _c("h5", {
+    staticClass: "centered"
+  }, [_vm._v("Driver Information")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Firstname: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-firstname"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Middlename: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-firstname"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Lastname: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-firstname"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Suffix: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-suffix",
+      placeholder: "SR.",
+      maxlength: "3"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Province:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "province",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("City:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "city",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Barangay:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "barangay",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Street: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-middlename"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Mobile Number:")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "number",
+      id: "driver-number"
+    }
+  })])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "container-fluid",
+    staticStyle: {
+      display: "none"
+    },
+    attrs: {
+      id: "text2"
+    }
+  }, [_c("hr"), _vm._v(" "), _c("h5", {
+    staticClass: "centered"
+  }, [_vm._v("Guardian Information")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Firstname: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-firstname"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Middlename: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-firstname"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v(" Lastname: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-firstname"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Suffix: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-suffix",
+      placeholder: "SR.",
+      maxlength: "3"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Province:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "province",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("City:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "city",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Barangay:")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select input",
+    attrs: {
+      name: "barangay",
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Select")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Street: ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "text",
+      id: "driver-middlename"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row g-1"
+  }, [_c("div", {
+    staticClass: "col-md-4"
+  }, [_c("label", {
+    staticClass: "form-label"
+  }, [_vm._v("Mobile Number:")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control input",
+    attrs: {
+      type: "number",
+      id: "driver-number"
+    }
+  })])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -19609,30 +20051,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, "[data-v-ab3a09b8] .v-application--wrap
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/Alerts.vue?vue&type=style&index=0&id=b764f1ba&lang=scss&scoped=true&":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/Alerts.vue?vue&type=style&index=0&id=b764f1ba&lang=scss&scoped=true& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".container-fluid[data-v-b764f1ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  height: 100%;\n  z-index: 99;\n  animation-name: crop-b764f1ba;\n  animation-duration: 1s;\n  background-color: rgba(41, 41, 41, 0.2);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n@keyframes crop-b764f1ba {\n0% {\n    transform: scaleX(0.7);\n}\n50% {\n    transform: scaleX(1.3);\n}\n100% {\n    transform: scaleX(1);\n}\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/DriverHomebody.vue?vue&type=style&index=0&id=5e00fa56&lang=scss&scoped=true&":
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/DriverHomebody.vue?vue&type=style&index=0&id=5e00fa56&lang=scss&scoped=true& ***!
@@ -19674,7 +20092,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "[data-v-6af40d1e] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.register-body[data-v-6af40d1e] {\n  opacity: 0.7;\n  animation-name: to-left;\n  animation-duration: 1s;\n}\n.register-div[data-v-6af40d1e] {\n  margin-top: 20px;\n  width: 70%;\n}\n.register-fills[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 5px;\n}\n.overflowing[data-v-6af40d1e] {\n  overflow-y: auto;\n  overflow-x: hidden;\n}\n.icons[data-v-6af40d1e] {\n  font-size: 25px;\n}\nlabel[data-v-6af40d1e] {\n  font-size: 12px;\n}\nb[data-v-6af40d1e] {\n  font-size: 15px;\n}\n.form-control[data-v-6af40d1e], .form-select[data-v-6af40d1e], .input-group[data-v-6af40d1e] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.input[data-v-6af40d1e] {\n  transition: 0.5s linear;\n}\n.input[data-v-6af40d1e]:focus {\n  color: #1d1d1d;\n  box-shadow: 4px 4px 10px #070707;\n}\n.input[data-v-6af40d1e]:focus::-moz-placeholder {\n  color: #fa4753;\n}\n.input[data-v-6af40d1e]:focus::placeholder {\n  color: #fa4753;\n}\n.c-error[data-v-6af40d1e] {\n  font-weight: bold;\n  font-size: 1em;\n  color: red;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "[data-v-6af40d1e] .v-application--wrap {\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n}\n.register-body[data-v-6af40d1e] {\n  opacity: 0.7;\n  animation-name: to-left;\n  animation-duration: 1s;\n}\n.register-div[data-v-6af40d1e] {\n  margin-top: 20px;\n  width: 70%;\n}\n.register-fills[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 5px;\n}\n.overflowing[data-v-6af40d1e] {\n  overflow-y: auto;\n  overflow-x: hidden;\n}\n.icons[data-v-6af40d1e] {\n  font-size: 25px;\n}\nlabel[data-v-6af40d1e] {\n  font-size: 12px;\n}\nb[data-v-6af40d1e] {\n  font-size: 15px;\n}\n.form-control[data-v-6af40d1e], .form-select[data-v-6af40d1e], .input-group[data-v-6af40d1e] {\n  font-size: 13px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n.centers[data-v-6af40d1e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.input[data-v-6af40d1e] {\n  transition: 0.5s linear;\n}\n.input[data-v-6af40d1e]:focus {\n  color: #1d1d1d;\n  box-shadow: 4px 4px 10px #070707;\n}\n.input[data-v-6af40d1e]:focus::-moz-placeholder {\n  color: #fa4753;\n}\n.input[data-v-6af40d1e]:focus::placeholder {\n  color: #fa4753;\n}\n.c-error[data-v-6af40d1e] {\n  font-weight: bold;\n  font-size: 0.7em;\n  color: #cccf0d;\n}\n.skip[data-v-6af40d1e] {\n  font-size: smaller;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20829,36 +21247,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/Alerts.vue?vue&type=style&index=0&id=b764f1ba&lang=scss&scoped=true&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/Alerts.vue?vue&type=style&index=0&id=b764f1ba&lang=scss&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Alerts_vue_vue_type_style_index_0_id_b764f1ba_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Alerts.vue?vue&type=style&index=0&id=b764f1ba&lang=scss&scoped=true& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/Alerts.vue?vue&type=style&index=0&id=b764f1ba&lang=scss&scoped=true&");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Alerts_vue_vue_type_style_index_0_id_b764f1ba_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Alerts_vue_vue_type_style_index_0_id_b764f1ba_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/DriverHomebody.vue?vue&type=style&index=0&id=5e00fa56&lang=scss&scoped=true&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/DriverHomebody.vue?vue&type=style&index=0&id=5e00fa56&lang=scss&scoped=true& ***!
@@ -21325,47 +21713,6 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/Counsel&Treasurer/CounseltreasuryDashboard.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/Driver/Alerts.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/components/Driver/Alerts.vue ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Alerts_vue_vue_type_template_id_b764f1ba_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Alerts.vue?vue&type=template&id=b764f1ba&scoped=true& */ "./resources/js/components/Driver/Alerts.vue?vue&type=template&id=b764f1ba&scoped=true&");
-/* harmony import */ var _Alerts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Alerts.vue?vue&type=script&lang=js& */ "./resources/js/components/Driver/Alerts.vue?vue&type=script&lang=js&");
-/* harmony import */ var _Alerts_vue_vue_type_style_index_0_id_b764f1ba_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Alerts.vue?vue&type=style&index=0&id=b764f1ba&lang=scss&scoped=true& */ "./resources/js/components/Driver/Alerts.vue?vue&type=style&index=0&id=b764f1ba&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-;
-
-
-/* normalize component */
-
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _Alerts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Alerts_vue_vue_type_template_id_b764f1ba_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _Alerts_vue_vue_type_template_id_b764f1ba_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  "b764f1ba",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/Driver/Alerts.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -22393,22 +22740,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Driver/Alerts.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/components/Driver/Alerts.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Alerts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Alerts.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/Alerts.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Alerts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
 /***/ "./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/Driver/DriverHeader.vue?vue&type=script&lang=js& ***!
@@ -22822,23 +23153,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CounseltreasuryDashboard_vue_vue_type_template_id_ab3a09b8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CounseltreasuryDashboard_vue_vue_type_template_id_ab3a09b8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CounseltreasuryDashboard.vue?vue&type=template&id=ab3a09b8&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Counsel&Treasurer/CounseltreasuryDashboard.vue?vue&type=template&id=ab3a09b8&scoped=true&");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/Driver/Alerts.vue?vue&type=template&id=b764f1ba&scoped=true&":
-/*!**********************************************************************************************!*\
-  !*** ./resources/js/components/Driver/Alerts.vue?vue&type=template&id=b764f1ba&scoped=true& ***!
-  \**********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Alerts_vue_vue_type_template_id_b764f1ba_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Alerts_vue_vue_type_template_id_b764f1ba_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Alerts_vue_vue_type_template_id_b764f1ba_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Alerts.vue?vue&type=template&id=b764f1ba&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/Alerts.vue?vue&type=template&id=b764f1ba&scoped=true&");
 
 
 /***/ }),
@@ -23420,19 +23734,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CounseltreasuryDashboard_vue_vue_type_style_index_0_id_ab3a09b8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CounseltreasuryDashboard.vue?vue&type=style&index=0&id=ab3a09b8&lang=scss&scoped=true& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Counsel&Treasurer/CounseltreasuryDashboard.vue?vue&type=style&index=0&id=ab3a09b8&lang=scss&scoped=true&");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/Driver/Alerts.vue?vue&type=style&index=0&id=b764f1ba&lang=scss&scoped=true&":
-/*!*************************************************************************************************************!*\
-  !*** ./resources/js/components/Driver/Alerts.vue?vue&type=style&index=0&id=b764f1ba&lang=scss&scoped=true& ***!
-  \*************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Alerts_vue_vue_type_style_index_0_id_b764f1ba_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Alerts.vue?vue&type=style&index=0&id=b764f1ba&lang=scss&scoped=true& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Driver/Alerts.vue?vue&type=style&index=0&id=b764f1ba&lang=scss&scoped=true&");
 
 
 /***/ }),
@@ -93353,7 +93654,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_vue__;
 
 var map = {
 	"./components/Counsel&Treasurer/CounseltreasuryDashboard.vue": "./resources/js/components/Counsel&Treasurer/CounseltreasuryDashboard.vue",
-	"./components/Driver/Alerts.vue": "./resources/js/components/Driver/Alerts.vue",
 	"./components/Driver/DriverHeader.vue": "./resources/js/components/Driver/DriverHeader.vue",
 	"./components/Driver/DriverHomebody.vue": "./resources/js/components/Driver/DriverHomebody.vue",
 	"./components/Driver/DriverHomeheader.vue": "./resources/js/components/Driver/DriverHomeheader.vue",

@@ -269,42 +269,50 @@
                                         </div>
                                     </div>
                                     <hr>
-                                        <h5 class="centered">Information</h5>
+                                        <h5 class="centered">Owner Information</h5>
                                     <hr> 
                                     <div class="row g-1">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <label class="form-label"> Firstname: </label>
                                             <input type="text" class="form-control input" id="driver-firstname">
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <label class="form-label"> Middlename: </label>
                                             <input type="text" class="form-control input" id="driver-firstname">
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <label class="form-label"> Lastname: </label>
                                             <input type="text" class="form-control input" id="driver-firstname">
                                         </div>
+                                        <div class="col-md-3">
+                                        <label class="form-label">Suffix: </label>
+                                        <input type="text" class="form-control input" id="driver-suffix" placeholder="SR." maxlength="3">
+                                    </div>
                                     </div>
                                     <div class="row g-1">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <label class="form-label">Province:</label>
                                             <select class="form-select input" name="province" aria-label="Default select example">
                                                 <option selected disabled>Select</option>
                                             </select>
                                         </div>
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <label class="form-label">City:</label>
                                             <select class="form-select input" name="city" aria-label="Default select example">
                                                 <option selected disabled>Select</option>
                                             </select>
                                         </div>
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <label class="form-label">Barangay:</label>
                                             <select class="form-select input" name="barangay" aria-label="Default select example">
                                                 <option selected disabled>Select</option>
                                             </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label">Street: </label>
+                                            <input type="text" class="form-control input" id="driver-middlename">
                                         </div>
                                     </div>
                                     <div class="row g-1">
@@ -313,7 +321,14 @@
                                             <input type="number" class="form-control input" id="driver-number">
                                         </div>
                                     </div>
-                                    <hr>
+                                    <div class="row g-1">
+                                        <div class="col-md-4">
+                                            <input type="checkbox" id="myCheck1" @click="showViolations">
+                                            <label for="myCheck1">Show Violation History of the owner?</label> 
+                                        </div>
+                                    </div>
+                                    <div class="container-fluid" id="text1" style="display:none">
+                                        <hr>
                                         <h5 class="centered">Violation History</h5>
                                     <hr> 
                                     <div class="container overflowing table-responsive">
@@ -346,6 +361,134 @@
                                         </table>
 
                                     </div>
+                                    </div>
+                                    
+
+                                    <div class="row g-1">
+                                        <div class="col-md-4">
+                                            <input type="checkbox" id="myCheck" @click="showDriver">
+                                            <label for="myCheck">Not the owner?</label> 
+                                        </div>
+                                    </div>
+                                    <div class="container-fluid" id="text" style="display:none">
+                                        <hr>
+                                        <h5 class="centered">Driver Information</h5>
+                                    <hr> 
+                                    <div class="row g-1">
+                                        <div class="col-md-3">
+                                            <label class="form-label"> Firstname: </label>
+                                            <input type="text" class="form-control input" id="driver-firstname">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label"> Middlename: </label>
+                                            <input type="text" class="form-control input" id="driver-firstname">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label"> Lastname: </label>
+                                            <input type="text" class="form-control input" id="driver-firstname">
+                                        </div>
+                                        <div class="col-md-3">
+                                        <label class="form-label">Suffix: </label>
+                                        <input type="text" class="form-control input" id="driver-suffix" placeholder="SR." maxlength="3">
+                                    </div>
+                                    </div>
+                                    <div class="row g-1">
+                                        <div class="col-md-3">
+                                            <label class="form-label">Province:</label>
+                                            <select class="form-select input" name="province" aria-label="Default select example">
+                                                <option selected disabled>Select</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label class="form-label">City:</label>
+                                            <select class="form-select input" name="city" aria-label="Default select example">
+                                                <option selected disabled>Select</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label class="form-label">Barangay:</label>
+                                            <select class="form-select input" name="barangay" aria-label="Default select example">
+                                                <option selected disabled>Select</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label">Street: </label>
+                                            <input type="text" class="form-control input" id="driver-middlename">
+                                        </div>
+                                    </div>
+                                    <div class="row g-1">
+                                        <div class="col-md-4">
+                                            <label class="form-label">Mobile Number:</label>
+                                            <input type="number" class="form-control input" id="driver-number">
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                    <div class="row g-1">
+                                        <div class="col-md-4">
+                                            <input type="checkbox" id="myCheck2" @click="showGuadians">
+                                            <label for="myCheck2">Minor?</label> 
+                                        </div>
+                                    </div>
+
+                                    <div class="container-fluid" id="text2" style="display:none">
+                                        <hr>
+                                        <h5 class="centered">Guardian Information</h5>
+                                    <hr> 
+                                    <div class="row g-1">
+                                        <div class="col-md-3">
+                                            <label class="form-label"> Firstname: </label>
+                                            <input type="text" class="form-control input" id="driver-firstname">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label"> Middlename: </label>
+                                            <input type="text" class="form-control input" id="driver-firstname">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label"> Lastname: </label>
+                                            <input type="text" class="form-control input" id="driver-firstname">
+                                        </div>
+                                        <div class="col-md-3">
+                                        <label class="form-label">Suffix: </label>
+                                        <input type="text" class="form-control input" id="driver-suffix" placeholder="SR." maxlength="3">
+                                    </div>
+                                    </div>
+                                    <div class="row g-1">
+                                        <div class="col-md-3">
+                                            <label class="form-label">Province:</label>
+                                            <select class="form-select input" name="province" aria-label="Default select example">
+                                                <option selected disabled>Select</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label class="form-label">City:</label>
+                                            <select class="form-select input" name="city" aria-label="Default select example">
+                                                <option selected disabled>Select</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label class="form-label">Barangay:</label>
+                                            <select class="form-select input" name="barangay" aria-label="Default select example">
+                                                <option selected disabled>Select</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label">Street: </label>
+                                            <input type="text" class="form-control input" id="driver-middlename">
+                                        </div>
+                                    </div>
+                                    <div class="row g-1">
+                                        <div class="col-md-4">
+                                            <label class="form-label">Mobile Number:</label>
+                                            <input type="number" class="form-control input" id="driver-number">
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
                                 </div>
 
                                 <div class="col-md-4">
@@ -634,6 +777,47 @@
                 this.itemsPerPageViolation = number
             },
 
+            showDriver() {
+            // Get the checkbox
+            var checkBox = document.getElementById("myCheck");
+            // Get the output text
+            var text = document.getElementById("text");
+
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true){
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+            },
+
+            showViolations() {
+            // Get the checkbox
+            var checkBox = document.getElementById("myCheck1");
+            // Get the output text
+            var text = document.getElementById("text1");
+
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true){
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+            },
+            showGuadians() {
+            // Get the checkbox
+            var checkBox = document.getElementById("myCheck2");
+            // Get the output text
+            var text = document.getElementById("text2");
+
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true){
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+            }
+
       },
       mounted() {
             $(function() {
@@ -641,6 +825,8 @@
                 $('#license').datepicker();
                 $('#vehicle').datepicker();
             });
+            
+
       }
       
     }

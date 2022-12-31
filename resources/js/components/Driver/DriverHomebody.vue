@@ -491,6 +491,9 @@ export default {
         this.intiData()
 
         this.getUser()
+        $(function() {
+                $('#expiration').datepicker();
+            });
     },
 
     data () {
