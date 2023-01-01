@@ -3,10 +3,12 @@
   }
 
   .form-registration{
-    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
   }
   .register-body{
-    opacity: .7;
+    opacity: .9;
     animation-name: to-left;
     animation-duration: 1s;
   }
@@ -15,14 +17,25 @@
     padding: 15px;
     margin: 15px 0;
   }
+  .font-top{
+    font-family: monospace;
+    font-size: .8em;
+  }
   .card-section-text{
     text-align: center;
-    font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1em;
+    font-family: monospace;
   }
 
   .button-term{
     cursor: pointer;
+    font-family: monospace;
+    font-size: .9em;
+    padding: 5px;
+    text-align: center;
+  }
+  .margin-left{
+    margin: 50px;
   }
   .text-info{
     margin: 15px 0;
@@ -42,10 +55,6 @@ label{
 }
 b{
     font-size: 15px;
-}
-.form-control,.form-select,.input-group{
-    font-size: 13px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .centers{
     display: flex;
@@ -71,6 +80,25 @@ b{
     color: rgb(204, 207, 13);
 }
 .skip{
-    font-size: smaller;
+    font-size: 10px;
+    text-align: center;
     
+}
+.v-text-field, ::v-deep label {
+  font-size: 0.8em;
+  font-family: monospace;
+}
+
+.card-size{
+  width: 70%;
+  min-height: 750px;
+}
+.marginNeg{
+  margin-top: -30px;
+}
+@media only screen and (max-width: 750px){
+  .card-size{
+    width: 90%;
+  }
+
 }

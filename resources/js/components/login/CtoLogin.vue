@@ -75,7 +75,7 @@
 
 .login-card{
     color: antiquewhite;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(19, 19, 19);
     border-radius: 20px;
     font-family: monospace;
     width: 400px;
@@ -84,7 +84,6 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
     animation-name: to-top;
     animation-duration: .5s;
     position: relative;
@@ -115,7 +114,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 25px;
+    margin-top: 25px;
 }
 
 @media only screen and (max-width: 1000px){

@@ -29,10 +29,10 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-color: rgb(19, 19, 19);
     align-self: flex-end;
     position:relative;
-    bottom: -25px;
+    opacity: .9;
 }
 .home-button{
     color: white;

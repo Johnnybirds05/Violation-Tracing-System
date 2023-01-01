@@ -1,24 +1,26 @@
 <template>
     <div>
-        <v-container>
+        <v-container class="card-size">
             <v-app  class=" register-body">
                 <v-stepper v-model="e1">
                     <v-stepper-header>
-
                         <v-stepper-step :complete="e1 > 1" step="1">
-                            <b>Personal Information</b>
+                            <v-icon style="vertical-align: middle"> mdi-account</v-icon>
+                            <span class="font-top">Personal Information</span>
                         </v-stepper-step>
 
                         <v-divider></v-divider>
 
                         <v-stepper-step :complete="e1 > 2" step="2">
-                            <b>Driver's License Information</b>
+                            <v-icon style="vertical-align: middle"> mdi-card-account-details</v-icon>
+                            <span class="font-top">Driver's License Information</span>
                         </v-stepper-step>
 
                         <v-divider></v-divider>
 
                         <v-stepper-step step="3">
-                            <b>Account Information</b>
+                            <v-icon style="vertical-align: middle"> mdi-account-box</v-icon>
+                            <span class="font-top">Account Information</span>
                         </v-stepper-step>
 
                     </v-stepper-header>
@@ -27,12 +29,11 @@
 
                 <v-stepper-content step="1">
                     
-                    <v-card class="mb-12 overflowing" color="grey darken-3" height="610px">
-                    
+                    <v-card class="mb-12" color="grey darken-4">
                         <div class="card-header">
                             <div class="card-section-text">
                                 Personal Information
-                            </div>
+                            </div>          
                         </div>
                     
                         <div class="form-registration">
@@ -61,11 +62,16 @@
                                     md="3"
                                     sm="6">
                                     <v-text-field
-                                        v-model="fields.lname"
-                                        label="Last Name"
+                                        v-model="fields.mname"
+                                        :rules="validate.mnameRules"
                                         outlined
                                         clearable
-                                    ></v-text-field>
+                                    > <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account
+                                        </v-icon>
+                                        Middle Name
+                                    </template></v-text-field>
                                 </v-col>
 
                                 <v-col
@@ -73,11 +79,17 @@
                                     md="3"
                                     sm="6">
                                     <v-text-field
-                                        v-model="fields.mname"
-                                        label="Middle Name"
+                                        v-model="fields.lname"
+                                        :rules="validate.lnameRules"
                                         outlined
                                         clearable
-                                    ></v-text-field>
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account
+                                        </v-icon>
+                                        Last Name
+                                    </template></v-text-field>
                                 </v-col>
 
                                 <v-col
@@ -86,10 +98,16 @@
                                     sm="6">
                                     <v-text-field
                                         v-model="fields.suffix"
-                                        label="Suffix"
+                                        hint="leave blank if none"
                                         outlined
                                         clearable
-                                    ></v-text-field>
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account
+                                        </v-icon>
+                                        Suffix
+                                    </template></v-text-field>
                                 </v-col>
                             </v-row>
 
@@ -99,10 +117,15 @@
                                     md="4"
                                     sm="6">
                                     <v-select
+                                        :rules="validate.sexRules"
                                         :items="['Male', 'Female']"
-                                        label="Sex"
                                         outlined
-                                    ></v-select>
+                                    ><template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-gender-male-female
+                                        </v-icon>
+                                        Sex
+                                    </template></v-select>
                                 </v-col>
                                 <v-col
                                     cols="12"
@@ -118,15 +141,18 @@
                                         <template v-slot:activator="{ on, attrs }">
                                             <v-text-field
                                                 outlined
+                                                :rules="validate.bdateRules"
                                                 v-model="fields.bdate"
-                                                label="Date"
-                                                hint="MM/DD/YYYY format"
                                                 persistent-hint
-                                                prepend-icon="mdi-calendar"
                                                 v-bind="attrs"
-                                            
                                                 v-on="on"
-                                            ></v-text-field>
+                                            > 
+                                            <template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-calendar
+                                                </v-icon>
+                                                Birthdate
+                                            </template></v-text-field>
                                         </template>
                                         <v-date-picker
                                             v-model="fields.bdate"
@@ -139,14 +165,14 @@
                                 <v-col cols="12" md="4" sm="6">
                                     <v-file-input
                                         v-model="fields.picture"
-                                        color="deep-purple accent-4"
                                         counter
-                                        label="Picture(2x2)"
                                         multiple
-                                        placeholder="Select your iamge"
+                                        label="Picture (2by2)"
+                                        placeholder="Select your image"
                                         prepend-icon="mdi-camera"
                                         outlined
                                         :show-size="1000"
+                                        :rules="validate.picRules"
                                     >
                                         <template v-slot:selection="{ index, text }">
                                         <v-chip
@@ -170,121 +196,101 @@
                                 </v-col>
                             </v-row>
 
-                            
-                            <div class="card-section-text mb-5 text-info">
-                                Address
-                            </div>
-                        
                             <v-row>
-                                <v-col cols="12" md="6" sm="6">
+                                <v-col cols="12" md="3" sm="6">
                                     <v-select
                                         item-value="provCode"
                                         item-text="provDesc"
                                         :items="provinces"
-                                        label="Province"
                                         outlined
                                         @change="loadCities"
                                         v-model="fields.province"
-                                    ></v-select>
+                                        :rules="validate.provRules"
+                                    ><template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-map-marker
+                                                </v-icon>
+                                                Province
+                                            </template></v-select>
                                 </v-col>
 
-                                <v-col cols="12" md="6" sm="6">
+                                <v-col cols="12" md="3" sm="6">
                                     <v-select
                                         item-value="citymunCode"
                                         item-text="citymunDesc"
                                         :items="cities"
-                                        label="City"
                                         outlined
                                         @change="loadBarangays"
                                         v-model="fields.city"
-                                    ></v-select>
+                                        :rules="validate.cityRules"
+                                    ><template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-map-marker
+                                                </v-icon>
+                                                City
+                                            </template></v-select>
                                 </v-col>
-                            </v-row>
-
-                            <v-row>
-                                <v-col cols="12" md="6" sm="6">
+                                <v-col cols="12" md="3" sm="6">
                                     <v-select
                                         item-value="brgyCode"
                                         item-text="brgyDesc"
                                         :items="barangays"
-                                        label="Barangay"
                                         outlined
                                         v-model="fields.barangay"
-                                    ></v-select>
+                                    ><template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-map-marker
+                                                </v-icon>
+                                                Barangay
+                                            </template></v-select>
                                 </v-col>
 
-                                <v-col cols="12" md="6" sm="6">
+                                <v-col cols="12" md="3" sm="6">
                                     <v-text-field
-                                        label="Street"
                                         outlined
                                         v-model="fields.street"
-                                    ></v-text-field>
+                                        :rules="validate.streetRules"
+                                    ><template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-map-marker
+                                                </v-icon>
+                                                Street
+                                            </template></v-text-field>
                                 </v-col>
                             </v-row>
 
-                            <!--mobile na dcontact -->
 
                             <v-row>
                                 <v-col cols="12" md="6" sm="6">
                                     <v-text-field
-                                        label="Email"
                                         :rules="validate.emailRules"
                                         required
                                         outlined
                                         v-model="fields.email"
-                                    ></v-text-field>
+                                    ><template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-email
+                                        </v-icon>
+                                        Email
+                                    </template></v-text-field>
                                 </v-col>
 
                                 <v-col cols="12" md="6" sm="6">
                                     <v-text-field
-                                        label="Mobile No."
                                         :rules="validate.mobileNo"
                                         required
                                         outlined
-                                        v-model="fields.mobileNo"
-                                    ></v-text-field>
+                                        v-model="fields.mobile_no"
+                                    ><template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-cellphone
+                                        </v-icon>
+                                        Mobile No.
+                                    </template></v-text-field>
                                 </v-col>
                             </v-row>
 
                         </div><!--form-registration-->
-
-                    
-
-                        
-                    
-
-                        
-
-                        <hr>
-
-                        <div class="container-fluid register-fills">
-                            <b>Contact Information</b>
-                        </div>
-
-                        <hr>
-
-                        <div class="container-fluid mb-5">
-                            <div class="row g-2">
-
-                                <div class="col-md-4">
-                                    <label class="form-label">Email:</label>
-                                    <input type="email" v-model="fields.email" class="form-control input" id="driver-email">
-                                    <span v-if="this.errors.email" class="c-error">
-                                        {{ this.errors.email[0] }}
-                                    </span>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label class="form-label">Mobile Number:</label>
-                                    <input type="number" v-model="fields.mobile_no" class="form-control input" id="driver-number">
-                                    <span v-if="this.errors.mobile_no" class="c-error">
-                                        {{ this.errors.mobile_no[0] }}
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
-                        <hr>
                     </v-card>
 
                     <v-btn color="primary" @click="e1 = 2">
@@ -294,48 +300,84 @@
                 </v-stepper-content>
 
                 <v-stepper-content step="2">
-                    <v-card class="mb-12" color="grey darken-3" height="400px">
-                        <hr>
-                        <div class="container-fluid register-fills">
-                            <b>Driver's License Information</b>
+                    <v-card class="mb-12" color="grey darken-4">
+                        <div class="card-header">
+                            <div class="card-section-text">
+                                Driver's License Information <br>
+                                <span class="skip">(click next if none...)</span>
+                            </div>          
+                            
                         </div>
-                        <div class="container-fluid register-fills">
-                            <span class="skip">(click next if none...)</span>
+
+                        <div class="form-registration">
+                            <v-row>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-select
+                                        :items="['Non-professional', 'Professional']"
+                                        outlined
+                                    ><template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-gender-male-female
+                                        </v-icon>
+                                        Sex
+                                    </template></v-select>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        v-model="fields.driver_license_no"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account
+                                        </v-icon>
+                                        ID No.
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-menu
+                                        :close-on-content-click="false"
+                                        transition="scale-transition"
+                                        offset-y
+                                        max-width="290px"
+                                        min-width="auto"
+                                        >
+                                        <template v-slot:activator="{ on, attrs }">
+                                            <v-text-field
+                                                outlined
+                                                v-model="fields.expr"
+                                                persistent-hint
+                                                v-bind="attrs"
+                                                v-on="on"
+                                            > 
+                                            <template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-calendar
+                                                </v-icon>
+                                                Expiration Date
+                                            </template></v-text-field>
+                                        </template>
+                                        <v-date-picker
+                                            v-model="fields.bdate"
+                                            no-title
+                                            @input="menu1 = false"
+                                        ></v-date-picker>
+                                    </v-menu>
+                                </v-col>
+                            </v-row>
                         </div>
-                        
-                        <hr>
-
-                        <div class="container-fluid">
-                            <div class="row g-2  centers">
-
-                                <div class="col-md-3">
-                                    <label class="form-label"> ID Type: </label>
-                                        <select class="form-select input" v-model="fields.driver_license_type" name="id-type" aria-label="Default select example">
-                                            <option selected disabled>Select</option>
-                                            <option value="1">Non-professional</option>
-                                            <option value="2">Professional</option>
-                                        </select>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="form-label">ID No:</label>
-                                    <input type="text" class="form-control input" v-model="fields.driver_license_no" id="license-ID">
-                                </div>
-
-                                <div class="col-md-3">
-                                        <label for="date" class="form-label">Expiration Date: </label>
-                                        <div class="input-group date" id="license">
-                                            <input type="text" v-model="fields.expr" class="form-control">
-                                            <span class="input-group-append">
-                                                <span class="input-group-text bg-white">
-                                                    <i class="fa fa-calendar icons"></i>
-                                                </span>
-                                            </span>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
 
                     </v-card>
 
@@ -350,42 +392,103 @@
                 </v-stepper-content>
 
                 <v-stepper-content step="3">
-                    <v-card class="mb-12" color="grey darken-3" height="400px">
+                    <v-card class="mb-12" color="grey darken-4">
 
-                        <hr>
-                            <div class="container-fluid register-fills">
-                                <b>Account Information</b>
-                            </div>
-                        <hr>
+                        <div class="card-header">
+                            <div class="card-section-text">
+                                Account Information
+                            </div>          
+                        </div>
+
+                        <div class="form-registration">
+                            <v-row class="centers">
+                                <v-col
+                                    cols="12"
+                                    md="3"
+                                    sm="4">
+                                    <v-text-field
+                                        v-model="fields.username"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account-check
+                                        </v-icon>
+                                        username
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+        
+                                <v-col
+                                    cols="12"
+                                    md="3"
+                                    sm="6">
+                                        <v-text-field
+                                        :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                                        :rules="validate.usernameRules"
+                                        :type="show3 ? 'text' : 'password'"
+                                        label="Not visible"
+                                        class="input-group--focused"
+                                        @click:append="show3 = !show3"
+                                                v-model="fields.password"
+                                                outlined
+                                            >
+                                            <template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-lock-question
+                                                </v-icon>
+                                                Enter password
+                                            </template>
+                                        </v-text-field>
+                                </v-col>
+
+                                <v-col
+                                    cols="12"
+                                    md="3"
+                                    sm="6">
+                                        <v-text-field
+                                        :append-icon="show4 ? 'mdi-eye' : 'mdi-eye-off'"
+                                        :rules="validate.usernameRules"
+                                        :type="show4 ? 'text' : 'password'"
+                                        label="Not visible"
+                                        class="input-group--focused"
+                                        @click:append="show4 = !show4"
+                                                v-model="fields.password_confirmation"
+                                                outlined
+                                            >
+                                            <template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-lock-question
+                                                </v-icon>
+                                                Repeat password
+                                            </template>
+                                        </v-text-field>
+                                </v-col>
+                            </v-row>
+                            <v-row class="centers marginNeg margin-left">
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-checkbox
+                                        v-model="fields.terms">
+                                        <template v-slot:label>
+                                            <span class="button-term" @click="termsDialog = true">Agree to Terms and Conditions</span>
+                                        </template>
+                                    </v-checkbox>
+                                   
+                                </v-col>
+                                        
+                            </v-row>
+                                
+                        </div>
                         <div class="container-fluid">
-                            <div class="row g-2  centers">
-                                <div class="col-md-5">
-                                    <label class="form-label"> Username: </label>
-                                    <input type="text" v-model="fields.username" class="form-control input" id="driver-firstname">
-                                </div>
-                            </div>
 
-                            <div class="row g-2  centers">
-                                <div class="col-md-5">
-                                    <label class="form-label"> Password: </label>
-                                    <input type="password" v-model="fields.password" class="form-control input" id="driver-password">
-                                </div>
-                            </div>
-
-                            <div class="row g-2  centers">
-                                <div class="col-md-5">
-                                    <label class="form-label"> Repeat Password: </label>
-                                    <input type="password" v-model="fields.password_confirmation" class="form-control input" id="driver-reppassword">
-                                </div>
-                            </div>
                             <div class="row g-0  centers ">
                                 <div class="col-md-3 ml-7">
-                                    <div class="">
-                                        <input class="form-check-input" v-model="fields.terms" type="checkbox" value="" id="flexCheckChecked" checked>
-                                        <!-- <label class="form-check-label">
-                                            Agree to Terms and Conditions
-                                        </label> -->
-                                        <span class="button-term" @click="termsDialog = true">Agree to Terms and Conditions</span>
+                                    <div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -406,43 +509,26 @@
                             </v-btn>
                         </v-stepper-content>
                     </v-stepper-items>
-                    <button class="btn btn-primary" @click="submit">DEBUG</button>
                 </v-stepper>
 
-            
-
-            </v-app>
-
-                <!-- modals for the the proceed -->
-                <div class="modal fade" id="regDriver" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title  text-white" id="exampleModalLabel">Information</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            Are you sure you want register to the system?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-danger"  @click = "submit"  data-bs-dismiss="modal">Save</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade" id="terms" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-                            <div class="modal-content bg-dark">
-                            <div class="modal-header">
+                <!-- modals for the terms-->         
+                <template>
+                    <v-row justify="center">
+                        <v-dialog
+                        v-model="termsDialog"
+                        scrollable
+                        persistent
+                        max-width="800px"
+                        >
+                        <v-card>
+                            <v-card-title>
                                 <h5 class="modal-title text-white" id="staticBackdropLabel">
-                                    <img src="../../../pics/stacked_bar_chart_white_24dp.svg" class="driver-icon" alt="...">
-                                    Terms and Conditions</h5>
-                                    <v-spacer></v-spacer>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-white">
+                                <img src="../../../pics/stacked_bar_chart_white_24dp.svg" class="driver-icon" alt="...">
+                                Terms and Conditions</h5>
+                                <v-spacer></v-spacer>
+                            </v-card-title>
+                            <v-divider></v-divider>
+                            <v-card-text style="height: 500px;">
                                 <h2>VAVTS Terms of Use</h2>
 
                                 <p>Version 1.0</p>
@@ -451,7 +537,7 @@
 
                                 <p>All such additional terms, guidelines, and rules are incorporated by reference into these Terms.</p>
 
-                                <p>These Terms of Use described the legally binding terms and conditions that oversee your use of the Site. BY LOGGING INTO THE SITE, YOU ARE BEING COMPLIANT THAT THESE TERMS and you represent that you have the authority and capacity to enter into these Terms. YOU SHOULD BE AT LEAST 18 YEARS OF AGE TO ACCESS THE SITE. IF YOU DISAGREE WITH ALL OF THE PROVISION OF THESE TERMS, DO NOT LOG INTO AND/OR USE THE SITE.<p>
+                                <p>These Terms of Use described the legally binding terms and conditions that oversee your use of the Site. BY LOGGING INTO THE SITE, YOU ARE BEING COMPLIANT THAT THESE TERMS and you represent that you have the authority and capacity to enter into these Terms. YOU SHOULD BE AT LEAST 18 YEARS OF AGE TO ACCESS THE SITE. IF YOU DISAGREE WITH ALL OF THE PROVISION OF THESE TERMS, DO NOT LOG INTO AND/OR USE THE SITE.</p>
 
                                 <p>These terms require the use of arbitration Section 10.2 on an individual basis to resolve disputes and also limit the remedies available to you in the event of a dispute. These Terms of Use were created with the help of the <a href="https://www.termsofusegenerator.net">Terms Of Use Generator</a>.</p>
 
@@ -582,43 +668,33 @@
 
                                 <p>Address: Tangub City, Misamis Occidental</p>
                                 <p>Email: johnmichaelcagadas@gmail.com</p>
-                                
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Okay</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                            </v-card-text>
+                            <v-divider></v-divider>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    color="green darken-1"
+                                    text
+                                    @click="termsDialog = false"
+                                >
+                                    I understand
+                                </v-btn>
+                            </v-card-actions>
+                        </v-card>
+                        </v-dialog>
+                    </v-row>
+                </template>
+
+
+                
+
             
+
+            </v-app>
+
+                 
         </v-container>
-
-        <v-dialog
-            v-model="termsDialog"
-            max-width="290"
-            >
-            <v-card>
-                <v-card-title class="text-h5">
-                    Use Google's location service?
-                </v-card-title>
-
-                <v-card-text>
-                    et Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
-                </v-card-text>
-
-                <v-card-actions>
-                <v-spacer></v-spacer>
-
-                <v-btn
-                    color="green darken-1"
-                    text
-                    @click="termsDialog = false"
-                >
-                    Agree
-                </v-btn>
-                </v-card-actions>
-            </v-card>
-            </v-dialog>
 
     </div><!--root div-->
 
@@ -632,6 +708,8 @@ export default {
         return {
             
             e1: 1,
+            show3: false,
+            show4: false,
 
             fields: {
                 fname: '',
@@ -654,15 +732,48 @@ export default {
                 fnameRules: [
                     v => !!v || 'Firstname is required',
                 ],
+                mnameRules: [
+                    v => !!v || 'Middlename is required',
+                ],
+                lnameRules: [
+                    v => !!v || 'Lastname is required',
+                ],
+                sexRules: [
+                    v => !!v || 'Sex is required',
+                ],
+                bdateRules: [
+                    v => !!v || 'Birthdate is required',
+                ],
+                picRules: [
+                    v => !!v || 'Picture is required',
+                ],
+                provRules: [
+                    v => !!v || 'Province is required',
+                ],
+                cityRules: [
+                    v => !!v || 'City is required',
+                ],
+                brgyRules: [
+                    v => !!v || 'Barangay is required',
+                ],
+                streetRules: [
+                    v => !!v || 'Street is required',
+                ],
                 emailRules: [
                     v => !!v || 'E-mail is required',
                     v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
                 ],
                 mobileNo: [
-                    v => !!v || 'E-mail is required',
+                    v => !!v || 'Mobile Number is required',
                    
                     v => /((^(\+)(\d){12}$)|(^\d{11}$))/.test(v) || 'Invalid mobile no.',
-                ]
+                ],
+                usernameRules: [
+                    v => !!v || 'username is required',
+                ],
+                passwordRules: [
+                    v => !!v || 'password is required',
+                ],
             },
 
 
@@ -754,11 +865,6 @@ export default {
         },
 
         initData(){
-            // $(function() {
-            //     $('#birthdate').datepicker();
-            //     $('#license').datepicker();
-            //     $('#vehicle').datepicker();
-            // });
 
             this.loadProvinces()
         },

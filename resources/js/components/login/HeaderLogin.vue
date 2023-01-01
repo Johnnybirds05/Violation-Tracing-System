@@ -27,8 +27,8 @@
     position: relative;
 }
 .LoginHeader{
-    background-color: black;
-    opacity: .8;
+    background-color: rgb(15, 15, 15);
+    opacity: .9;
     color: aliceblue;
     display: flex;
     align-items: center;
