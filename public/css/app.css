@@ -2,7 +2,8 @@
 
 body{
     background-image: url(/images/279303.jpg?80c112effc8f5644fbffc9102a455ec0);
-    background-repeat: repeat;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .btn-login {

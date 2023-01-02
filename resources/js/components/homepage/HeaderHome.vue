@@ -1,7 +1,7 @@
 <template>
     
-    <div class="container">
-        <div class="container text-center head-home">
+    <div class="containersds">
+        <div class="containersds text-center head-home">
 
             <div class="img">
                 <img src="../../../pics/logo.png" alt="vavts" class="logo">
@@ -9,7 +9,7 @@
 
             <div class="appname mt-3">
                 <h2><b>Vehicle Assistant and Violation Tracing System</b> </h2>
-                <span class="logonote">Making your travel in Tangub City easier!</span>
+                <div class="logonote">Making your travel in Tangub City easier!</div>
             </div>
 
         </div>
@@ -37,9 +37,18 @@
 .appname{
     color: rgb(175, 175, 175);
     font-family:monospace;
+    margin-top: 30px;
 }
 .logonote{
     font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+}
+.containersds{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 @media only screen and (max-width: 1000px){
     .logonote{

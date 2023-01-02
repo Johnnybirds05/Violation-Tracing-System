@@ -93,8 +93,8 @@
                                                     <h6>{{ item.name }}</h6>
                                                     <v-spacer></v-spacer> 
                                                 <div class=" ml-10 button-tourism">
-                                                    <button class="button m-1" data-bs-toggle="modal" data-bs-target="#insertDriver"> Edit Details</button>
-                                                    <button class="noselect m-1" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                                    <button class="button ma-1" @click="driverDialog= true"> Edit Details</button>
+                                                    <button class="noselect mt-1" @click="deleteAccountDialog= true">
                                                         <span class="text">Delete</span><span class="icone"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span>
                                                     </button>
                                                 </div>
@@ -160,15 +160,29 @@
             <v-card flat>
                 <v-card-text>
 <!-- this is for the vehicle registration -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button collapsed vehicle-body" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <img src="./../../../pics/no_crash_white_24dp.svg" class="vehicle-img mr-5"> Vehicle Registration
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <template>
+            <template>
+                <v-expansion-panels focusable>
+                  <v-expansion-panel
+                  >
+                    <v-expansion-panel-header color="grey darken-4">
+                      <v-row>
+                        <v-col
+                            cols="12"
+                            md="1"
+                            sm="6">
+                            <img src="./../../../pics/no_crash_white_24dp.svg" class="vehicle-img mr-5">
+                        </v-col>
+                        <v-col
+                            cols="12"
+                            md="4"
+                            sm="6">
+                            
+                            <h3 class="vehicle-name mt-1"> Vehicle Registration</h3>
+                        </v-col>                            
+                    </v-row>
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content>
+                        <template>
                                 <v-container fluid>
                                     <v-data-iterator
                                         :items="registrationReq"
@@ -182,7 +196,7 @@
                             <template v-slot:header>
                                 <v-toolbar color="dark" class="mb-3">
                                     <img src="./../../../pics/no_crash_white_24dp.svg" class="vehicle-img mr-5">
-                                    <h6 class="ml-2">Vehicle Registration Requirement List</h6>
+                                    <h4>Vehicle Registration Requirement List</h4>
                                 <v-spacer></v-spacer>
                                 <div class="containered">
                                         <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="searchVreq">
@@ -194,7 +208,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                        <button class="icon-btn add-btn" data-bs-toggle="modal" data-bs-target="#editRegistration">
+                                        <button class="icon-btn add-btn" @click="registrationDialog = true">
                                             <div class="add-icon"></div>
                                             <div class="btn-txt"><b>Add Requirement</b></div>
                                         </button>
@@ -209,10 +223,10 @@
                                                     <h6>{{ item.name }}</h6>
                                                     <v-spacer></v-spacer>
                                                             <v-card color="warning">
-                                                                <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#editRegistration">
+                                                                <v-icon small class="m-1" @click="registrationDialog = true">
                                                                 mdi-pencil
                                                             </v-icon> 
-                                                            <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#delete-Vreq"
+                                                            <v-icon small class="m-1" @click="deleteRegistrationDialog= true"
                                                             >
                                                                 mdi-delete
                                                             </v-icon>
@@ -270,26 +284,36 @@
                                 </v-data-iterator>
                                 
                             </v-container>
-                                </template>
+                        </template>
 
-                            </div>
-                        </div>
-                 
-                        
-                    </div>
-
-
-
+                    </v-expansion-panel-content>
+                  </v-expansion-panel>
+                </v-expansion-panels>
+              </template>
 
 <!-- this is for the driver's license -->
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed vehicle-body" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      <img src="./../../../pics/how_to_reg_white_24dp.svg" class="vehicle-img mr-5"> Driver's License
-                    </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
+            <template>
+                <v-expansion-panels focusable>
+                  <v-expansion-panel
+                  >
+                    <v-expansion-panel-header color="grey darken-4">
+                      <v-row>
+                        <v-col
+                            cols="12"
+                            md="1"
+                            sm="6">
+                            <img src="./../../../pics/how_to_reg_white_24dp.svg" class="vehicle-img mr-5">
+                        </v-col>
+                        <v-col
+                            cols="12"
+                            md="4"
+                            sm="6">
+                            
+                            <h3 class="vehicle-name mt-1"> Driver's License</h3>
+                        </v-col>                            
+                    </v-row>
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content>
                         <template>
                                 <v-container fluid>
                                     <v-data-iterator
@@ -304,7 +328,7 @@
                             <template v-slot:header>
                                 <v-toolbar color="dark" class="mb-3">
                                     <img src="./../../../pics/no_crash_white_24dp.svg" class="vehicle-img mr-5">
-                                    <h6 class="ml-2">Driver's License Requirement List</h6>
+                                    <h4 class="ml-2">Driver's License Requirement List</h4>
                                 <v-spacer></v-spacer>
                                     <div class="containered">
                                         <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="searchLreq">
@@ -316,7 +340,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                        <button class="icon-btn add-btn" data-bs-toggle="modal" data-bs-target="#editLicense">
+                                        <button class="icon-btn add-btn" @click="licenseDialog = true">
                                             <div class="add-icon"></div>
                                             <div class="btn-txt"><b>Add Requirement</b></div>
                                         </button>
@@ -330,10 +354,10 @@
                                                     <h6>{{ item.name }}</h6>
                                                     <v-spacer></v-spacer>
                                                             <v-card color="warning">
-                                                                <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#editLicense">
+                                                                <v-icon small class="m-1" @click="licenseDialog = true">
                                                                 mdi-pencil
                                                             </v-icon> 
-                                                            <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#delete-Lreq"
+                                                            <v-icon small class="m-1" @click="deleteLicenseDialog= true"
                                                             >
                                                                 mdi-delete
                                                             </v-icon>
@@ -391,11 +415,12 @@
                                 </v-data-iterator>
                                 
                             </v-container>
-                                </template>
-                    </div>
-                  </div>
-                </div>
-    
+                        </template>
+
+                    </v-expansion-panel-content>
+                  </v-expansion-panel>
+                </v-expansion-panels>
+              </template>
 
                 </v-card-text>
             </v-card>
@@ -431,7 +456,7 @@
                                             </svg>  
                                         </div>
                                     </div>
-                                        <button class="icon-btn add-btn"  data-bs-toggle="modal" data-bs-target="#editOffice">
+                                        <button class="icon-btn add-btn"  @click="officeDialog = true">
                                             <div class="add-icon"></div>
                                             <div class="btn-txt"><b>Add Account</b></div>
                                         </button>
@@ -447,8 +472,8 @@
                                                     <h6>{{ item.name }}</h6>
                                                     <v-spacer></v-spacer> 
                                                 <div class=" ml-10 button-tourism">
-                                                    <button class="button m-1"  data-bs-toggle="modal" data-bs-target="#editOffice"> Edit Details</button>
-                                                    <button class="noselect m-1" data-bs-toggle="modal" data-bs-target="#delete-account">
+                                                    <button class="button ma-1" @click="officeDialog = true"> Edit Details</button>
+                                                    <button class="noselect ma-1" @click="deleteOfficeDialog= true">
                                                         <span class="text">Delete</span><span class="icone"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span>
                                                     </button>
                                                 </div>
@@ -517,493 +542,1337 @@
         </div>
 
 <!-- Modals! -->
-            <!-- modal for delete driver-->
-                <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content bg-dark">
-                            <div class="modal-header">
-                                <h5 class="modal-title  text-white" id="exampleModalLabel">Warning!</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-white">
-                                Are you sure you want to delete this driver's profile?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="button-back btn-danger">Save changes</button>
-                            </div>
-                            </div>
-                        </div>
-                </div>
-            <!-- modals for delete vehicle req -->
-                <div class="modal fade" id="delete-Vreq" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title  text-white" id="exampleModalLabel">Warning!</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            Are you sure you want delete this registration requirement?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-danger">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+<!-- Delete Account -->
+<template>
+          <v-row justify="center">
+              <v-dialog
+              v-model="deleteAccountDialog"
+              scrollable
+              persistent
+              max-width="400px"
+              >
+              <v-card>
+                  <v-card-title>
+                      <v-icon style="vertical-align: middle">
+                          mdi-alert
+                      </v-icon>
+                      <h5 class="modal-title text-white" id="staticBackdropLabel">
+                          Warning!
+                      </h5>
+                      <v-spacer></v-spacer>
+                  </v-card-title>
+                  <v-divider></v-divider>
+                  <v-card-text class="d-flex justify-center">
+                      <div class="card-header">
+                          <div class="card-section-text mt-2">
+                            Are you sure you want to delete this account?
+                          </div>          
+                      </div>                             
+                  </v-card-text>
+                  <v-divider></v-divider>
+                  <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn
+                          text
+                          @click="deleteAccountDialog=false"
+                      >
+                          Cancel
+                      </v-btn>
+                      <v-btn
 
-            <!-- modals for delete License req -->
-                <div class="modal fade" id="delete-Lreq" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title  text-white" id="exampleModalLabel">Warning!</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            Are you sure you want delete this license requirement?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-danger">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+                          text
+                          @click="deleteDialog=false"
+                      >
+                          Proceed
+                      </v-btn>
+                      <v-spacer></v-spacer>
+                  </v-card-actions>
+              </v-card>
+              </v-dialog>
+          </v-row>
+      </template>
+<!-- Delete Registration Requirement -->
+<template>
+          <v-row justify="center">
+              <v-dialog
+              v-model="deleteRegistrationDialog"
+              scrollable
+              persistent
+              max-width="400px"
+              >
+              <v-card>
+                  <v-card-title>
+                      <v-icon style="vertical-align: middle">
+                          mdi-alert
+                      </v-icon>
+                      <h5 class="modal-title text-white" id="staticBackdropLabel">
+                          Warning!
+                      </h5>
+                      <v-spacer></v-spacer>
+                  </v-card-title>
+                  <v-divider></v-divider>
+                  <v-card-text class="d-flex justify-center">
+                      <div class="card-header">
+                          <div class="card-section-text mt-2">
+                            Are you sure you want to delete this vehicle Registration Requirement?
+                          </div>          
+                      </div>                             
+                  </v-card-text>
+                  <v-divider></v-divider>
+                  <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn
+                          text
+                          @click="deleteRegistrationDialog=false"
+                      >
+                          Cancel
+                      </v-btn>
+                      <v-btn
 
-            <!-- modal for delete account -->
-                <div class="modal fade" id="delete-account" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title  text-white" id="exampleModalLabel">Warning!</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            Are you sure you want delete this Account?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-danger">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            <!-- modals for view detail and update driver account -->
-                <div class="modal fade" id="insertDriver" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-white" id="staticBackdropLabel">
-                                <img src="../../../pics/sports_motorsports_white_24dp.svg" class="driver-icon" alt="...">
-                                Driver Details</h5>
+                          text
+                          @click="deleteDialog=false"
+                      >
+                          Proceed
+                      </v-btn>
+                      <v-spacer></v-spacer>
+                  </v-card-actions>
+              </v-card>
+              </v-dialog>
+          </v-row>
+      </template>
+
+      <!-- Delete License -->
+      <template>
+          <v-row justify="center">
+              <v-dialog
+              v-model="deleteLicenseDialog"
+              scrollable
+              persistent
+              max-width="400px"
+              >
+              <v-card>
+                  <v-card-title>
+                      <v-icon style="vertical-align: middle">
+                          mdi-alert
+                      </v-icon>
+                      <h5 class="modal-title text-white" id="staticBackdropLabel">
+                          Warning!
+                      </h5>
+                      <v-spacer></v-spacer>
+                  </v-card-title>
+                  <v-divider></v-divider>
+                  <v-card-text class="d-flex justify-center">
+                      <div class="card-header">
+                          <div class="card-section-text mt-2">
+                            Are you sure you want to delete this driver's license requirement?
+                          </div>          
+                      </div>                             
+                  </v-card-text>
+                  <v-divider></v-divider>
+                  <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn
+                          text
+                          @click="deleteLicenseDialog=false"
+                      >
+                          Cancel
+                      </v-btn>
+                      <v-btn
+
+                          text
+                          @click="deleteLicenseDialog=false"
+                      >
+                          Proceed
+                      </v-btn>
+                      <v-spacer></v-spacer>
+                  </v-card-actions>
+              </v-card>
+              </v-dialog>
+          </v-row>
+      </template>
+
+<!-- Delete Office -->
+<template>
+          <v-row justify="center">
+              <v-dialog
+              v-model="deleteOfficeDialog"
+              scrollable
+              persistent
+              max-width="400px"
+              >
+              <v-card>
+                  <v-card-title>
+                      <v-icon style="vertical-align: middle">
+                          mdi-alert
+                      </v-icon>
+                      <h5 class="modal-title text-white" id="staticBackdropLabel">
+                          Warning!
+                      </h5>
+                      <v-spacer></v-spacer>
+                  </v-card-title>
+                  <v-divider></v-divider>
+                  <v-card-text class="d-flex justify-center">
+                      <div class="card-header">
+                          <div class="card-section-text mt-2">
+                            Are you sure you want to delete this office account?
+                          </div>          
+                      </div>                             
+                  </v-card-text>
+                  <v-divider></v-divider>
+                  <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn
+                          text
+                          @click="deleteOfficeDialog=false"
+                      >
+                          Cancel
+                      </v-btn>
+                      <v-btn
+
+                          text
+                          @click="deleteDialog=false"
+                      >
+                          Proceed
+                      </v-btn>
+                      <v-spacer></v-spacer>
+                  </v-card-actions>
+              </v-card>
+              </v-dialog>
+          </v-row>
+      </template>
+
+    <!-- modals for view detail and update driver account -->
+            <template>
+                    <v-row justify="center">
+                        <v-dialog
+                        v-model="driverDialog"
+                        scrollable
+                        persistent
+                        max-width="800px"
+                        >
+                        <v-card>
+                            <v-card-title>
+                                <v-icon style="vertical-align: middle">
+                                    mdi-account
+                                </v-icon>
+                                <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                    Driver Details
+                                </h5>
                                 <v-spacer></v-spacer>
                                 <label class="switch">
-                                        <input type="checkbox" class="inputer">
-                                        <span class="slider"></span>
-                                </label>
+                                                <input type="checkbox" class="inputer">
+                                                <span class="slider"></span>
+                                    </label>
+                            </v-card-title>
+                            <v-divider></v-divider>
+                            <v-card-text style="height: 600px;">
+         
+
+                                <div class="form-registration">
+                            <v-row>
+                                <v-col
+                                    cols="12"
+                                    md="3"
+                                    sm="6">
+                                    <v-text-field
+                                        v-model="fields.fname"
+                                        :rules="validate.fnameRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account
+                                        </v-icon>
+                                        First Name
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+
+                                <v-col
+                                    cols="12"
+                                    md="3"
+                                    sm="6">
+                                    <v-text-field
+                                        v-model="fields.mname"
+                                        :rules="validate.mnameRules"
+                                        outlined
+                                        clearable
+                                    > <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account
+                                        </v-icon>
+                                        Middle Name
+                                    </template></v-text-field>
+                                </v-col>
+
+                                <v-col
+                                    cols="12"
+                                    md="3"
+                                    sm="6">
+                                    <v-text-field
+                                        v-model="fields.lname"
+                                        :rules="validate.lnameRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account
+                                        </v-icon>
+                                        Last Name
+                                    </template></v-text-field>
+                                </v-col>
+
+                                <v-col
+                                    cols="12"
+                                    md="3"
+                                    sm="6">
+                                    <v-text-field
+                                        v-model="fields.suffix"
+                                        hint="leave blank if none"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account
+                                        </v-icon>
+                                        Suffix
+                                    </template></v-text-field>
+                                </v-col>
+                            </v-row>
+
+                            <v-row>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-select
+                                        :rules="validate.sexRules"
+                                        :items="['Male', 'Female']"
+                                        outlined
+                                    ><template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-gender-male-female
+                                        </v-icon>
+                                        Sex
+                                    </template></v-select>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-menu
+                                        :close-on-content-click="false"
+                                        transition="scale-transition"
+                                        offset-y
+                                        max-width="290px"
+                                        min-width="auto"
+                                        >
+                                        <template v-slot:activator="{ on, attrs }">
+                                            <v-text-field
+                                                outlined
+                                                :rules="validate.bdateRules"
+                                                v-model="fields.bdate"
+                                                persistent-hint
+                                                v-bind="attrs"
+                                                v-on="on"
+                                            > 
+                                            <template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-calendar
+                                                </v-icon>
+                                                Birthdate
+                                            </template></v-text-field>
+                                        </template>
+                                        <v-date-picker
+                                            v-model="fields.bdate"
+                                            no-title
+                                            @input="menu1 = false"
+                                        ></v-date-picker>
+                                    </v-menu>
+                                </v-col>
+
+                                <v-col cols="12" md="4" sm="6">
+                                    <v-file-input
+                                        v-model="fields.picture"
+                                        counter
+                                        multiple
+                                        label="Picture (2by2)"
+                                        placeholder="Select your image"
+                                        prepend-icon="mdi-camera"
+                                        outlined
+                                        :show-size="1000"
+                                        :rules="validate.picRules"
+                                    >
+                                        <template v-slot:selection="{ index, text }">
+                                        <v-chip
+                                            v-if="index < 2"
+                                            color="deep-white accent-4"
+                                            dark
+                                            label
+                                            small
+                                        >
+                                            {{ text }}
+                                        </v-chip>
+
+                                        <span
+                                            v-else-if="index === 2"
+                                            class="text-overline grey--text text--darken-3 mx-2"
+                                        >
+                                            +{{ files.length - 2 }} File(s)
+                                        </span>
+                                        </template>
+                                    </v-file-input>
+                                </v-col>
+                            </v-row>
+
+                            <v-row>
+                                <v-col cols="12" md="3" sm="6">
+                                    <v-select
+                                        item-value="provCode"
+                                        item-text="provDesc"
+                                        :items="provinces"
+                                        outlined
+                                        @change="loadCities"
+                                        v-model="fields.province"
+                                        :rules="validate.provRules"
+                                    ><template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-map-marker
+                                                </v-icon>
+                                                Province
+                                            </template></v-select>
+                                </v-col>
+
+                                <v-col cols="12" md="3" sm="6">
+                                    <v-select
+                                        item-value="citymunCode"
+                                        item-text="citymunDesc"
+                                        :items="cities"
+                                        outlined
+                                        @change="loadBarangays"
+                                        v-model="fields.city"
+                                        :rules="validate.cityRules"
+                                    ><template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-map-marker
+                                                </v-icon>
+                                                City
+                                            </template></v-select>
+                                </v-col>
+                                <v-col cols="12" md="3" sm="6">
+                                    <v-select
+                                        item-value="brgyCode"
+                                        item-text="brgyDesc"
+                                        :items="barangays"
+                                        outlined
+                                        v-model="fields.barangay"
+                                    ><template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-map-marker
+                                                </v-icon>
+                                                Barangay
+                                            </template></v-select>
+                                </v-col>
+
+                                <v-col cols="12" md="3" sm="6">
+                                    <v-text-field
+                                        outlined
+                                        v-model="fields.street"
+                                        :rules="validate.streetRules"
+                                    ><template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-map-marker
+                                                </v-icon>
+                                                Street
+                                            </template></v-text-field>
+                                </v-col>
+                            </v-row>
+
+
+                            <v-row>
+                                <v-col cols="12" md="6" sm="6">
+                                    <v-text-field
+                                        :rules="validate.emailRules"
+                                        required
+                                        outlined
+                                        v-model="fields.email"
+                                    ><template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-email
+                                        </v-icon>
+                                        Email
+                                    </template></v-text-field>
+                                </v-col>
+
+                                <v-col cols="12" md="6" sm="6">
+                                    <v-text-field
+                                        :rules="validate.mobileNo"
+                                        required
+                                        outlined
+                                        v-model="fields.mobile_no"
+                                    ><template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-cellphone
+                                        </v-icon>
+                                        Mobile No.
+                                    </template></v-text-field>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-select
+                                        :items="['Non-professional', 'Professional']"
+                                        outlined
+                                    ><template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account
+                                        </v-icon>
+                                        Sex
+                                    </template></v-select>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        v-model="fields.driver_license_no"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account
+                                        </v-icon>
+                                        ID No.
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-menu
+                                        :close-on-content-click="false"
+                                        transition="scale-transition"
+                                        offset-y
+                                        max-width="290px"
+                                        min-width="auto"
+                                        >
+                                        <template v-slot:activator="{ on, attrs }">
+                                            <v-text-field
+                                                outlined
+                                                v-model="fields.expr"
+                                                persistent-hint
+                                                v-bind="attrs"
+                                                v-on="on"
+                                            > 
+                                            <template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-calendar
+                                                </v-icon>
+                                                Expiration Date
+                                            </template></v-text-field>
+                                        </template>
+                                        <v-date-picker
+                                            v-model="fields.bdate"
+                                            no-title
+                                            @input="menu1 = false"
+                                        ></v-date-picker>
+                                    </v-menu>
+                                </v-col>
+                            </v-row>
+                            <v-row class="centers">
+                                <v-col
+                                    cols="12"
+                                    md="6"
+                                    sm="4">
+                                    <v-text-field
+                                        v-model="fields.username"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-account-check
+                                        </v-icon>
+                                        username
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                    md="6"
+                                    sm="6">
+                                        <v-text-field
+                                        :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                                        :rules="validate.usernameRules"
+                                        :type="show3 ? 'text' : 'password'"
+                                        label="Not visible"
+                                        class="input-group--focused"
+                                        @click:append="show3 = !show3"
+                                                v-model="fields.password"
+                                                outlined
+                                            >
+                                            <template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-lock-question
+                                                </v-icon>
+                                                Enter password
+                                            </template>
+                                        </v-text-field>
+                                </v-col>
+                            </v-row>
+                            
+
                         </div>
-                        <div class="modal-body text-white">
-                            <div class="container-fluid">
+                                
+                            </v-card-text>
+                            <v-divider></v-divider>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="driverDialog = false"
+                                >
+                                    Cancel
+                                </v-btn>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="addVehicleDialog = false"
+                                    class="ml-3"
+                                >
+                                    Save
+                                </v-btn>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="addVehicleDialog = true"
+                                    class="ml-3"
+                                >
+                                    View Vehicles
+                                </v-btn>
+                                <v-spacer></v-spacer>
+                            </v-card-actions>
+                            
+                        </v-card>
+                        </v-dialog>
+                    </v-row>
+            </template>
 
-                                <div class="row g-2">
-                                    <div class="col-md-3">
-                                        <label class="form-label"> First Name: </label>
-                                        <input type="text" class="form-control input" id="driver-firstname">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="form-label"> Last Name: </label>
-                                        <input type="text" class="form-control input" id="driver-lastname">
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label class="form-label">Middle Name: </label>
-                                        <input type="text" class="form-control input" id="driver-middlename">
-                                    </div>
-
-                                    <div class="col-md-2">
-                                        <label class="form-label">Suffix: </label>
-                                        <input type="text" class="form-control input" id="driver-suffix" placeholder="SR." maxlength="3">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <label class="form-label">Sex: </label>
-                                        <select class="form-select input" name="sex" aria-label="Default select example">
-                                            <option selected disabled>Select</option>
-                                            <option value="1">male</option>
-                                            <option value="2">female</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="date" class="form-label">Birthdate: </label>
-                                        <div class="input-group date input" id="birthdate">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-append">
-                                                <span class="input-group-text bg-white">
-                                                    <i class="fa fa-calendar icons"></i>
-                                                </span>
-                                            </span>
-                                        </div>
-                                    </div>                  
-                                    <div class="col-md-4">
-                                        <label for="formFileSm" class="form-label input">Picture(2by2):</label>
-                                        <input class="form-control  bg-dark" id="formFile" type="file" accept="image/png, image/gif, image/jpeg">
-                                    </div>               
-                                </div>
-                                <hr>
-                                <div class="container-fluid register-fills">
-                                    Current Address
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <label class="form-label">Province:</label>
-                                        <select class="form-select input" name="province" aria-label="Default select example">
-                                            <option selected disabled>Select</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label class="form-label">City:</label>
-                                        <select class="form-select input" name="city" aria-label="Default select example">
-                                            <option selected disabled>Select</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label class="form-label">Barangay:</label>
-                                        <select class="form-select input" name="barangay" aria-label="Default select example">
-                                            <option selected disabled>Select</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <hr>
-                                    <div class="container-fluid register-fills">
-                                        <b>Contact Information</b>
-                                    </div>
-                                <hr>
-                                <div class="row g-2">
-                                    <div class="col-md-4">
-                                        <label class="form-label">Email:</label>
-                                        <input type="email" class="form-control input" id="driver-email">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label class="form-label">Mobile Number:</label>
-                                        <input type="number" class="form-control input" id="driver-number">
-                                    </div>
-                                </div>
-                                <hr>
-                                    <div class="container-fluid register-fills">
-                                        <b>Driver's License Information</b>
-                                    </div>
-                                <hr>
-                                <div class="row g-2">
-                                    <div class="col-md-3">
-                                        <label class="form-label"> ID Type: </label>
-                                            <select class="form-select input" name="id-type" aria-label="Default select example">
-                                                <option selected disabled>Select</option>
-                                                <option value="1">Non-professional</option>
-                                                <option value="2">Professional</option>
-                                            </select>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label class="form-label">ID No:</label>
-                                        <input type="text" class="form-control input" id="license-ID">
-                                    </div>
-
-                                    <div class="col-md-3">
-                                            <label for="date" class="form-label">Expiration Date: </label>
-                                            <div class="input-group date" id="license">
-                                                <input type="text" class="form-control">
-                                                <span class="input-group-append">
-                                                    <span class="input-group-text bg-white">
-                                                        <i class="fa fa-calendar icons"></i>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                    <div class="container-fluid register-fills">
-                                        <b>Account Information</b>
-                                    </div>
-                                <hr>
-                                <div class="row g-2">
-                                    <div class="col-md-5">
-                                        <label class="form-label"> Username: </label>
-                                        <input type="text" class="form-control input" id="driver-firstname">
-                                    </div>
-                                    <div class="col-md-5">
-                                    <label class="form-label"> Password: </label>
-                                    <input type="password" class="form-control input" id="driver-password">
-                                </div>
-                                </div>        
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-success">Save</button>
-                            <button class="button-back  text-center mr-2" style="vertical-align:middle" data-bs-toggle="modal" data-bs-target="#vehiclelist" data-bs-dismiss="modal">
-                                    <span><b>Vehicles</b></span>
-                            </button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
             
             <!-- modals for view vehicle list -->
-                <div class="modal fade" id="vehiclelist" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-white" id="staticBackdropLabel">
-                                <img src="../../../pics/two_wheeler_white_24dp.svg" class="driver-icon" alt="...">
-                                Driver's Vehicle List</h5>
+            <template>
+                    <v-row justify="center">
+                        <v-dialog
+                        v-model="addVehicleDialog"
+                        scrollable
+                        persistent
+                        max-width="800px"
+                        >
+                        <v-card>
+                            <v-card-title>
+                                <v-icon style="vertical-align: middle">
+                                    mdi-car
+                                </v-icon>
+                                <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                    Vehicles Information
+                                </h5>
                                 <v-spacer></v-spacer>
-                                <button class="button btn button-detail text-center mt-2 mr-3" style="vertical-align:middle" data-bs-toggle="modal" data-bs-target="#insertDriver" data-bs-dismiss="modal">
-                                    <span><b> Driver </b></span>
-                                </button>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            <div class="row g-3 centered">
-                                <div class="col-md-3">
-                                    <button class="dev-buttons">
-                                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="currentColor"></path></svg>
-                                        <span>Generate QR</span>
-                                    </button>
-                                </div>
-                                <div class="col-md-2">
-                                    <label class="switch">
-                                        <input type="checkbox" class="inputer">
-                                        <span class="slider"></span>
-                                    </label>
-                                </div>
-                                
-                            </div>
-                            <div class="row g-3 centered">
-                                <div class="col-md-3">
-                                    <label class="form-label"> Model: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
+                            </v-card-title>
+                            <v-card-text style="height: 500px;">
+                                <v-divider></v-divider>
 
-                                <div class="col-md-3">
-                                    <label class="form-label">Body Type: </label>
-                                    <select class="form-select input" name="sex" aria-label="Default select example">
-                                        <option selected disabled>Select</option>
-                                        <option value="1">Motocycle</option>
-                                        <option value="2">Tricycle</option>
-                                        <option value="3">Car</option>
-                                        <option value="2">Truck</option>
-                                    </select>
-                                </div>
 
-                                <div class="col-md-3">
-                                    <label class="form-label"> Color: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
+                            <div class="form-registration">
+                                <v-row>
+                                        <v-col
+                                            cols="12"
+                                            md="3"
+                                            sm="6">
+                                            <button class="dev-buttons">
+                                                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="currentColor"></path></svg>
+                                                <span>Generate QR</span>
+                                            </button>
+                                        </v-col>
+                                        <v-col
+                                            cols="12"
+                                            md="2"
+                                            sm="6">
+                                            <label class="switch">
+                                                <input type="checkbox" class="inputer">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </v-col> 
+                                    </v-row>
+                              <v-row>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        :rules="validate.modelRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-car-multiple
+                                        </v-icon>
+                                        Model
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-select
+                                        :rules="validate.bTypeRules"
+                                        :items="['Motocycle', 'Tricycle','Truck','Car']"
+                                        outlined
+                                    ><template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-engine
+                                        </v-icon>
+                                        Body Type
+                                    </template></v-select>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        :rules="validate.colorRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-format-color-fill
+                                        </v-icon>
+                                        Color
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+                              </v-row>
 
-                            </div>
+                              <v-row class="marginNeg">
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        :rules="validate.serialRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-ticket-confirmation
+                                        </v-icon>
+                                        Serial No.
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        :rules="validate.colorRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-ticket-confirmation
+                                        </v-icon>
+                                        Plate No.
+                                    </template>
+                                </v-text-field>
+                                </v-col>
 
-                            <div class="row g-3 centered">
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        :rules="validate.colorRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-ticket-confirmation
+                                        </v-icon>
+                                        Receipt No. 
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+                              </v-row>
 
-                                <div class="col-md-3">
-                                    <label class="form-label"> Plate No: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
+                              <v-row class="marginNeg">
+                                <v-col
+                                    cols="12"
+                                    md="6"
+                                    sm="6">
+                                    <v-menu
+                                        :close-on-content-click="false"
+                                        transition="scale-transition"
+                                        offset-y
+                                        max-width="290px"
+                                        min-width="auto"
+                                        >
+                                        <template v-slot:activator="{ on, attrs }">
+                                            <v-text-field
+                                                outlined
+                                                v-model="fields.expr"
+                                                persistent-hint
+                                                v-bind="attrs"
+                                                v-on="on"
+                                            > 
+                                            <template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-calendar
+                                                </v-icon>
+                                                Expiration Date
+                                            </template></v-text-field>
+                                        </template>
+                                        <v-date-picker
+                                            v-model="fields.bdate"
+                                            no-title
+                                            @input="menu1 = false"
+                                        ></v-date-picker>
+                                    </v-menu>
+                                </v-col>
 
-                                <div class="col-md-3">
-                                    <label class="form-label"> Serial No: </label>
-                                    <input type="text" class="form-control" id="driver-firstname">
-                                </div>
+                                <v-col cols="12" md="6" sm="6">
+                                    <v-file-input
+                                        v-model="fields.picture"
+                                        counter
+                                        multiple
+                                        label="Picture (2by2)"
+                                        placeholder="Select your image"
+                                        prepend-icon="mdi-camera"
+                                        outlined
+                                        :show-size="1000"
+                                        :rules="validate.picRules"
+                                    >
+                                        <template v-slot:selection="{ index, text }">
+                                        <v-chip
+                                            v-if="index < 2"
+                                            color="deep-white accent-4"
+                                            dark
+                                            label
+                                            small
+                                        >
+                                            {{ text }}
+                                        </v-chip>
 
-                                <div class="col-md-3">
-                                    <label class="form-label"> Receipt No: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-
-                            </div>
-
-                            <div class="row g-3 centered mb-3">
-
-                                <div class="col-md-3">
-                                    <label for="date" class="form-label">Expiration Date: </label>
-                                    <div class="input-group date" id="vehicle">
-                                        <input type="text" class="form-control input">
-                                        <span class="input-group-append">
-                                            <span class="input-group-text bg-white">
-                                                <i class="fa fa-calendar icons"></i>
-                                            </span>
+                                        <span
+                                            v-else-if="index === 2"
+                                            class="text-overline grey--text text--darken-3 mx-2"
+                                        >
+                                            +{{ files.length - 2 }} File(s)
                                         </span>
-                                    </div>
-                                </div>
+                                        </template>
+                                    </v-file-input>
+                                </v-col>
+                              </v-row>
 
-                                <div class="col-md-6">
-                                    <label for="formFileSm" class="form-label input">Vehicle Photo:</label>
-                                    <input class="form-control" id="formFile" type="file" accept="image/png, image/gif, image/jpeg">
-                                </div>
+
+
                             </div>
+                                
+                            </v-card-text>
+                            <v-divider></v-divider>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="addVehicleDialog = false"
+                                >
+                                    Cancel
+                                </v-btn>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="addVehicleDialog = false"
+                                    class="ml-3"
+                                >
+                                    Save
+                                </v-btn>
+                                <v-spacer></v-spacer>
+                            </v-card-actions>
+                            
+                        </v-card>
+                        </v-dialog>
+                    </v-row>
+            </template>
 
-
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-success">Save</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
             <!-- modals for edit vehicle registration Requirements -->
-            <div class="modal fade" id="editRegistration" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-white" id="staticBackdropLabel">
-                                <img src="../../../pics/no_crash_white_24dp.svg" class="driver-icon" alt="...">
-                                Registration Requirement</h5>
+            <template>
+                    <v-row justify="center">
+                        <v-dialog
+                        v-model="registrationDialog"
+                        scrollable
+                        persistent
+                        max-width="800px"
+                        >
+                        <v-card>
+                            <v-card-title>
+                                <v-icon style="vertical-align: middle">
+                                    mdi-car
+                                </v-icon>
+                                <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                    Vehicle Registration Requirement
+                                </h5>
                                 <v-spacer></v-spacer>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            <div class="row g-3 centered">
-                                <div class="col-md-3">
-                                    <label class="form-label"> Name: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
+                            </v-card-title>
+                            <v-card-text style="height: 200px;">
+                                <v-divider></v-divider>
 
-                                <div class="col-md-3">
-                                    <label class="form-label"> Location: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-3">
-                                    <label class="form-label"> Cost: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
 
-                            </div>  
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-success">Save</button>
-                        </div>
-                        </div>
-                    </div>
-            </div>
+                            <div class="form-registration">
+                              <v-row>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        :rules="validate.nameRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-car-multiple
+                                        </v-icon>
+                                        Name
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        :rules="validate.locationRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-car-multiple
+                                        </v-icon>
+                                        Location
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        :rules="validate.costRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-car-multiple
+                                        </v-icon>
+                                        Cost
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+                            </v-row>
+
+                            </div>
+                                
+                            </v-card-text>
+                            <v-divider></v-divider>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="registrationDialog = false"
+                                >
+                                    Cancel
+                                </v-btn>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="registrationDialog = false"
+                                    class="ml-3"
+                                >
+                                    Save
+                                </v-btn>
+                                <v-spacer></v-spacer>
+                            </v-card-actions>
+                            
+                        </v-card>
+                        </v-dialog>
+                    </v-row>
+            </template>
             <!-- modals for edit license requirement -->
-            <div class="modal fade" id="editLicense" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-white" id="staticBackdropLabel">
-                                <img src="../../../pics/how_to_reg_white_24dp.svg" class="driver-icon" alt="...">
-                                Driver's License Requirement</h5>
+            <template>
+                    <v-row justify="center">
+                        <v-dialog
+                        v-model="licenseDialog"
+                        scrollable
+                        persistent
+                        max-width="800px"
+                        >
+                        <v-card>
+                            <v-card-title>
+                                <v-icon style="vertical-align: middle">
+                                    mdi-card-bulleted
+                                </v-icon>
+                                <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                    Driver's License Requirement
+                                </h5>
                                 <v-spacer></v-spacer>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            <div class="row g-3 centered">
-                                <div class="col-md-3">
-                                    <label class="form-label"> Name: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
+                            </v-card-title>
+                            <v-card-text style="height: 200px;">
+                                <v-divider></v-divider>
 
-                                <div class="col-md-3">
-                                    <label class="form-label"> Location: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-3">
-                                    <label class="form-label"> Cost: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
 
-                            </div>  
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-success">Save</button>
-                        </div>
-                        </div>
-                    </div>
-            </div>
+                            <div class="form-registration">
+                              <v-row>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        :rules="validate.nameRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-car-multiple
+                                        </v-icon>
+                                        Name
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        :rules="validate.locationRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-car-multiple
+                                        </v-icon>
+                                        Location
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-text-field
+                                        :rules="validate.costRules"
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-car-multiple
+                                        </v-icon>
+                                        Cost
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+                            </v-row>
+
+                            </div>
+                                
+                            </v-card-text>
+                            <v-divider></v-divider>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="licenseDialog = false"
+                                >
+                                    Cancel
+                                </v-btn>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="registrationDialog = false"
+                                    class="ml-3"
+                                >
+                                    Save
+                                </v-btn>
+                                <v-spacer></v-spacer>
+                            </v-card-actions>
+                            
+                        </v-card>
+                        </v-dialog>
+                    </v-row>
+            </template>
             <!-- add edit offices account -->
-            <div class="modal fade" id="editOffice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-white" id="staticBackdropLabel">
-                                <img src="../../../pics/perm_identity_white_36dp.svg" class="driver-icon" alt="...">
-                                Office Account</h5>
+            <template>
+                    <v-row justify="center">
+                        <v-dialog
+                        v-model="officeDialog"
+                        scrollable
+                        persistent
+                        max-width="800px"
+                        >
+                        <v-card>
+                            <v-card-title>
+                                <v-icon style="vertical-align: middle">
+                                    mdi-account
+                                </v-icon>
+                                <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                    Office Account
+                                </h5>
                                 <v-spacer></v-spacer>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            <div class="row g-3 centered">
-                                <div class="col-md-3">
-                                    <label class="form-label"> First Name: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
+                            </v-card-title>
+                            <v-card-text style="height: 400px;">
+                                <v-divider></v-divider>
 
-                                <div class="col-md-2">
-                                    <label class="form-label"> Middle Name: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-3">
-                                    <label class="form-label"> Last Name: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-1">
-                                    <label class="form-label">Suffix: </label>
-                                    <input type="text" class="form-control input" id="driver-suffix" placeholder="SR." maxlength="3">
-                                </div>
-                            </div>  
-                        </div>
-                        <div class="modal-body text-white">
-                            <div class="row g-3 centered">
-                                <div class="col-md-3">
-                                    <label class="form-label"> Office: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
 
-                                <div class="col-md-3">
-                                    <label class="form-label"> Position: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-3">
-                                    <label class="form-label"> ID: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                            </div>  
-                        </div>
-                        <div class="modal-body text-white">
-                            <div class="row g-3 centered">
-                                <div class="col-md-3">
-                                        <label for="formFileSm" class="form-label input">Picture(2by2):</label>
-                                        <input class="form-control  bg-dark" id="formFile" type="file" accept="image/png, image/gif, image/jpeg">
-                                    </div>  
-                                <div class="col-md-3">
-                                    <label class="form-label"> Account: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
+                            <div class="form-registration">
+                                <v-row>
+                                    <v-col
+                                        cols="12"
+                                        md="3"
+                                        sm="6">
+                                        <v-text-field
+                                            :rules="validate.fnameRules"
+                                            outlined
+                                            clearable
+                                        >
+                                        <template v-slot:label>
+                                            <v-icon style="vertical-align: middle">
+                                                mdi-account
+                                            </v-icon>
+                                            First Name
+                                        </template>
+                                    </v-text-field>
+                                    </v-col>
 
-                                <div class="col-md-3">
-                                    <label class="form-label"> Password: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                            </div>  
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-success">Save</button>
-                        </div>
-                        </div>
-                    </div>
-            </div>
+                                    <v-col
+                                        cols="12"
+                                        md="3"
+                                        sm="6">
+                                        <v-text-field
+                                            :rules="validate.mnameRules"
+                                            outlined
+                                            clearable
+                                        > <template v-slot:label>
+                                            <v-icon style="vertical-align: middle">
+                                                mdi-account
+                                            </v-icon>
+                                            Middle Name
+                                        </template></v-text-field>
+                                    </v-col>
+
+                                    <v-col
+                                        cols="12"
+                                        md="3"
+                                        sm="6">
+                                        <v-text-field
+                                            :rules="validate.lnameRules"
+                                            outlined
+                                            clearable
+                                        >
+                                        <template v-slot:label>
+                                            <v-icon style="vertical-align: middle">
+                                                mdi-account
+                                            </v-icon>
+                                            Last Name
+                                        </template></v-text-field>
+                                    </v-col>
+
+                                    <v-col
+                                        cols="12"
+                                        md="3"
+                                        sm="6">
+                                        <v-text-field
+                                            hint="leave blank if none"
+                                            outlined
+                                            clearable
+                                        >
+                                        <template v-slot:label>
+                                            <v-icon style="vertical-align: middle">
+                                                mdi-account
+                                            </v-icon>
+                                            Suffix
+                                        </template></v-text-field>
+                                    </v-col>
+                                </v-row>
+
+                                <v-row>
+                                    <v-col
+                                    cols="12"
+                                    md="4"
+                                    sm="6">
+                                    <v-select
+                                        :items="['Task Force', 'Legal Counsel', 'City Tourism', 'Local Legislative', 'City Treasurer']"
+                                        outlined
+                                    ><template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                            mdi-office-building
+                                        </v-icon>
+                                        Office Type
+                                    </template></v-select>
+                                </v-col>
+                                    <v-col
+                                        cols="12"
+                                        md="4"
+                                        sm="6">
+                                        <v-text-field
+                                            outlined
+                                            clearable
+                                        >
+                                        <template v-slot:label>
+                                            <v-icon style="vertical-align: middle">
+                                                mdi-card
+                                            </v-icon>
+                                            Position
+                                        </template>
+                                    </v-text-field>
+                                    </v-col>
+
+                                    <v-col
+                                        cols="12"
+                                        md="4"
+                                        sm="6">
+                                        <v-text-field
+                                            outlined
+                                            clearable
+                                        >
+                                        <template v-slot:label>
+                                            <v-icon style="vertical-align: middle">
+                                                mdi-card
+                                            </v-icon>
+                                            ID no
+                                        </template></v-text-field>
+                                    </v-col>
+                                </v-row>
+
+                                <v-row>
+                                    <v-col cols="12" md="4" sm="6">
+                                    <v-file-input
+                                        counter
+                                        multiple
+                                        label="Picture (2by2)"
+                                        placeholder="Select your image"
+                                        prepend-icon="mdi-camera"
+                                        outlined
+                                        :show-size="1000"
+                                    >
+                                        <template v-slot:selection="{ index, text }">
+                                        <v-chip
+                                            v-if="index < 2"
+                                            color="deep-white accent-4"
+                                            dark
+                                            label
+                                            small
+                                        >
+                                            {{ text }}
+                                        </v-chip>
+
+                                        <span
+                                            v-else-if="index === 2"
+                                            class="text-overline grey--text text--darken-3 mx-2"
+                                        >
+                                            +{{ files.length - 2 }} File(s)
+                                        </span>
+                                        </template>
+                                    </v-file-input>
+                                </v-col>
+                                    <v-col
+                                        cols="12"
+                                        md="4"
+                                        sm="4">
+                                        <v-text-field
+                                            outlined
+                                            clearable
+                                        >
+                                        <template v-slot:label>
+                                            <v-icon style="vertical-align: middle">
+                                                mdi-account-check
+                                            </v-icon>
+                                            username
+                                        </template>
+                                    </v-text-field>
+                                    </v-col>
+                                    <v-col
+                                        cols="12"
+                                        md="4"
+                                        sm="6">
+                                            <v-text-field
+                                            :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                                            :rules="validate.usernameRules"
+                                            :type="show3 ? 'text' : 'password'"
+                                            label="Not visible"
+                                            class="input-group--focused"
+                                            @click:append="show3 = !show3"
+                                            outlined
+                                                >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-lock-question
+                                                    </v-icon>
+                                                    Enter password
+                                                </template>
+                                            </v-text-field>
+                                    </v-col>
+                                </v-row>
+
+                            </div>
+                                
+                            </v-card-text>
+                            <v-divider></v-divider>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="officeDialog = false"
+                                >
+                                    Cancel
+                                </v-btn>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="registrationDialog = false"
+                                    class="ml-3"
+                                >
+                                    Save
+                                </v-btn>
+                                <v-spacer></v-spacer>
+                            </v-card-actions>
+                            
+                        </v-card>
+                        </v-dialog>
+                    </v-row>
+            </template>
         </div>
         
         
@@ -1017,6 +1886,10 @@
         
     data () {
       return {
+
+        fields: {},
+        errors: {},
+
         tab: null,
         drawer: null,
         itemsPerPageArray: [2, 4, 6],
@@ -1187,11 +2060,102 @@
                 id: '321271saj',
                 username: 'karne2163',
             },
+           
 
 
 
 
-          ]
+          ],
+          deleteAccountDialog: false,
+          deleteRegistrationDialog: false,
+          deleteLicenseDialog: false,
+          deleteOfficeDialog: false,
+          addVehicleDialog: false,
+          driverDialog: false,
+          registrationDialog: false,
+          licenseDialog: false,
+          officeDialog: false,
+
+          validate: {
+                modelRules: [
+                    v => !!v || 'Model is required',
+                ],
+                bTypeRules: [
+                    v => !!v || 'Body Type is required',
+                ],
+                colorRules: [
+                    v => !!v || 'Model is required',
+                ],
+                recieptRules: [
+                    v => !!v || 'Model is required',
+                ],
+                serialRules: [
+                    v => !!v || 'Model is required',
+                ],
+                photoRules: [
+                    v => !!v || 'Model is required',
+                ],
+                plateRules: [
+                    v => !!v || 'Model is required',
+                ],
+                exprRules: [
+                    v => !!v || 'Model is required',
+                ],
+                fnameRules: [
+                    v => !!v || 'Firstname is required',
+                ],
+                mnameRules: [
+                    v => !!v || 'Middlename is required',
+                ],
+                lnameRules: [
+                    v => !!v || 'Lastname is required',
+                ],
+                sexRules: [
+                    v => !!v || 'Sex is required',
+                ],
+                bdateRules: [
+                    v => !!v || 'Birthdate is required',
+                ],
+                picRules: [
+                    v => !!v || 'Picture is required',
+                ],
+                provRules: [
+                    v => !!v || 'Province is required',
+                ],
+                cityRules: [
+                    v => !!v || 'City is required',
+                ],
+                brgyRules: [
+                    v => !!v || 'Barangay is required',
+                ],
+                streetRules: [
+                    v => !!v || 'Street is required',
+                ],
+                emailRules: [
+                    v => !!v || 'E-mail is required',
+                    v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+                ],
+                mobileNo: [
+                    v => !!v || 'Mobile Number is required',
+                   
+                    v => /((^(\+)(\d){12}$)|(^\d{11}$))/.test(v) || 'Invalid mobile no.',
+                ],
+                usernameRules: [
+                    v => !!v || 'username is required',
+                ],
+                passwordRules: [
+                    v => !!v || 'password is required',
+                ],
+                nameRules: [
+                    v => !!v || 'name is required',
+                ],
+                locationRules: [
+                    v => !!v || 'password is required',
+                ],
+                costRules: [
+                    v => !!v || 'password is required',
+                ],
+          }
       }
     },
     
@@ -1304,7 +2268,7 @@
 }
 .max-content{
     max-height: fit-content;
-    min-height: 550px;
+    min-height: 650px;
 }
 .navs{
     position: absolute;
@@ -1376,6 +2340,14 @@ label{
   font-size: 15px;
   color: white;
   border: 1px solid white;
+}
+.form-registration{
+    padding: 30px;
+
+  }
+.v-text-field, ::v-deep label {
+  font-size: 0.9em;
+  font-family: monospace;
 }
 @media only screen and (max-width: 750px){
     .button-tourism{

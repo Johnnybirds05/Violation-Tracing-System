@@ -2,8 +2,8 @@
 
 @section('content')
     <div id="app">
-        <header-login></header-login>
-        <legal-login></legal-login>
+        <driver-homeheader></driver-homeheader>
+        <office-login></office-login>
         <footer-home></footer-home>
     </div>
 @endsection

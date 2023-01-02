@@ -32,24 +32,9 @@ Route::get('/', function () {
 });
 
 Route::get('/admins', function () {
-    return view('homepage/admins');
+    return view('logins/office');
 });
 
-Route::get('/logincto', function () {
-    return view('logins/cto');
-});
-Route::get('/logintask', function () {
-    return view('logins/task');
-});
-Route::get('/logincounsel', function () {
-    return view('logins/counsel');
-});
-Route::get('/logintourism', function () {
-    return view('logins/tourism');
-});
-Route::get('/loginlegislative', function () {
-    return view('logins/legislative');
-});
 Route::get('/tourism-dashboard', function () {
     return view('tourism/tourism-dashboard');
 });
