@@ -320,7 +320,7 @@
                                         outlined
                                     ><template v-slot:label>
                                         <v-icon style="vertical-align: middle">
-                                            mdi-gender-male-female
+                                            mdi-card
                                         </v-icon>
                                         Sex
                                     </template></v-select>

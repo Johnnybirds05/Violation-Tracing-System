@@ -1,7 +1,7 @@
 <template>
     
-    <div class="container">
-        <div class="container text-center head-home">
+    <div class="containersds">
+        <div class="containersds text-center head-home">
 
             <div class="img">
                 <img src="../../../pics/logo.png" alt="vavts" class="logo">
@@ -44,7 +44,7 @@
     text-align: center;
     margin-top: 10px;
 }
-.container{
+.containersds{
     display: flex;
     justify-content: center;
     align-items: center;

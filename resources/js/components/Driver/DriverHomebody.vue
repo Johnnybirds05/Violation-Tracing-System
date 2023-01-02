@@ -39,7 +39,7 @@
 
 
         </div>
-        <div class="container drivers-links">
+        <div class=" drivers-links">
             <v-app>
                 <v-card>
                     <v-tabs vertical background-color="grey darken-3">
@@ -288,16 +288,16 @@
                       <v-row class="centers marginNeg margin-left">
                         <v-col
                             cols="12"
-                            md="2"
+                            md="1"
                             sm="6">
-                            <img src="./../../../pics/feed_white_24dp.svg" class="ordinance-img mr-5">
+                            <img src="./../../../pics/feed_white_24dp.svg" class="ordinance-img mr-5 mt-3">
                         </v-col>
                         <v-col
                             cols="12"
                             md="4"
                             sm="6">
                             
-                            <h3 class="vehicle-name mt-2">{{ item.name }}</h3>
+                            <h3 class="vehicle-name mt-5">{{ item.name }}</h3>
                         </v-col>                            
                     </v-row>
                     </v-expansion-panel-header>
@@ -427,7 +427,7 @@
                   <v-card-text class="d-flex justify-center">
                       <div class="card-header">
                           <div class="card-section-text mt-2">
-                            Are you sure you want to delete this vehicle!
+                            Are you sure you want to delete this vehicle?
                           </div>          
                       </div>                             
                   </v-card-text>
@@ -456,7 +456,7 @@
 
 
       <!-- Modal for Add Vehicle -->
-      <template>
+                <template>
                     <v-row justify="center">
                         <v-dialog
                         v-model="addVehicleDialog"
@@ -1100,13 +1100,12 @@ h3{
   font-size: .9em;
 }
 .driver-body{
-    width: 98%;
+    width: 100%;
     background-color: rgb(46, 46, 46);
     font-family: monospace;
     color: white;
     font-size: 15px;
     opacity: .8;
-    border-radius: 10px;
 }
 .profile{
   width: 130px;

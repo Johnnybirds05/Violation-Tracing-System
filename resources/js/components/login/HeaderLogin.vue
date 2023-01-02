@@ -72,6 +72,9 @@
  box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
  transform: translateY(-2px);
 }
+a{
+    text-decoration: none;
+}
 @media only screen and (max-width: 1000px){
     .buttons{
         margin-right: 20px; 
