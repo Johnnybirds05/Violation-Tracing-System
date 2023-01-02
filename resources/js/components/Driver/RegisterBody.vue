@@ -238,7 +238,7 @@
                                 <v-col cols="12" md="6" sm="6">
                                     <v-text-field
                                         label="Mobile No."
-                                        :rules="validate.mobileNo"
+                                        :rules="validate.mobileRule"
                                         required
                                         outlined
                                         v-model="fields.mobileNo"
@@ -658,8 +658,8 @@ export default {
                     v => !!v || 'E-mail is required',
                     v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
                 ],
-                mobileNo: [
-                    v => !!v || 'E-mail is required',
+                mobileRule: [
+                    v => !!v || 'Mobile No. is required',
                    
                     v => /((^(\+)(\d){12}$)|(^\d{11}$))/.test(v) || 'Invalid mobile no.',
                 ]
