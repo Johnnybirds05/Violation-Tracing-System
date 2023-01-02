@@ -680,91 +680,6 @@
                         </v-dialog>
                     </v-row>
                 </template>
-
-            <!-- Modals for Insert Vehicle -->
-            <!-- <div class="modal fade" id="vehiclelist" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-white" id="staticBackdropLabel">
-                                <img src="../../../pics/sports_motorsports_white_24dp.svg" class="driver-icon" alt="...">
-                                Driver's Vehicle List</h5>
-                                <v-spacer></v-spacer>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            <div class="row g-3 centered">
-                                <div class="col-md-3">
-                                    <label class="form-label"> Model: </label>
-                                    <input type="text" v-model="fields.model" class="form-control input" id="driver-firstname">
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label class="form-label">Body Type: </label>
-                                    <select class="form-select input" v-model="fields.body_type" aria-label="Default select example">
-                                        <option selected disabled>Select</option>
-                                        <option value="1">Motocycle</option>
-                                        <option value="2">Tricycle</option>
-                                        <option value="3">Car</option>
-                                        <option value="2">Truck</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label class="form-label"> Color: </label>
-                                    <input type="text" v-model="fields.color" class="form-control input" id="driver-firstname">
-                                </div>
-
-                            </div>
-
-                            <div class="row g-3 centered">
-
-                                <div class="col-md-3">
-                                    <label class="form-label"> Plate No: </label>
-                                    <input type="text" v-model="fields.plate" class="form-control input" id="driver-firstname">
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label class="form-label"> Serial No: </label>
-                                    <input type="text" v-model="fields.serial" class="form-control" id="driver-firstname">
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label class="form-label"> Receipt No: </label>
-                                    <input type="text" v-model="fields.receipt_no" class="form-control input" id="driver-firstname">
-                                </div>
-
-                            </div>
-
-                            <div class="row g-3 centered mb-3">
-
-                                <div class="col-md-3">
-                                    <label for="date" class="form-label">Expiration Date: </label>
-                                    <div class="input-group date" id="expiration">
-                                        <input v-model="fields.expiration" type="text" class="form-control input">
-                                        <span class="input-group-append">
-                                            <span class="input-group-text bg-white">
-                                                <i class="fa fa-calendar icons"></i>
-                                            </span>
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="formFileSm" class="form-label input">Vehicle Photo:</label>
-                                    <input class="form-control" id="vehicle_img" type="file" accept="image/png, image/gif, image/jpeg">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-success" @click="submitVehicle">Save</button>
-                        </div>
-                        </div>
-                    </div>
-                </div> -->
-
       </v-container>
 
 </template>
@@ -795,7 +710,6 @@ export default {
                 province: {},
                 city: {},
                 barangay: {},
-
                 street: '',
             },
 
