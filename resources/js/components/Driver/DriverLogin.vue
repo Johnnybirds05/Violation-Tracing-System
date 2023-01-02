@@ -1,6 +1,6 @@
 <template>
     <v-app class="box-white">
-        <v-container class=" login-body">
+        <v-container width="200px" class="login-body">
            
                 <v-container class="login-card">
                     
@@ -59,9 +59,8 @@
                         <a href="/driver-register">Don't have an account?</a>
                         or 
                         <a href="#">Forgot Password</a>
-                    </div>
 
-                    <div class="login-content mt-4">
+                        <div class="login-content mt-4">
                         <button class="btn-login" type="submit">
                             <div class="svg-wrapper-1">
                                 <div class="svg-wrapper">
@@ -71,18 +70,60 @@
                                 </svg>
                                 </div>
                             </div>
-                            <span>Login</span>
+                            <span class="login">Login</span>
                         </button>
                     </div>
+                    </div>
+
+                    
                 </form>
                 </v-container>
-
-            
-        
-
-
-
     </v-container>
+
+
+                <template>
+                    <v-row justify="center">
+                        <v-dialog
+                        v-model="errorDialog"
+                        scrollable
+                        persistent
+                        max-width="400px"
+                        >
+                        <v-card>
+                            <v-card-title>
+                                <v-icon style="vertical-align: middle">
+                                    mdi-alert
+                                </v-icon>
+                                <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                    Warning!
+                                </h5>
+                                <v-spacer></v-spacer>
+                            </v-card-title>
+                            <v-divider></v-divider>
+                            <v-card-text class="d-flex justify-center">
+                                <div class="card-header">
+                                    <div class="card-section-text">
+                                        Error msg here 
+                                    </div>          
+                                </div>                             
+                            </v-card-text>
+                            <v-divider></v-divider>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    color="green darken-1"
+                                    text
+                                    @click="errorDialog=false"
+                                >
+                                    Okay!
+                                </v-btn>
+                                <v-spacer></v-spacer>
+                            </v-card-actions>
+                        </v-card>
+                        </v-dialog>
+                    </v-row>
+                </template>
+
 </v-app>
         
 
@@ -111,7 +152,8 @@
                 passwordRules: [
                     v => !!v || 'password is required',
                 ],
-                }
+                },
+                errorDialog: true,
             }
         },
 
@@ -159,6 +201,9 @@
     background-color: rgb(0, 0, 0);
     opacity: .9;
   }
+  .login-pics{
+    width: 130px;
+  }
 .extensions a{
     text-decoration: none;
     color: rgb(128, 128, 128);
@@ -198,5 +243,15 @@
 .v-text-field ::v-deep label {
     font-size: 0.8em;
     font-family: monospace;
+}
+.login-body{
+    background-color: rgb(31, 31, 31);
+    width: 400px;
+    padding: 20px;
+    border-radius: 30px;
+    margin-top: 30px;
+}
+.login{
+    color: white;
 }
 </style>
