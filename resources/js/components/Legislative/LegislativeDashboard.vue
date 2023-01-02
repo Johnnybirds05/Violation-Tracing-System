@@ -68,7 +68,7 @@
                             <template v-slot:header>
                                 <v-toolbar color="dark" class="mb-3">
                                     <img src="./../../../pics/note_alt_white_24dp.svg" class="vehicle-img mr-5">
-                                    <h6 class="ml-2">Tangub City Ordinances List</h6>
+                                    <h4 class="ml-2">Tangub City Ordinances List</h4>
                                 <v-spacer></v-spacer>
                                 <div class="containered">
                                         <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="search">
@@ -80,7 +80,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                        <button class="icon-btn add-btn" data-bs-toggle="modal" data-bs-target="#editRegistration">
+                                        <button class="icon-btn add-btn" @click="ordinanceDialog = true">
                                             <div class="add-icon"></div>
                                             <div class="btn-txt"><b>Add Requirement</b></div>
                                         </button>
@@ -96,10 +96,10 @@
                                                     <h6> <b>{{ item.name }}</b> </h6>
                                                     <v-spacer></v-spacer>
                                                             <v-card color="warning">
-                                                                <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#edit-ordinance">
+                                                                <v-icon small class="m-1" @click="ordinanceDialog=  true">
                                                                 mdi-pencil
                                                             </v-icon> 
-                                                            <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#delete-ordinance"
+                                                            <v-icon small class="m-1" @click="deleteOrdinanceDialog = true"
                                                             >
                                                                 mdi-delete
                                                             </v-icon>
@@ -184,7 +184,6 @@
                                             </v-list>
                                         </v-menu>
 
-                                        <v-spacer></v-spacer>
 
                                     <span class="mr-4 grey--text">
                                         Page {{ page }} of {{ numberOfPages }}
@@ -211,110 +210,287 @@
         </v-tabs-items>
                         
             </v-card>
-        </v-app>
-
-        </div>
 
 <!-- Modals! -->
 
-            <!-- modal for delete account -->
-                <div class="modal fade" id="delete-ordinance" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title  text-white" id="exampleModalLabel">Warning!</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            Are you sure you want delete this ordinance?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-danger">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            <!-- modals for edit vehicle registration Requirements -->
-            <div class="modal fade" id="edit-ordinance" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
+            <!-- modal for delete ordinance -->
+            <template>
+                <v-row justify="center">
+                    <v-dialog
+                    v-model="deleteOrdinanceDialog"
+                    scrollable
+                    persistent
+                    max-width="400px"
+                    >
+                    <v-card>
+                        <v-card-title>
+                            <v-icon style="vertical-align: middle">
+                                mdi-alert
+                            </v-icon>
                             <h5 class="modal-title text-white" id="staticBackdropLabel">
-                                <img src="../../../pics/stacked_bar_chart_white_24dp.svg" class="driver-icon" alt="...">
-                                Ordinance Details</h5>
-                                <v-spacer></v-spacer>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            <div class="row g-0 centered">
-                                <div class="col-md-5">
-                                    <label class="form-label"> Title: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-3">
-                                        <label for="date" class="form-label">Date Created: </label>
-                                        <div class="input-group date input" id="birthdate">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-append">
-                                                <span class="input-group-text bg-white">
-                                                    <i class="fa fa-calendar icons"></i>
-                                                </span>
-                                            </span>
-                                        </div>
-                                    </div>  
-                                    <div class="col-md-2"></div>
-                            </div> 
-                            <div class="row g-0 centered">
-                                <div class="col-md-10">
-                                    <label class="form-label"> Description: </label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                </div>
-                            </div>
-                            <hr>
-                            <h5 class="centered">Fines</h5>
-                            <hr> 
-                            <div class="row g-0 centered">
-                                <div class="col-md-5">
-                                    <label class="form-label"> First Offense: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-5">
-                                    <label class="form-label"> Additional: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                            </div>
-                            <div class="row g-0 centered">
-                                <div class="col-md-5">
-                                    <label class="form-label"> Second Offense: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-5">
-                                    <label class="form-label"> Additional: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                            </div>
-                            <div class="row g-0 centered">
-                                <div class="col-md-5">
-                                    <label class="form-label"> Third Offense: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-5">
-                                    <label class="form-label"> Additional: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-success">Save</button>
-                        </div>
-                        </div>
-                    </div>
-            </div>
+                                Warning!
+                            </h5>
+                            <v-spacer></v-spacer>
+                        </v-card-title>
+                        <v-divider></v-divider>
+                        <v-card-text class="d-flex justify-center">
+                            <div class="card-header">
+                                <div class="card-section-text mt-2">
+                                    Are you sure you want to delete this ordinance?
+                                </div>          
+                            </div>                             
+                        </v-card-text>
+                        <v-divider></v-divider>
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                text
+                                @click="deleteOrdinanceDialog=false"
+                            >
+                                Cancel
+                            </v-btn>
+                            <v-btn
 
+                                text
+                                @click="deleteOrdinanceDialog=false"
+                            >
+                                Proceed
+                            </v-btn>
+                            <v-spacer></v-spacer>
+                        </v-card-actions>
+                    </v-card>
+                    </v-dialog>
+                </v-row>
+            </template>
+
+             <!-- modals for edit vehicle registration Requirements -->
+             <template>
+                    <v-row justify="center">
+                        <v-dialog
+                        v-model="ordinanceDialog"
+                        scrollable
+                        persistent
+                        max-width="800px"
+                        >
+                        <v-card>
+                            <v-card-title>
+                                <v-icon style="vertical-align: middle">
+                                    mdi-clipboard-list
+                                </v-icon>
+                                <h5 class="modal-title text-white" id="staticBackdropLabel">
+                                    Ordinance Details
+                                </h5>
+                                <v-spacer></v-spacer>
+                            </v-card-title>
+                            <v-card-text style="height: 500px;">
+                                <v-divider></v-divider>
+
+
+                            <div class="form-registration">
+                        
+                              <v-row>
+                                <v-col
+                                    cols="12"
+                                    md="6"
+                                    sm="6">
+                                    <v-text-field
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-view-list
+                                        </v-icon>
+                                        Name
+                                    </template>
+                                </v-text-field>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                    md="6"
+                                    sm="6">
+                                    <v-menu
+                                        :close-on-content-click="false"
+                                        transition="scale-transition"
+                                        offset-y
+                                        max-width="290px"
+                                        min-width="auto"
+                                        >
+                                        <template v-slot:activator="{ on, attrs }">
+                                            <v-text-field
+                                                outlined
+                                                persistent-hint
+                                                v-bind="attrs"
+                                                v-on="on"
+                                            > 
+                                            <template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                    mdi-calendar
+                                                </v-icon>
+                                                Date Created
+                                            </template></v-text-field>
+                                        </template>
+                                        <v-date-picker
+                                            v-model="fields.bdate"
+                                            no-title
+                                            @input="menu1 = false"
+                                        ></v-date-picker>
+                                    </v-menu>
+                                </v-col>
+                              </v-row>
+
+                              <v-row>
+                                <v-col
+                                    cols="12"
+                                    md="12"
+                                    sm="6">
+                                    <v-textarea
+                                        outlined
+                                        name="input-7-4"
+                                        label="Description"
+                                    ></v-textarea>
+                                </v-col>
+                                
+                              </v-row>
+                              <v-divider></v-divider>
+                            <div class="card-header">
+                                <div class="card-section-text">
+                                    Fines
+                                </div>          
+                            </div>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col
+                                    cols="12"
+                                    md="6"
+                                    sm="6">
+                                    <v-text-field
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-cash
+                                        </v-icon>
+                                        First Offense
+                                    </template>
+                                    </v-text-field>
+                                </v-col>
+
+                                <v-col
+                                    cols="12"
+                                    md="6"
+                                    sm="6">
+                                    <v-text-field
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        Additional
+                                    </template>
+                                    </v-text-field>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col
+                                    cols="12"
+                                    md="6"
+                                    sm="6">
+                                    <v-text-field
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-cash
+                                        </v-icon>
+                                        Second Offense
+                                    </template>
+                                    </v-text-field>
+                                </v-col>
+
+                                <v-col
+                                    cols="12"
+                                    md="6"
+                                    sm="6">
+                                    <v-text-field
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        Additional
+                                    </template>
+                                    </v-text-field>
+                                </v-col>
+                            </v-row>
+
+                            <v-row>
+                                <v-col
+                                    cols="12"
+                                    md="6"
+                                    sm="6">
+                                    <v-text-field
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        <v-icon style="vertical-align: middle">
+                                          mdi-cash
+                                        </v-icon>
+                                        Third Offense
+                                    </template>
+                                    </v-text-field>
+                                </v-col>
+
+                                <v-col
+                                    cols="12"
+                                    md="6"
+                                    sm="6">
+                                    <v-text-field
+                                        outlined
+                                        clearable
+                                    >
+                                    <template v-slot:label>
+                                        Additional
+                                    </template>
+                                    </v-text-field>
+                                </v-col>
+                            </v-row>
+
+
+
+
+                            </div>
+                                
+                            </v-card-text>
+                            <v-divider></v-divider>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="ordinanceDialog = false"
+                                >
+                                    Cancel
+                                </v-btn>
+                                <v-btn
+                                    outlined
+                                    text
+                                    @click="addVehicleDialog = false"
+                                    class="ml-3"
+                                >
+                                    Save
+                                </v-btn>
+                                <v-spacer></v-spacer>
+                            </v-card-actions>
+                            
+                        </v-card>
+                        </v-dialog>
+                    </v-row>
+            </template>
+        </v-app>
+
+        </div>
 
         </div>
         
@@ -439,6 +615,12 @@
               additional3: 'impounding' ,
             },
           ],
+
+          fields: [],
+          error: [],
+
+          deleteOrdinanceDialog: false,
+          ordinanceDialog: false,
       }
     },
     
@@ -497,7 +679,7 @@
 }
 .max-content{
     max-height: fit-content;
-    min-height: 550px;
+    min-height: 680px;
 }
 .navs{
     position: absolute;
@@ -557,6 +739,27 @@ label{
 .font12{
     font-size: 13px;
 }
+.form-registration{
+    padding: 30px;
+
+  }
+.v-text-field, ::v-deep label {
+  font-size: 0.9em;
+  font-family: monospace;
+}
+.card-header{
+    padding: 15px;
+    margin: 15px 0;
+  }
+  .font-top{
+    font-family: monospace;
+    font-size: .8em;
+  }
+  .card-section-text{
+    text-align: center;
+    font-size: 1em;
+    font-family: monospace;
+  }
 @media only screen and (max-width: 750px){
     .button-tourism{
         flex-direction: row;
