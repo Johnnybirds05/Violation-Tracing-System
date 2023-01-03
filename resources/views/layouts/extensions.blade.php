@@ -35,7 +35,9 @@
 <body class="antialiased">
 
     <div id="app">
-        @yield('content')
+        <v-app>
+            @yield('content')
+        </v-app>
     </div>
 
 </body>

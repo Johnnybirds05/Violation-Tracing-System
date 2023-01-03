@@ -23,22 +23,23 @@ class User extends Authenticatable
 
     protected $fillable = [
         'qr_ref',
-        'username', 
-        'lname', 
-        'fname', 
-        'mname', 
-        'suffix', 
+        'username',
+        'lname',
+        'fname',
+        'mname',
+        'suffix',
         'sex',
         'bdate',
         'pic_path',
         'province', 'city', 'barangay', 'street',
-        'email', 'mobile_no', 
+        'email', 'mobile_no',
         'driver_license_type',
-        'driver_license_no', 
+        'driver_license_no',
         'expr_date',
         'is_verified',
         'password',
         'role',
+        'avatar'
     ];
 
     /**

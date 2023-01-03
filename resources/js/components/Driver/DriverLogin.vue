@@ -103,7 +103,9 @@
                             <v-card-text class="d-flex justify-center">
                                 <div class="card-header">
                                     <div class="card-section-text">
-                                        Error msg here 
+                                        <span v-if="errors.username">
+                                            {{ errors.username[0] }}
+                                        </span>
                                     </div>          
                                 </div>                             
                             </v-card-text>
@@ -153,7 +155,7 @@
                     v => !!v || 'password is required',
                 ],
                 },
-                errorDialog: true,
+                errorDialog: false,
             }
         },
 
@@ -179,6 +181,7 @@
                 }).catch(err=>{
                     console.log(err.response.data.errors)
                     this.errors = err.response.data.errors;
+                    this.errorDialog = true;
                 })
             }
         },

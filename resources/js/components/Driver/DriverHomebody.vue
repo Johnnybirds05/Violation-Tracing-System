@@ -4,15 +4,15 @@
             <v-row class="row rowleft p-2">
 
                 <v-col class="col driver-picbox" cols="12" md="2" sm="6">
-                      <img src="../../../pics/John Michael Cagadas_.jpg" alt="profile" class="profile">
+                      <img :src="`/storage/avatars/${user.avatar}`" alt="profile" class="profile">
                       <button class="button btn button-detail text-center mt-2" style="vertical-align:middle" @click="editDialog = true">
                         <span><b>Edit </b></span>
                       </button>
                 </v-col>
 
                 <v-col class="cols-name mt-5" cols="12" md="6" sm="6">
-                    <h3>NAme</h3>
-                    <span>ID: ahdsajsd
+                    <h3>{{fullName }}</h3>
+                    <span>ID: {{ user.driver_license_no }}
                         <b class="status ml-2 p-1" v-if="user.is_verified === 0"> ! Unverified Account</b>
                     </span> <br>
                     <span>Expiration Date:  {{ user.expr_date }}</span> <br>
@@ -82,7 +82,7 @@
                             cols="12"
                             md="4"
                             sm="6">
-                            
+
                             <h3 class="vehicle-name mt-3">Model - BodyType</h3> <br>
                             <h5>[platenumber]</h5>
                         </v-col>
@@ -91,14 +91,14 @@
                             cols="12"
                             md="3"
                             sm="6">
-                            
+
                             <div>
                               <v-alert type="success" class="text-type"> Verified!</v-alert>
                             </div>
                             <!-- <div>
                               <v-alert type="warning" alt="Go to the City Tourism Office" class="text-type"> Unverified!</v-alert>
                             </div> -->
-                        </v-col>                                
+                        </v-col>
                     </v-row>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
@@ -109,7 +109,7 @@
                                   <b> Serial: </b>
                                 </v-col>
                                 <v-col cols="12" md="2" sm="6">
-                                  <b>Color: </b> 
+                                  <b>Color: </b>
                                 </v-col>
                                 <v-col cols="12" md="3" sm="6">
                                   <b>Reciept No:</b>
@@ -117,17 +117,17 @@
                                 <v-col cols="12" md="3" sm="6">
                                   <b>Expiration Date: </b>
                                 </v-col>
-                              </v-row> 
+                              </v-row>
                           </v-col>
                           <v-col cols="2" md="2" sm="6">
                             <button class="noselect" @click="deleteDialog = true">
                               <span class="text">Delete</span><span class="icone"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span>
                             </button>
                           </v-col>
-                        </v-row> 
+                        </v-row>
                         <v-card class="d-flex align-stretch mt-6" color="warning" dense>
                           <b class="pa-5"> Note: To verify your vehicle information. Please go to the Tangub City, City Tourism Office!</b>
-                        </v-card>         
+                        </v-card>
                     </v-expansion-panel-content>
                   </v-expansion-panel>
                 </v-expansion-panels>
@@ -153,11 +153,11 @@
                     <v-expansion-panel-header color="grey darken-4">
                       <v-row class="marginNeg">
                         <v-col cols="12" md="2" sm="6">
-                            <img src="./../../../pics/no_crash_white_24dp.svg" class="vehicle-img mr-5"> 
+                            <img src="./../../../pics/no_crash_white_24dp.svg" class="vehicle-img mr-5">
                         </v-col>
                         <v-col cols="12" md="6" sm="6">
                             <h3 class="mt-6">Vehicle Registration Requirement</h3>
-                        </v-col>                     
+                        </v-col>
                     </v-row>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
@@ -199,7 +199,7 @@
                         </v-col>
                         <v-col cols="12" md="6" sm="6">
                             <h3 class="mt-6"> Driver's License</h3>
-                        </v-col>                     
+                        </v-col>
                     </v-row>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
@@ -296,37 +296,37 @@
                             cols="12"
                             md="4"
                             sm="6">
-                            
+
                             <h3 class="vehicle-name mt-5">{{ item.name }}</h3>
-                        </v-col>                            
+                        </v-col>
                     </v-row>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
 
                       <v-row>
                         <v-col cols="12" md="3" sm="6">
-                          <h4> Description: </h4> 
+                          <h4> Description: </h4>
                         </v-col>
                         <v-col cols="12" md="9" sm="6">
-                          <b>{{ item.description }} </b> 
+                          <b>{{ item.description }} </b>
                         </v-col>
-                      </v-row> 
+                      </v-row>
 
                       <v-row>
                         <v-col cols="12" md="3" sm="6">
-                          <b> First Offense: </b> 
+                          <b> First Offense: </b>
                         </v-col>
                         <v-col cols="12" md="2" sm="2">
                           Php {{ item.offense1 }}
                         </v-col>
                         <v-col cols="12" md="2" sm="2">
-                          {{ item.additional1 }} 
+                          {{ item.additional1 }}
                         </v-col>
-                      </v-row> 
+                      </v-row>
 
                       <v-row>
                         <v-col cols="12" md="3" sm="6">
-                          <b> Second Offense: </b> 
+                          <b> Second Offense: </b>
                         </v-col>
                         <v-col cols="12" md="2" sm="2">
                           Php {{ item.offense2 }}
@@ -338,7 +338,7 @@
 
                       <v-row>
                         <v-col cols="12" md="3" sm="6">
-                          <b> Third Offense: </b> 
+                          <b> Third Offense: </b>
                         </v-col>
                         <v-col cols="12" md="2" sm="2">
                           Php {{ item.offense3 }}
@@ -346,8 +346,8 @@
                         <v-col cols="12" md="2" sm="2">
                           {{ item.additional3 }}
                         </v-col>
-                      </v-row> 
-                               
+                      </v-row>
+
                     </v-expansion-panel-content>
                   </v-expansion-panel>
                 </v-expansion-panels>
@@ -385,8 +385,8 @@
                       <div class="card-header">
                           <div class="card-section-text mt-2">
                             Please go to the City Tourism Office of Tangub City to be able to edit the details of your profile or vehicle!
-                          </div>          
-                      </div>                             
+                          </div>
+                      </div>
                   </v-card-text>
                   <v-divider></v-divider>
                   <v-card-actions>
@@ -428,8 +428,8 @@
                       <div class="card-header">
                           <div class="card-section-text mt-2">
                             Are you sure you want to delete this vehicle?
-                          </div>          
-                      </div>                             
+                          </div>
+                      </div>
                   </v-card-text>
                   <v-divider></v-divider>
                   <v-card-actions>
@@ -470,7 +470,7 @@
                               <div class="card-header">
                                 <div class="card-section-text">
                                     Vehicle Information
-                                </div>          
+                                </div>
                             </div>
 
                             <div class="form-registration">
@@ -575,7 +575,7 @@
                                         <v-icon style="vertical-align: middle">
                                           mdi-ticket-confirmation
                                         </v-icon>
-                                        Receipt No. 
+                                        Receipt No.
                                     </template>
                                 </v-text-field>
                                 </v-col>
@@ -600,7 +600,7 @@
                                                 persistent-hint
                                                 v-bind="attrs"
                                                 v-on="on"
-                                            > 
+                                            >
                                             <template v-slot:label>
                                                 <v-icon style="vertical-align: middle">
                                                     mdi-calendar
@@ -653,7 +653,7 @@
 
 
                             </div>
-                                
+
                             </v-card-text>
                             <v-divider></v-divider>
                             <v-card-actions>
@@ -675,7 +675,7 @@
                                 </v-btn>
                                 <v-spacer></v-spacer>
                             </v-card-actions>
-                            
+
                         </v-card>
                         </v-dialog>
                     </v-row>
@@ -689,11 +689,8 @@ export default {
 
     mounted(){
         this.intiData()
-
         this.getUser()
-        $(function() {
-                $('#expiration').datepicker();
-            });
+
     },
 
     data () {
@@ -827,7 +824,7 @@ export default {
             {
               name: 'Wearing of Slippers',
               description : 'Wearing of slippers while riding will violate the city ordinance code 1237 that states that all the driver must wear shoes!',
-              dateCreated: '12/12/12', 
+              dateCreated: '12/12/12',
               offense1: 100,
               additional1: '' ,
               offense2: 500,
@@ -860,7 +857,7 @@ export default {
             {
               name: "No Vehicle Registration",
               description : "All vehicle must be registered to the LTO to ensure that the vehicle is rightfully owned by the driver and not from car nap.",
-              dateCreated: '09/05/12', 
+              dateCreated: '09/05/12',
               offense1: 500,
               additional1: '' ,
               offense2: 1000,
@@ -871,7 +868,7 @@ export default {
             {
               name: "No Side Mirror",
               description : "The vehicle must be equipped with a side mirror to ensure that the driver will be able to detect what's happening in his back view to avoid collision.",
-              dateCreated: '07/17/12', 
+              dateCreated: '07/17/12',
               offense1: 500,
               additional1: '' ,
               offense2: 1000,
@@ -882,7 +879,7 @@ export default {
             {
               name: "No Back Light",
               description : "The vehicle must be equipped with a backlight for the rider following them during night will be able to detect the driver's presence and avoid collision.",
-              dateCreated: '02/11/12', 
+              dateCreated: '02/11/12',
               offense1: 500,
               additional1: '' ,
               offense2: 1000,
@@ -893,7 +890,7 @@ export default {
             {
               name: "No Rear Light",
               description : "The vehicle must be equipped with a rear light to have a vision during night time and in dark places to avoid collision.",
-              dateCreated: '12/12/12', 
+              dateCreated: '12/12/12',
               offense1: 500,
               additional1: '' ,
               offense2: 1000,
@@ -918,48 +915,13 @@ export default {
           deleteDialog:false,
           addVehicleDialog: false,
 
-          validate: {
-                modelRules: [
-                    v => !!v || 'Model is required',
-                ],
-                bTypeRules: [
-                    v => !!v || 'Body Type is required',
-                ],
-                colorRules: [
-                    v => !!v || 'Model is required',
-                ],
-                recieptRules: [
-                    v => !!v || 'Model is required',
-                ],
-                serialRules: [
-                    v => !!v || 'Model is required',
-                ],
-                photoRules: [
-                    v => !!v || 'Model is required',
-                ],
-                plateRules: [
-                    v => !!v || 'Model is required',
-                ],
-                exprRules: [
-                    v => !!v || 'Model is required',
-                ],
-          }
-
         }
-        
+
     },
 
     methods: {
 
         intiData(){
-            // var myModal = document.getElementById('myModal')
-            // var myInput = document.getElementById('myInput')
-
-            // myModal.addEventListener('shown.bs.modal', function () {
-            //     myInput.focus()
-            // })
-
-            $('#expiration').datepicker();
 
         },
 
@@ -978,9 +940,9 @@ export default {
 
         submitVehicle(){
             axios.post('/').then(res=>{
-            
+
             }).catch(err=>{
-            
+
             })
         }
     },
