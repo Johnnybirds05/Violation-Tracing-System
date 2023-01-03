@@ -1,7 +1,6 @@
 <template>
     <div class="container-fluid max-content mb-4">
         <div class="container tourism-body mt-3 mb-4">
-        <v-app>
             <v-card >
                 <v-navigation-drawer v-model="drawer" temporary class="navs">
                     <v-divider></v-divider>
@@ -319,111 +318,8 @@
     </v-tabs-items>
                         
             </v-card>
-        </v-app>
 
         </div>
-
-<!-- Modals! -->
-
-            <!-- modal for delete account -->
-                <div class="modal fade" id="delete-ordinance" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title  text-white" id="exampleModalLabel">Warning!</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            Are you sure you want delete this ordinance?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-success" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-danger">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            <!-- modals for edit vehicle registration Requirements -->
-            <div class="modal fade" id="edit-ordinance" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-                        <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-white" id="staticBackdropLabel">
-                                <img src="../../../pics/stacked_bar_chart_white_24dp.svg" class="driver-icon" alt="...">
-                                Ordinance Details</h5>
-                                <v-spacer></v-spacer>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-white">
-                            <div class="row g-0 centered">
-                                <div class="col-md-5">
-                                    <label class="form-label"> Title: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-3">
-                                        <label for="date" class="form-label">Date Created: </label>
-                                        <div class="input-group date input" id="birthdate">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-append">
-                                                <span class="input-group-text bg-white">
-                                                    <i class="fa fa-calendar icons"></i>
-                                                </span>
-                                            </span>
-                                        </div>
-                                    </div>  
-                                    <div class="col-md-2"></div>
-                            </div> 
-                            <div class="row g-0 centered">
-                                <div class="col-md-10">
-                                    <label class="form-label"> Description: </label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                </div>
-                            </div>
-                            <hr>
-                            <h5 class="centered">Fines</h5>
-                            <hr> 
-                            <div class="row g-0 centered">
-                                <div class="col-md-5">
-                                    <label class="form-label"> First Offense: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-5">
-                                    <label class="form-label"> Additional: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                            </div>
-                            <div class="row g-0 centered">
-                                <div class="col-md-5">
-                                    <label class="form-label"> Second Offense: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-5">
-                                    <label class="form-label"> Additional: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                            </div>
-                            <div class="row g-0 centered">
-                                <div class="col-md-5">
-                                    <label class="form-label"> Third Offense: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                                <div class="col-md-5">
-                                    <label class="form-label"> Additional: </label>
-                                    <input type="text" class="form-control input" id="driver-firstname">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="button-back btn-primary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="button-back btn-success">Save</button>
-                        </div>
-                        </div>
-                    </div>
-            </div>
-
-
         </div>
         
         

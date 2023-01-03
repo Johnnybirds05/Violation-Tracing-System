@@ -11,7 +11,7 @@
                         <v-col
                             cols="12"
                             md="12"
-                            sm="6">
+                            sm="12">
                                 <v-text-field
                                         v-model="fields.username"
                                         :rules="validate.usernameRules"
@@ -32,7 +32,7 @@
                         <v-col
                             cols="12"
                             md="12"
-                            sm="6">
+                            sm="12">
                                 <v-text-field
                                 :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
                                 :rules="validate.passwordRules"
@@ -199,11 +199,6 @@
 </script>
 
 <style scoped lang="scss">
-::v-deep .v-application--wrap {
-    min-height: 630px;
-    background-color: rgb(0, 0, 0);
-    opacity: .9;
-  }
   .login-pics{
     width: 130px;
   }

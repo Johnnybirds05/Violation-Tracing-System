@@ -1,7 +1,6 @@
 <template>
     <div class="container-fluid max-content mb-4">
         <div class="container tourism-body mt-3 mb-4">
-        <v-app>
             <v-card >
                 <v-navigation-drawer v-model="drawer" temporary class="navs">
                     <v-divider></v-divider>
@@ -24,10 +23,9 @@
                                 </div>
                             </button>
                         </a>
-                    </v-list-item>
-                            
-                    </v-list>
-                        <v-divider></v-divider>
+                    </v-list-item>                            
+                </v-list>
+                <v-divider></v-divider>
                 </v-navigation-drawer>
 
                 <v-toolbar color="grey darken-4" dark flat>
@@ -48,12 +46,13 @@
                         </template>
                 </v-toolbar>
 
+
+ <!-- this is for the add violation tab -->
                 <v-tabs-items v-model="tab">
-<!-- this is for the add violation tab -->
-        <v-tab-item>
-            <v-card flat>
-                <v-card-text>
-                            <div class="row centered g-3 mb-5">
+                    <v-tab-item>
+                        <v-card flat>
+                            <v-card-text>
+                                <div class="row centered g-3 mb-5">
                                     <div class="col-md-3">
                                         <button class="continue-application" @click="violationDialog=true">
                                             <div>
@@ -87,18 +86,16 @@
                                             Manual Input
                                         </button>
                                     </div>
-
-                            </div>               
-                </v-card-text>
-            </v-card>
-        </v-tab-item>
-
+                                </div>               
+                            </v-card-text>
+                        </v-card>
+                    </v-tab-item>
 
 
-        <v-tab-item>
-            <v-card flat>
-                <v-card-text>
-                            <template>
+
+                    <v-tab-item>
+                        <v-card flat>
+                            <v-card-text>
                                 <v-container fluid>
                                     <v-data-iterator
                                         :items="ordinances"
@@ -109,167 +106,148 @@
                                         :sort-desc="sortDesc"
                                         hide-default-footer
                                     >
-                            <template v-slot:header>
-                                <v-toolbar color="dark" class="mb-3">
-                                    <img src="./../../../pics/note_alt_white_24dp.svg" class="vehicle-img mr-5">
-                                    <h6 class="ml-2">Tangub City Ordinances List</h6>
-                                <v-spacer></v-spacer>
-                                <div class="containered">
-                                        <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="search">
-                                        <div class="icon">
-                                            <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
-                                                <title>Search</title>
-                                                <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
-                                                <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </v-toolbar>
-                            </template>
-                            <template v-slot:default="props">
-                                <v-row>
-                                    <v-col v-for="item in props.items" :key="item.name" cols="12" sm="10" md="8" lg="6">
-                                        <v-card class="table-text" color="blue darken-4">
-                                            <v-card-title class="subheading font-weight-bold"> 
-                                                <img src="./../../../pics/task_alt_white_24dp.svg" class="vehicle-img mr-5">
-                                                    <h6> <b>{{ item.name }}</b> </h6>
-                                                    <v-spacer></v-spacer>
-                                    
-                                            </v-card-title>
-
-                                            <v-list dense class="table-text">
-                                                <v-list-item>
-                                                    <div class="container-fluid">
-                                                        <div class="row g-2">
-                                                        <div class="col-md-3">
-                                                        <h7> <b>Description:</b> </h7>
-                                                        </div>
-                                                        <div class="col-md-9 justified font12">
-                                                        <b>{{item.description}}</b>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="container ml-0 mt-3">
-                                                        <div class="row g-0 font12" v-if="item.offense1 != ''">
-                                                        <div class="col-md-4">
-                                                        <b>Date Created: </b>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                        <span>Php {{item.dateCreated}}</span>
-                                                        </div>
-                                                    </div>
-                                                        <div class="row g-0 font12" v-if="item.offense1 != ''">
-                                                        <div class="col-md-4">
-                                                        <b>First Offense: </b>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                        <span>Php {{item.offense1}}</span>
-                                                        <span v-if="item.additional1 != ''"> {{item.additional1}}</span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row g-0 font12" v-if="item.offense2 != ''">
-                                                        <div class="col-md-4">
-                                                        <b> Second Offense: </b>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                        <span>Php {{item.offense2}}</span>
-                                                        <span v-if="item.additional2 != ''"> {{item.additional2}}</span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row g-0 font12" v-if="item.offense3 != ''">
-                                                        <div class="col-md-4">
-                                                        <b>Third Offense: </b>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                        <span>Php {{item.offense3}}</span>
-                                                        <span v-if="item.additional3 != ''"> {{item.additional3}}</span>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                                    </div>
-                                                    
-                                                </v-list-item>
-                                            </v-list>
-                                        </v-card>
-                                    </v-col>
-                                </v-row>
-                            </template>
-
-                            <template v-slot:footer>
-                                <v-row class="mt-2" align="center" justify="center">
-                                    <span class="grey--text">Items per page</span>
-                                        <v-menu offset-y>
-                                            <template v-slot:activator="{ on, attrs }">
-                                                <v-btn dark text color="primary" class="ml-2" v-bind="attrs" v-on="on">
-                                                    {{ itemsPerPage }}
-                                                    <v-icon>mdi-chevron-down</v-icon>
-                                                </v-btn>
-                                            </template>
-                                            <v-list>
-                                                <v-list-item v-for="(number, index) in itemsPerPageArray" :key="index" @click="updateItemsPerPage(number)">
-                                                    <v-list-item-title>{{ number }}</v-list-item-title>
-                                                </v-list-item>
-                                            </v-list>
-                                        </v-menu>
-
+                                    <template v-slot:header>
+                                        <v-toolbar color="dark" class="mb-3">
+                                            <img src="./../../../pics/note_alt_white_24dp.svg" class="vehicle-img mr-5">
+                                            <h6 class="ml-2">Tangub City Ordinances List</h6>
                                         <v-spacer></v-spacer>
+                                        <div class="containered">
+                                                <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="search">
+                                                <div class="icon">
+                                                    <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
+                                                        <title>Search</title>
+                                                        <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
+                                                        <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </v-toolbar>
+                                    </template>
+                                    <template v-slot:default="props">
+                                        <v-row>
+                                            <v-col v-for="item in props.items" :key="item.name" cols="12" sm="10" md="8" lg="6">
+                                                <v-card class="table-text" color="blue darken-4">
+                                                    <v-card-title class="subheading font-weight-bold"> 
+                                                        <img src="./../../../pics/task_alt_white_24dp.svg" class="vehicle-img mr-5">
+                                                            <h6> <b>{{ item.name }}</b> </h6>
+                                                            <v-spacer></v-spacer>
+                                            
+                                                    </v-card-title>
 
-                                    <span class="mr-4 grey--text">
-                                        Page {{ page }} of {{ numberOfPages }}
-                                    </span>
+                                                    <v-list dense class="table-text">
+                                                        <v-list-item>
+                                                            <div class="container-fluid">
+                                                                <div class="row g-2">
+                                                                <div class="col-md-3">
+                                                                <h7> <b>Description:</b> </h7>
+                                                                </div>
+                                                                <div class="col-md-9 justified font12">
+                                                                <b>{{item.description}}</b>
+                                                                </div>
+                                                            </div>
 
-                                    <v-btn fab dark color="blue darken-3" class="mr-1" @click="formerPage">
-                                        <v-icon>mdi-chevron-left</v-icon>
-                                    </v-btn>
-                                    <v-btn fab dark color="blue darken-3" class="ml-1" @click="nextPage">
-                                                <v-icon>mdi-chevron-right</v-icon>
-                                    </v-btn>
-                                </v-row>
-                            </template>
+                                                            <div class="container ml-0 mt-3">
+                                                                <div class="row g-0 font12" v-if="item.offense1 != ''">
+                                                                <div class="col-md-4">
+                                                                <b>Date Created: </b>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                <span>Php {{item.dateCreated}}</span>
+                                                                </div>
+                                                            </div>
+                                                                <div class="row g-0 font12" v-if="item.offense1 != ''">
+                                                                <div class="col-md-4">
+                                                                <b>First Offense: </b>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                <span>Php {{item.offense1}}</span>
+                                                                <span v-if="item.additional1 != ''"> {{item.additional1}}</span>
+                                                                </div>
+                                                            </div>
 
-                                </v-data-iterator>
-                                
-                            </v-container>
-                            </template>
+                                                            <div class="row g-0 font12" v-if="item.offense2 != ''">
+                                                                <div class="col-md-4">
+                                                                <b> Second Offense: </b>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                <span>Php {{item.offense2}}</span>
+                                                                <span v-if="item.additional2 != ''"> {{item.additional2}}</span>
+                                                                </div>
+                                                            </div>
 
-                </v-card-text>
+                                                            <div class="row g-0 font12" v-if="item.offense3 != ''">
+                                                                <div class="col-md-4">
+                                                                <b>Third Offense: </b>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                <span>Php {{item.offense3}}</span>
+                                                                <span v-if="item.additional3 != ''"> {{item.additional3}}</span>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            
+                                                        </v-list-item>
+                                                    </v-list>
+                                                </v-card>
+                                            </v-col>
+                                        </v-row>
+                                    </template>
+
+                                    <template v-slot:footer>
+                                        <v-row class="mt-2" align="center" justify="center">
+                                            <span class="grey--text">Items per page</span>
+                                                <v-menu offset-y>
+                                                    <template v-slot:activator="{ on, attrs }">
+                                                        <v-btn dark text color="primary" class="ml-2" v-bind="attrs" v-on="on">
+                                                            {{ itemsPerPage }}
+                                                            <v-icon>mdi-chevron-down</v-icon>
+                                                        </v-btn>
+                                                    </template>
+                                                    <v-list>
+                                                        <v-list-item v-for="(number, index) in itemsPerPageArray" :key="index" @click="updateItemsPerPage(number)">
+                                                            <v-list-item-title>{{ number }}</v-list-item-title>
+                                                        </v-list-item>
+                                                    </v-list>
+                                                </v-menu>
+
+                                                <v-spacer></v-spacer>
+
+                                            <span class="mr-4 grey--text">
+                                                Page {{ page }} of {{ numberOfPages }}
+                                            </span>
+
+                                            <v-btn fab dark color="blue darken-3" class="mr-1" @click="formerPage">
+                                                <v-icon>mdi-chevron-left</v-icon>
+                                            </v-btn>
+                                            <v-btn fab dark color="blue darken-3" class="ml-1" @click="nextPage">
+                                                        <v-icon>mdi-chevron-right</v-icon>
+                                            </v-btn>
+                                        </v-row>
+                                    </template>
+                                    </v-data-iterator>  
+                                </v-container>
+                            </v-card-text>
+                        </v-card>
+                    </v-tab-item>
+                </v-tabs-items>             
             </v-card>
-        </v-tab-item>
-
-        </v-tabs-items>
-                        
-            </v-card>
-        </v-app>
-
         </div>
 
 <!-- Modals! -->
-                <template>
-                    <v-row justify="center">
-                        <v-dialog
-                        v-model="violationDialog"
-                        scrollable
-                        persistent
-                        max-width="90%"
-                        >
-                        <v-card>
-                            <v-card-title>
-                                <v-icon style="vertical-align: middle">
-                                    mdi-alert-circle
-                                </v-icon>
-                                <h5 class="modal-title text-white" id="staticBackdropLabel">
-                                    Add Violation
-                                </h5>
-                                <v-spacer></v-spacer>
-                            </v-card-title>
-                            <v-card-text style="height: 500px;">
-                                <v-divider></v-divider>
 
-                                
-                            <div class="form-registration">                                                      
-                              <v-row>
+        <v-row justify="center">
+            <v-dialog v-model="violationDialog" scrollable persistent max-width="90%">
+                <v-card>
+                    <v-card-title>
+                        <v-icon style="vertical-align: middle"> mdi-alert-circle</v-icon>
+                        <h5 class="modal-title text-white" id="staticBackdropLabel">Add Violation</h5>
+                        <v-spacer></v-spacer>
+                    </v-card-title>
+                    <v-card-text style="height: 500px;">
+                        <v-divider></v-divider>    
+                        <div class="form-registration">                                                      
+                            <v-row>
                                 <v-col cols="12" md="8" sm="6">
                                     <v-row>
                                         <v-col>
@@ -291,15 +269,13 @@
                                     </v-row>
 
                                     <v-row>                                           
-                                        <v-col
-                                            cols="12"
-                                            md="3"
-                                            sm="6">
-                                            <v-text-field
-                                                :rules="validate.fnameRules"
-                                                outlined
+                                        <v-col cols="12" md="3" sm="6">
+                                            <v-text-field 
+                                                :rules="validate.fnameRules" 
+                                                outlined 
                                                 clearable
                                             >
+
                                             <template v-slot:label>
                                                 <v-icon style="vertical-align: middle">
                                                     mdi-account
@@ -309,54 +285,48 @@
                                         </v-text-field>
                                         </v-col>
 
-                                        <v-col
-                                            cols="12"
-                                            md="3"
-                                            sm="6">
-                                            <v-text-field
-                                                :rules="validate.mnameRules"
-                                                outlined
+                                        <v-col cols="12" md="3" sm="6">
+                                            <v-text-field :rules="validate.mnameRules" 
+                                                outlined 
                                                 clearable
-                                            > <template v-slot:label>
+                                            > 
+                                                <template v-slot:label>
                                                 <v-icon style="vertical-align: middle">
                                                     mdi-account
                                                 </v-icon>
-                                                Middle Name
-                                            </template></v-text-field>
+                                                    Middle Name
+                                                </template>
+                                            </v-text-field>
                                         </v-col>
 
-                                        <v-col
-                                            cols="12"
-                                            md="3"
-                                            sm="6">
+                                        <v-col cols="12" md="3" sm="6">
                                             <v-text-field
                                                 :rules="validate.lnameRules"
                                                 outlined
                                                 clearable
                                             >
-                                            <template v-slot:label>
-                                                <v-icon style="vertical-align: middle">
-                                                    mdi-account
-                                                </v-icon>
-                                                Last Name
-                                            </template></v-text-field>
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-account
+                                                    </v-icon>
+                                                    Last Name
+                                                </template>
+                                            </v-text-field>
                                         </v-col>
 
-                                        <v-col
-                                            cols="12"
-                                            md="3"
-                                            sm="6">
+                                        <v-col cols="12" md="3" sm="6">
                                             <v-text-field
                                                 hint="leave blank if none"
                                                 outlined
                                                 clearable
                                             >
-                                            <template v-slot:label>
-                                                <v-icon style="vertical-align: middle">
-                                                    mdi-account
-                                                </v-icon>
-                                                Suffix
-                                            </template></v-text-field>
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-account
+                                                    </v-icon>
+                                                    Suffix
+                                                </template>
+                                            </v-text-field>
                                         </v-col>
                                     </v-row>
 
@@ -370,12 +340,14 @@
                                                 @change="loadCities"
                                                 v-model="fields.province"
                                                 :rules="validate.provRules"
-                                            ><template v-slot:label>
+                                            >
+                                                    <template v-slot:label>
                                                         <v-icon style="vertical-align: middle">
                                                             mdi-map-marker
                                                         </v-icon>
                                                         Province
-                                                    </template></v-select>
+                                                    </template>
+                                            </v-select>
                                         </v-col>
 
                                         <v-col cols="12" md="3" sm="6">
@@ -387,12 +359,14 @@
                                                 @change="loadBarangays"
                                                 v-model="fields.city"
                                                 :rules="validate.cityRules"
-                                            ><template v-slot:label>
-                                                        <v-icon style="vertical-align: middle">
-                                                            mdi-map-marker
-                                                        </v-icon>
-                                                        City
-                                                    </template></v-select>
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-map-marker
+                                                    </v-icon>
+                                                    City
+                                                </template>
+                                            </v-select>
                                         </v-col>
                                         <v-col cols="12" md="3" sm="6">
                                             <v-select
@@ -401,12 +375,14 @@
                                                 :items="barangays"
                                                 outlined
                                                 v-model="fields.barangay"
-                                            ><template v-slot:label>
-                                                        <v-icon style="vertical-align: middle">
-                                                            mdi-map-marker
-                                                        </v-icon>
-                                                        Barangay
-                                                    </template></v-select>
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-map-marker
+                                                    </v-icon>
+                                                    Barangay
+                                                </template>
+                                            </v-select>
                                         </v-col>
 
                                         <v-col cols="12" md="3" sm="6">
@@ -414,12 +390,14 @@
                                                 outlined
                                                 v-model="fields.street"
                                                 :rules="validate.streetRules"
-                                            ><template v-slot:label>
-                                                        <v-icon style="vertical-align: middle">
-                                                            mdi-map-marker
-                                                        </v-icon>
-                                                        Street
-                                                    </template></v-text-field>
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-map-marker
+                                                    </v-icon>
+                                                    Street
+                                                </template>
+                                            </v-text-field>
                                         </v-col>
                                     </v-row>
 
@@ -430,12 +408,14 @@
                                                 required
                                                 outlined
                                                 v-model="fields.email"
-                                            ><template v-slot:label>
-                                                <v-icon style="vertical-align: middle">
-                                                    mdi-email
-                                                </v-icon>
-                                                Email
-                                            </template></v-text-field>
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-email
+                                                    </v-icon>
+                                                    Email
+                                                </template>
+                                            </v-text-field>
                                         </v-col>
 
                                         <v-col cols="12" md="6" sm="6">
@@ -444,12 +424,14 @@
                                                 required
                                                 outlined
                                                 v-model="fields.mobile_no"
-                                            ><template v-slot:label>
-                                                <v-icon style="vertical-align: middle">
-                                                    mdi-cellphone
-                                                </v-icon>
-                                                Mobile No.
-                                            </template></v-text-field>
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-cellphone
+                                                    </v-icon>
+                                                    Mobile No.
+                                                </template>
+                                            </v-text-field>
                                         </v-col>
                                     </v-row>
 
@@ -468,72 +450,64 @@
                                             </v-row>
 
                                             <v-row>                                           
-                                                <v-col
-                                                    cols="12"
-                                                    md="3"
-                                                    sm="6">
+                                                <v-col cols="12" md="3" sm="6">
                                                     <v-text-field
                                                         :rules="validate.fnameRules"
                                                         outlined
                                                         clearable
                                                     >
-                                                    <template v-slot:label>
-                                                        <v-icon style="vertical-align: middle">
-                                                            mdi-account
-                                                        </v-icon>
-                                                        First Name
-                                                    </template>
-                                                </v-text-field>
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-account
+                                                            </v-icon>
+                                                            First Name
+                                                        </template>
+                                                    </v-text-field>
                                                 </v-col>
 
-                                                <v-col
-                                                    cols="12"
-                                                    md="3"
-                                                    sm="6">
+                                                <v-col cols="12" md="3" sm="6">
                                                     <v-text-field
                                                         :rules="validate.mnameRules"
                                                         outlined
                                                         clearable
-                                                    > <template v-slot:label>
-                                                        <v-icon style="vertical-align: middle">
-                                                            mdi-account
-                                                        </v-icon>
-                                                        Middle Name
-                                                    </template></v-text-field>
+                                                    > 
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-account
+                                                            </v-icon>
+                                                            Middle Name
+                                                        </template>
+                                                    </v-text-field>
                                                 </v-col>
 
-                                                <v-col
-                                                    cols="12"
-                                                    md="3"
-                                                    sm="6">
+                                                <v-col cols="12" md="3" sm="6">
                                                     <v-text-field
                                                         :rules="validate.lnameRules"
                                                         outlined
                                                         clearable
                                                     >
-                                                    <template v-slot:label>
-                                                        <v-icon style="vertical-align: middle">
-                                                            mdi-account
-                                                        </v-icon>
-                                                        Last Name
-                                                    </template></v-text-field>
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-account
+                                                            </v-icon>
+                                                            Last Name
+                                                        </template>
+                                                    </v-text-field>
                                                 </v-col>
 
-                                                <v-col
-                                                    cols="12"
-                                                    md="3"
-                                                    sm="6">
+                                                <v-col cols="12" md="3" sm="6">
                                                     <v-text-field
                                                         hint="leave blank if none"
                                                         outlined
                                                         clearable
                                                     >
-                                                    <template v-slot:label>
-                                                        <v-icon style="vertical-align: middle">
-                                                            mdi-account
-                                                        </v-icon>
-                                                        Suffix
-                                                    </template></v-text-field>
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-account
+                                                            </v-icon>
+                                                            Suffix
+                                                        </template>
+                                                    </v-text-field>
                                                 </v-col>
                                             </v-row>
 
@@ -547,12 +521,14 @@
                                                         @change="loadCities"
                                                         v-model="fields.province"
                                                         :rules="validate.provRules"
-                                                    ><template v-slot:label>
-                                                                <v-icon style="vertical-align: middle">
-                                                                    mdi-map-marker
-                                                                </v-icon>
-                                                                Province
-                                                            </template></v-select>
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-map-marker
+                                                            </v-icon>
+                                                            Province
+                                                        </template>
+                                                    </v-select>
                                                 </v-col>
 
                                                 <v-col cols="12" md="3" sm="6">
@@ -564,13 +540,16 @@
                                                         @change="loadBarangays"
                                                         v-model="fields.city"
                                                         :rules="validate.cityRules"
-                                                    ><template v-slot:label>
-                                                                <v-icon style="vertical-align: middle">
-                                                                    mdi-map-marker
-                                                                </v-icon>
-                                                                City
-                                                            </template></v-select>
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-map-marker
+                                                            </v-icon>
+                                                            City
+                                                        </template>
+                                                    </v-select>
                                                 </v-col>
+
                                                 <v-col cols="12" md="3" sm="6">
                                                     <v-select
                                                         item-value="brgyCode"
@@ -578,12 +557,14 @@
                                                         :items="barangays"
                                                         outlined
                                                         v-model="fields.barangay"
-                                                    ><template v-slot:label>
-                                                                <v-icon style="vertical-align: middle">
-                                                                    mdi-map-marker
-                                                                </v-icon>
-                                                                Barangay
-                                                            </template></v-select>
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-map-marker
+                                                            </v-icon>
+                                                            Barangay
+                                                        </template>
+                                                    </v-select>
                                                 </v-col>
 
                                                 <v-col cols="12" md="3" sm="6">
@@ -591,12 +572,14 @@
                                                         outlined
                                                         v-model="fields.street"
                                                         :rules="validate.streetRules"
-                                                    ><template v-slot:label>
-                                                                <v-icon style="vertical-align: middle">
-                                                                    mdi-map-marker
-                                                                </v-icon>
-                                                                Street
-                                                            </template></v-text-field>
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-map-marker
+                                                            </v-icon>
+                                                            Street
+                                                        </template>
+                                                    </v-text-field>
                                                 </v-col>
                                             </v-row>
 
@@ -647,10 +630,7 @@
                                             </v-row>
 
                                             <v-row>                                           
-                                                <v-col
-                                                    cols="12"
-                                                    md="3"
-                                                    sm="6">
+                                                <v-col cols="12" md="3" sm="6">
                                                     <v-text-field
                                                         :rules="validate.fnameRules"
                                                         outlined
@@ -665,10 +645,7 @@
                                                 </v-text-field>
                                                 </v-col>
 
-                                                <v-col
-                                                    cols="12"
-                                                    md="3"
-                                                    sm="6">
+                                                <v-col cols="12" md="3" sm="6">
                                                     <v-text-field
                                                         :rules="validate.mnameRules"
                                                         outlined
@@ -681,10 +658,7 @@
                                                     </template></v-text-field>
                                                 </v-col>
 
-                                                <v-col
-                                                    cols="12"
-                                                    md="3"
-                                                    sm="6">
+                                                <v-col cols="12" md="3" sm="6">
                                                     <v-text-field
                                                         :rules="validate.lnameRules"
                                                         outlined
@@ -698,10 +672,7 @@
                                                     </template></v-text-field>
                                                 </v-col>
 
-                                                <v-col
-                                                    cols="12"
-                                                    md="3"
-                                                    sm="6">
+                                                <v-col cols="12" md="3" sm="6">
                                                     <v-text-field
                                                         hint="leave blank if none"
                                                         outlined
@@ -850,7 +821,7 @@
                                                             ></v-data-table>
                                                         </v-card>
                                                         </template>
-                                                   
+                                                    
                                                 </v-col>
                                             </v-row>
                                         </v-col>
@@ -869,126 +840,121 @@
 
 
 
-                                <v-col cols="12" md="4" sm="6">
-                                    <v-app>
-                                        <v-card flat> 
-                                        <v-card-text>
-                                                    <template>
-                                                        <v-container fluid>
-                                                            <v-data-iterator
-                                                                :items="ordinances"
-                                                                :items-per-page.sync="itemsPerPageViolation"
-                                                                :page.sync="page"
-                                                                :search="search"
-                                                                :sort-by="sortBy.toLowerCase()"
-                                                                :sort-desc="sortDesc"
-                                                                hide-default-footer
-                                                            >
-                                                    <template v-slot:header>
-                                                        <v-toolbar color="dark" class="mb-3">
-                                                            Add Violations
-                                                        <v-spacer></v-spacer>
-                                                        <div class="containered">
-                                                                <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="search">
-                                                                <div class="icon">
-                                                                    <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
-                                                                        <title>Search</title>
-                                                                        <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
-                                                                        <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
-                                                                    </svg>
-                                                                </div>
+                            <v-col cols="12" md="4" sm="6">
+                                <v-app>
+                                    <v-card flat> 
+                                    <v-card-text>
+                                                <template>
+                                                    <v-container fluid>
+                                                        <v-data-iterator
+                                                            :items="ordinances"
+                                                            :items-per-page.sync="itemsPerPageViolation"
+                                                            :page.sync="page"
+                                                            :search="search"
+                                                            :sort-by="sortBy.toLowerCase()"
+                                                            :sort-desc="sortDesc"
+                                                            hide-default-footer
+                                                        >
+                                                <template v-slot:header>
+                                                    <v-toolbar color="dark" class="mb-3">
+                                                        Add Violations
+                                                    <v-spacer></v-spacer>
+                                                    <div class="containered">
+                                                            <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="search">
+                                                            <div class="icon">
+                                                                <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
+                                                                    <title>Search</title>
+                                                                    <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
+                                                                    <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
+                                                                </svg>
                                                             </div>
-                                                        </v-toolbar>
-                                                    </template>
-                                                    <template v-slot:default="props">
-                                                        <v-row>
-                                                            <v-col v-for="item in props.items" :key="item.name" cols="15" sm="15" md="13" lg="12">
-                                                                <v-card class="table-text" color="grey darken-4">
-                                                                    <v-card-title class="subheading font-weight-bold"> 
-                                                                        <div class="form-check">
-                                                                            <v-checkbox
-                                                                            v-model="checkbox"
-                                                                            :label= item.name
-                                                                            ></v-checkbox>
-                                                                        </div>
-                                                                            
-                                                                            <v-spacer></v-spacer>
-                                                                    </v-card-title>
-                                                                </v-card>
-                                                            </v-col>
-                                                        </v-row>
-                                                    </template>
+                                                        </div>
+                                                    </v-toolbar>
+                                                </template>
+                                                <template v-slot:default="props">
+                                                    <v-row>
+                                                        <v-col v-for="item in props.items" :key="item.name" cols="15" sm="15" md="13" lg="12">
+                                                            <v-card class="table-text" color="grey darken-4">
+                                                                <v-card-title class="subheading font-weight-bold"> 
+                                                                    <div class="form-check">
+                                                                        <v-checkbox
+                                                                        v-model="checkbox"
+                                                                        :label= item.name
+                                                                        ></v-checkbox>
+                                                                    </div>
+                                                                        
+                                                                        <v-spacer></v-spacer>
+                                                                </v-card-title>
+                                                            </v-card>
+                                                        </v-col>
+                                                    </v-row>
+                                                </template>
 
-                                                    <template v-slot:footer>
-                                                        <v-row class="mt-2" align="center" justify="center">
-                                                                <v-menu offset-y>
-                                                                    <v-list>
-                                                                        <v-list-item v-for="(number, index) in itemsPerPageArrayViolation" :key="index" @click="updateItemsPerPageViolation(number)">
-                                                                            <v-list-item-title>{{ number }}</v-list-item-title>
-                                                                        </v-list-item>
-                                                                    </v-list>
-                                                                </v-menu>
+                                                <template v-slot:footer>
+                                                    <v-row class="mt-2" align="center" justify="center">
+                                                            <v-menu offset-y>
+                                                                <v-list>
+                                                                    <v-list-item v-for="(number, index) in itemsPerPageArrayViolation" :key="index" @click="updateItemsPerPageViolation(number)">
+                                                                        <v-list-item-title>{{ number }}</v-list-item-title>
+                                                                    </v-list-item>
+                                                                </v-list>
+                                                            </v-menu>
 
-                                                                <v-spacer></v-spacer>
+                                                            <v-spacer></v-spacer>
 
-                                                            <span class="mr-4 grey--text">
-                                                                Page {{ page }} of {{ numberOfPagesViolation }}
-                                                            </span>
+                                                        <span class="mr-4 grey--text">
+                                                            Page {{ page }} of {{ numberOfPagesViolation }}
+                                                        </span>
 
-                                                            <v-btn fab dark color="blue darken-3" class="mr-1" @click="formerPageViolation">
-                                                                <v-icon>mdi-chevron-left</v-icon>
-                                                            </v-btn>
-                                                            <v-btn fab dark color="blue darken-3" class="ml-1" @click="nextPageViolation">
-                                                                        <v-icon>mdi-chevron-right</v-icon>
-                                                            </v-btn>
-                                                        </v-row>
-                                                    </template>
+                                                        <v-btn fab dark color="blue darken-3" class="mr-1" @click="formerPageViolation">
+                                                            <v-icon>mdi-chevron-left</v-icon>
+                                                        </v-btn>
+                                                        <v-btn fab dark color="blue darken-3" class="ml-1" @click="nextPageViolation">
+                                                                    <v-icon>mdi-chevron-right</v-icon>
+                                                        </v-btn>
+                                                    </v-row>
+                                                </template>
 
-                                                        </v-data-iterator>
-                                                        
-                                                    </v-container>
-                                                    </template>
+                                                    </v-data-iterator>
+                                                    
+                                                </v-container>
+                                                </template>
 
-                                        </v-card-text>
-                                    </v-card>
-                                    </v-app>
-                                </v-col>
+                                    </v-card-text>
+                                </v-card>
+                                </v-app>
+                            </v-col>
+                            </v-row>
+                        <v-divider></v-divider>
 
-                               
-
-                                
-                              </v-row>
-                            <v-divider></v-divider>
-
-                            </div>
-                                
-                            </v-card-text>
-                            <v-divider></v-divider>
-                            <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn
-                                    outlined
-                                    text
-                                    @click="violationDialog = false"
-                                >
-                                    Cancel
-                                </v-btn>
-                                <v-btn
-                                    outlined
-                                    text
-                                    @click="addVehicleDialog = false"
-                                    class="ml-3"
-                                >
-                                    Citation
-                                </v-btn>
-                                <v-spacer></v-spacer>
-                            </v-card-actions>
-                            
-                        </v-card>
-                        </v-dialog>
-                    </v-row>
-            </template>
-        </div>
+                        </div>
+                        
+                    </v-card-text>
+                    <v-divider></v-divider>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                            outlined
+                            text
+                            @click="violationDialog = false"
+                        >
+                            Cancel
+                        </v-btn>
+                        <v-btn
+                            outlined
+                            text
+                            @click="addVehicleDialog = false"
+                            class="ml-3"
+                        >
+                            Citation
+                        </v-btn>
+                        <v-spacer></v-spacer>
+                    </v-card-actions>
+                    
+                </v-card>
+            </v-dialog>
+        </v-row>
+     </div>
         
         
    
@@ -1335,7 +1301,7 @@
 }
 .max-content{
     max-height: fit-content;
-    min-height: 650px;
+    min-height: 500px;
 }
 .navs{
     position: absolute;

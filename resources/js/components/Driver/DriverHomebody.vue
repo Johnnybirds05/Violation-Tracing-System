@@ -21,9 +21,7 @@
                     <span>{{ user.mobile_no  }}</span>
                 </v-col>
 
-                 <v-col class="col-md-3 logout-button" cols="12"
-                            md="2"
-                            sm="6">
+                 <v-col class="col-md-3 logout-button" cols="12" md="2" sm="6">
                   <div class="row">
                     <div class="col">
                       <button class="button-back btn-warning"
@@ -64,7 +62,6 @@
         <v-card flat>
           <v-card-text color="black">
             <v-container>
-              <template>
                 <v-expansion-panels focusable>
                   <v-expansion-panel
                     v-for="(item,i) in 3"
@@ -72,25 +69,16 @@
                   >
                     <v-expansion-panel-header color="grey darken-4">
                       <v-row class="centers">
-                        <v-col
-                            cols="12"
-                            md="2"
-                            sm="6">
+                        <v-col cols="12" md="2" sm="6">
                             <img src="../../../pics/truck.jpg" class="vehicle-img">
                         </v-col>
-                        <v-col
-                            cols="12"
-                            md="4"
-                            sm="6">
+                        <v-col cols="12" md="4" sm="6">
 
                             <h3 class="vehicle-name mt-3">Model - BodyType</h3> <br>
                             <h5>[platenumber]</h5>
                         </v-col>
                         <v-spacer></v-spacer>
-                        <v-col
-                            cols="12"
-                            md="3"
-                            sm="6">
+                        <v-col cols="12" md="3" sm="6">
 
                             <div>
                               <v-alert type="success" class="text-type"> Verified!</v-alert>
@@ -131,7 +119,6 @@
                     </v-expansion-panel-content>
                   </v-expansion-panel>
                 </v-expansion-panels>
-              </template>
               <button class="icon-btn add-btn mt-5" @click="addVehicleDialog=true">
                 <div class="add-icon"></div>
                 <div class="btn-txt"><b>Add Vehicle</b></div>
@@ -147,7 +134,6 @@
           <v-card-text>
             <!-- Vehicle Requirement Side -->
             <v-container>
-              <template>
                 <v-expansion-panels focusable>
                   <v-expansion-panel>
                     <v-expansion-panel-header color="grey darken-4">
@@ -161,7 +147,6 @@
                     </v-row>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
-                      <template>
                         <v-card color="blue darken-4" class="mt-2">
                           <v-card-title>
                             <v-icon class="mr-2">
@@ -183,13 +168,10 @@
                             :search="search"
                           ></v-data-table>
                         </v-card>
-                      </template>
                     </v-expansion-panel-content>
                   </v-expansion-panel>
                 </v-expansion-panels>
-              </template>
             <!-- license Requirement Side -->
-              <template>
                 <v-expansion-panels focusable>
                   <v-expansion-panel>
                     <v-expansion-panel-header color="grey darken-4">
@@ -203,7 +185,6 @@
                     </v-row>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
-                      <template>
                         <v-card color="blue darken-4" class="mt-2">
                           <v-card-title>
                             <v-icon class="mr-2">
@@ -225,11 +206,9 @@
                             :search="search"
                           ></v-data-table>
                         </v-card>
-                      </template>
                     </v-expansion-panel-content>
                   </v-expansion-panel>
                 </v-expansion-panels>
-              </template>
             </v-container>
           </v-card-text>
         </v-card>
@@ -240,7 +219,6 @@
       <v-tab-item>
         <v-card flat>
           <v-card-text>
-            <template>
               <v-card color="blue darken-3">
                 <v-card-title>
                   <v-icon class="mr-2">
@@ -262,7 +240,6 @@
                   :search="search"
                 ></v-data-table>
               </v-card>
-            </template>
             <v-alert dense
               outlined
               type="error">
@@ -278,7 +255,6 @@
       <v-tab-item>
         <v-card flat>
           <v-card-text>
-            <template>
                 <v-expansion-panels focusable>
                   <v-expansion-panel
                     v-for="(item,i) in ordinances"
@@ -286,16 +262,10 @@
                   >
                     <v-expansion-panel-header color="grey darken-4">
                       <v-row class="centers marginNeg margin-left">
-                        <v-col
-                            cols="12"
-                            md="1"
-                            sm="6">
+                        <v-col cols="12" md="1" sm="6">
                             <img src="./../../../pics/feed_white_24dp.svg" class="ordinance-img mr-5 mt-3">
                         </v-col>
-                        <v-col
-                            cols="12"
-                            md="4"
-                            sm="6">
+                        <v-col cols="12" md="4" sm="6">
 
                             <h3 class="vehicle-name mt-5">{{ item.name }}</h3>
                         </v-col>
@@ -351,7 +321,6 @@
                     </v-expansion-panel-content>
                   </v-expansion-panel>
                 </v-expansion-panels>
-              </template>
           </v-card-text>
         </v-card>
       </v-tab-item>
@@ -362,7 +331,6 @@
 
 <!-- Modals -->
 <!-- modals for edit -->
-        <template>
           <v-row justify="center">
               <v-dialog
               v-model="editDialog"
@@ -403,9 +371,7 @@
               </v-card>
               </v-dialog>
           </v-row>
-      </template>
 <!-- modals for delete -->
-      <template>
           <v-row justify="center">
               <v-dialog
               v-model="deleteDialog"
@@ -452,11 +418,9 @@
               </v-card>
               </v-dialog>
           </v-row>
-      </template>
 
 
       <!-- Modal for Add Vehicle -->
-                <template>
                     <v-row justify="center">
                         <v-dialog
                         v-model="addVehicleDialog"
@@ -475,12 +439,8 @@
 
                             <div class="form-registration">
                               <v-row>
-                                <v-col
-                                    cols="12"
-                                    md="4"
-                                    sm="6">
+                                <v-col cols="12" md="4" sm="6">
                                     <v-text-field
-                                        :rules="validate.modelRules"
                                         outlined
                                         clearable
                                     >
@@ -492,12 +452,8 @@
                                     </template>
                                 </v-text-field>
                                 </v-col>
-                                <v-col
-                                    cols="12"
-                                    md="4"
-                                    sm="6">
+                                <v-col cols="12" md="4" sm="6">
                                     <v-select
-                                        :rules="validate.bTypeRules"
                                         :items="['Motocycle', 'Tricycle','Truck','Car']"
                                         outlined
                                     ><template v-slot:label>
@@ -507,12 +463,8 @@
                                         Body Type
                                     </template></v-select>
                                 </v-col>
-                                <v-col
-                                    cols="12"
-                                    md="4"
-                                    sm="6">
+                                <v-col cols="12" md="4" sm="6">
                                     <v-text-field
-                                        :rules="validate.colorRules"
                                         outlined
                                         clearable
                                     >
@@ -527,12 +479,8 @@
                               </v-row>
 
                               <v-row class="marginNeg">
-                                <v-col
-                                    cols="12"
-                                    md="4"
-                                    sm="6">
+                                <v-col cols="12" md="4" sm="6">
                                     <v-text-field
-                                        :rules="validate.serialRules"
                                         outlined
                                         clearable
                                     >
@@ -549,7 +497,6 @@
                                     md="4"
                                     sm="6">
                                     <v-text-field
-                                        :rules="validate.colorRules"
                                         outlined
                                         clearable
                                     >
@@ -562,12 +509,8 @@
                                 </v-text-field>
                                 </v-col>
 
-                                <v-col
-                                    cols="12"
-                                    md="4"
-                                    sm="6">
+                                <v-col cols="12" md="4" sm="6">
                                     <v-text-field
-                                        :rules="validate.colorRules"
                                         outlined
                                         clearable
                                     >
@@ -582,10 +525,7 @@
                               </v-row>
 
                               <v-row class="marginNeg">
-                                <v-col
-                                    cols="12"
-                                    md="6"
-                                    sm="6">
+                                <v-col cols="12" md="6" sm="6">
                                     <v-menu
                                         :close-on-content-click="false"
                                         transition="scale-transition"
@@ -626,7 +566,6 @@
                                         prepend-icon="mdi-camera"
                                         outlined
                                         :show-size="1000"
-                                        :rules="validate.picRules"
                                     >
                                         <template v-slot:selection="{ index, text }">
                                         <v-chip
@@ -679,7 +618,6 @@
                         </v-card>
                         </v-dialog>
                     </v-row>
-                </template>
       </v-container>
 
 </template>
