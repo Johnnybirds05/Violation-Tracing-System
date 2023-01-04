@@ -5,6 +5,10 @@ import "vuetify/dist/vuetify.min.js"
 
 Vue.use(Vuetify)
 
+
+
+
+
 const opts = {
 
     theme: { dark: true },

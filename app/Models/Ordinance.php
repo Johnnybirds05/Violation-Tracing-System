@@ -19,6 +19,6 @@ class Ordinance extends Model
     ];
 
     public function ordinance_penalties(){
-        return $this->hasMany(OrdnancePenalty::class, 'ordinance_id', 'ordinance_id');
+        return $this->hasMany(OrdinancePenalty::class, 'ordinance_id', 'ordinance_id');
     }
 }

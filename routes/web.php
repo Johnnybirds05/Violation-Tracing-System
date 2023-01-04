@@ -27,31 +27,32 @@ Route::get('/load-barangays', [App\Http\Controllers\AddressController::class, 'l
 
 
 
-Route::get('/', function () {
-    return view('homepage/home');
-});
+// Route::get('/', function () {
+//     return view('homepage/home');
+// });
 
 Route::get('/admins', function () {
     return view('logins/office');
 });
 
-Route::get('/tourism-dashboard', function () {
-    return view('tourism/tourism-dashboard');
-});
+Route::get('/tourism-dashboard', [App\Http\Controllers\Tourism\TourismDashboardController::class, 'index']);
+
 Route::get('/legislative-dashboard', function () {
     return view('legislative/legislative-dashboard');
 });
+
 Route::get('/counsel-treasury-dashboard', function () {
     return view('counsel-treasury/counsel-treasury-dashboard');
 });
-Route::get('/taskforce-dashboard', function () {
-    return view('taskforce/taskforce-dashboard');
-});
+
+
+
+
 
 //-----------------DRIVER ROUTES----------------------
-Route::get('/driver-login', [App\Http\Controllers\Driver\DriverLoginController::class, 'index']);
-Route::post('/driver-login', [App\Http\Controllers\Driver\DriverLoginController::class, 'login']);
-Route::post('/logout', [App\Http\Controllers\Driver\DriverLoginController::class, 'logout']);
+Route::get('/', [App\Http\Controllers\Driver\CustomLoginController::class, 'index']);
+Route::post('/driver-login', [App\Http\Controllers\Driver\CustomLoginController::class, 'login']);
+Route::post('/logout', [App\Http\Controllers\Driver\CustomLoginController::class, 'logout']);
 
 Route::get('/driver-register', [App\Http\Controllers\Driver\DriverRegisterController::class, 'index']);
 Route::post('/driver-register', [App\Http\Controllers\Driver\DriverRegisterController::class, 'store']);
@@ -59,12 +60,29 @@ Route::post('/driver-register', [App\Http\Controllers\Driver\DriverRegisterContr
 Route::get('/driver-dashboard', [App\Http\Controllers\Driver\DriverDashboardController::class, 'index']);
 Route::post('/submit-vehicle-info', [App\Http\Controllers\Driver\DriverDashboardController::class, 'store']);
 
-Route::get('/get-driver', [App\Http\Controllers\Driver\DriverDashboardController::class, 'getDriver']);
+Route::post('/driver-submit-vehicle', [App\Http\Controllers\Driver\DriverVehicleController::class, 'store']);
+Route::get('/get-vehicles', [App\Http\Controllers\Driver\DriverVehicleController::class, 'getVehicles']);
+Route::delete('/driver-delete-vehicle/{id}', [App\Http\Controllers\Driver\DriverVehicleController::class, 'destroy']);
 
+
+Route::get('/get-driver', [App\Http\Controllers\Driver\DriverDashboardController::class, 'getDriver']);
+Route::get('/get-my-violations', [App\Http\Controllers\Driver\MyViolationController::class, 'getMyViolations']);
+
+Route::get('/print-qr/{qr}', [App\Http\Controllers\Driver\PrintQrController::class, 'printQr']);
 
 
 //-----------------DRIVER ROUTES----------------------
 
+
+
+
+//Requirements Type
+Route::get('/get-all-requirements', [App\Http\Controllers\RequirementController::class, 'getAllRequirements']);
+
+
+//Ordiances
+Route::get('/get-all-ordinances', [App\Http\Controllers\OrdinanceController::class, 'getAllOrdiances']);
+Route::get('/get-ordinance-penalties/{id}', [App\Http\Controllers\OrdinanceController::class, 'getOrdinancePenalties']);
 
 
 
@@ -75,11 +93,25 @@ Route::get('/cto', [App\Http\Controllers\CtoController::class, 'index'])->name('
 
 
 
+//-----------------TOURISM ROUTES----------------------
+Route::get('/get-all-drivers-accounts', [App\Http\Controllers\Tourism\TourismDriverController::class, 'getDriverAccounts']);
+
+
+Route::get('/get-all-office-accounts', [App\Http\Controllers\Tourism\TourismOfficeController::class, 'index']);
 
 
 
 
+//-----------------TASK FORCE ROUTES----------------------
+//
 
+Route::get('/taskforce-dashboard', [App\Http\Controllers\TaskForce\TaskForceDashboardController::class, 'index']);
+Route::get('/get-driver-violations', [App\Http\Controllers\TaskForce\TaskForceDashboardController::class, 'getDriverViolations']);
+Route::post('/submit-citation', [App\Http\Controllers\TaskForce\TaskForceDashboardController::class, 'storeCitation']);
+
+
+
+Route::get('/validate-qr/{qr}', [App\Http\Controllers\ValidateQrController::class, 'validateQr']);
 
 
 

@@ -1,12 +1,12 @@
 <template>
     <v-app class="box-white">
         <v-container width="200px" class="login-body">
-           
+
                 <v-container class="login-card">
-                    
+
                 <img src="../../../pics/account.svg" class="login-pics">
-                <h4><b>Driver Login</b></h4>
-                <form @submit.prevent="submit">    
+                <h4><b>Login</b></h4>
+                <form @submit.prevent="submit">
                     <v-row class="margin-top">
                         <v-col
                             cols="12"
@@ -50,14 +50,14 @@
                                         Enter password
                                     </template>
                                 </v-text-field>
-                            
-                    
+
+
                         </v-col>
                     </v-row>
 
                     <div class="extensions">
                         <a href="/driver-register">Don't have an account?</a>
-                        or 
+                        or
                         <a href="#">Forgot Password</a>
 
                         <div class="login-content mt-4">
@@ -75,7 +75,7 @@
                     </div>
                     </div>
 
-                    
+
                 </form>
                 </v-container>
     </v-container>
@@ -106,8 +106,8 @@
                                         <span v-if="errors.username">
                                             {{ errors.username[0] }}
                                         </span>
-                                    </div>          
-                                </div>                             
+                                    </div>
+                                </div>
                             </v-card-text>
                             <v-divider></v-divider>
                             <v-card-actions>
@@ -127,13 +127,13 @@
                 </template>
 
 </v-app>
-        
 
 
-        
 
-        
-    
+
+
+
+
 </template>
 
 <script>
@@ -172,11 +172,17 @@
             //neg submit or click sa login button fire this method
             submit(){
                 axios.post('/driver-login', this.fields).then(res=>{
-                    
+
                     if(res.data.role === 'DRIVER'){
                         window.location = '/driver-dashboard';
                     }
- 
+
+                    if(res.data.role === 'TOURISM'){
+                        window.location = '/tourism-dashboard';
+                    }
+                    if(res.data.role === 'TASKFORCE'){
+                        window.location = '/taskforce-dashboard';
+                    }
 
                 }).catch(err=>{
                     console.log(err.response.data.errors)
@@ -191,11 +197,11 @@
             //sa component
         },
 
-        
+
     }
 
-    
-    
+
+
 </script>
 
 <style scoped lang="scss">

@@ -13,7 +13,9 @@ class Violator extends Model
     protected $primaryKey = 'violator_id';
 
     protected $fillable = [
+        'user_id',
         'ordinance_id',
+        'ordinance_penalty_id',
         'driver_lname',
         'driver_fname',
         'driver_mname',
@@ -22,9 +24,21 @@ class Violator extends Model
         'driver_location_province',
         'driver_location_city',
         'driver_location_street',
+        'date_violate',
+        'is_settled',
     ];
 
-    public function ordinances(){
-        return $this->hasMany(Ordinance::class, 'ordinance_id', 'ordinance_id');
+    public function ordinance(){
+        return $this->hasOne(Ordinance::class, 'ordinance_id', 'ordinance_id');
     }
+
+    public function ordinance_penalty(){
+        return $this->hasOne(OrdinancePenalty::class, 'ordinance_penalty_id', 'ordinance_penalty_id');
+    }
+
+    public function driver(){
+        return $this->hasOne(User::class, 'user_id', 'user_id');
+    }
+
+
 }

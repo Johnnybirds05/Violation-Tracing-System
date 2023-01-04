@@ -1,0 +1,163 @@
+
+h3{
+    font-family:Helvetica;
+    top: 10px;
+}
+.vehicle-accord{
+    color: rgb(255, 255, 255);
+    font-family: monospace;
+    font-size: .9em;
+}
+.driver-body{
+    width: 100%;
+    background-color: rgb(46, 46, 46);
+    font-family: monospace;
+    color: white;
+    font-size: 15px;
+    opacity: .8;
+}
+.profile{
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    border-radius: 100px;
+    border: 5px solid rgb(156, 156, 156);
+}
+.driver-picbox{
+    width: 250px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+
+}
+.rowleft{
+    position: relative;
+    left: 0px;
+    width: 100%;
+}
+
+.drivers-links{
+    width: 100%;
+    min-height: 400px;
+    font-family: monospace;
+    position: relative;
+    margin-bottom: 20px;
+}
+::v-deep .v-application--wrap {
+    min-height: fit-content;
+}
+.logout-button{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 150px;
+}
+.tabs-title{
+    font-size: 12px;
+}
+.overflowing{
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.vehicle-img{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 2px solid rgb(80, 80, 80);
+}
+.text-type{
+    font-size: 13px;
+    height: 55px;
+    width: 140px;
+}
+.ordinance-img{
+    width: 30px;
+}
+.status{
+    width: 200px;
+    height: 40px;
+    font-size: 11px;
+    background-color: rgb(107, 11, 11);
+}
+.button-detail{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: white;
+    border: 1px solid white;
+}
+.text-white{
+    color: white;
+}
+.tab-size{
+    width: 10%;
+}
+.centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blanchedalmond;
+    border-radius: 10px;
+}
+.icons{
+    font-size: 25px;
+}
+.form-registration{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+.card-header{
+    padding: 15px;
+    margin: 15px 0;
+}
+.card-section-text{
+    text-align: center;
+    font-size: 1em;
+    font-family: monospace;
+}
+.v-text-field, ::v-deep label {
+    font-size: .9em;
+    font-family: monospace;
+}
+.marginNeg{
+    margin-top: -30px;
+}
+@media only screen and (max-width: 500px){
+    .cols-name{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+    }
+    .logout-button{
+        top: 5px;
+        right: 5px;
+        font-size: 10px;
+        width: 100px;
+    }
+    .drivers-links{
+        width: 100%;
+    }
+    .driver-body{
+        width: 100%;
+    }
+    .vehicle-img{
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
+.impound{
+    padding: 10px;
+    background-color: red;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+}

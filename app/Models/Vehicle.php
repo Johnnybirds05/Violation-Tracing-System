@@ -13,14 +13,23 @@ class Vehicle extends Model
     protected $primaryKey = 'vehicle_id';
 
     protected $fillable = [
-        'plate',
+        'user_id',
+        'qr_ref',
+        'plate_no',
         'model',
         'body_type',
-        'serial',
+        'serial_no',
         'color',
-        'expiration',
+        'expr_date',
         'receipt_no',
-        'vehicle_img_path',
+        'vehicle_img',
         'is_verified',
     ];
+
+
+
+    public function driver(){
+        return $this->belongsTo(User::class, 'user_id', 'user_id')
+            ->with(['province', 'city', 'barangay']);
+    }
 }

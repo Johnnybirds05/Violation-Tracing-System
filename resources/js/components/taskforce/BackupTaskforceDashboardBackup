@@ -1,0 +1,1563 @@
+<template>
+    <div class="container-fluid max-content mb-4">
+        <div class="container tourism-body mt-3 mb-4">
+            <v-card >
+                <v-navigation-drawer v-model="drawer" temporary class="navs">
+                    <v-divider></v-divider>
+                    <v-list-item>
+                        <v-list-item-avatar>
+                            <img src="../../../pics/perm_identity_white_36dp.svg" class="card-img-top" alt="...">
+                        </v-list-item-avatar>
+
+                        <v-list-item-content>
+                            <v-list-item-title><h5>Task Force</h5> </v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+
+                    <v-list dense>
+                        <v-list-item>
+                            <a href="#" class="btn">
+                                <button class="cssbuttons-io-button button-back"> Logout
+                                    <div class="icon">
+                                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                                    </div>
+                                </button>
+                            </a>
+                        </v-list-item>
+                    </v-list>
+                    <v-divider></v-divider>
+                </v-navigation-drawer>
+
+                <v-toolbar color="grey darken-4" dark flat>
+                    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+                    <v-toolbar-title>
+                        <v-list-item-avatar>
+                            <img src="../../../pics/perm_identity_white_36dp.svg" class="card-img-top" alt="...">
+                        </v-list-item-avatar>
+                        Task Force
+                    </v-toolbar-title>
+                    <v-spacer></v-spacer>
+                    <template v-slot:extension>
+                        <v-tabs v-model="tab" align-with-title>
+                            <v-tabs-slider color="white"></v-tabs-slider>
+                            <v-tab>Violation</v-tab>
+                            <v-tab>Ordinances</v-tab>
+                            <v-tab>Scan QR</v-tab>
+                        </v-tabs>
+                    </template>
+                </v-toolbar>
+
+
+                <!-- this is for the add violation tab -->
+                <v-tabs-items v-model="tab">
+                    <v-tab-item>
+                        <v-card flat>
+                            <v-card-text>
+                                <div class="row centered g-3 mb-5">
+                                    <div class="col-md-3">
+                                        <button class="continue-application" @click="violationDialog=true">
+                                            <div>
+                                                <div class="pencil"></div>
+                                                <div class="folder">
+                                                    <div class="top">
+                                                        <svg viewBox="0 0 24 27">
+                                                            <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="paper"></div>
+                                                </div>
+                                            </div>
+                                            Scan QR Code
+                                        </button>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <button class="continue-application" @click="violationDialog=true">
+                                            <div>
+                                                <div class="pencil"></div>
+                                                <div class="folder">
+                                                    <div class="top">
+                                                        <svg viewBox="0 0 24 27">
+                                                            <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="paper"></div>
+                                                </div>
+                                            </div>
+                                            Manual Input
+                                        </button>
+                                    </div>
+                                </div>
+                            </v-card-text>
+                        </v-card>
+                    </v-tab-item>
+
+
+
+                    <v-tab-item>
+                        <v-card flat>
+                            <v-card-text>
+                                <v-container fluid>
+                                    <v-data-iterator
+                                        :items="ordinances"
+                                        :items-per-page.sync="itemsPerPage"
+                                        :page.sync="page"
+                                        :search="search"
+                                        :sort-by="sortBy.toLowerCase()"
+                                        :sort-desc="sortDesc"
+                                        hide-default-footer
+                                    >
+                                        <template v-slot:header>
+                                            <v-toolbar color="dark" class="mb-3">
+                                                <img src="./../../../pics/note_alt_white_24dp.svg" class="vehicle-img mr-5">
+                                                <h6 class="ml-2">Tangub City Ordinances List</h6>
+                                                <v-spacer></v-spacer>
+                                                <div class="containered">
+                                                    <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="search">
+                                                    <div class="icon">
+                                                        <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
+                                                            <title>Search</title>
+                                                            <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
+                                                            <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </v-toolbar>
+                                        </template>
+                                        <template v-slot:default="props">
+                                            <v-row>
+                                                <v-col v-for="item in props.items" :key="item.name" cols="12" sm="10" md="8" lg="6">
+                                                    <v-card class="table-text" color="blue darken-4">
+                                                        <v-card-title class="subheading font-weight-bold">
+                                                            <img src="./../../../pics/task_alt_white_24dp.svg" class="vehicle-img mr-5">
+                                                            <h6> <b>{{ item.name }}</b> </h6>
+                                                            <v-spacer></v-spacer>
+
+                                                        </v-card-title>
+
+                                                        <v-list dense class="table-text">
+                                                            <v-list-item>
+                                                                <div class="container-fluid">
+                                                                    <div class="row g-2">
+                                                                        <div class="col-md-3">
+                                                                            <h7> <b>Description:</b> </h7>
+                                                                        </div>
+                                                                        <div class="col-md-9 justified font12">
+                                                                            <b>{{item.description}}</b>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="container ml-0 mt-3">
+                                                                        <div class="row g-0 font12" v-if="item.offense1 != ''">
+                                                                            <div class="col-md-4">
+                                                                                <b>Date Created: </b>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <span>Php {{item.dateCreated}}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row g-0 font12" v-if="item.offense1 != ''">
+                                                                            <div class="col-md-4">
+                                                                                <b>First Offense: </b>
+                                                                            </div>
+                                                                            <div class="col-md-5">
+                                                                                <span>Php {{item.offense1}}</span>
+                                                                                <span v-if="item.additional1 != ''"> {{item.additional1}}</span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row g-0 font12" v-if="item.offense2 != ''">
+                                                                            <div class="col-md-4">
+                                                                                <b> Second Offense: </b>
+                                                                            </div>
+                                                                            <div class="col-md-5">
+                                                                                <span>Php {{item.offense2}}</span>
+                                                                                <span v-if="item.additional2 != ''"> {{item.additional2}}</span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row g-0 font12" v-if="item.offense3 != ''">
+                                                                            <div class="col-md-4">
+                                                                                <b>Third Offense: </b>
+                                                                            </div>
+                                                                            <div class="col-md-5">
+                                                                                <span>Php {{item.offense3}}</span>
+                                                                                <span v-if="item.additional3 != ''"> {{item.additional3}}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </v-list-item>
+                                                        </v-list>
+                                                    </v-card>
+                                                </v-col>
+                                            </v-row>
+                                        </template>
+
+                                        <template v-slot:footer>
+                                            <v-row class="mt-2" align="center" justify="center">
+                                                <span class="grey--text">Items per page</span>
+                                                <v-menu offset-y>
+                                                    <template v-slot:activator="{ on, attrs }">
+                                                        <v-btn dark text color="primary" class="ml-2" v-bind="attrs" v-on="on">
+                                                            {{ itemsPerPage }}
+                                                            <v-icon>mdi-chevron-down</v-icon>
+                                                        </v-btn>
+                                                    </template>
+                                                    <v-list>
+                                                        <v-list-item v-for="(number, index) in itemsPerPageArray" :key="index" @click="updateItemsPerPage(number)">
+                                                            <v-list-item-title>{{ number }}</v-list-item-title>
+                                                        </v-list-item>
+                                                    </v-list>
+                                                </v-menu>
+
+                                                <v-spacer></v-spacer>
+
+                                                <span class="mr-4 grey--text">
+                                                Page {{ page }} of {{ numberOfPages }}
+                                            </span>
+
+                                                <v-btn fab dark color="blue darken-3" class="mr-1" @click="formerPage">
+                                                    <v-icon>mdi-chevron-left</v-icon>
+                                                </v-btn>
+                                                <v-btn fab dark color="blue darken-3" class="ml-1" @click="nextPage">
+                                                    <v-icon>mdi-chevron-right</v-icon>
+                                                </v-btn>
+                                            </v-row>
+                                        </template>
+                                    </v-data-iterator>
+                                </v-container>
+                            </v-card-text>
+                        </v-card>
+                    </v-tab-item>
+
+
+
+
+                    <!--                    this is for the scan QR-->
+                    <v-tab-item>
+                        <v-card flat>
+                            <v-card-text>
+                                <div>
+                                    <div class="camera">
+                                        <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
+                                            <div v-if="validationSuccess" class="validation-success">
+                                                Scanned successfully.
+                                            </div>
+
+                                            <div v-if="validationFailure" class="validation-failure">
+                                                Nothing found.
+                                            </div>
+
+                                            <div v-if="validationPending" class="validation-pending">
+                                                Processing...
+                                            </div>
+                                        </qrcode-stream>
+                                    </div>
+                                </div>
+                            </v-card-text>
+                        </v-card>
+                    </v-tab-item>
+                </v-tabs-items>
+            </v-card>
+        </div>
+
+        <!-- Modals! -->
+        <v-row justify="center">
+            <v-dialog v-model="violationDialog" scrollable persistent max-width="90%">
+                <v-card>
+                    <v-card-title>
+                        <v-icon style="vertical-align: middle"> mdi-alert-circle</v-icon>
+                        <h5 class="modal-title text-white" id="staticBackdropLabel">Add Violation</h5>
+                        <v-spacer></v-spacer>
+                    </v-card-title>
+                    <v-card-text style="height: 500px;">
+                        <v-divider></v-divider>
+                        <div class="form-registration">
+                            <v-row>
+                                <v-col cols="12" md="8" sm="6">
+                                    <v-row>
+                                        <v-col>
+                                            <div class="card-header">
+                                                <div class="card-section-text">
+                                                    Driver Information
+                                                </div>
+                                            </div>
+                                        </v-col>
+                                    </v-row>
+                                    <v-row>
+                                        <v-col>
+                                            <div class="card-header">
+                                                <div class="card-section-text">
+                                                    <img src="../../../pics/user.svg" class="profile-icon" alt="...">
+                                                </div>
+                                            </div>
+                                        </v-col>
+                                    </v-row>
+
+                                    <v-row>
+                                        <v-col cols="12" md="3" sm="6">
+                                            <v-text-field
+                                                :rules="validate.fnameRules"
+                                                outlined
+                                                clearable
+                                            >
+
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-account
+                                                    </v-icon>
+                                                    First Name
+                                                </template>
+                                            </v-text-field>
+                                        </v-col>
+
+                                        <v-col cols="12" md="3" sm="6">
+                                            <v-text-field :rules="validate.mnameRules"
+                                                          outlined
+                                                          clearable
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-account
+                                                    </v-icon>
+                                                    Middle Name
+                                                </template>
+                                            </v-text-field>
+                                        </v-col>
+
+                                        <v-col cols="12" md="3" sm="6">
+                                            <v-text-field
+                                                :rules="validate.lnameRules"
+                                                outlined
+                                                clearable
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-account
+                                                    </v-icon>
+                                                    Last Name
+                                                </template>
+                                            </v-text-field>
+                                        </v-col>
+
+                                        <v-col cols="12" md="3" sm="6">
+                                            <v-text-field
+                                                hint="leave blank if none"
+                                                outlined
+                                                clearable
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-account
+                                                    </v-icon>
+                                                    Suffix
+                                                </template>
+                                            </v-text-field>
+                                        </v-col>
+                                    </v-row>
+
+                                    <v-row>
+                                        <v-col cols="12" md="3" sm="6">
+                                            <v-select
+                                                item-value="provCode"
+                                                item-text="provDesc"
+                                                :items="provinces"
+                                                outlined
+                                                @change="loadCities"
+                                                v-model="fields.province"
+                                                :rules="validate.provRules"
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-map-marker
+                                                    </v-icon>
+                                                    Province
+                                                </template>
+                                            </v-select>
+                                        </v-col>
+
+                                        <v-col cols="12" md="3" sm="6">
+                                            <v-select
+                                                item-value="citymunCode"
+                                                item-text="citymunDesc"
+                                                :items="cities"
+                                                outlined
+                                                @change="loadBarangays"
+                                                v-model="fields.city"
+                                                :rules="validate.cityRules"
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-map-marker
+                                                    </v-icon>
+                                                    City
+                                                </template>
+                                            </v-select>
+                                        </v-col>
+                                        <v-col cols="12" md="3" sm="6">
+                                            <v-select
+                                                item-value="brgyCode"
+                                                item-text="brgyDesc"
+                                                :items="barangays"
+                                                outlined
+                                                v-model="fields.barangay"
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-map-marker
+                                                    </v-icon>
+                                                    Barangay
+                                                </template>
+                                            </v-select>
+                                        </v-col>
+
+                                        <v-col cols="12" md="3" sm="6">
+                                            <v-text-field
+                                                outlined
+                                                v-model="fields.street"
+                                                :rules="validate.streetRules"
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-map-marker
+                                                    </v-icon>
+                                                    Street
+                                                </template>
+                                            </v-text-field>
+                                        </v-col>
+                                    </v-row>
+
+                                    <v-row>
+                                        <v-col cols="12" md="6" sm="6">
+                                            <v-text-field
+                                                :rules="validate.emailRules"
+                                                required
+                                                outlined
+                                                v-model="fields.email"
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-email
+                                                    </v-icon>
+                                                    Email
+                                                </template>
+                                            </v-text-field>
+                                        </v-col>
+
+                                        <v-col cols="12" md="6" sm="6">
+                                            <v-text-field
+                                                :rules="validate.mobileNo"
+                                                required
+                                                outlined
+                                                v-model="fields.mobile_no"
+                                            >
+                                                <template v-slot:label>
+                                                    <v-icon style="vertical-align: middle">
+                                                        mdi-cellphone
+                                                    </v-icon>
+                                                    Mobile No.
+                                                </template>
+                                            </v-text-field>
+                                        </v-col>
+                                    </v-row>
+
+                                    <input type="checkbox" id="myCheck" @click="showDriver">
+                                    <label for="myCheck">Not the owner?</label>
+                                    <v-row id="text2" style="display:none">
+                                        <v-col>
+                                            <v-row>
+                                                <v-col>
+                                                    <div class="card-header">
+                                                        <div class="card-section-text">
+                                                            Owner Information
+                                                        </div>
+                                                    </div>
+                                                </v-col>
+                                            </v-row>
+
+                                            <v-row>
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-text-field
+                                                        :rules="validate.fnameRules"
+                                                        outlined
+                                                        clearable
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-account
+                                                            </v-icon>
+                                                            First Name
+                                                        </template>
+                                                    </v-text-field>
+                                                </v-col>
+
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-text-field
+                                                        :rules="validate.mnameRules"
+                                                        outlined
+                                                        clearable
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-account
+                                                            </v-icon>
+                                                            Middle Name
+                                                        </template>
+                                                    </v-text-field>
+                                                </v-col>
+
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-text-field
+                                                        :rules="validate.lnameRules"
+                                                        outlined
+                                                        clearable
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-account
+                                                            </v-icon>
+                                                            Last Name
+                                                        </template>
+                                                    </v-text-field>
+                                                </v-col>
+
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-text-field
+                                                        hint="leave blank if none"
+                                                        outlined
+                                                        clearable
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-account
+                                                            </v-icon>
+                                                            Suffix
+                                                        </template>
+                                                    </v-text-field>
+                                                </v-col>
+                                            </v-row>
+
+                                            <v-row>
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-select
+                                                        item-value="provCode"
+                                                        item-text="provDesc"
+                                                        :items="provinces"
+                                                        outlined
+                                                        @change="loadCities"
+                                                        v-model="fields.province"
+                                                        :rules="validate.provRules"
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-map-marker
+                                                            </v-icon>
+                                                            Province
+                                                        </template>
+                                                    </v-select>
+                                                </v-col>
+
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-select
+                                                        item-value="citymunCode"
+                                                        item-text="citymunDesc"
+                                                        :items="cities"
+                                                        outlined
+                                                        @change="loadBarangays"
+                                                        v-model="fields.city"
+                                                        :rules="validate.cityRules"
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-map-marker
+                                                            </v-icon>
+                                                            City
+                                                        </template>
+                                                    </v-select>
+                                                </v-col>
+
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-select
+                                                        item-value="brgyCode"
+                                                        item-text="brgyDesc"
+                                                        :items="barangays"
+                                                        outlined
+                                                        v-model="fields.barangay"
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-map-marker
+                                                            </v-icon>
+                                                            Barangay
+                                                        </template>
+                                                    </v-select>
+                                                </v-col>
+
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-text-field
+                                                        outlined
+                                                        v-model="fields.street"
+                                                        :rules="validate.streetRules"
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-map-marker
+                                                            </v-icon>
+                                                            Street
+                                                        </template>
+                                                    </v-text-field>
+                                                </v-col>
+                                            </v-row>
+
+                                            <v-row>
+                                                <v-col cols="12" md="6" sm="6">
+                                                    <v-text-field
+                                                        :rules="validate.emailRules"
+                                                        required
+                                                        outlined
+                                                        v-model="fields.email"
+                                                    ><template v-slot:label>
+                                                        <v-icon style="vertical-align: middle">
+                                                            mdi-email
+                                                        </v-icon>
+                                                        Email
+                                                    </template></v-text-field>
+                                                </v-col>
+
+                                                <v-col cols="12" md="6" sm="6">
+                                                    <v-text-field
+                                                        :rules="validate.mobileNo"
+                                                        required
+                                                        outlined
+                                                        v-model="fields.mobile_no"
+                                                    ><template v-slot:label>
+                                                        <v-icon style="vertical-align: middle">
+                                                            mdi-cellphone
+                                                        </v-icon>
+                                                        Mobile No.
+                                                    </template></v-text-field>
+                                                </v-col>
+                                            </v-row>
+                                        </v-col>
+                                    </v-row>
+                                    <br>
+                                    <input type="checkbox" id="myCheck2" @click="showGuadians">
+                                    <label for="myCheck2">Minor Driving?</label>
+                                    <v-row id="text" style="display:none">
+                                        <v-col>
+                                            <v-row>
+                                                <v-col>
+                                                    <div class="card-header">
+                                                        <div class="card-section-text">
+                                                            Guardian's Information
+                                                        </div>
+                                                    </div>
+                                                </v-col>
+                                            </v-row>
+
+                                            <v-row>
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-text-field
+                                                        :rules="validate.fnameRules"
+                                                        outlined
+                                                        clearable
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-account
+                                                            </v-icon>
+                                                            First Name
+                                                        </template>
+                                                    </v-text-field>
+                                                </v-col>
+
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-text-field
+                                                        :rules="validate.mnameRules"
+                                                        outlined
+                                                        clearable
+                                                    > <template v-slot:label>
+                                                        <v-icon style="vertical-align: middle">
+                                                            mdi-account
+                                                        </v-icon>
+                                                        Middle Name
+                                                    </template></v-text-field>
+                                                </v-col>
+
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-text-field
+                                                        :rules="validate.lnameRules"
+                                                        outlined
+                                                        clearable
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-account
+                                                            </v-icon>
+                                                            Last Name
+                                                        </template></v-text-field>
+                                                </v-col>
+
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-text-field
+                                                        hint="leave blank if none"
+                                                        outlined
+                                                        clearable
+                                                    >
+                                                        <template v-slot:label>
+                                                            <v-icon style="vertical-align: middle">
+                                                                mdi-account
+                                                            </v-icon>
+                                                            Suffix
+                                                        </template></v-text-field>
+                                                </v-col>
+                                            </v-row>
+
+                                            <v-row>
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-select
+                                                        item-value="provCode"
+                                                        item-text="provDesc"
+                                                        :items="provinces"
+                                                        outlined
+                                                        @change="loadCities"
+                                                        v-model="fields.province"
+                                                        :rules="validate.provRules"
+                                                    ><template v-slot:label>
+                                                        <v-icon style="vertical-align: middle">
+                                                            mdi-map-marker
+                                                        </v-icon>
+                                                        Province
+                                                    </template></v-select>
+                                                </v-col>
+
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-select
+                                                        item-value="citymunCode"
+                                                        item-text="citymunDesc"
+                                                        :items="cities"
+                                                        outlined
+                                                        @change="loadBarangays"
+                                                        v-model="fields.city"
+                                                        :rules="validate.cityRules"
+                                                    ><template v-slot:label>
+                                                        <v-icon style="vertical-align: middle">
+                                                            mdi-map-marker
+                                                        </v-icon>
+                                                        City
+                                                    </template></v-select>
+                                                </v-col>
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-select
+                                                        item-value="brgyCode"
+                                                        item-text="brgyDesc"
+                                                        :items="barangays"
+                                                        outlined
+                                                        v-model="fields.barangay"
+                                                    ><template v-slot:label>
+                                                        <v-icon style="vertical-align: middle">
+                                                            mdi-map-marker
+                                                        </v-icon>
+                                                        Barangay
+                                                    </template></v-select>
+                                                </v-col>
+
+                                                <v-col cols="12" md="3" sm="6">
+                                                    <v-text-field
+                                                        outlined
+                                                        v-model="fields.street"
+                                                        :rules="validate.streetRules"
+                                                    ><template v-slot:label>
+                                                        <v-icon style="vertical-align: middle">
+                                                            mdi-map-marker
+                                                        </v-icon>
+                                                        Street
+                                                    </template></v-text-field>
+                                                </v-col>
+                                            </v-row>
+
+                                            <v-row>
+                                                <v-col cols="12" md="6" sm="6">
+                                                    <v-text-field
+                                                        :rules="validate.emailRules"
+                                                        required
+                                                        outlined
+                                                        v-model="fields.email"
+                                                    ><template v-slot:label>
+                                                        <v-icon style="vertical-align: middle">
+                                                            mdi-email
+                                                        </v-icon>
+                                                        Email
+                                                    </template></v-text-field>
+                                                </v-col>
+
+                                                <v-col cols="12" md="6" sm="6">
+                                                    <v-text-field
+                                                        :rules="validate.mobileNo"
+                                                        required
+                                                        outlined
+                                                        v-model="fields.mobile_no"
+                                                    ><template v-slot:label>
+                                                        <v-icon style="vertical-align: middle">
+                                                            mdi-cellphone
+                                                        </v-icon>
+                                                        Mobile No.
+                                                    </template></v-text-field>
+                                                </v-col>
+                                            </v-row>
+                                        </v-col>
+                                    </v-row>
+                                    <br>
+                                    <input type="checkbox" id="myCheck1" @click="showViolations">
+                                    <label for="myCheck1">Show Violation History?</label>
+                                    <v-row id="text1" style="display:none">
+                                        <v-col>
+                                            <v-row>
+                                                <v-col>
+                                                    <div class="card-header">
+                                                        <div class="card-section-text">
+                                                            Violation History
+                                                        </div>
+                                                    </div>
+                                                </v-col>
+                                            </v-row>
+
+                                            <v-row>
+                                                <v-col>
+                                                    <template>
+                                                        <v-card color="blue darken-3">
+                                                            <v-card-title>
+                                                                <v-icon class="mr-2">
+                                                                    mdi-lightbulb-alert
+                                                                </v-icon>
+                                                                Violation History
+                                                                <v-spacer></v-spacer>
+                                                                <v-text-field
+                                                                    v-model="search"
+                                                                    append-icon="mdi-magnify"
+                                                                    label="Search"
+                                                                    single-line
+                                                                    hide-details
+                                                                ></v-text-field>
+                                                            </v-card-title>
+                                                            <v-data-table
+                                                                :headers="headersViolations"
+                                                                :items="violations"
+                                                                :search="search"
+                                                            ></v-data-table>
+                                                        </v-card>
+                                                    </template>
+
+                                                </v-col>
+                                            </v-row>
+                                        </v-col>
+                                    </v-row>
+
+                                </v-col>
+
+
+
+
+                                <v-col cols="12" md="4" sm="6">
+                                    <v-app>
+                                        <v-card flat>
+                                            <v-card-text>
+                                                <template>
+                                                    <v-container fluid>
+                                                        <v-data-iterator
+                                                            :items="ordinances"
+                                                            :items-per-page.sync="itemsPerPageViolation"
+                                                            :page.sync="page"
+                                                            :search="search"
+                                                            :sort-by="sortBy.toLowerCase()"
+                                                            :sort-desc="sortDesc"
+                                                            hide-default-footer
+                                                        >
+                                                            <template v-slot:header>
+                                                                <v-toolbar color="dark" class="mb-3">
+                                                                    Add Violations
+                                                                    <v-spacer></v-spacer>
+                                                                    <div class="containered">
+                                                                        <input placeholder="Type to search..." required="" class="inputted" name="text" type="text" v-model="search">
+                                                                        <div class="icon">
+                                                                            <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
+                                                                                <title>Search</title>
+                                                                                <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
+                                                                                <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </v-toolbar>
+                                                            </template>
+                                                            <template v-slot:default="props">
+                                                                <v-row>
+                                                                    <v-col v-for="item in props.items" :key="item.name" cols="15" sm="15" md="13" lg="12">
+                                                                        <v-card class="table-text" color="grey darken-4">
+                                                                            <v-card-title class="subheading font-weight-bold">
+                                                                                <div class="form-check">
+                                                                                    <v-checkbox
+                                                                                        v-model="checkbox"
+                                                                                        :label= item.name
+                                                                                    ></v-checkbox>
+                                                                                </div>
+
+                                                                                <v-spacer></v-spacer>
+                                                                            </v-card-title>
+                                                                        </v-card>
+                                                                    </v-col>
+                                                                </v-row>
+                                                            </template>
+
+                                                            <template v-slot:footer>
+                                                                <v-row class="mt-2" align="center" justify="center">
+                                                                    <v-menu offset-y>
+                                                                        <v-list>
+                                                                            <v-list-item v-for="(number, index) in itemsPerPageArrayViolation" :key="index" @click="updateItemsPerPageViolation(number)">
+                                                                                <v-list-item-title>{{ number }}</v-list-item-title>
+                                                                            </v-list-item>
+                                                                        </v-list>
+                                                                    </v-menu>
+
+                                                                    <v-spacer></v-spacer>
+
+                                                                    <span class="mr-4 grey--text">
+                                                            Page {{ page }} of {{ numberOfPagesViolation }}
+                                                        </span>
+
+                                                                    <v-btn fab dark color="blue darken-3" class="mr-1" @click="formerPageViolation">
+                                                                        <v-icon>mdi-chevron-left</v-icon>
+                                                                    </v-btn>
+                                                                    <v-btn fab dark color="blue darken-3" class="ml-1" @click="nextPageViolation">
+                                                                        <v-icon>mdi-chevron-right</v-icon>
+                                                                    </v-btn>
+                                                                </v-row>
+                                                            </template>
+
+                                                        </v-data-iterator>
+
+                                                    </v-container>
+                                                </template>
+
+                                            </v-card-text>
+                                        </v-card>
+                                    </v-app>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+
+                        </div>
+
+                    </v-card-text>
+                    <v-divider></v-divider>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                            outlined
+                            text
+                            @click="violationDialog = false"
+                        >
+                            Cancel
+                        </v-btn>
+                        <v-btn
+                            outlined
+                            text
+                            @click="addVehicleDialog = false"
+                            class="ml-3"
+                        >
+                            Citation
+                        </v-btn>
+                        <v-spacer></v-spacer>
+                    </v-card-actions>
+
+                </v-card>
+            </v-dialog>
+        </v-row>
+    </div>
+
+
+
+
+</template>
+
+<script>
+
+export default {
+
+    data () {
+        return {
+
+            isValid: undefined,
+            camera: 'off',
+            result: null,
+            isProcessing: false,
+
+            isModalValidModal: false,
+
+            data: {},
+
+
+            tab: null,
+            drawer: null,
+            itemsPerPageArray: [2, 4, 8],
+            itemsPerPageArrayViolation: [5, 8, 10],
+            search: '',
+            filter: {},
+            sortDesc: false,
+            page: 1,
+            itemsPerPage: 2,
+            itemsPerPageViolation: 5,
+            sortBy: 'name',
+            keys: [
+                'Name',
+                'Description',
+                'Datecreated',
+                'Offense1',
+                'Additional1',
+                'Offense2',
+                'Additional2',
+                'Offense3',
+                'Additional3'
+            ],
+            ordinances : [
+                {
+                    name: 'Wearing of Slippers',
+                    description : 'Wearing of slippers while riding will violate the city ordinance code 1237 that states that all the driver must wear shoes!',
+                    dateCreated: '12/12/12',
+                    offense1: 100,
+                    additional1: '' ,
+                    offense2: 500,
+                    additional2: '' ,
+                    offense3: 1000,
+                    additional3: '' ,
+                },
+                {
+                    name: 'No Helmet',
+                    description : "All driver's must wear helmet all the time to protect their head from collision caused by accident and etc. ",
+                    dateCreated: '12/12/12',
+                    offense1: 500,
+                    additional1: '' ,
+                    offense2: 1000,
+                    additional2: 'impounding' ,
+                    offense3: 1000,
+                    additional3: 'impounding' ,
+                },
+                {
+                    name: "No Driver's License",
+                    description : "All driver's must obtain a license before driving a vehicle to ensure that he is capable of observing the road policy and guidelines",
+                    dateCreated: '12/12/11',
+                    offense1: 500,
+                    additional1: '' ,
+                    offense2: 1000,
+                    additional2: 'impounding' ,
+                    offense3: 1000,
+                    additional3: 'impounding' ,
+                },
+                {
+                    name: "No Vehicle Registration",
+                    description : "All vehicle must be registered to the LTO to ensure that the vehicle is rightfully owned by the driver and not from car nap.",
+                    dateCreated: '09/05/12',
+                    offense1: 500,
+                    additional1: '' ,
+                    offense2: 1000,
+                    additional2: 'impounding' ,
+                    offense3: 1000,
+                    additional3: 'impounding' ,
+                },
+                {
+                    name: "No Side Mirror",
+                    description : "The vehicle must be equipped with a side mirror to ensure that the driver will be able to detect what's happening in his back view to avoid collision.",
+                    dateCreated: '07/17/12',
+                    offense1: 500,
+                    additional1: '' ,
+                    offense2: 1000,
+                    additional2: 'impounding' ,
+                    offense3: 1000,
+                    additional3: 'impounding' ,
+                },
+                {
+                    name: "No Back Light",
+                    description : "The vehicle must be equipped with a backlight for the rider following them during night will be able to detect the driver's presence and avoid collision.",
+                    dateCreated: '02/11/12',
+                    offense1: 500,
+                    additional1: '' ,
+                    offense2: 1000,
+                    additional2: 'impounding' ,
+                    offense3: 1000,
+                    additional3: 'impounding' ,
+                },
+                {
+                    name: "No Rear Light",
+                    description : "The vehicle must be equipped with a rear light to have a vision during night time and in dark places to avoid collision.",
+                    dateCreated: '12/12/12',
+                    offense1: 500,
+                    additional1: '' ,
+                    offense2: 1000,
+                    additional2: 'impounding' ,
+                    offense3: 1000,
+                    additional3: 'impounding' ,
+                },
+                {
+                    name: "No Signal Light",
+                    description : "The vehicle must be equipped with a signal light for the other driver to be aware when the said driver will change its direction.",
+                    dateCreated: '05/12/16',
+                    offense1: 500,
+                    additional1: '' ,
+                    offense2: 1000,
+                    additional2: 'impounding' ,
+                    offense3: 1000,
+                    additional3: 'impounding' ,
+                },
+            ],
+            violations: [
+                {
+                    name : 'Wearing of Slippers',
+                    Date : '12/26/22',
+                    fines : 120,
+                    DayLeft : 2,
+                    Status : false,
+
+                },
+                {
+                    name : 'No Helmet',
+                    Date : '12/23/22',
+                    fines : 500,
+                    DayLeft : 2,
+                    Status : true,
+                },
+                {
+                    name : 'No License',
+                    Date : '12/23/22',
+                    fines : 200,
+                    DayLeft : 2,
+                    Status : true,
+                }
+            ],
+
+            violationDialog: false,
+            fields: [],
+            error: [],
+
+            validate: {
+                fnameRules: [
+                    v => !!v || 'Firstname is required',
+                ],
+                mnameRules: [
+                    v => !!v || 'Middlename is required',
+                ],
+                lnameRules: [
+                    v => !!v || 'Lastname is required',
+                ],
+                sexRules: [
+                    v => !!v || 'Sex is required',
+                ],
+                bdateRules: [
+                    v => !!v || 'Birthdate is required',
+                ],
+                picRules: [
+                    v => !!v || 'Picture is required',
+                ],
+                provRules: [
+                    v => !!v || 'Province is required',
+                ],
+                cityRules: [
+                    v => !!v || 'City is required',
+                ],
+                brgyRules: [
+                    v => !!v || 'Barangay is required',
+                ],
+                streetRules: [
+                    v => !!v || 'Street is required',
+                ],
+                emailRules: [
+                    v => !!v || 'E-mail is required',
+                    v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+                ],
+                mobileNo: [
+                    v => !!v || 'Mobile Number is required',
+
+                    v => /((^(\+)(\d){12}$)|(^\d{11}$))/.test(v) || 'Invalid mobile no.',
+                ],
+            },
+
+            headersViolations: [
+                {
+                    text: 'Name',
+                    align: 'start',
+                    sortable: false,
+                    value: 'name',
+                },
+                { text: 'Date', value: 'date' },
+                { text: 'Fines', value: 'fines' },
+                { text: 'Day Left', value: 'dayLeft' },
+                { text: 'Status', value: 'status' },
+            ],
+
+            violations : [
+                {
+                    name : 'Wearing of Slippers',
+                    date : '12/26/22',
+                    fines : 120,
+                    dayLeft : 2,
+                    status : false,
+
+                },
+                {
+                    name : 'No Helmet',
+                    date : '12/23/22',
+                    fines : 500,
+                    dayLeft : 2,
+                    Status : true,
+                },
+                {
+                    name : 'No License',
+                    date : '12/23/22',
+                    fines : 200,
+                    dayLeft : 2,
+                    status : true,
+                }
+            ],
+
+        }
+    },
+
+
+
+    computed: {
+        //for qr scanner computed
+        validationPending() {
+            return this.isProcessing;
+        },
+
+        validationSuccess() {
+
+            return this.isValid === true
+        },
+
+        validationFailure() {
+            return this.isValid === false
+        },
+
+
+
+
+
+        numberOfPages () {
+            return Math.ceil(this.ordinances.length / this.itemsPerPage)
+        },
+        numberOfPagesViolation () {
+            return Math.ceil(this.ordinances.length / this.itemsPerPageViolation)
+        },
+        filteredKeys () {
+            return this.keys.filter(key => key !== 'Name')
+        },
+    },
+
+
+    methods: {
+
+
+        nextPage () {
+            if(this.page + 1 <= this.numberOfPages) this.page += 1
+        },
+        formerPage () {
+            if(this.page - 1 >= 1) this.page -= 1
+        },
+        updateItemsPerPage (number) {
+            this.itemsPerPage = number
+        },
+        nextPageViolation () {
+            if(this.page + 1 <= this.numberOfPagesViolation) this.page += 1
+        },
+        formerPageViolation () {
+            if(this.page - 1 >= 1) this.page -= 1
+        },
+        updateItemsPerPageViolation (number) {
+            this.itemsPerPageViolation = number
+        },
+
+
+
+        //for qr scanner
+        onInit (promise) {
+            promise
+                .catch(console.error)
+                .then(this.resetValidationState)
+        },
+
+        resetValidationState () {
+            this.isValid = undefined
+        },
+
+        async onDecode (content) {
+            //console.log(content);
+            this.result = content;
+            this.turnCameraOff();
+
+            // pretend it's taking really long
+            this.isProcessing = true;
+            //await this.timeout(3000);
+
+            axios.post('/validate-qr/', {
+                data : content
+            }).then(res=>{
+                this.user = res.data;
+                this.isProcessing = false;
+
+                if(res.data !== ''){
+                    this.isValid = true;
+                    this.data = res.data;
+                    //this.loadAsyncData();
+                    //this.submitTrack();
+                }else{
+                    this.isProcessing = false;
+                    this.isValid = false;
+                    this.data = {};
+                }
+            }).catch(err=>{
+                this.isProcessing = false;
+                this.data = {};
+            })
+            //this.isValid = content.startsWith('http') //this will return boolean value
+
+            // some more delay, so users have time to read the message
+            await this.timeout(2000);
+            this.turnCameraOn()
+        },
+
+        turnCameraOn () {
+            this.camera = 'auto';
+        },
+
+        turnCameraOff () {
+            this.camera = 'off'
+        },
+
+        timeout (ms) {
+            return new Promise(resolve => {
+                window.setTimeout(resolve, ms)
+            })
+        },
+
+        showDriver() {
+            // Get the checkbox
+            var checkBox = document.getElementById("myCheck");
+            // Get the output text
+            var text = document.getElementById("text2");
+
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true){
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        },
+
+        showViolations() {
+            // Get the checkbox
+            var checkBox = document.getElementById("myCheck1");
+            // Get the output text
+            var text = document.getElementById("text1");
+
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true){
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        },
+        showGuadians() {
+            // Get the checkbox
+            var checkBox = document.getElementById("myCheck2");
+            // Get the output text
+            var text = document.getElementById("text");
+
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true){
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
+    },
+
+    mounted() {}
+
+}
+
+
+</script>
+
+<style lang="scss" scoped>
+
+::v-deep .v-application--wrap {
+    min-height: fit-content;
+}
+
+.tourism-body{
+    width: 95%;
+    font-family: monospace;
+    color: white;
+    font-size: 15px;
+    opacity: .8;
+    border-radius: 10px;
+}
+.max-content{
+    max-height: fit-content;
+    min-height: 500px;
+}
+.navs{
+    position: absolute;
+    height: 200px;
+}
+.table-text{
+    background-color: rgb(41, 41, 41);
+    color: rgb(255, 255, 255);
+    font-family: monospace;
+}
+
+.text-white{
+    color: white;
+}
+.centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blanchedalmond;
+    border-radius: 10px;
+}
+
+.driver-icon{
+    width: 40px;
+    height: 40px;
+}
+.profile-icon{
+    height: 150px;
+    width: 150px;
+    object-fit: contain;
+}
+.form-control,.form-select,.input-group{
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.centers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input {
+    transition: .5s linear;
+}
+
+.input:focus {
+    color: #1d1d1d;
+    box-shadow: 4px 4px 10px #070707;
+}
+.icons{
+    font-size: 25px;
+}
+
+.input:focus::placeholder {
+    color: #fa4753;
+}
+label{
+    font-size: 12px;
+}
+.justified{
+    text-align: justify;
+}
+.font12{
+    font-size: 13px;
+}
+.form-registration{
+    padding: 30px;
+
+}
+.v-text-field, ::v-deep label {
+    font-size: 0.9em;
+    font-family: monospace;
+}
+.card-header{
+    padding: 15px;
+    margin: 15px 0;
+}
+.font-top{
+    font-family: monospace;
+    font-size: .8em;
+}
+.card-section-text{
+    text-align: center;
+    font-size: 1em;
+    font-family: monospace;
+}
+@media only screen and (max-width: 750px){
+    .button-tourism{
+        flex-direction: row;
+        left: -10%;
+        margin-top: 3%;
+    }
+
+}
+@media only screen and (max-width: 450px){
+    .button-tourism{
+        flex-direction: row;
+        left: -25%;
+        margin-top: 3%;
+    }
+
+}
+@media only screen and (max-width: 400px){
+    .button-tourism{
+        flex-direction: row;
+        left: -30%;
+        margin-top: 3%;
+    }
+
+}
+
+
+
+
+
+
+
+.validation-success,
+.validation-failure,
+.validation-pending {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(255, 255, 255, .8);
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding: 10px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+.validation-success {
+    color: green;
+}
+.validation-failure {
+    color: red;
+}
+
+.camera{
+    margin: auto;
+    width: 240px;
+    height: 320px;
+    border: 1px solid gray;
+}
+
+.decode-result{
+    text-align: center;
+}
+
+
+
+
+</style>

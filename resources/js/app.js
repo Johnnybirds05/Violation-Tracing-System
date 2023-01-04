@@ -39,6 +39,14 @@ Vue.use(VueQrcodeReader); //https://gruhn.github.io/vue-qrcode-reader/demos/Cust
 Vue.component(VueQrcode.name, VueQrcode);
 
 
+// Vue.filter('dayRemain', function(value) {
+//     console.log(value)
+//     let dateNow = new Date();
+//     let dateFrom = new Date(value);
+//     return dateNow.getDate() - dateFrom.getDate();
+// });
+
+
 
 const app = new Vue({
     vuetify,

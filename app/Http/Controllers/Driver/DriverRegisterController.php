@@ -41,8 +41,6 @@ class DriverRegisterController extends Controller
             'expr_date' => ['required'],
             'driver_license_no' => ['required'],
             'driver_license_type' => ['required'],
-
-
 //            'province' => ['required', 'string'],
 //            'city' => ['required', 'string'],
 //            'barangay' => ['required', 'string'],
