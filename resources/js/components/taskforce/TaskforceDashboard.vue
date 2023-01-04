@@ -337,7 +337,6 @@ export default {
 
 
         logout(){
-
             axios.post('/logout').then(()=>{
                 window.location = '/'
             })
@@ -476,7 +475,7 @@ export default {
     },
 
     mounted(){
-        this.onDecode('b6ef2d6e64');
+        //this.onDecode('b6ef2d6e64');
         this.getOrdinances();
     }
 

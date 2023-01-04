@@ -4,8 +4,12 @@ namespace App\Http\Controllers\TaskForce;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
 
 use App\Models\Violator;
+use App\Models\User;
+use App\Models\Ordinance;
 
 class TaskForceDashboardController extends Controller
 {
@@ -33,7 +37,12 @@ class TaskForceDashboardController extends Controller
     }
 
     public function storeCitation(Request $req){
+        //return $req;
+
         $driver_id = $req->driver_id;
+
+        $user = User::where('user_id', $driver_id)->first();
+
 
         $citations = $req->citations;
 
@@ -44,8 +53,20 @@ class TaskForceDashboardController extends Controller
                 'ordinance_penalty_id' => $citation['ordinance_penalty_id'],
                 'date_violate' => date('Y-m-d')
             ]);
-        }
 
+
+            $ordinance = Ordinance::where('ordinance_id', $citation['ordinance_id'])->first();
+            //You have violated the ordinance {}, you may proceed to treasury office to settle your violation.
+
+            $msg = 'You have violated the ordinance '. $ordinance->ordinance_name . ', you may proceed to treasury office to settle your violation.';
+            try{
+                Http::withHeaders([
+                    'Content-Type' => 'text/plain'
+                ])->post('http://'. env('IP_SMS_GATEWAY') .'/services/api/messaging?Message='.$msg.'&To='.$user->mobile_no .'&Slot=1', []);
+            }catch(\Exception $e){} //just hide the error
+        }
+        
+       
 
         return response()->json([
             'status' => 'saved'
