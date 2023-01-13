@@ -43753,6 +43753,38 @@ CREATE TABLE `failed_jobs` (
 
 /*Data for the table `failed_jobs` */
 
+/*Table structure for table `manual_violators` */
+
+DROP TABLE IF EXISTS `manual_violators`;
+
+CREATE TABLE `manual_violators` (
+  `manual_violator_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `lname` varchar(255) DEFAULT NULL,
+  `fname` varchar(255) DEFAULT NULL,
+  `mname` varchar(255) DEFAULT NULL,
+  `suffix` varchar(255) DEFAULT NULL,
+  `province` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `barangay` varchar(255) DEFAULT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `model` varchar(255) DEFAULT NULL,
+  `plate_no` varchar(255) DEFAULT NULL,
+  `citation_no` varchar(255) DEFAULT NULL,
+  `ordinance_id` bigint(255) unsigned NOT NULL,
+  `ordinance_penalty_id` bigint(20) unsigned NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`manual_violator_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `manual_violators` */
+
+insert  into `manual_violators`(`manual_violator_id`,`lname`,`fname`,`mname`,`suffix`,`province`,`city`,`barangay`,`street`,`model`,`plate_no`,`citation_no`,`ordinance_id`,`ordinance_penalty_id`,`created_at`,`updated_at`) values 
+(1,'sda','sda','dwwa','asdaw','1602','160202','160202003','asd',NULL,'asdaw','asda',2,5,'2023-01-13 03:24:08','2023-01-13 03:24:08'),
+(2,'sda','sda','dwwa','asdaw','1602','160202','160202003','asd',NULL,'asdaw','asda',1,1,'2023-01-13 03:24:08','2023-01-13 03:24:08'),
+(3,'asdawd','ad','sada','sdadwa','1602','160202','160202003','asda',NULL,'asda','asd',2,4,'2023-01-13 03:25:03','2023-01-13 03:25:03'),
+(4,'asdawd','ad','sada','sdadwa','1602','160202','160202003','asda',NULL,'asda','asd',1,1,'2023-01-13 03:25:03','2023-01-13 03:25:03');
+
 /*Table structure for table `migrations` */
 
 DROP TABLE IF EXISTS `migrations`;
@@ -43788,7 +43820,7 @@ CREATE TABLE `ordinance_penalties` (
   PRIMARY KEY (`ordinance_penalty_id`),
   KEY `ordinance_penalties_ordinance_id_foreign` (`ordinance_id`),
   CONSTRAINT `ordinance_penalties_ordinance_id_foreign` FOREIGN KEY (`ordinance_id`) REFERENCES `ordinances` (`ordinance_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `ordinance_penalties` */
 
@@ -43798,7 +43830,9 @@ insert  into `ordinance_penalties`(`ordinance_penalty_id`,`ordinance_id`,`offens
 (3,1,'3',1000,0,NULL,NULL),
 (4,2,'1',500,0,NULL,NULL),
 (5,2,'2',1000,0,NULL,NULL),
-(6,3,'1',1500,1,NULL,NULL);
+(6,3,'1',1500,1,NULL,NULL),
+(14,8,'1',100,0,'2023-01-12 10:25:44','2023-01-12 10:25:44'),
+(15,8,'2',300,1,'2023-01-12 10:25:44','2023-01-12 21:09:58');
 
 /*Table structure for table `ordinances` */
 
@@ -43812,7 +43846,7 @@ CREATE TABLE `ordinances` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`ordinance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `ordinances` */
 
@@ -43983,9 +44017,8 @@ CREATE TABLE `requirement_types` (
 /*Data for the table `requirement_types` */
 
 insert  into `requirement_types`(`requirement_type_id`,`requirement_type`,`img_path`,`created_at`,`updated_at`) values 
-(1,'LICENSE REQUIRMENTS',NULL,NULL,NULL),
-(2,'VEHICLE REGISTRATION REQUIREMENTS',NULL,NULL,NULL),
-(3,'DRUG TEST',NULL,NULL,NULL);
+(1,'LICENSE REQUIREMENTS',NULL,NULL,NULL),
+(2,'VEHICLE REGISTRATION REQUIREMENTS',NULL,NULL,NULL);
 
 /*Table structure for table `requirements` */
 
@@ -43995,24 +44028,20 @@ CREATE TABLE `requirements` (
   `requirement_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `requirement_type_id` bigint(20) unsigned NOT NULL,
   `requirement_name` varchar(255) DEFAULT NULL,
-  `location` varchar(255) DEFAULT NULL,
-  `cost` double DEFAULT 0,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`requirement_id`),
   KEY `requirement_type_id` (`requirement_type_id`),
   CONSTRAINT `requirements_ibfk_1` FOREIGN KEY (`requirement_type_id`) REFERENCES `requirement_types` (`requirement_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `requirements` */
 
-insert  into `requirements`(`requirement_id`,`requirement_type_id`,`requirement_name`,`location`,`cost`,`created_at`,`updated_at`) values 
-(1,1,'PSA Certificate','Gaisano Mall',200,NULL,NULL),
-(2,1,'Driving School','LTO',2000,NULL,NULL),
-(3,2,'Barangay Clearance','Current Location',100,NULL,NULL),
-(5,2,'Insurance','LTO',500,NULL,NULL),
-(6,2,'Smoke Test','LTO',500,NULL,NULL),
-(8,3,'Drug Test','LTO Recognize Clinic',120,NULL,NULL);
+insert  into `requirements`(`requirement_id`,`requirement_type_id`,`requirement_name`,`created_at`,`updated_at`) values 
+(1,1,'PSA Certificate',NULL,NULL),
+(3,2,'Barangay Clearance',NULL,NULL),
+(5,2,'Insurance',NULL,NULL),
+(13,1,'ASDASD','2023-01-12 05:28:27','2023-01-12 05:28:27');
 
 /*Table structure for table `users` */
 
@@ -44033,31 +44062,40 @@ CREATE TABLE `users` (
   `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `barangay` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `street` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mobile_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `driver_license_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `driver_license_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `expr_date` date DEFAULT NULL,
-  `is_verified` tinyint(4) NOT NULL DEFAULT 0,
+  `is_verified` tinyint(4) DEFAULT 0,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `role` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`),
-  UNIQUE KEY `users_email_unique` (`email`),
   UNIQUE KEY `users_mobile_no_unique` (`mobile_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `users` */
 
 insert  into `users`(`user_id`,`qr_ref`,`username`,`lname`,`fname`,`mname`,`suffix`,`sex`,`bdate`,`pic_path`,`province`,`city`,`barangay`,`street`,`email`,`mobile_no`,`driver_license_type`,`driver_license_no`,`expr_date`,`is_verified`,`email_verified_at`,`password`,`role`,`avatar`,`remember_token`,`created_at`,`updated_at`) values 
-(1,'AA1234','jan','CAGADAS','JOHN MICHAEL','','','MALE','2001-06-12',NULL,'1753','175304','175304006','P-6','jan@dev.com','09706102876','Professional','k0912341293889','2025-06-12',0,NULL,'$2y$10$csYJ6s.PJ4CKxKCrQr4FT.szCM42xsavJxpbPnhN5Ysa/RxWSILJa','DRIVER','fQbdcRmjmi294b5nMN7rbtwGlOBrbMOYURF69Y2F.jpg',NULL,NULL,NULL),
+(1,'AA1234','jan','CAGADAS','JOHN MICHAEL','','','Female','2001-06-12',NULL,'1753','175304','175304006','P-6','jan@dev.com','09706102873','k0912341293889','k0912341293889','2025-06-12',1,NULL,'$2y$10$csYJ6s.PJ4CKxKCrQr4FT.szCM42xsavJxpbPnhN5Ysa/RxWSILJa','DRIVER','fQbdcRmjmi294b5nMN7rbtwGlOBrbMOYURF69Y2F.jpg',NULL,NULL,'2023-01-11 21:26:08'),
 (7,'3da091da','aa','CAGADAS','JANJAN','','','Male','2000-04-10',NULL,'1602','160202','160202004','P-TEST','dev01@dev.com','09052167088','Professional','k09-123423312','2023-04-19',0,NULL,'$2y$10$6/sbT2EUiixcd1cGGI6hKOCXr3BlpziLpR6V.SzsRO3Cojct3/Gny','DRIVER','fQbdcRmjmi294b5nMN7rbtwGlOBrbMOYURF69Y2F.jpg',NULL,'2023-01-03 04:27:48','2023-01-03 04:27:48'),
 (8,NULL,'tourism','CGADAS','JANJAN',NULL,NULL,'Male',NULL,NULL,NULL,NULL,NULL,NULL,'','',NULL,NULL,NULL,0,NULL,'$2y$10$csYJ6s.PJ4CKxKCrQr4FT.szCM42xsavJxpbPnhN5Ysa/RxWSILJa','TOURISM',NULL,NULL,NULL,NULL),
-(13,NULL,'taskforce','CAGADAS','JOHNNY',NULL,NULL,'Male',NULL,NULL,NULL,NULL,NULL,NULL,'johny@dev.com','09165467542',NULL,NULL,NULL,0,NULL,'$2y$10$csYJ6s.PJ4CKxKCrQr4FT.szCM42xsavJxpbPnhN5Ysa/RxWSILJa','TASKFORCE',NULL,NULL,NULL,NULL);
+(13,NULL,'taskforce','CAGADAS','JOHNNY',NULL,NULL,'Male',NULL,NULL,NULL,NULL,NULL,NULL,'johny@dev.com','09165467542',NULL,NULL,NULL,0,NULL,'$2y$10$csYJ6s.PJ4CKxKCrQr4FT.szCM42xsavJxpbPnhN5Ysa/RxWSILJa','TASK FORCE',NULL,NULL,NULL,NULL),
+(14,'8154c7f9','eshen','AD','AD','ASDA','ADAWD','Male','2023-01-12',NULL,'1602','160204','160204002','ASDAW','test@dev.com','09167789585','Professional','2134654','2023-01-12',0,NULL,'$2y$10$pNaQYXBVFzZjevwIhqH1Te6vk/WMPUyJgsmIQysZsC6rBRcnAW1Be','DRIVER','INkeOk5pKDJkHuvy8SZiUCQjpdqICepU0Vbut7e1.jpg',NULL,'2023-01-11 19:25:02','2023-01-11 19:25:02'),
+(15,'da3fe826','aa01','CAGADAS','JANJAN','','','Male','2000-04-10',NULL,NULL,NULL,NULL,'P-TEST','aa01@dev.com','09167895655','Professional','k09-123423312','2023-04-19',0,NULL,'$2y$10$Hj1FcdD89pMg2.QuzYemnebYIAL0KpimkBaI8WmbB1Slxxz47O0wK','DRIVER','',NULL,'2023-01-11 19:30:22','2023-01-11 19:30:22'),
+(16,'dfd2ca38','yow','CAGADAS','JUNES','YPOW','','Male','2000-04-10',NULL,'1043','104303','104303002','P-TEST','dev04@dev.com','09167897655','Professional','k09-123423312','2023-04-19',0,NULL,'$2y$10$EqUDrO7alKbjNKrUPtCcROWDGn7aYLTV.IXV9xEDL.30Cl35vupKW','DRIVER','',NULL,'2023-01-11 22:20:29','2023-01-11 22:20:29'),
+(17,'d4b9be28','tan','KONS','JAKE','CUENZX','','Male','2000-04-10',NULL,'0604','060403','060403003','P-TEST','dev012@dev.com','09167895695','Professional','k09-123423312','2023-04-19',0,NULL,'$2y$10$yxmrpoH7TYijowX6AJ5HhOGQ1FN4qMC2Sd2LSutfeV1L7au3F3jI6','DRIVER','1BHAaFVP48OutsKFDNZRQYa5qqGFGjZ5D5scfKie.jpg',NULL,'2023-01-11 22:21:32','2023-01-11 22:21:32'),
+(18,NULL,'bbbb','BBBB','','AA','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,'$2y$10$dyBPOIK7tJM1FCjM0al7B.v3i4Iy/za.hvACtzE.BG5lAo3OUL.Uu','LEGAL COUNSEL',NULL,NULL,'2023-01-12 06:06:23','2023-01-12 06:06:23'),
+(19,NULL,'tour','EREADAW','','AS','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,'$2y$10$Lr0x66mFAgocryBgHaIb8OTnK5eie4yNWRPlRvYB114PEaR17mhkG','TOURISM',NULL,NULL,'2023-01-12 06:07:30','2023-01-12 06:31:52'),
+(20,NULL,'trea','CAGS','','ASD','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,'$2y$10$itMfMI5Pv4qtKrHwfLSZ9OpSa9vV043vXZsLcxM4fb50TIOAbcsvW','TREASURY',NULL,NULL,'2023-01-12 06:08:38','2023-01-12 06:31:47'),
+(23,NULL,'sakin','SAKIN','A','','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,'$2y$10$OVYrb2LTt6eIyTb6uscroOGuW2qAiqiEYUg0Hj/6gcJpuRNvx/Qb6','LOCAL LEGISLATIVE',NULL,NULL,'2023-01-12 07:47:57','2023-01-12 07:47:57'),
+(24,'a8cc41cd','jun','CAGADAS','JANJAN','','','Male','2000-04-10',NULL,NULL,NULL,NULL,'P-TEST','dev0q@dev.com','09163895655','Professional','k09-123423312','2023-04-19',0,NULL,'$2y$10$tH3PzwSgBEUVP3.TzAlQiuMxT/xnaR9x9FsV2GUTcNDbAEyN77PjS','DRIVER','',NULL,'2023-01-12 21:25:10','2023-01-12 21:25:10'),
+(25,NULL,'treas','SAMPLE','SAMPLE','SAMPLE','SAMPLE',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,'$2y$10$2XwQlnzPPl6UYWHhkfXLL.xMKts4Cw3.yRvZ0vD9rIGHjArZXssGO','LEGAL COUNSEL',NULL,NULL,'2023-01-13 04:23:06','2023-01-13 04:23:06');
 
 /*Table structure for table `vehicles` */
 
@@ -44066,7 +44104,7 @@ DROP TABLE IF EXISTS `vehicles`;
 CREATE TABLE `vehicles` (
   `vehicle_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) unsigned NOT NULL,
-  `qr_ref` text DEFAULT NULL,
+  `qr_ref` varchar(255) DEFAULT NULL,
   `plate_no` varchar(255) DEFAULT NULL,
   `model` varchar(255) DEFAULT NULL,
   `body_type` varchar(255) DEFAULT NULL,
@@ -44081,7 +44119,7 @@ CREATE TABLE `vehicles` (
   PRIMARY KEY (`vehicle_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `vehicles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `vehicles` */
 
@@ -44089,9 +44127,11 @@ insert  into `vehicles`(`vehicle_id`,`user_id`,`qr_ref`,`plate_no`,`model`,`body
 (9,7,NULL,'ASD','ASDA','TRICYCLE','SDAD','ASD','2023-01-19','ADS','r1XV3tdtV5lXd4hI9wvjV1pGz4B4L234IpEcOXYu.png',0,'2023-01-03 14:13:32','2023-01-03 14:13:32'),
 (10,7,NULL,'SDAWD','ASDAS','TRUCK','SDADW','ASDAWD','2023-01-11','ASDADWAD','FohhQkgm14Gb7sPMqooqFObj4R4W1s4gxmQBPx1B.jpg',0,'2023-01-03 14:17:23','2023-01-03 14:17:23'),
 (11,7,NULL,'ASDAWD','SAAD','TRICYCLE','SDADW','ASDAW','2023-01-11','ASASDAWD','1t3Rpocpcu0HYOJemQnPdk5SkdlKnUhcdgXZutvI.jpg',0,'2023-01-03 14:21:20','2023-01-03 14:21:20'),
-(15,1,NULL,'KJD445','YAMAHA 155 VVA','MOTOCYCLE','','BLACK MATTE','2023-01-04','100213415','nQGJPvSyZGhuUzQKFAdYkJAstJ32PYKik8QGtJIY.jpg',0,'2023-01-03 18:36:19','2023-01-03 18:36:19'),
-(16,1,NULL,'ASDAS','ASDAS','TRICYCLE','ASD','ASD','2023-01-06','12312312','vchSe0CFJasjNDNmbG8XVPOK9b183RAvSXTXKe67.jpg',0,'2023-01-03 20:40:52','2023-01-03 20:40:52'),
-(17,1,'b6ef2d6e64','15252T2','HONDA','TRUCK','52626262','RED','2023-01-11','51525225','GHxJ6OlbgbnpvHR0cXQfbgxJBFOKbih2tDp0SOzb.jpg',0,'2023-01-03 23:34:13','2023-01-03 23:34:13');
+(15,1,NULL,'KJD445','YAMAHA 155 VVA','TRICYCLE',NULL,'BLACK MATTE','2004-01-01','100213415','nQGJPvSyZGhuUzQKFAdYkJAstJ32PYKik8QGtJIY.jpg',1,'2023-01-03 18:36:19','2023-01-11 23:43:19'),
+(16,1,NULL,'ASDAS','ASDAS','TRICYCLE','ASD','ASD','2020-01-01','12312312','vchSe0CFJasjNDNmbG8XVPOK9b183RAvSXTXKe67.jpg',1,'2023-01-03 20:40:52','2023-01-11 23:43:19'),
+(17,1,'b6ef2d6e64','15252T2','HONDA','TRUCK','52626262','RED','1970-01-01','123456467','GHxJ6OlbgbnpvHR0cXQfbgxJBFOKbih2tDp0SOzb.jpg',0,'2023-01-03 23:34:13','2023-01-11 23:43:33'),
+(18,17,'e938c2d615','FSAFDA12','HONDA','TRICYCLE','FZXASDASD','RED','2023-01-05','ASDDAS','3P4hixsWAMUP0ePu5IXdbdadVitnQTdMV7Z5K5F6.jpg',0,'2023-01-11 22:22:59','2023-01-11 22:22:59'),
+(19,1,'b8b125e558','LKJ564','DUCATI','TRICYCLE','123123','BLACK','2023-01-05','SERAIL','mZzPhXvBavc7I5QpkrpKP8rP9EtCe0uw7KLSBIGP.jpg',1,'2023-01-12 21:30:07','2023-01-12 21:30:24');
 
 /*Table structure for table `violators` */
 
@@ -44099,6 +44139,8 @@ DROP TABLE IF EXISTS `violators`;
 
 CREATE TABLE `violators` (
   `violator_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `citation_no` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `plate_no` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_id` bigint(20) unsigned NOT NULL,
   `ordinance_id` bigint(20) unsigned NOT NULL,
   `ordinance_penalty_id` bigint(20) unsigned NOT NULL,
@@ -44120,13 +44162,19 @@ CREATE TABLE `violators` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `violators_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `violators_ordinance_id_foreign` FOREIGN KEY (`ordinance_id`) REFERENCES `ordinances` (`ordinance_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `violators` */
 
-insert  into `violators`(`violator_id`,`user_id`,`ordinance_id`,`ordinance_penalty_id`,`driver_lname`,`driver_fname`,`driver_mname`,`driver_suffix`,`driver_mobile_no`,`driver_location_province`,`driver_location_city`,`driver_location_barangay`,`driver_location_street`,`date_violate`,`is_settled`,`created_at`,`updated_at`) values 
-(16,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-01-04',0,'2023-01-04 04:25:54','2023-01-04 04:25:54'),
-(17,1,2,5,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-01-04',0,'2023-01-04 04:25:54','2023-01-04 04:25:54');
+insert  into `violators`(`violator_id`,`citation_no`,`plate_no`,`user_id`,`ordinance_id`,`ordinance_penalty_id`,`driver_lname`,`driver_fname`,`driver_mname`,`driver_suffix`,`driver_mobile_no`,`driver_location_province`,`driver_location_city`,`driver_location_barangay`,`driver_location_street`,`date_violate`,`is_settled`,`created_at`,`updated_at`) values 
+(16,'CIT112211','ABC123',1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-01-04',0,'2023-01-04 04:25:54','2023-01-04 04:25:54'),
+(17,'CIT231343','KLJ223',1,2,5,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-01-04',0,'2023-01-04 04:25:54','2023-01-04 04:25:54'),
+(20,'c1123123',NULL,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-01-12',0,'2023-01-12 21:53:09','2023-01-12 21:53:09'),
+(21,'c1123123',NULL,1,2,4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-01-12',0,'2023-01-12 21:53:09','2023-01-12 21:53:09'),
+(22,'1234',NULL,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-01-12',0,'2023-01-12 21:57:10','2023-01-12 21:57:10'),
+(23,'1234',NULL,1,2,5,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-01-12',0,'2023-01-12 21:57:10','2023-01-12 21:57:10'),
+(24,'123231423424','LKJ564',1,2,4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-01-12',0,'2023-01-12 21:58:37','2023-01-12 21:58:37'),
+(25,'123231423424','LKJ564',1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-01-12',0,'2023-01-12 21:58:37','2023-01-12 21:58:37');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
