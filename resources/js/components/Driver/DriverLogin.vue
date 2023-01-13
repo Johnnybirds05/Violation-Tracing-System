@@ -2,7 +2,7 @@
     <v-app class="box-white">
         <v-container width="200px" class="login-body">
 
-                <v-container class="login-card">
+            <v-container class="login-card">
 
                 <img src="../../../pics/account.svg" class="login-pics">
                 <h4><b>Login</b></h4>
@@ -12,19 +12,19 @@
                             cols="12"
                             md="12"
                             sm="12">
-                                <v-text-field
-                                        v-model="fields.username"
-                                        :rules="validate.usernameRules"
-                                        outlined
-                                        clearable
-                                    >
-                                    <template v-slot:label>
-                                        <v-icon style="vertical-align: middle">
-                                            mdi-account
-                                        </v-icon>
-                                        Enter username
-                                    </template>
-                                </v-text-field>
+                            <v-text-field
+                                v-model="fields.username"
+                                :rules="validate.usernameRules"
+                                outlined
+                                clearable
+                            >
+                                <template v-slot:label>
+                                    <v-icon style="vertical-align: middle">
+                                        mdi-account
+                                    </v-icon>
+                                    Enter username
+                                </template>
+                            </v-text-field>
                         </v-col>
                     </v-row>
 
@@ -34,15 +34,15 @@
                             md="12"
                             sm="12">
                                 <v-text-field
-                                :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
-                                :rules="validate.passwordRules"
-                                :type="show3 ? 'text' : 'password'"
-                                label="Not visible"
-                                class="input-group--focused"
-                                @click:append="show3 = !show3"
-                                        v-model="fields.password"
-                                        outlined
-                                    >
+                                    :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                                    :rules="validate.passwordRules"
+                                    :type="show3 ? 'text' : 'password'"
+                                    label="Not visible"
+                                    class="input-group--focused"
+                                    @click:append="show3 = !show3"
+                                    v-model="fields.password"
+                                    outlined
+                                >
                                     <template v-slot:label>
                                         <v-icon style="vertical-align: middle">
                                             mdi-lock-question
@@ -77,61 +77,56 @@
 
 
                 </form>
-                </v-container>
-    </v-container>
+            </v-container>
+        </v-container>
 
 
-                <template>
-                    <v-row justify="center">
-                        <v-dialog
-                        v-model="errorDialog"
-                        scrollable
-                        persistent
-                        max-width="400px"
+        <template>
+            <v-row justify="center">
+                <v-dialog
+                v-model="errorDialog"
+                scrollable
+                persistent
+                max-width="400px"
+                >
+                <v-card>
+                    <v-card-title>
+                        <v-icon style="vertical-align: middle">
+                            mdi-alert
+                        </v-icon>
+                        <h5 class="modal-title text-white" id="staticBackdropLabel">
+                            Warning!
+                        </h5>
+                        <v-spacer></v-spacer>
+                    </v-card-title>
+                    <v-divider></v-divider>
+                    <v-card-text class="d-flex justify-center">
+                        <div class="card-header">
+                            <div class="card-section-text">
+                                <span v-if="errors.username">
+                                    {{ errors.username[0] }}
+                                </span>
+                            </div>
+                        </div>
+                    </v-card-text>
+                    <v-divider></v-divider>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                            color="green darken-1"
+                            text
+                            @click="errorDialog=false"
                         >
-                        <v-card>
-                            <v-card-title>
-                                <v-icon style="vertical-align: middle">
-                                    mdi-alert
-                                </v-icon>
-                                <h5 class="modal-title text-white" id="staticBackdropLabel">
-                                    Warning!
-                                </h5>
-                                <v-spacer></v-spacer>
-                            </v-card-title>
-                            <v-divider></v-divider>
-                            <v-card-text class="d-flex justify-center">
-                                <div class="card-header">
-                                    <div class="card-section-text">
-                                        <span v-if="errors.username">
-                                            {{ errors.username[0] }}
-                                        </span>
-                                    </div>
-                                </div>
-                            </v-card-text>
-                            <v-divider></v-divider>
-                            <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn
-                                    color="green darken-1"
-                                    text
-                                    @click="errorDialog=false"
-                                >
-                                    Okay!
-                                </v-btn>
-                                <v-spacer></v-spacer>
-                            </v-card-actions>
-                        </v-card>
-                        </v-dialog>
-                    </v-row>
-                </template>
+                            Okay!
+                        </v-btn>
+                        <v-spacer></v-spacer>
+                    </v-card-actions>
+                </v-card>
+                </v-dialog>
+            </v-row>
+        </template>
 
-</v-app>
-
-
-
-
-
+    </v-app>
 
 
 </template>
@@ -180,9 +175,18 @@
                     if(res.data.role === 'TOURISM'){
                         window.location = '/tourism-dashboard';
                     }
-                    if(res.data.role === 'TASKFORCE'){
+                    if(res.data.role === 'TASK FORCE'){
                         window.location = '/taskforce-dashboard';
                     }
+
+                    if(res.data.role === 'LOCAL LEGISLATIVE'){
+                        window.location = '/legislative-dashboard';
+                    }
+
+                    if(res.data.role === 'LEGAL COUNSEL' || res.data.role === 'TREASURY'){
+                        window.location = '/counsel-treasury-dashboard';
+                    }
+
 
                 }).catch(err=>{
                     console.log(err.response.data.errors)

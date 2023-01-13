@@ -37,15 +37,21 @@ Route::get('/admins', function () {
 
 Route::get('/tourism-dashboard', [App\Http\Controllers\Tourism\TourismDashboardController::class, 'index']);
 
-Route::get('/legislative-dashboard', function () {
-    return view('legislative/legislative-dashboard');
-});
-
-Route::get('/counsel-treasury-dashboard', function () {
-    return view('counsel-treasury/counsel-treasury-dashboard');
-});
+Route::get('/legislative-dashboard', [App\Http\Controllers\LocalLegislative\LegislativeController::class, 'index']);
 
 
+Route::get('/load-ordinances', [App\Http\Controllers\LocalLegislative\LegislativeOrdinanceController::class, 'loadOrdinances']);
+Route::resource('/legislative-ordinance', App\Http\Controllers\LocalLegislative\LegislativeOrdinanceController::class);
+
+Route::resource('/ordinance-penalty', App\Http\Controllers\LocalLegislative\LegislativeOrdinancePenaltyController::class);
+
+
+//Treasury
+Route::resource('/counsel-treasury-dashboard', App\Http\Controllers\Treasury\TreasuryDashboardController::class);
+Route::get('/get-violators-treasury',[App\Http\Controllers\Treasury\TreasuryDashboardController::class, 'getViolatorsTreasury']);
+
+Route::post('/settle-violation', [App\Http\Controllers\Treasury\TreasuryDashboardController::class, 'settleViolation']);
+Route::post('/unsettle-violation', [App\Http\Controllers\Treasury\TreasuryDashboardController::class, 'unsettleViolation']);
 
 
 
@@ -63,6 +69,15 @@ Route::post('/submit-vehicle-info', [App\Http\Controllers\Driver\DriverDashboard
 Route::post('/driver-submit-vehicle', [App\Http\Controllers\Driver\DriverVehicleController::class, 'store']);
 Route::get('/get-vehicles', [App\Http\Controllers\Driver\DriverVehicleController::class, 'getVehicles']);
 Route::delete('/driver-delete-vehicle/{id}', [App\Http\Controllers\Driver\DriverVehicleController::class, 'destroy']);
+
+
+
+Route::resource('/drivers', App\Http\Controllers\Driver\DriverController::class);
+Route::get('/get-driver-vehicles/{driverId}', [App\Http\Controllers\Driver\DriverController::class, 'getDriverVehicles']);
+//save vehicle from driver form
+Route::post('/submit-vehicle', [App\Http\Controllers\Driver\DriverController::class, 'submitVehicle']);
+
+
 
 
 Route::get('/get-driver', [App\Http\Controllers\Driver\DriverDashboardController::class, 'getDriver']);
@@ -96,10 +111,17 @@ Route::get('/cto', [App\Http\Controllers\CtoController::class, 'index'])->name('
 //-----------------TOURISM ROUTES----------------------
 Route::get('/get-all-drivers-accounts', [App\Http\Controllers\Tourism\TourismDriverController::class, 'getDriverAccounts']);
 
-
 Route::get('/get-all-office-accounts', [App\Http\Controllers\Tourism\TourismOfficeController::class, 'index']);
 
 
+Route::get('/get-requirement-types', [App\Http\Controllers\Tourism\RequirementTypeController::class, 'getRequirementTypes']);
+
+
+Route::resource('/requirements', App\Http\Controllers\Tourism\RequirementController::class);
+Route::get('/get-requirements', [App\Http\Controllers\Tourism\RequirementController::class, 'getRequirements']);
+
+Route::resource('/accounts', App\Http\Controllers\Tourism\AccountController::class);
+Route::get('/get-accounts-tourism', [App\Http\Controllers\Tourism\AccountController::class, 'getAccountTourism']);
 
 
 //-----------------TASK FORCE ROUTES----------------------
@@ -109,6 +131,7 @@ Route::get('/taskforce-dashboard', [App\Http\Controllers\TaskForce\TaskForceDash
 Route::get('/get-driver-violations', [App\Http\Controllers\TaskForce\TaskForceDashboardController::class, 'getDriverViolations']);
 Route::post('/submit-citation', [App\Http\Controllers\TaskForce\TaskForceDashboardController::class, 'storeCitation']);
 
+Route::post('/submit-citation-manual', [App\Http\Controllers\TaskForce\TaskForceDashboardController::class, 'storeCitationManual']);
 
 
 Route::get('/validate-qr/{qr}', [App\Http\Controllers\ValidateQrController::class, 'validateQr']);

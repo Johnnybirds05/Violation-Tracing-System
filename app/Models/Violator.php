@@ -13,6 +13,8 @@ class Violator extends Model
     protected $primaryKey = 'violator_id';
 
     protected $fillable = [
+        'citation_no',
+        'plate_no',
         'user_id',
         'ordinance_id',
         'ordinance_penalty_id',

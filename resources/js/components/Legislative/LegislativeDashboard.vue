@@ -14,20 +14,6 @@
                         <v-list-item-title><h5>Legislative Office</h5> </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-
-                <v-list dense>
-                    <v-list-item>
-                        <a href="#" class="btn">
-                            <button class="cssbuttons-io-button button-back"> Logout
-                                <div class="icon">
-                                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
-                                </div>
-                            </button>
-                        </a>
-                    </v-list-item>
-                            
-                    </v-list>
-                        <v-divider></v-divider>
                 </v-navigation-drawer>
 
                 <v-toolbar color="grey darken-4" dark flat>
@@ -39,6 +25,17 @@
                         Local Legislative Office
                     </v-toolbar-title>
                     <v-spacer></v-spacer>
+                    <v-toolbar-title>
+                            <v-list-item>
+                                <button class="cssbuttons-io-button button-back" @click="logout"> Logout
+                                    <div class="icon">
+                                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                                    </div>
+                                </button>
+                            </v-list-item>
+                    </v-toolbar-title>
+
+
                         <template v-slot:extension>
                             <v-tabs v-model="tab" align-with-title>
                             <v-tabs-slider color="white"></v-tabs-slider>
@@ -54,17 +51,17 @@
         <v-tab-item>
             <v-card flat>
                 <v-card-text>
-                            <template>
-                                <v-container fluid>
-                                    <v-data-iterator
-                                        :items="ordinances"
-                                        :items-per-page.sync="itemsPerPage"
-                                        :page.sync="page"
-                                        :search="search"
-                                        :sort-by="sortBy.toLowerCase()"
-                                        :sort-desc="sortDesc"
-                                        hide-default-footer
-                                    >
+                    <template>
+                        <v-container fluid>
+                            <v-data-iterator
+                                :items="ordinances"
+                                :items-per-page.sync="itemsPerPage"
+                                :page.sync="page"
+                                :search="search"
+                                :sort-by="sortBy.toLowerCase()"
+                                :sort-desc="sortDesc"
+                                hide-default-footer
+                            >
                             <template v-slot:header>
                                 <v-toolbar color="dark" class="mb-3">
                                     <img src="./../../../pics/note_alt_white_24dp.svg" class="vehicle-img mr-5">
@@ -80,84 +77,60 @@
                                             </svg>
                                         </div>
                                     </div>
-                                        <button class="icon-btn add-btn" @click="ordinanceDialog = true">
+                                        <button class="icon-btn add-btn" @click="openModalOrdinance(0)">
                                             <div class="add-icon"></div>
-                                            <div class="btn-txt"><b>Add Requirement</b></div>
+                                            <div class="btn-txt"><b>Add Ordinance</b></div>
                                         </button>
                                     
                                 </v-toolbar>
                             </template>
+
                             <template v-slot:default="props">
                                 <v-row>
                                     <v-col v-for="item in props.items" :key="item.name" cols="12" sm="10" md="8" lg="6">
                                         <v-card class="table-text" color="brown darken-4">
                                             <v-card-title class="subheading font-weight-bold"> 
                                                 <img src="./../../../pics/task_alt_white_24dp.svg" class="vehicle-img mr-5">
-                                                    <h6> <b>{{ item.name }}</b> </h6>
-                                                    <v-spacer></v-spacer>
-                                                            <v-card color="warning">
-                                                                <v-icon small class="m-1" @click="ordinanceDialog=  true">
-                                                                mdi-pencil
-                                                            </v-icon> 
-                                                            <v-icon small class="m-1" @click="deleteOrdinanceDialog = true"
-                                                            >
-                                                                mdi-delete
-                                                            </v-icon>
-                                                            </v-card>
-                                    
+                                                <h6> <b>{{ item.ordinance_name }}</b> </h6>
+                                                <v-spacer></v-spacer>
+                                                <v-card color="warning">
+                                                    <v-icon small class="m-1" @click="openModalOrdinance(item.ordinance_id)">
+                                                        mdi-pencil
+                                                    </v-icon> 
+                                                    <v-icon small class="m-1" @click="openDeleteDialog(item.ordinance_id)">
+                                                        mdi-delete
+                                                    </v-icon>
+                                                </v-card>
                                             </v-card-title>
 
                                             <v-list dense class="table-text">
                                                 <v-list-item>
                                                     <div class="container-fluid">
                                                         <div class="row g-2">
-                                                        <div class="col-md-3">
-                                                        <h7> <b>Description:</b> </h7>
+                                                            <div class="col-md-3">
+                                                                <h4> <b>Description:</b> </h4>
+                                                            </div>
+                                                            <div class="col-md-9 justified font12">
+                                                                <b>{{item.description}}</b>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-9 justified font12">
-                                                        <b>{{item.description}}</b>
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="container ml-0 mt-3">
-                                                        <div class="row g-0 font12" v-if="item.offense1 != ''">
-                                                        <div class="col-md-4">
-                                                        <b>Date Created: </b>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                        <span>Php {{item.dateCreated}}</span>
-                                                        </div>
-                                                    </div>
-                                                        <div class="row g-0 font12" v-if="item.offense1 != ''">
-                                                        <div class="col-md-4">
-                                                        <b>First Offense: </b>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                        <span>Php {{item.offense1}}</span>
-                                                        <span v-if="item.additional1 != ''"> {{item.additional1}}</span>
-                                                        </div>
-                                                    </div>
+                                                        <div class="container ml-0 mt-3">
+                                                           
+                                                            <div class="row g-0 font12" v-for="(i, index) in item.ordinance_penalties" 
+                                                                :key="index">
+                                                                <div class="col-md-4">
+                                                                    <b>Offense No. {{ i.offense_order }}: {{ i.cost }}</b>
+                                                                </div>
 
-                                                    <div class="row g-0 font12" v-if="item.offense2 != ''">
-                                                        <div class="col-md-4">
-                                                        <b> Second Offense: </b>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                        <span>Php {{item.offense2}}</span>
-                                                        <span v-if="item.additional2 != ''"> {{item.additional2}}</span>
-                                                        </div>
-                                                    </div>
+                                                                <div class="col-md-5" v-if="i.is_impound === 1">
+                                                                    <span>Impound</span>
+                                                                    <span></span>
+                                                                </div>
+                                                            </div>
 
-                                                    <div class="row g-0 font12" v-if="item.offense3 != ''">
-                                                        <div class="col-md-4">
-                                                        <b>Third Offense: </b>
+                                                            
                                                         </div>
-                                                        <div class="col-md-5">
-                                                        <span>Php {{item.offense3}}</span>
-                                                        <span v-if="item.additional3 != ''"> {{item.additional3}}</span>
-                                                        </div>
-                                                    </div>
-                                                    </div>
                                                     </div>
                                                     
                                                 </v-list-item>
@@ -263,14 +236,17 @@
                 </v-row>
             </template>
 
-             <!-- modals for edit vehicle registration Requirements -->
+
+
+
+             <!-- modals for edit ordinance -->
              <template>
                     <v-row justify="center">
                         <v-dialog
-                        v-model="ordinanceDialog"
+                        v-model="modalOrdinance"
                         scrollable
                         persistent
-                        max-width="800px"
+                        max-width="860px"
                         >
                         <v-card>
                             <v-card-title>
@@ -288,177 +264,86 @@
 
                             <div class="form-registration">
                         
-                              <v-row>
-                                <v-col
-                                    cols="12"
-                                    md="6"
-                                    sm="6">
-                                    <v-text-field
-                                        outlined
-                                        clearable
-                                    >
-                                    <template v-slot:label>
-                                        <v-icon style="vertical-align: middle">
-                                          mdi-view-list
-                                        </v-icon>
-                                        Name
-                                    </template>
-                                </v-text-field>
-                                </v-col>
-                                <v-col
-                                    cols="12"
-                                    md="6"
-                                    sm="6">
-                                    <v-menu
-                                        :close-on-content-click="false"
-                                        transition="scale-transition"
-                                        offset-y
-                                        max-width="290px"
-                                        min-width="auto"
+                                <v-row>
+                                    <v-col cols="12" md="6" sm="6">
+                                        <v-text-field v-model="fields.ordinance_name"
+                                            outlined
+                                            clearable
                                         >
-                                        <template v-slot:activator="{ on, attrs }">
-                                            <v-text-field
-                                                outlined
-                                                persistent-hint
-                                                v-bind="attrs"
-                                                v-on="on"
-                                            > 
+                                        <template v-slot:label>
+                                            <v-icon style="vertical-align: middle">
+                                            mdi-view-list
+                                            </v-icon>
+                                            Ordinance Name
+                                        </template>
+                                    </v-text-field>
+                                    </v-col>
+                                </v-row>
+
+                                <v-row>
+                                    <v-col
+                                        cols="12"
+                                        md="12"
+                                        sm="6">
+                                        <v-textarea
+                                            outlined
+                                            name="input-7-4"
+                                            label="Description"
+                                            v-model="fields.description"
+                                        ></v-textarea>
+                                    </v-col>
+                                
+                                </v-row>
+                                <v-divider></v-divider>
+                                <div class="card-header">
+                                    <div class="card-section-text">
+                                        Fines
+                                    </div>          
+                                </div>
+                                <v-divider></v-divider>
+
+
+                                <!--dynamic inputs-->
+
+
+                                <v-row v-for="(item, index) in fields.ordinance_penalties" :key="index">
+
+                                    <v-col cols="12" md="4" sm="4">
+                                        <v-text-field outlined clearable v-model="item.offense_order">
                                             <template v-slot:label>
                                                 <v-icon style="vertical-align: middle">
-                                                    mdi-calendar
+                                                mdi-cash
                                                 </v-icon>
-                                                Date Created
-                                            </template></v-text-field>
-                                        </template>
-                                        <v-date-picker
-                                            v-model="fields.bdate"
-                                            no-title
-                                            @input="menu1 = false"
-                                        ></v-date-picker>
-                                    </v-menu>
-                                </v-col>
-                              </v-row>
+                                                Order No.
+                                            </template>
+                                        </v-text-field>
+                                    </v-col>
 
-                              <v-row>
-                                <v-col
-                                    cols="12"
-                                    md="12"
-                                    sm="6">
-                                    <v-textarea
-                                        outlined
-                                        name="input-7-4"
-                                        label="Description"
-                                    ></v-textarea>
-                                </v-col>
-                                
-                              </v-row>
-                              <v-divider></v-divider>
-                            <div class="card-header">
-                                <div class="card-section-text">
-                                    Fines
-                                </div>          
-                            </div>
-                            <v-divider></v-divider>
-                            <v-row>
-                                <v-col
-                                    cols="12"
-                                    md="6"
-                                    sm="6">
-                                    <v-text-field
-                                        outlined
-                                        clearable
-                                    >
-                                    <template v-slot:label>
-                                        <v-icon style="vertical-align: middle">
-                                          mdi-cash
-                                        </v-icon>
-                                        First Offense
-                                    </template>
-                                    </v-text-field>
-                                </v-col>
+                                    <v-col cols="12" md="4" sm="4">
+                                        <v-text-field outlined clearable v-model="item.cost">
+                                            <template v-slot:label>
+                                                <v-icon style="vertical-align: middle">
+                                                mdi-cash
+                                                </v-icon>
+                                                Cost
+                                            </template>
+                                        </v-text-field>
+                                    </v-col>
 
-                                <v-col
-                                    cols="12"
-                                    md="6"
-                                    sm="6">
-                                    <v-text-field
-                                        outlined
-                                        clearable
-                                    >
-                                    <template v-slot:label>
-                                        Additional
-                                    </template>
-                                    </v-text-field>
-                                </v-col>
-                            </v-row>
-                            <v-row>
-                                <v-col
-                                    cols="12"
-                                    md="6"
-                                    sm="6">
-                                    <v-text-field
-                                        outlined
-                                        clearable
-                                    >
-                                    <template v-slot:label>
-                                        <v-icon style="vertical-align: middle">
-                                          mdi-cash
-                                        </v-icon>
-                                        Second Offense
-                                    </template>
-                                    </v-text-field>
-                                </v-col>
+                                    <v-col cols="12" md="4" sm="4">
+                                        <v-checkbox
+                                            v-model="item.is_impound"
+                                            label="Impound"
+                                            ></v-checkbox>
+                                    </v-col>
 
-                                <v-col
-                                    cols="12"
-                                    md="6"
-                                    sm="6">
-                                    <v-text-field
-                                        outlined
-                                        clearable
-                                    >
-                                    <template v-slot:label>
-                                        Additional
-                                    </template>
-                                    </v-text-field>
-                                </v-col>
-                            </v-row>
+                                    <v-col cols="12" md="1" sm="4">
+                                        <v-btn class="ma-1" @click="removePenalty(index)">X</v-btn>
+                                    </v-col>
 
-                            <v-row>
-                                <v-col
-                                    cols="12"
-                                    md="6"
-                                    sm="6">
-                                    <v-text-field
-                                        outlined
-                                        clearable
-                                    >
-                                    <template v-slot:label>
-                                        <v-icon style="vertical-align: middle">
-                                          mdi-cash
-                                        </v-icon>
-                                        Third Offense
-                                    </template>
-                                    </v-text-field>
-                                </v-col>
+                                </v-row><!--dere ra ang loop-->
 
-                                <v-col
-                                    cols="12"
-                                    md="6"
-                                    sm="6">
-                                    <v-text-field
-                                        outlined
-                                        clearable
-                                    >
-                                    <template v-slot:label>
-                                        Additional
-                                    </template>
-                                    </v-text-field>
-                                </v-col>
-                            </v-row>
-
-
-
+                                <v-btn @click="addPenalty">New</v-btn>
 
                             </div>
                                 
@@ -469,14 +354,14 @@
                                 <v-btn
                                     outlined
                                     text
-                                    @click="ordinanceDialog = false"
+                                    @click="modalOrdinance = false"
                                 >
                                     Cancel
                                 </v-btn>
                                 <v-btn
                                     outlined
                                     text
-                                    @click="addVehicleDialog = false"
+                                    @click="submitOrdinance"
                                     class="ml-3"
                                 >
                                     Save
@@ -505,6 +390,11 @@
         
     data () {
       return {
+
+        modalOrdinance: false,
+
+        ordinance_id: 0,
+
         tab: null,
         drawer: null,
         itemsPerPageArray: [2, 4, 8],
@@ -513,114 +403,19 @@
         sortDesc: false,
         page: 1,
         itemsPerPage: 2,
-        sortBy: 'name',
-        keys: [
-          'Name',
-          'Description',
-          'Datecreated',
-          'Offense1',
-          'Additional1',
-          'Offense2',
-          'Additional2',
-          'Offense3',
-          'Additional3'
-        ],
-        ordinances : [
-            {
-              name: 'Wearing of Slippers',
-              description : 'Wearing of slippers while riding will violate the city ordinance code 1237 that states that all the driver must wear shoes!',
-              dateCreated: '12/12/12', 
-              offense1: 100,
-              additional1: '' ,
-              offense2: 500,
-              additional2: '' ,
-              offense3: 1000,
-              additional3: '' ,
-            },
-            {
-              name: 'No Helmet',
-              description : "All driver's must wear helmet all the time to protect their head from collision caused by accident and etc. ",
-              dateCreated: '12/12/12',
-              offense1: 500,
-              additional1: '' ,
-              offense2: 1000,
-              additional2: 'impounding' ,
-              offense3: 1000,
-              additional3: 'impounding' ,
-            },
-            {
-              name: "No Driver's License",
-              description : "All driver's must obtain a license before driving a vehicle to ensure that he is capable of observing the road policy and guidelines",
-              dateCreated: '12/12/11',
-              offense1: 500,
-              additional1: '' ,
-              offense2: 1000,
-              additional2: 'impounding' ,
-              offense3: 1000,
-              additional3: 'impounding' ,
-            },
-            {
-              name: "No Vehicle Registration",
-              description : "All vehicle must be registered to the LTO to ensure that the vehicle is rightfully owned by the driver and not from car nap.",
-              dateCreated: '09/05/12', 
-              offense1: 500,
-              additional1: '' ,
-              offense2: 1000,
-              additional2: 'impounding' ,
-              offense3: 1000,
-              additional3: 'impounding' ,
-            },
-            {
-              name: "No Side Mirror",
-              description : "The vehicle must be equipped with a side mirror to ensure that the driver will be able to detect what's happening in his back view to avoid collision.",
-              dateCreated: '07/17/12', 
-              offense1: 500,
-              additional1: '' ,
-              offense2: 1000,
-              additional2: 'impounding' ,
-              offense3: 1000,
-              additional3: 'impounding' ,
-            },
-            {
-              name: "No Back Light",
-              description : "The vehicle must be equipped with a backlight for the rider following them during night will be able to detect the driver's presence and avoid collision.",
-              dateCreated: '02/11/12', 
-              offense1: 500,
-              additional1: '' ,
-              offense2: 1000,
-              additional2: 'impounding' ,
-              offense3: 1000,
-              additional3: 'impounding' ,
-            },
-            {
-              name: "No Rear Light",
-              description : "The vehicle must be equipped with a rear light to have a vision during night time and in dark places to avoid collision.",
-              dateCreated: '12/12/12', 
-              offense1: 500,
-              additional1: '' ,
-              offense2: 1000,
-              additional2: 'impounding' ,
-              offense3: 1000,
-              additional3: 'impounding' ,
-            },
-            {
-              name: "No Signal Light",
-              description : "The vehicle must be equipped with a signal light for the other driver to be aware when the said driver will change its direction.",
-              dateCreated: '05/12/16',
-              offense1: 500,
-              additional1: '' ,
-              offense2: 1000,
-              additional2: 'impounding' ,
-              offense3: 1000,
-              additional3: 'impounding' ,
-            },
-          ],
+        sortBy: '',
+       
+        ordinances : [],
 
-          fields: [],
-          error: [],
+          fields: {
+            ordinance_penalties: []
+          },
+          errors: {},
 
           deleteOrdinanceDialog: false,
           ordinanceDialog: false,
+
+          
       }
     },
     
@@ -637,6 +432,100 @@
 
             
         methods: {
+            
+            
+            addPenalty(){
+                this.fields.ordinance_penalties.push({
+                    ordinance_penalty_id: 0,
+                    ordinance_id: 0,
+                    order_no: 0,
+                    cost: 0,
+                    is_impound: 0
+                });
+            },
+
+            removePenalty(ix){
+                
+                if(this.fields.ordinance_penalties[ix].ordinance_penalty_id){
+                    let id = this.fields.ordinance_penalties[ix].ordinance_penalty_id;
+                    axios.delete('/ordinance-penalty/' + id).then(res=>{
+                        alert('Successfully removed.')
+                    })
+                }
+
+                this.fields.ordinance_penalties.splice(ix, 1);
+                //console.log('delete with id use axios')
+            },
+
+            logout(){
+                axios.post('/logout').then(()=>{
+                    window.location = '/'
+                })
+            },
+
+            loadOrdinances(){
+                axios.get('/load-ordinances').then(res=>{
+                    this.ordinances = res.data
+                }).catch(err=>{
+                
+                })
+            },
+
+            openModalOrdinance(itemId){
+                this.fields = {
+                    ordinance_penalties: []
+                }
+
+                this.ordinance_id = 0
+                console.log(itemId)
+                this.ordinance_id = itemId;
+                this.modalOrdinance = true;
+                
+
+                if(itemId > 0){
+                    this.getData(itemId)
+                }
+            },
+
+
+            submitOrdinance(){
+                if(this.ordinance_id > 0){
+                    //update
+                    axios.put('/legislative-ordinance/'+ this.ordinance_id, this.fields).then(res=>{
+                        if(res.data.status === 'updated'){
+                            this.modalOrdinance = false
+                            alert('Successfully updated.')
+                        }
+                        this.loadOrdinances();
+                       
+                    }).catch(err=>{
+                        if(err.response.status === 422){
+                            this.errors = err.response.data.errors;
+                        }
+                    })
+                }else{
+                    //insert
+                    axios.post('/legislative-ordinance', this.fields).then(res=>{
+                        if(res.data.status === 'saved'){
+                            this.modalOrdinance = false
+                            alert('Successfully saved.')
+                        }
+                        this.loadOrdinances();
+                       
+                    }).catch(err=>{
+                        if(err.response.status === 422){
+                            this.errors = err.response.data.errors;
+                        }
+                    })
+                }
+            },
+
+
+            getData(itemId){
+                axios.get('/legislative-ordinance/' + itemId).then(res=>{
+                    this.fields = res.data
+                })
+            },
 
 
             nextPage () {
@@ -651,11 +540,7 @@
 
       },
       mounted() {
-            $(function() {
-                $('#birthdate').datepicker();
-                $('#license').datepicker();
-                $('#vehicle').datepicker();
-            });
+        this.loadOrdinances()
       }
       
     }

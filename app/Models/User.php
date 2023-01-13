@@ -75,5 +75,10 @@ class User extends Authenticatable
         return $this->hasOne(Barangay::class, 'brgyCode', 'barangay');
     }
 
+    public function violations(){
+        return $this->hasMany(Violator::class, 'user_id', 'user_id')
+            ->with(['ordinance_penalty', 'ordinance']);
+    }
+
 
 }

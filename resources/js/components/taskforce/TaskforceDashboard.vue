@@ -4,7 +4,7 @@
             <v-card >
                 <v-navigation-drawer v-model="drawer" temporary class="navs">
                     <v-divider></v-divider>
-                    
+
                     <v-list-item>
                         <v-list-item-avatar>
                             <img src="../../../pics/perm_identity_white_36dp.svg" class="card-img-top" alt="...">
@@ -14,17 +14,6 @@
                             <v-list-item-title><h5>Task Force</h5> </v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
-                    <v-divider></v-divider>
-                    
-                    <v-list dense>
-                        <v-list-item>
-                            <button class="cssbuttons-io-button button-back" @click="logout"> Logout
-                                <div class="icon">
-                                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
-                                </div>
-                            </button>
-                        </v-list-item>
-                    </v-list>
                     <v-divider></v-divider>
                 </v-navigation-drawer>
 
@@ -53,6 +42,7 @@
                         <v-tabs v-model="tab" align-with-title>
                             <v-tabs-slider color="white"></v-tabs-slider>
                             <v-tab>Scan QR</v-tab>
+                            <v-tab>Manual Input</v-tab>
                         </v-tabs>
                     </template>
                 </v-toolbar>
@@ -90,6 +80,10 @@
                             </v-card-text>
                         </v-card>
                     </v-tab-item>
+
+                    <v-tab-item>
+                        <manual-citation></manual-citation>
+                    </v-tab-item>
                 </v-tabs-items>
             </v-card>
         </div>
@@ -105,28 +99,19 @@
                     </v-card-title>
                     <v-card-text style="height: 500px;">
                         <v-divider></v-divider>
-                        SMAPLE RANI
                         <div class="">
                             <v-row>
                                 <v-col cols="12" md="12" sm="12">
                                     <v-row>
                                         <v-col>
-                                            <div class="card-header">
-                                                <div class="card-section-text">
-                                                    Driver Information
-                                                </div>
-                                            </div>
-                                        </v-col>
-                                    </v-row>
-                                    <v-row>
-                                        <v-col>
-                                            <div class="card-header">
+                                            <div class="card-header" v-if="data.driver">
                                                 <div class="card-section-text">
                                                     <img :src="`/storage/avatars/${data.driver.avatar}`" class="profile-icon" alt="...">
                                                 </div>
                                             </div>
                                         </v-col>
                                     </v-row>
+
 
                                     <v-row>
                                         <v-col cols="12">
@@ -145,21 +130,60 @@
                                                         <td>Address: </td>
                                                         <td> {{  data.driver.province.provDesc  }}, {{ data.driver.city.citymunDesc }} {{ data.driver.city.brgyDesc }} {{ data.driver.street }}</td>
                                                     </tr>
-                                                </table>
-                                                
+                                                    <tr>
+                                                        <td>License Expiration: </td>
+                                                        <td> {{  data.driver.expr_date  }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Vehicle Expiration: </td>
+                                                        <td> {{  data.expr_date  }}</td>
+                                                    </tr>
 
-                                                
+                                                </table>
+
+
+
                                                 <div class="violation-container">
                                                     <div class="container-text"><h2>Violation History</h2></div>
-                                                    <table class="info-table">
-                                                        <tr v-for="(item, index) in violations" :key="index">
-                                                            <td>{{ index + 1 }}. </td>
-                                                            <td>{{ item.ordinance.ordinance_name }} (Php {{ item.ordinance_penalty.cost }})</td>
-                                                        </tr>
-                                                        
-                                                    </table>
+                                                    <v-simple-table dark>
+                                                        <template v-slot:default>
+                                                            <thead>
+                                                            <tr>
+                                                                <th class="text-left">Citation No</th>
+                                                                <th class="text-left"> Plate No.</th>
+                                                                <th> Violation </th>
+                                                                <th>Penalty</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr
+                                                                v-for="(item, index) in violations"
+                                                                :key="index"
+                                                            >
+                                                                <td>{{ item.citation_no }}</td>
+                                                                <td>{{ item.plate_no }}</td>
+                                                                <td>{{ item.ordinance.ordinance_name }}</td>
+                                                                <td>{{ item.ordinance_penalty.cost }}</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </template>
+                                                    </v-simple-table>
+
                                                 </div>
                                             </div>
+                                        </v-col>
+                                    </v-row>
+
+                                    <v-row class="centered">
+                                        <v-col cols="12" md="6">
+                                            <v-text-field outlined clearable v-model="fields.citation_no">
+                                                    <template v-slot:label>
+                                                        <v-icon style="vertical-align: middle">
+                                                            mdi-card
+                                                        </v-icon>
+                                                        Citation No
+                                                    </template>
+                                            </v-text-field>
                                         </v-col>
                                     </v-row>
 
@@ -169,23 +193,23 @@
                                                 cols="12"
                                                 md="5"
                                                 sm="6">
-    
+
                                                 <v-select
-                                                        :items="ordinances"
-                                                        item-value="ordinance_id"
-                                                        item-text="ordinance_name"
-                                                        outlined
-                                                        @change="getOrdinancePenalty(citation, ix)"
-                                                        v-model="citation.ordinance_id"
+                                                    :items="ordinances"
+                                                    item-value="ordinance_id"
+                                                    item-text="ordinance_name"
+                                                    outlined
+                                                    @change="getOrdinancePenalty(citation, ix)"
+                                                    v-model="citation.ordinance_id"
                                                     ><template v-slot:label>
                                                         <v-icon style="vertical-align: middle">
                                                             mdi-card
                                                         </v-icon>
-                                                        add Violations
+                                                        Add Violations
                                                     </template>
                                                 </v-select>
                                             </v-col>
-    
+
                                             <v-col
                                                 cols="12"
                                                 md="5"
@@ -291,7 +315,7 @@ export default {
             tab: null,
             drawer: null,
             violationDialog : false,
-            fields: [],
+
 
             violations: [],
             ordinances: [],
@@ -375,6 +399,10 @@ export default {
 
             axios.get('/validate-qr/' + content).then(res=>{
                 this.user = res.data;
+                console.log(this.user)
+
+
+
                 this.isProcessing = false;
 
                 if(res.data !== ''){
@@ -449,15 +477,16 @@ export default {
             this.citations.splice(index, 1);
         },
 
-
-
         submitCitation(){
+
             this.fields.driver_id = this.data.driver.user_id;
             this.fields.citations = this.citations
 
             console.log(this.fields)
 
             axios.post('/submit-citation', {
+                plate_no: this.data.plate_no,
+                citation_no: this.fields.citation_no,
                 driver_id: this.data.driver.user_id,
                 citations: this.citations
             }).then(res=>{
@@ -467,7 +496,7 @@ export default {
                     this.clearFields()
                 }
             }).catch(err=>{
-                
+
             })
         },
 

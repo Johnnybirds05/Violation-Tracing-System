@@ -934,7 +934,7 @@ export default {
         },
 
         proceedLogin(){
-            window.location = '/driver-login'
+            window.location = '/'
         },
 
         debug(){

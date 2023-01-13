@@ -17,5 +17,8 @@ class Requirement extends Model
 
     protected $fillable = ['requirement_type_id', 'requirement_name', 'location', 'cost'];
 
-
+    public function requirement_type(){
+        return $this->belongsTo(RequriementType::class, 'requirement_type_id', 'requirement_type_id');
+    }
+    
 }

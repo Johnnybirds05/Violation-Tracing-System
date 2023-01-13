@@ -23,9 +23,9 @@ class OrdinanceController extends Controller
     }
 
 
-    public function getOrdinancePenalties($ordiance_id){
+    public function getOrdinancePenalties($ordinance_id){
 
-        $data = OrdinancePenalty::where('ordinance_id', $ordiance_id)
+        $data = OrdinancePenalty::where('ordinance_id', $ordinance_id)
             ->get();
 
         return $data;

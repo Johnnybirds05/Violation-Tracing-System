@@ -14,8 +14,10 @@ class OrdinancePenalty extends Model
     protected $primaryKey = 'ordinance_penalty_id';
 
     protected $fillable = [
+        'ordinance_id',
         'offense_order',
-        'cost'
+        'cost',
+        'is_impound'
     ];
 
 
