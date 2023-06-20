@@ -93,29 +93,24 @@
                                                         <v-col cols="12" md="9" sm="6">
                                                             <v-row>
                                                                 <v-col cols="12" md="3" sm="6">
-                                                                    <b> Serial: {{ item.serial_no }}</b>
+                                                                    <b> NV No: {{ item.serial_no }}</b>
                                                                 </v-col>
                                                                 <v-col cols="12" md="2" sm="6">
                                                                     <b>Color: {{ item.color }}</b>
                                                                 </v-col>
                                                                 <v-col cols="12" md="3" sm="6">
-                                                                    <b>Reciept No: {{ item.receipt_no }}</b>
+                                                                    <b>OR No: {{ item.receipt_no }}</b>
                                                                 </v-col>
                                                                 <v-col cols="12" md="3" sm="6">
                                                                     <b>Expiration Date: {{ item.expr_date }}</b>
                                                                 </v-col>
                                                             </v-row>
                                                         </v-col>
-                                                        
-                                                        <span v-if="item.is_verified === 1">
-                                                            <v-col cols="2" md="2" sm="6" >
-                                                                <v-btn class="mt-2" :href="`/print-qr/${item.qr_ref}`" dense color="primary">
-                                                                    Print QR
-                                                                </v-btn>
-                                                            </v-col>
-                                                        </span>
-                                                            
-                                                        
+                                                        <v-col cols="2" md="2" sm="6" v-if = "item.is_verified == 1">
+                                                            <v-btn class="mt-2" :href="`/print-qr/${item.qr_ref}`" dense color="primary">
+                                                                Print QR
+                                                            </v-btn>
+                                                        </v-col>
                                                     </v-row>
                                                     <v-card v-if="item.is_verified === 0" class="d-flex align-stretch mt-6" color="warning" dense>
                                                         <b class="pa-5"> Note: To verify your vehicle information. Please go to the Tangub City, City Tourism Office!</b>
@@ -144,7 +139,7 @@
                                         <v-expansion-panels focusable>
                                             <v-expansion-panel v-for="(item, index) in requirements" :key="index">
                                                 <v-expansion-panel-header color="grey darken-4">
-                                                    <v-row class="marginNeg mt-1">
+                                                    <v-row class="marginNeg">
                                                         <v-col cols="12" md="2" sm="6">
                                                             <img src="./../../../pics/no_crash_white_24dp.svg" class="vehicle-img mr-5">
                                                         </v-col>
@@ -159,7 +154,7 @@
                                                             <v-icon class="mr-2">
                                                                 mdi-clipboard-list-outline
                                                             </v-icon>
-                                                            Information Verification Requirements
+                                                            Requirements
                                                             <v-spacer></v-spacer>
                                                             <v-text-field
                                                                 v-model="search"
@@ -256,7 +251,7 @@
 
                                                 <v-row v-for="(offense, ix) in item.ordinance_penalties" :key="ix">
                                                     <v-col cols="12" md="3" sm="6">
-                                                        <b>Offense: {{ offense.offense_order }}: </b>
+                                                        <b> {{ offense.offense_order }}: </b>
                                                     </v-col>
                                                     <v-col cols="12" md="2" sm="2">
                                                         Php {{ offense.cost }}
@@ -447,7 +442,7 @@
                                             <v-icon style="vertical-align: middle">
                                                 mdi-ticket-confirmation
                                             </v-icon>
-                                            Serial No.
+                                            NV No.
                                         </template>
                                     </v-text-field>
                                 </v-col>
@@ -481,7 +476,7 @@
                                             <v-icon style="vertical-align: middle">
                                                 mdi-ticket-confirmation
                                             </v-icon>
-                                            Receipt No.
+                                            OR No.
                                         </template>
                                     </v-text-field>
                                 </v-col>
@@ -591,7 +586,7 @@
 <script>
 
 export default {
-
+    
     mounted(){
         this.intiData()
         this.getUser()
@@ -648,7 +643,7 @@ export default {
             ordinances: [],
             violations: [],
 
-
+          
 
             search: '',
 
@@ -659,6 +654,8 @@ export default {
                     sortable: false,
                     value: 'requirement_name',
                 },
+                { text: 'Location', value: 'location' },
+                { text: 'Cost', value: 'cost' },
             ],
 
             headersViolations: [
@@ -668,13 +665,16 @@ export default {
                     sortable: false,
                     value: 'ordinance',
                 },
-                { text: 'Citation No.', value: 'citation_no' },
-                { text: 'Plate No.', value: 'plate_no' },
                 { text: 'Date', value: 'date_violate' },
                 { text: 'Fines', value: 'cost' },
                 { text: 'Day Left', value: 'day_left' },
                 { text: 'Status', value: 'status' },
             ],
+            validationRequirement: [
+                {
+                    
+                }
+            ]
 
         }
 
@@ -721,13 +721,11 @@ export default {
         getMyViolations(){
             axios.get('/get-my-violations').then(res=>{
                 console.log(res.data)
-                //this.violations = res.data
+
                 res.data.forEach(item => {
                     this.violations.push({
                         ordinance : item.ordinance.ordinance_name,
                         date_violate : item.date_violate,
-                        citation_no : item.citation_no,
-                        plate_no: item.plate_no,
                         cost : item.ordinance_penalty.cost,
                         day_left: this.dayRemain(item.date_violate, item.ordinance.no_day),
                         status: item.settled === 1 ? 'Settled' : 'Unsettled',
@@ -759,7 +757,6 @@ export default {
                         title: 'Saved!',
                         message: 'Successfully saved!'
                     })
-
                     this.addVehicleDialog = false
                     this.getVehicles()
                     this.clearFields()
@@ -807,7 +804,7 @@ export default {
         },
 
         dayRemain: function(value, dayPenalty) {
-
+            
             let dateNow = new Date();
             let dateFrom = new Date(value);
 
@@ -818,7 +815,7 @@ export default {
 
     },
 
-
+   
 
     computed: {
 

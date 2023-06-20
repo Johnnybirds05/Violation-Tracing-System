@@ -85,17 +85,7 @@
                                             <v-card-title class="subheading font-weight-bold"> 
                                                 <img src="../../../pics/perm_identity_white_36dp.svg" alt="profile" class="profile">
                                                     <h6>{{ item.lname }}, {{ item.fname }} {{ item.mname }}</h6>
-                                                    <v-spacer></v-spacer>
-                                                            <v-card color="warning">
-                                                                <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#edit-ordinance">
-                                                                mdi-pencil
-                                                            </v-icon> 
-                                                            <v-icon small class="m-1" data-bs-toggle="modal" data-bs-target="#delete-ordinance"
-                                                            >
-                                                                mdi-delete
-                                                            </v-icon>
-                                                            </v-card>
-                                    
+                                                    <v-spacer></v-spacer>                                                                                  
                                             </v-card-title>
 
                                             <v-list dense class="table-text">

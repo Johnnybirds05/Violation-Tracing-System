@@ -7,7 +7,7 @@
 
                 <v-stepper-header>
 
-                    <v-btn @click="debug">DEBUG</v-btn>
+                    <!-- <v-btn @click="debug">DEBUG</v-btn> -->
 
                     <v-stepper-step :complete="e1 > 1" step="1">
                         <v-icon style="vertical-align: middle"> mdi-account</v-icon>
