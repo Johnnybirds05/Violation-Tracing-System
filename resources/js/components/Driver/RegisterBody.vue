@@ -851,6 +851,7 @@ export default {
     methods: {
         loadProvinces: function(){
             axios.get('/load-provinces').then(res=>{
+            console.log(res.data)
                 this.provinces = res.data;
             })
         },
